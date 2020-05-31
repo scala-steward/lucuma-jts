@@ -23,9 +23,13 @@ package org.locationtech.jts.noding
 
 import java.io.PrintStream
 import java.util
+
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateList
 import org.locationtech.jts.util.Assert
+
+import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 /**
  * A list of the {@link SegmentNode}s present along a noded {@link SegmentString}.
@@ -33,7 +37,7 @@ import org.locationtech.jts.util.Assert
  * @version 1.7
  */
 class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
-  private val nodeMap = new util.TreeMap[SegmentNode, SegmentNode]
+  private val nodeMap = mutable.TreeMap.empty[SegmentNode, SegmentNode]
 
   def getEdge: NodedSegmentString = edge
 
@@ -45,7 +49,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
    */
   def add(intPt: Coordinate, segmentIndex: Int): SegmentNode = {
     val eiNew = new SegmentNode(edge, intPt, segmentIndex, edge.getSegmentOctant(segmentIndex))
-    val ei = nodeMap.get(eiNew)
+    val ei = nodeMap.get(eiNew).orNull
     if (ei != null) { // debugging sanity check
       Assert.isTrue(ei.coord.equals2D(intPt), "Found equal nodes with different coordinates")
       //      if (! ei.coord.equals2D(intPt))
@@ -60,7 +64,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
   /**
    * returns an iterator of SegmentNodes
    */
-  def iterator: util.Iterator[SegmentNode] = nodeMap.values.iterator
+  def iterator: util.Iterator[SegmentNode] = nodeMap.values.iterator.asJava
 
   /**
    * Adds nodes for the first and last points of the edge

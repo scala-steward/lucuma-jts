@@ -13,7 +13,10 @@ package org.locationtech.jts.geomgraph
 
 import java.io.PrintStream
 import java.util
+
 import org.locationtech.jts.noding.OrientedCoordinateArray
+
+import scala.collection.mutable
 
 /**
  * A EdgeList is a list of Edges.  It supports locating edges
@@ -27,7 +30,7 @@ class EdgeList() {
    * An index of the edges, for fast lookup.
    *
    */
-  private val ocaMap = new util.TreeMap[OrientedCoordinateArray, Edge]
+  private val ocaMap = mutable.TreeMap.empty[OrientedCoordinateArray, Edge]
 
   /**
    * Insert an edge unless it is already in the list
@@ -35,7 +38,7 @@ class EdgeList() {
   def add(e: Edge): Edge = {
     edges.add(e)
     val oca = new OrientedCoordinateArray(e.getCoordinates)
-    ocaMap.put(oca, e)
+    ocaMap.put(oca, e).orNull
   }
 
   def addAll(edgeColl: util.Collection[Edge]): Unit = {
@@ -58,7 +61,7 @@ class EdgeList() {
     val oca = new OrientedCoordinateArray(e.getCoordinates)
     // will return null if no edge matches
     val matchEdge = ocaMap.get(oca)
-    matchEdge
+    matchEdge.orNull
   }
 
   def iterator: util.Iterator[Edge] = edges.iterator

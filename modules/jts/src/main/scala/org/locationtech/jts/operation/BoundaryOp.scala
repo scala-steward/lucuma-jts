@@ -22,6 +22,7 @@
 package org.locationtech.jts.operation
 
 import java.util
+
 import org.locationtech.jts.algorithm.BoundaryNodeRule
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateArrays
@@ -29,6 +30,8 @@ import org.locationtech.jts.geom.Geometry
 import org.locationtech.jts.geom.LineString
 import org.locationtech.jts.geom.MultiLineString
 import org.locationtech.jts.geom.Point
+
+import scala.collection.mutable.TreeMap
 
 /**
  * Computes the boundary of a {@link Geometry}.
@@ -110,11 +113,11 @@ class BoundaryOp(var geom: Geometry, var bnRule: BoundaryNodeRule) {
     geomFact.createMultiPointFromCoords(bdyPts)
   }
 
-  private var endpointMap: util.TreeMap[Coordinate, Counter] = null
+  private var endpointMap: TreeMap[Coordinate, Counter] = null
 
   private def computeBoundaryCoordinates(mLine: MultiLineString): Array[Coordinate] = {
     val bdyPts = new util.ArrayList[Coordinate]
-    endpointMap = new util.TreeMap[Coordinate, Counter]
+    endpointMap = TreeMap.empty[Coordinate, Counter]
     var i = 0
     while ( {
       i < mLine.getNumGeometries
@@ -125,20 +128,17 @@ class BoundaryOp(var geom: Geometry, var bnRule: BoundaryNodeRule) {
         addEndpoint(line.getCoordinateN(line.getNumPoints - 1))
         i += 1
       }}
-      val it = endpointMap.entrySet.iterator
-      while ( {
-        it.hasNext
-      }) {
-        val entry = it.next
-        val counter = entry.getValue
-        val valence = counter.count
-        if (bnRule.isInBoundary(valence)) bdyPts.add(entry.getKey)
+      endpointMap.foreach {
+        case (k, v) =>
+          val valence = v.count
+          if (bnRule.isInBoundary(valence)) bdyPts.add(k)
       }
+
       CoordinateArrays.toCoordinateArray(bdyPts)
     }
 
     private def addEndpoint(pt: Coordinate): Unit = {
-      var counter = endpointMap.get(pt)
+      var counter = endpointMap.get(pt).orNull
       if (counter == null) {
         counter = new Counter
         endpointMap.put(pt, counter)

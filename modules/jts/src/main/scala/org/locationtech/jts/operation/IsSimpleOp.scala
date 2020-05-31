@@ -12,6 +12,7 @@
 package org.locationtech.jts.operation
 
 import java.util
+
 import org.locationtech.jts.algorithm.BoundaryNodeRule
 import org.locationtech.jts.algorithm.RobustLineIntersector
 import org.locationtech.jts.geom.Coordinate
@@ -27,6 +28,8 @@ import org.locationtech.jts.geom.util.LinearComponentExtracter
 import org.locationtech.jts.geomgraph.Edge
 import org.locationtech.jts.geomgraph.EdgeIntersection
 import org.locationtech.jts.geomgraph.GeometryGraph
+
+import scala.collection.mutable
 
 /**
  * Tests whether a <code>Geometry</code> is simple.
@@ -281,12 +284,12 @@ class IsSimpleOp(inputGeom: Geometry) {
    * must be exactly 2.
    */
   private def hasClosedEndpointIntersection(graph: GeometryGraph): Boolean = {
-    val endPoints = new util.TreeMap[Coordinate, IsSimpleOp.EndpointInfo]
+    val endPoints = mutable.TreeMap.empty[Coordinate, IsSimpleOp.EndpointInfo]
     val i = graph.getEdgeIterator
     while ( {
       i.hasNext
     }) {
-      val e = i.next.asInstanceOf[Edge]
+      val e = i.next
       val isClosed = e.isClosed
       val p0 = e.getCoordinate(0)
       addEndpoint(endPoints, p0, isClosed)
@@ -309,8 +312,8 @@ class IsSimpleOp(inputGeom: Geometry) {
   /**
    * Add an endpoint to the map, creating an entry for it if none exists
    */
-  private def addEndpoint(endPoints: util.Map[Coordinate, IsSimpleOp.EndpointInfo], p: Coordinate, isClosed: Boolean): Unit = {
-    var eiInfo = endPoints.get(p)
+  private def addEndpoint(endPoints: mutable.Map[Coordinate, IsSimpleOp.EndpointInfo], p: Coordinate, isClosed: Boolean): Unit = {
+    var eiInfo = endPoints.get(p).orNull
     if (eiInfo == null) {
       eiInfo = new IsSimpleOp.EndpointInfo(p)
       endPoints.put(p, eiInfo)

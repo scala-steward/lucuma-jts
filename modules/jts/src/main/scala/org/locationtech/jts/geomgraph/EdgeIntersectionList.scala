@@ -23,7 +23,11 @@ package org.locationtech.jts.geomgraph
 
 import java.io.PrintStream
 import java.util
+
 import org.locationtech.jts.geom.Coordinate
+
+import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 /**
  * A list of edge intersections along an {@link Edge}.
@@ -35,7 +39,7 @@ import org.locationtech.jts.geom.Coordinate
 class EdgeIntersectionList(var edge: Edge // the parent edge
                           ) {
   // a Map <EdgeIntersection, EdgeIntersection>
-  private val nodeMap = new util.TreeMap[EdgeIntersection, EdgeIntersection]
+  private val nodeMap = mutable.TreeMap.empty[EdgeIntersection, EdgeIntersection]
 
   /**
    * Adds an intersection into the list, if it isn't already there.
@@ -45,7 +49,7 @@ class EdgeIntersectionList(var edge: Edge // the parent edge
    */
   def add(intPt: Coordinate, segmentIndex: Int, dist: Double): EdgeIntersection = {
     val eiNew = new EdgeIntersection(intPt, segmentIndex, dist)
-    val ei = nodeMap.get(eiNew)
+    val ei = nodeMap.get(eiNew).orNull
     if (ei != null) return ei
     nodeMap.put(eiNew, eiNew)
     eiNew
@@ -56,7 +60,7 @@ class EdgeIntersectionList(var edge: Edge // the parent edge
    *
    * @return an Iterator of EdgeIntersections
    */
-  def iterator: util.Iterator[EdgeIntersection] = nodeMap.values.iterator
+  def iterator: util.Iterator[EdgeIntersection] = nodeMap.values.iterator.asJava
 
   /**
    * Tests if the given point is an edge intersection

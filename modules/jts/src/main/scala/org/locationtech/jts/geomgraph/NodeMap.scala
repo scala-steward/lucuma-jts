@@ -13,8 +13,12 @@ package org.locationtech.jts.geomgraph
 
 import java.io.PrintStream
 import java.util
+
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.Location
+
+import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 /**
  * A map of nodes, indexed by the coordinate of the node
@@ -23,13 +27,13 @@ import org.locationtech.jts.geom.Location
  */
 class NodeMap(var nodeFact: NodeFactory) {
   //Map nodeMap = new HashMap();
-  private[geomgraph] val nodeMap = new util.TreeMap[Coordinate, Node]
+  private[geomgraph] val nodeMap = mutable.TreeMap.empty[Coordinate, Node]
 
   /**
    * This method expects that a node has a coordinate value.
    */
   def addNode(coord: Coordinate): Node = {
-    var node = nodeMap.get(coord)
+    var node = nodeMap.get(coord).orNull
     if (node == null) {
       node = nodeFact.createNode(coord)
       nodeMap.put(coord, node)
@@ -38,7 +42,7 @@ class NodeMap(var nodeFact: NodeFactory) {
   }
 
   def addNode(n: Node): Node = {
-    val node = nodeMap.get(n.getCoordinate)
+    val node = nodeMap.get(n.getCoordinate).orNull
     if (node == null) {
       nodeMap.put(n.getCoordinate, n)
       return n
@@ -61,11 +65,11 @@ class NodeMap(var nodeFact: NodeFactory) {
   /**
    * @return the node if found; null otherwise
    */
-  def find(coord: Coordinate): Node = nodeMap.get(coord)
+  def find(coord: Coordinate): Node = nodeMap.get(coord).orNull
 
-  def iterator: util.Iterator[Node] = nodeMap.values.iterator
+  def iterator: util.Iterator[Node] = nodeMap.values.iterator.asJava
 
-  def values: util.Collection[Node] = nodeMap.values
+  def values: util.Collection[Node] = nodeMap.values.toList.asJavaCollection
 
   def getBoundaryNodes(geomIndex: Int): util.ArrayList[Node] = {
     val bdyNodes = new util.ArrayList[Node]

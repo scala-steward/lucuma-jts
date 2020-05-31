@@ -13,12 +13,16 @@ package org.locationtech.jts.geomgraph
 
 import java.io.PrintStream
 import java.util
+
 import org.locationtech.jts.algorithm.BoundaryNodeRule
 import org.locationtech.jts.algorithm.locate.SimplePointInAreaLocator
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.Location
 import org.locationtech.jts.geom.TopologyException
 import org.locationtech.jts.util.Assert
+
+import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 
 /**
  * A EdgeEndStar is an ordered list of EdgeEnds around a node.
@@ -31,7 +35,7 @@ abstract class EdgeEndStar() {
   /**
    * A map which maintains the edges in sorted order around the node
    */
-  protected var edgeMap = new util.TreeMap[EdgeEnd, EdgeEnd]
+  protected var edgeMap = mutable.TreeMap.empty[EdgeEnd, EdgeEnd]
   /**
    * A list of all outgoing edges in the result, in CCW order
    */
@@ -76,7 +80,7 @@ abstract class EdgeEndStar() {
   def iterator: util.Iterator[EdgeEnd] = getEdges.iterator
 
   def getEdges: util.List[EdgeEnd] = {
-    if (edgeList == null) edgeList = new util.ArrayList(edgeMap.values)
+    if (edgeList == null) edgeList = new util.ArrayList(edgeMap.values.toList.asJava)
     edgeList
   }
 
