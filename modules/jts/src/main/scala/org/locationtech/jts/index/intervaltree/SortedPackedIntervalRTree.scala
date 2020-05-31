@@ -59,7 +59,7 @@ class SortedPackedIntervalRTree() {
    * @param min  the lower bound of the item interval
    * @param max  the upper bound of the item interval
    * @param item the item to insert
-   * @throws IllegalStateException if the index has already been queried
+   * throws IllegalStateException if the index has already been queried
    */
   def insert(min: Double, max: Double, item: Any) = {
     if (root != null) throw new IllegalStateException("Index cannot be added to once it has been queried")

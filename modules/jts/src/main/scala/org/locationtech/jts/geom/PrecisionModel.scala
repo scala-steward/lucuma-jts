@@ -18,11 +18,11 @@ import java.io.Serializable
 import java.util
 
 /**
- * Specifies the precision model of the {@link Coordinate}s in a {@link Geometry}.
+ * Specifies the precision model of the {link Coordinate}s in a {link Geometry}.
  * In other words, specifies the grid of allowable
  * points for all <code>Geometry</code>s.
  * <p>
- * The {@link #makePrecise(Coordinate)} method allows rounding a coordinate to
+ * The {link #makePrecise(Coordinate)} method allows rounding a coordinate to
  * a "precise" value; that is, one whose
  * precision is known exactly.
  * <p>
@@ -68,12 +68,12 @@ import java.util
 @SerialVersionUID(7777263578777803835L)
 object PrecisionModel {
   /**
-   * Determines which of two {@link PrecisionModel}s is the most precise
+   * Determines which of two {link PrecisionModel}s is the most precise
    * (allows the greatest number of significant digits).
    *
    * @param pm1 a PrecisionModel
    * @param pm2 a PrecisionModel
-   * @return the PrecisionModel which is most precise
+   * return the PrecisionModel which is most precise
    */
     def mostPrecise(pm1: PrecisionModel, pm2: PrecisionModel): PrecisionModel = {
       if (pm1.compareTo(pm2) >= 0) return pm1
@@ -194,7 +194,7 @@ class PrecisionModel()
   /**
    * Tests whether the precision model supports floating point
    *
-   * @return <code>true</code> if the precision model supports floating point
+   * return <code>true</code> if the precision model supports floating point
    */
   def isFloating: Boolean = (modelType eq PrecisionModel.FLOATING) || (modelType eq PrecisionModel.FLOATING_SINGLE)
 
@@ -202,7 +202,7 @@ class PrecisionModel()
    * Returns the maximum number of significant digits provided by this
    * precision model.
    * Intended for use by routines which need to print out
-   * decimal representations of precise values (such as {@link WKTWriter}).
+   * decimal representations of precise values (such as {link WKTWriter}).
    * <p>
    * This method would be more correctly called
    * <tt>getMinimumDecimalPlaces</tt>,
@@ -216,7 +216,7 @@ class PrecisionModel()
    * This has the side effect that for scale factors which are
    * powers of 10 the value returned is 1 greater than the true value.
    *
-   * @return the maximum number of decimal places provided by this precision model
+   * return the maximum number of decimal places provided by this precision model
    */
   def getMaximumSignificantDigits: Int = {
     var maxSigDigits = 16
@@ -234,14 +234,14 @@ class PrecisionModel()
    * Negative scale factors indicate that the places
    * of precision is to the left of the decimal point.
    *
-   * @return the scale factor for the fixed precision model
+   * return the scale factor for the fixed precision model
    */
   def getScale: Double = scale
 
   /**
    * Gets the type of this precision model
    *
-   * @return the type of this precision model
+   * return the type of this precision model
    * @see Type
    */
   def getType: PrecisionModel.Type = modelType
@@ -255,7 +255,7 @@ class PrecisionModel()
   /**
    * Returns the x-offset used to obtain a precise coordinate.
    *
-   * @return the amount by which to subtract the x-coordinate before
+   * return the amount by which to subtract the x-coordinate before
    *         multiplying by the scale
    * @deprecated Offsets are no longer used
    */
@@ -266,7 +266,7 @@ class PrecisionModel()
   /**
    * Returns the y-offset used to obtain a precise coordinate.
    *
-   * @return the amount by which to subtract the y-coordinate before
+   * return the amount by which to subtract the y-coordinate before
    *         multiplying by the scale
    * @deprecated Offsets are no longer used
    */
@@ -296,7 +296,7 @@ class PrecisionModel()
    * Returns the precise representation of <code>external</code>.
    *
    * @param  external the original coordinate
-   * @return the coordinate whose values will be changed to the precise
+   * return the coordinate whose values will be changed to the precise
    *         representation of <code>external</code>
    * @deprecated use makePrecise instead
    */
@@ -310,7 +310,7 @@ class PrecisionModel()
    * Returns the external representation of <code>internal</code>.
    *
    * @param  internal the original coordinate
-   * @return the coordinate whose values will be changed to the
+   * return the coordinate whose values will be changed to the
    *         external representation of <code>internal</code>
    * @deprecated no longer needed, since internal representation is same as external representation
    */
@@ -382,16 +382,16 @@ class PrecisionModel()
   }
 
   /**
-   * Compares this {@link PrecisionModel} object with the specified object for order.
+   * Compares this {link PrecisionModel} object with the specified object for order.
    * A PrecisionModel is greater than another if it provides greater precision.
    * The comparison is based on the value returned by the
-   * {@link #getMaximumSignificantDigits} method.
+   * {link #getMaximumSignificantDigits} method.
    * This comparison is not strictly accurate when comparing floating precision models
    * to fixed models; however, it is correct when both models are either floating or fixed.
    *
    * @param  o the <code>PrecisionModel</code> with which this <code>PrecisionModel</code>
    *           is being compared
-   * @return a negative integer, zero, or a positive integer as this <code>PrecisionModel</code>
+   * return a negative integer, zero, or a positive integer as this <code>PrecisionModel</code>
    *         is less than, equal to, or greater than the specified <code>PrecisionModel</code>
    */
   override def compareTo(o: PrecisionModel): Int = {

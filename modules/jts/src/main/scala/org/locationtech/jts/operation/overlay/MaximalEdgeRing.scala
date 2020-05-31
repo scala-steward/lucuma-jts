@@ -18,7 +18,7 @@ import org.locationtech.jts.geomgraph.DirectedEdgeStar
 import org.locationtech.jts.geomgraph.EdgeRing
 
 /**
- * A ring of {@link DirectedEdge}s which may contain nodes of degree &gt; 2.
+ * A ring of {link DirectedEdge}s which may contain nodes of degree &gt; 2.
  * A <tt>MaximalEdgeRing</tt> may represent two different spatial entities:
  * <ul>
  * <li>a single polygon possibly containing inversions (if the ring is oriented CW)
@@ -28,9 +28,9 @@ import org.locationtech.jts.geomgraph.EdgeRing
  * the interior of the polygon is strongly connected.
  * <p>
  * These are the form of rings used to define polygons under some spatial data models.
- * However, under the OGC SFS model, {@link MinimalEdgeRing}s are required.
+ * However, under the OGC SFS model, {link MinimalEdgeRing}s are required.
  * A MaximalEdgeRing can be converted to a list of MinimalEdgeRings using the
- * {@link #buildMinimalRings() } method.
+ * {link #buildMinimalRings() } method.
  *
  * @version 1.7
  * @see org.locationtech.jts.operation.overlay.MinimalEdgeRing

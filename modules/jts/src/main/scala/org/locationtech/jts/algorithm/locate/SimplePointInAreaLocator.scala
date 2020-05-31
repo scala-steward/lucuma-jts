@@ -32,7 +32,7 @@ import org.locationtech.jts.geom.Polygon
 
 /**
  * Computes the location of points
- * relative to a {@link Polygonal} {@link Geometry},
+ * relative to a {link Polygonal} {link Geometry},
  * using a simple <tt>O(n)</tt> algorithm.
  * <p>
  * The algorithm used reports
@@ -40,30 +40,30 @@ import org.locationtech.jts.geom.Polygon
  * or exactly on the boundary of the Geometry.
  * <p>
  * Instance methods are provided to implement
- * the interface {@link PointInAreaLocator}.
+ * the interface {link PointInAreaLocator}.
  * However, they provide no performance
  * advantage over the class methods.
  * <p>
  * This algorithm is suitable for use in cases where
  * only a few points will be tested.
  * If many points will be tested,
- * {@link IndexedPointInAreaLocator} may provide better performance.
+ * {link IndexedPointInAreaLocator} may provide better performance.
  *
  * @version 1.7
  */
 object SimplePointInAreaLocator {
   /**
-   * Determines the {@link Location} of a point in an areal {@link Geometry}.
+   * Determines the {link Location} of a point in an areal {link Geometry}.
    * The return value is one of:
    * <ul>
-   * <li>{@link Location.INTERIOR} if the point is in the geometry interior
-   * <li>{@link Location.BOUNDARY} if the point lies exactly on the boundary
-   * <li>{@link Location.EXTERIOR} if the point is outside the geometry
+   * <li>{link Location.INTERIOR} if the point is in the geometry interior
+   * <li>{link Location.BOUNDARY} if the point lies exactly on the boundary
+   * <li>{link Location.EXTERIOR} if the point is outside the geometry
    * </ul>
    *
    * @param p    the point to test
    * @param geom the areal geometry to test
-   * @return the Location of the point in the geometry
+   * return the Location of the point in the geometry
    */
     def locate(p: Coordinate, geom: Geometry): Int = {
       if (geom.isEmpty) return Location.EXTERIOR
@@ -76,7 +76,7 @@ object SimplePointInAreaLocator {
     }
 
   /**
-   * Determines whether a point is contained in a {@link Geometry},
+   * Determines whether a point is contained in a {link Geometry},
    * or lies on its boundary.
    * This is a convenience method for
    * <pre>
@@ -85,7 +85,7 @@ object SimplePointInAreaLocator {
    *
    * @param p    the point to test
    * @param geom the geometry to test
-   * @return true if the point lies in or on the geometry
+   * return true if the point lies in or on the geometry
    */
   def isContained(p: Coordinate, geom: Geometry): Boolean = Location.EXTERIOR != locate(p, geom)
 
@@ -107,20 +107,20 @@ object SimplePointInAreaLocator {
   }
 
   /**
-   * Determines the {@link Location} of a point in a {@link Polygon}.
+   * Determines the {link Location} of a point in a {link Polygon}.
    * The return value is one of:
    * <ul>
-   * <li>{@link Location.INTERIOR} if the point is in the geometry interior
-   * <li>{@link Location.BOUNDARY} if the point lies exactly on the boundary
-   * <li>{@link Location.EXTERIOR} if the point is outside the geometry
+   * <li>{link Location.INTERIOR} if the point is in the geometry interior
+   * <li>{link Location.BOUNDARY} if the point lies exactly on the boundary
+   * <li>{link Location.EXTERIOR} if the point is outside the geometry
    * </ul>
    *
    * This method is provided for backwards compatibility only.
-   * Use {@link #locate(Coordinate, Geometry)} instead.
+   * Use {link #locate(Coordinate, Geometry)} instead.
    *
    * @param p    the point to test
    * @param poly the geometry to test
-   * @return the Location of the point in the polygon
+   * return the Location of the point in the polygon
    *
    */
   def locatePointInPolygon(p: Coordinate, poly: Polygon): Int = {
@@ -145,13 +145,13 @@ object SimplePointInAreaLocator {
   }
 
   /**
-   * Determines whether a point lies in a {@link Polygon}.
+   * Determines whether a point lies in a {link Polygon}.
    * If the point lies on the polygon boundary it is
    * considered to be inside.
    *
    * @param p    the point to test
    * @param poly the geometry to test
-   * @return true if the point lies in or on the polygon
+   * return true if the point lies in or on the polygon
    */
   def containsPointInPolygon(p: Coordinate, poly: Polygon): Boolean = Location.EXTERIOR != locatePointInPolygon(p, poly)
 
@@ -161,7 +161,7 @@ object SimplePointInAreaLocator {
    *
    * @param p    the point to test
    * @param ring a linear ring
-   * @return true if the point lies inside the ring
+   * return true if the point lies inside the ring
    */
   private def locatePointInRing(p: Coordinate, ring: LinearRing): Int = { // short-circuit if point is not in ring envelope
     if (!ring.getEnvelopeInternal.intersects(p)) return Location.EXTERIOR
@@ -179,16 +179,16 @@ class SimplePointInAreaLocator(var geom: Geometry)
  */
   extends PointOnGeometryLocator {
   /**
-   * Determines the {@link Location} of a point in an areal {@link Geometry}.
+   * Determines the {link Location} of a point in an areal {link Geometry}.
    * The return value is one of:
    * <ul>
-   * <li>{@link Location.INTERIOR} if the point is in the geometry interior
-   * <li>{@link Location.BOUNDARY} if the point lies exactly on the boundary
-   * <li>{@link Location.EXTERIOR} if the point is outside the geometry
+   * <li>{link Location.INTERIOR} if the point is in the geometry interior
+   * <li>{link Location.BOUNDARY} if the point lies exactly on the boundary
+   * <li>{link Location.EXTERIOR} if the point is outside the geometry
    * </ul>
    *
    * @param p the point to test
-   * @return the Location of the point in the geometry
+   * return the Location of the point in the geometry
    */
   override def locate(p: Coordinate): Int = SimplePointInAreaLocator.locate(p, geom)
 }

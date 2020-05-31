@@ -25,15 +25,15 @@
 package org.locationtech.jts.geom
 
 /**
- * A factory to create concrete instances of {@link CoordinateSequence}s.
- * Used to configure {@link GeometryFactory}s
+ * A factory to create concrete instances of {link CoordinateSequence}s.
+ * Used to configure {link GeometryFactory}s
  * to provide specific kinds of CoordinateSequences.
  *
  * @version 1.7
  */
 trait CoordinateSequenceFactory {
   /**
-   * Returns a {@link CoordinateSequence} based on the given array.
+   * Returns a {link CoordinateSequence} based on the given array.
    * Whether the array is copied or simply referenced
    * is implementation-dependent.
    * This method must handle null arguments by creating an empty sequence.
@@ -43,8 +43,8 @@ trait CoordinateSequenceFactory {
     def create(coordinates: Array[Coordinate]): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} which is a copy
-   * of the given {@link CoordinateSequence}.
+   * Creates a {link CoordinateSequence} which is a copy
+   * of the given {link CoordinateSequence}.
    * This method must handle null arguments by creating an empty sequence.
    *
    * @param coordSeq the coordinate sequence to copy
@@ -52,8 +52,8 @@ trait CoordinateSequenceFactory {
   def create(coordSeq: CoordinateSequence): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} of the specified size and dimension.
-   * For this to be useful, the {@link CoordinateSequence} implementation must
+   * Creates a {link CoordinateSequence} of the specified size and dimension.
+   * For this to be useful, the {link CoordinateSequence} implementation must
    * be mutable.
    * <p>
    * If the requested dimension is larger than the CoordinateSequence implementation
@@ -67,8 +67,8 @@ trait CoordinateSequenceFactory {
   def create(size: Int, dimension: Int): CoordinateSequence
 
   /**
-   * Creates a {@link CoordinateSequence} of the specified size and dimension with measure support.
-   * For this to be useful, the {@link CoordinateSequence} implementation must
+   * Creates a {link CoordinateSequence} of the specified size and dimension with measure support.
+   * For this to be useful, the {link CoordinateSequence} implementation must
    * be mutable.
    * <p>
    * If the requested dimension or measures are larger than the CoordinateSequence implementation

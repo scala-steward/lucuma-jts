@@ -26,7 +26,7 @@ object CommonBits {
    * double-precision number.
    *
    * @param num
-   * @return the bit pattern for the sign and exponent
+   * return the bit pattern for the sign and exponent
    */
     def signExpBits(num: Long): Long = num >> 52
 
@@ -39,7 +39,7 @@ object CommonBits {
    *
    * @param num1 the first number
    * @param num2 the second number
-   * @return the number of common most-significant mantissa bits
+   * return the number of common most-significant mantissa bits
    */
   def numCommonMostSigMantissaBits(num1: Long, num2: Long): Int = {
     var count = 0
@@ -58,7 +58,7 @@ object CommonBits {
    * Zeroes the lower n bits of a bitstring.
    *
    * @param bits the bitstring to alter
-   * @return the zeroed bitstring
+   * return the zeroed bitstring
    */
   def zeroLowerBits(bits: Long, nBits: Int): Long = {
     val invMask = (1L << nBits) - 1L
@@ -72,7 +72,7 @@ object CommonBits {
    *
    * @param bits the bitstring to extract from
    * @param i    the bit to extract
-   * @return the value of the extracted bit
+   * return the value of the extracted bit
    */
   def getBit(bits: Long, i: Int): Int = {
     val mask = 1L << i

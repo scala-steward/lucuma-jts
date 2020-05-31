@@ -37,7 +37,7 @@ import org.locationtech.jts.operation.distance.IndexedFacetDistance
 
 /**
  * Constructs the Maximum Inscribed Circle for a
- * polygonal {@link Geometry}, up to a specified tolerance.
+ * polygonal {link Geometry}, up to a specified tolerance.
  * The Maximum Inscribed Circle is determined by a point in the interior of the area
  * which has the farthest distance from the area boundary,
  * along with a boundary point at that distance.
@@ -74,7 +74,7 @@ object MaximumInscribedCircle {
    *
    * @param polygonal a polygonal geometry
    * @param tolerance the distance tolerance for computing the center point
-   * @return the center point of the maximum inscribed circle
+   * return the center point of the maximum inscribed circle
    */
     def getCenter(polygonal: Geometry, tolerance: Double) = {
       val mic = new MaximumInscribedCircle(polygonal, tolerance)
@@ -87,7 +87,7 @@ object MaximumInscribedCircle {
    *
    * @param polygonal a polygonal geometry
    * @param tolerance the distance tolerance for computing the center point
-   * @return a line from the center to a point on the circle
+   * return a line from the center to a point on the circle
    */
   def getRadiusLine(polygonal: Geometry, tolerance: Double) = {
     val mic = new MaximumInscribedCircle(polygonal, tolerance)
@@ -160,7 +160,7 @@ class MaximumInscribedCircle(var inputGeom: Geometry, var tolerance: Double) {
    * Gets the center point of the maximum inscribed circle
    * (up to the tolerance distance).
    *
-   * @return the center point of the maximum inscribed circle
+   * return the center point of the maximum inscribed circle
    */
   def getCenter = {
     compute()
@@ -175,7 +175,7 @@ class MaximumInscribedCircle(var inputGeom: Geometry, var tolerance: Double) {
    * is a radius of the constructed circle, and this point
    * lies on the boundary of the circle.
    *
-   * @return a point defining the radius of the Maximum Inscribed Circle
+   * return a point defining the radius of the Maximum Inscribed Circle
    */
   def getRadiusPoint = {
     compute()
@@ -185,7 +185,7 @@ class MaximumInscribedCircle(var inputGeom: Geometry, var tolerance: Double) {
   /**
    * Gets a line representing a radius of the Largest Empty Circle.
    *
-   * @return a line from the center of the circle to a point on the edge
+   * return a line from the center of the circle to a point on the edge
    */
   def getRadiusLine = {
     compute()
@@ -200,7 +200,7 @@ class MaximumInscribedCircle(var inputGeom: Geometry, var tolerance: Double) {
    * (but may still end up being tested since they may need to be refined).
    *
    * @param p the point to compute the distance for
-   * @return the signed distance to the area boundary (negative indicates outside the area)
+   * return the signed distance to the area boundary (negative indicates outside the area)
    */
   private def distanceToBoundary(p: Point): Double = {
     val dist = indexedDistance.distance(p)

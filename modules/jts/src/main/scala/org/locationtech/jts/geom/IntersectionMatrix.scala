@@ -14,7 +14,7 @@ package org.locationtech.jts.geom
 /**
  * Models a <b>Dimensionally Extended Nine-Intersection Model (DE-9IM)</b> matrix.
  * DE-9IM matrices (such as "212FF1FF2")
- * specify the topological relationship between two {@link Geometry}s.
+ * specify the topological relationship between two {link Geometry}s.
  * This class can also represent matrix patterns (such as "T*T******")
  * which are used for matching instances of DE-9IM matrices.
  *
@@ -36,10 +36,10 @@ package org.locationtech.jts.geom
  * Simple feature access - Part 1: Common architecture</i>
  * (which provides some further details on certain predicate specifications).
  * <p>
- * The entries of the matrix are defined by the constants in the {@link Dimension} class.
+ * The entries of the matrix are defined by the constants in the {link Dimension} class.
  * The indices of the matrix represent the topological locations
  * that occur in a geometry (Interior, Boundary, Exterior).
- * These are provided as constants in the {@link Location} class.
+ * These are provided as constants in the {link Location} class.
  *
  * @version 1.7
  */
@@ -50,7 +50,7 @@ object IntersectionMatrix {
    *
    * @param  actualDimensionValue a number that can be stored in the <code>IntersectionMatrix</code>
    *                              . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
-   * @return true if the dimension value matches TRUE
+   * return true if the dimension value matches TRUE
    */
     def isTrue(actualDimensionValue: Int): Boolean = {
       if (actualDimensionValue >= 0 || actualDimensionValue == Dimension.TRUE) return true
@@ -65,7 +65,7 @@ object IntersectionMatrix {
    * @param  requiredDimensionSymbol a character used in the string
    *                                 representation of an <code>IntersectionMatrix</code>. Possible values
    *                                 are <code>{T, F, * , 0, 1, 2}</code>.
-   * @return true if the dimension symbol matches
+   * return true if the dimension symbol matches
    *         the dimension value
    */
   def matches(actualDimensionValue: Int, requiredDimensionSymbol: Char): Boolean = {
@@ -86,7 +86,7 @@ object IntersectionMatrix {
    *                                  Possible values are <code>{T, F, * , 0, 1, 2}</code>.
    * @param  requiredDimensionSymbols nine dimension symbols to validate
    *      against. Possible values are <code>{T, F, * , 0, 1, 2}</code>.
-   * @return true if each of the required dimension
+   * return true if each of the required dimension
    *         symbols encompass the corresponding actual dimension symbol
    */
   def matches(actualDimensionSymbols: String, requiredDimensionSymbols: String): Boolean = {
@@ -270,15 +270,15 @@ class IntersectionMatrix()
    * Returns the value of one of this matrix
    * entries.
    * The value of the provided index is one of the
-   * values from the {@link Location} class.
+   * values from the {link Location} class.
    * The value returned is a constant
-   * from the {@link Dimension} class.
+   * from the {link Dimension} class.
    *
    * @param  row    the row of this <code>IntersectionMatrix</code>, indicating
    *                the interior, boundary or exterior of the first <code>Geometry</code>
    * @param  column the column of this <code>IntersectionMatrix</code>,
    *                indicating the interior, boundary or exterior of the second <code>Geometry</code>
-   * @return the dimension value at the given matrix position.
+   * return the dimension value at the given matrix position.
    */
   def get(row: Int, column: Int): Int = matrix(row)(column)
 
@@ -286,7 +286,7 @@ class IntersectionMatrix()
    * Returns <code>true</code> if this <code>IntersectionMatrix</code> is
    * FF*FF****.
    *
-   * @return <code>true</code> if the two <code>Geometry</code>s related by
+   * return <code>true</code> if the two <code>Geometry</code>s related by
    *         this <code>IntersectionMatrix</code> are disjoint
    */
   def isDisjoint: Boolean = matrix(Location.INTERIOR)(Location.INTERIOR) == Dimension.FALSE && matrix(Location.INTERIOR)(Location.BOUNDARY) == Dimension.FALSE && matrix(Location.BOUNDARY)(Location.INTERIOR) == Dimension.FALSE && matrix(Location.BOUNDARY)(Location.BOUNDARY) == Dimension.FALSE
@@ -294,7 +294,7 @@ class IntersectionMatrix()
   /**
    * Returns <code>true</code> if <code>isDisjoint</code> returns false.
    *
-   * @return <code>true</code> if the two <code>Geometry</code>s related by
+   * return <code>true</code> if the two <code>Geometry</code>s related by
    *         this <code>IntersectionMatrix</code> intersect
    */
   def isIntersects: Boolean = !isDisjoint
@@ -305,7 +305,7 @@ class IntersectionMatrix()
    *
    * @param  dimensionOfGeometryA the dimension of the first <code>Geometry</code>
    * @param  dimensionOfGeometryB the dimension of the second <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>
+   * return <code>true</code> if the two <code>Geometry</code>
    *         s related by this <code>IntersectionMatrix</code> touch; Returns false
    *         if both <code>Geometry</code>s are points.
    */
@@ -339,7 +339,7 @@ class IntersectionMatrix()
    *
    * @param  dimensionOfGeometryA the dimension of the first <code>Geometry</code>
    * @param  dimensionOfGeometryB the dimension of the second <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s
+   * return <code>true</code> if the two <code>Geometry</code>s
    *         related by this <code>IntersectionMatrix</code> cross.
    */
   def isCrosses(dimensionOfGeometryA: Int, dimensionOfGeometryB: Int): Boolean = {
@@ -353,7 +353,7 @@ class IntersectionMatrix()
    * Tests whether this <code>IntersectionMatrix</code> is
    * T*F**F***.
    *
-   * @return <code>true</code> if the first <code>Geometry</code> is within
+   * return <code>true</code> if the first <code>Geometry</code> is within
    *         the second
    */
   def isWithin: Boolean = IntersectionMatrix.isTrue(matrix(Location.INTERIOR)(Location.INTERIOR)) && matrix(Location.INTERIOR)(Location.EXTERIOR) == Dimension.FALSE && matrix(Location.BOUNDARY)(Location.EXTERIOR) == Dimension.FALSE
@@ -362,7 +362,7 @@ class IntersectionMatrix()
    * Tests whether this <code>IntersectionMatrix</code> is
    * T*****FF*.
    *
-   * @return <code>true</code> if the first <code>Geometry</code> contains the
+   * return <code>true</code> if the first <code>Geometry</code> contains the
    *         second
    */
   def isContains: Boolean = IntersectionMatrix.isTrue(matrix(Location.INTERIOR)(Location.INTERIOR)) && matrix(Location.EXTERIOR)(Location.INTERIOR) == Dimension.FALSE && matrix(Location.EXTERIOR)(Location.BOUNDARY) == Dimension.FALSE
@@ -374,7 +374,7 @@ class IntersectionMatrix()
    * or <code>***T**FF*</code>
    * or <code>****T*FF*</code>
    *
-   * @return <code>true</code> if the first <code>Geometry</code> covers the
+   * return <code>true</code> if the first <code>Geometry</code> covers the
    *         second
    */
   def isCovers: Boolean = {
@@ -389,7 +389,7 @@ class IntersectionMatrix()
    * or <code>**FT*F***</code>
    * or <code>**F*TF***</code>
    *
-   * @return <code>true</code> if the first <code>Geometry</code>
+   * return <code>true</code> if the first <code>Geometry</code>
    *         is covered by the second
    */
   def isCoveredBy: Boolean = {
@@ -411,7 +411,7 @@ class IntersectionMatrix()
    *
    * @param  dimensionOfGeometryA the dimension of the first <code>Geometry</code>
    * @param  dimensionOfGeometryB the dimension of the second <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s
+   * return <code>true</code> if the two <code>Geometry</code>s
    *         related by this <code>IntersectionMatrix</code> are equal; the
    *         <code>Geometry</code>s must have the same dimension to be equal
    */
@@ -429,7 +429,7 @@ class IntersectionMatrix()
    *
    * @param  dimensionOfGeometryA the dimension of the first <code>Geometry</code>
    * @param  dimensionOfGeometryB the dimension of the second <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s
+   * return <code>true</code> if the two <code>Geometry</code>s
    *         related by this <code>IntersectionMatrix</code> overlap. For this
    *         function to return <code>true</code>, the <code>Geometry</code>s must
    *         be two points, two curves or two surfaces.
@@ -447,7 +447,7 @@ class IntersectionMatrix()
    * @param  requiredDimensionSymbols nine dimension symbols with which to
    *                                  compare the elements of this <code>IntersectionMatrix</code>. Possible
    *                                  values are <code>{T, F, * , 0, 1, 2}</code>.
-   * @return <code>true</code> if this <code>IntersectionMatrix</code>
+   * return <code>true</code> if this <code>IntersectionMatrix</code>
    *         matches the required dimension symbols
    */
   def matches(requiredDimensionSymbols: String): Boolean = {
@@ -471,7 +471,7 @@ class IntersectionMatrix()
   /**
    * Transposes this IntersectionMatrix.
    *
-   * @return this <code>IntersectionMatrix</code> as a convenience
+   * return this <code>IntersectionMatrix</code> as a convenience
    */
   def transpose: IntersectionMatrix = {
     var temp = matrix(1)(0)
@@ -490,7 +490,7 @@ class IntersectionMatrix()
    * Returns a nine-character <code>String</code> representation of this <code>IntersectionMatrix</code>
    * .
    *
-   * @return the nine dimension symbols of this <code>IntersectionMatrix</code>
+   * return the nine dimension symbols of this <code>IntersectionMatrix</code>
    *         in row-major order.
    */
   override def toString: String = {

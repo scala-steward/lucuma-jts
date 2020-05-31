@@ -30,7 +30,7 @@ import org.locationtech.jts.geom.CoordinateSequence
 import org.locationtech.jts.geom.CoordinateSequenceFactory
 
 /**
- * Creates {@link CoordinateSequence}s represented as an array of {@link Coordinate}s.
+ * Creates {link CoordinateSequence}s represented as an array of {link Coordinate}s.
  *
  * @version 1.7
  */
@@ -39,7 +39,7 @@ object CoordinateArraySequenceFactory {
   private val instanceObject = new CoordinateArraySequenceFactory
 
   /**
-   * Returns the singleton instance of {@link CoordinateArraySequenceFactory}
+   * Returns the singleton instance of {link CoordinateArraySequenceFactory}
    */
   def instance: CoordinateArraySequenceFactory = instanceObject
 }
@@ -51,7 +51,7 @@ final class CoordinateArraySequenceFactory private() extends CoordinateSequenceF
   }
 
   /**
-   * Returns a {@link CoordinateArraySequence} based on the given array (the array is
+   * Returns a {link CoordinateArraySequence} based on the given array (the array is
    * not copied).
    *
    * @param coordinates

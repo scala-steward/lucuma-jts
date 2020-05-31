@@ -208,14 +208,14 @@ class STRtree(val nodeCapacityArg: Int)
    *
    * @param itemEnv the Envelope of the item to remove
    * @param item    the item to remove
-   * @return <code>true</code> if the item was found
+   * return <code>true</code> if the item was found
    */
   override def remove(itemEnv: Envelope, item: Any): Unit = ()//super.remove(itemEnv, item)
 
   /**
    * Returns the number of items in the tree.
    *
-   * @return the number of items in the tree
+   * return the number of items in the tree
    */
   override def size: Int = super.size
 
@@ -225,7 +225,7 @@ class STRtree(val nodeCapacityArg: Int)
 
   /**
    * Finds the two nearest items in the tree,
-   * using {@link ItemDistance} as the distance metric.
+   * using {link ItemDistance} as the distance metric.
    * A Branch-and-Bound tree traversal algorithm is used
    * to provide an efficient search.
    * <p>
@@ -234,10 +234,10 @@ class STRtree(val nodeCapacityArg: Int)
    * the return value is a pair containing that item.
    * <b>
    * If it is required to find only pairs of distinct items,
-   * the {@link ItemDistance} function must be <b>anti-reflexive</b>.
+   * the {link ItemDistance} function must be <b>anti-reflexive</b>.
    *
    * @param itemDist a distance metric applicable to the items in this tree
-   * @return the pair of the nearest items
+   * return the pair of the nearest items
    *         or <code>null</code> if the tree is empty
    */
   def nearestNeighbour(itemDist: ItemDistance): Array[Any] = {
@@ -248,8 +248,8 @@ class STRtree(val nodeCapacityArg: Int)
   }
 
   /**
-   * Finds the item in this tree which is nearest to the given {@link Object},
-   * using {@link ItemDistance} as the distance metric.
+   * Finds the item in this tree which is nearest to the given {link Object},
+   * using {link ItemDistance} as the distance metric.
    * A Branch-and-Bound tree traversal algorithm is used
    * to provide an efficient search.
    * <p>
@@ -261,7 +261,7 @@ class STRtree(val nodeCapacityArg: Int)
    * @param env      the envelope of the query item
    * @param item     the item to find the nearest neighbour of
    * @param itemDist a distance metric applicable to the items in this tree and the query item
-   * @return the nearest item in this tree
+   * return the nearest item in this tree
    *         or <code>null</code> if the tree is empty
    */
   def nearestNeighbour(env: Envelope, item: Any, itemDist: ItemDistance): Any= {
@@ -273,7 +273,7 @@ class STRtree(val nodeCapacityArg: Int)
   /**
    * Finds the two nearest items from this tree
    * and another tree,
-   * using {@link ItemDistance} as the distance metric.
+   * using {link ItemDistance} as the distance metric.
    * A Branch-and-Bound tree traversal algorithm is used
    * to provide an efficient search.
    * The result value is a pair of items,
@@ -282,7 +282,7 @@ class STRtree(val nodeCapacityArg: Int)
    *
    * @param tree     another tree
    * @param itemDist a distance metric applicable to the items in the trees
-   * @return the pair of the nearest items, one from each tree
+   * return the pair of the nearest items, one from each tree
    *         or <code>null</code> if no pair of distinct items can be found
    */
   def nearestNeighbour(tree: STRtree, itemDist: ItemDistance): Array[Any] = {
@@ -342,14 +342,14 @@ class STRtree(val nodeCapacityArg: Int)
     /**
      * Tests whether some two items from this tree and another tree
      * lie within a given distance.
-     * {@link ItemDistance} is used as the distance metric.
+     * {link ItemDistance} is used as the distance metric.
      * A Branch-and-Bound tree traversal algorithm is used
      * to provide an efficient search.
      *
      * @param tree        another tree
      * @param itemDist    a distance metric applicable to the items in the trees
      * @param maxDistance the distance limit for the search
-     * @return true if there are items within the distance
+     * return true if there are items within the distance
      */
     def isWithinDistance(tree: STRtree, itemDist: ItemDistance, maxDistance: Double): Boolean = {
       val bp = new BoundablePair(this.getRoot, tree.getRoot, itemDist)
@@ -359,14 +359,14 @@ class STRtree(val nodeCapacityArg: Int)
     /**
      * Performs a withinDistance search on the tree node pairs.
      * This is a different search algorithm to nearest neighbour.
-     * It can utilize the {@link BoundablePair#maximumDistance()} between
+     * It can utilize the {link BoundablePair#maximumDistance()} between
      * tree nodes to confirm if two internal nodes must
      * have items closer than the maxDistance,
      * and short-circuit the search.
      *
      * @param initBndPair the initial pair containing the tree root nodes
      * @param maxDistance the maximum distance to search for
-     * @return true if two items lie within the given distance
+     * return true if two items lie within the given distance
      */
     private def isWithinDistance(initBndPair: BoundablePair, maxDistance: Double): Boolean =
     {
@@ -439,7 +439,7 @@ class STRtree(val nodeCapacityArg: Int)
      * @param item     the item to find the nearest neighbour of
      * @param itemDist a distance metric applicable to the items in this tree and the query item
      * @param k        the K nearest items in kNearestNeighbour
-     * @return the K nearest items in this tree
+     * return the K nearest items in this tree
      */
     def nearestNeighbour(env: Envelope, item: Any, itemDist: ItemDistance, k: Int): Array[Any] = {
       val bnd = new ItemBoundable(env, item)

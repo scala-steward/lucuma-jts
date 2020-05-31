@@ -25,9 +25,9 @@ import org.locationtech.jts.algorithm.LineIntersector
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * Computes the possible intersections between two line segments in {@link NodedSegmentString}s
+ * Computes the possible intersections between two line segments in {link NodedSegmentString}s
  * and adds them to each string
- * using {@link NodedSegmentString#addIntersection(LineIntersector, int, int, int)}.
+ * using {link NodedSegmentString#addIntersection(LineIntersector, int, int, int)}.
  *
  * @version 1.7
  */
@@ -57,7 +57,7 @@ class IntersectionAdder(var li: LineIntersector) extends SegmentIntersector {
   def getLineIntersector: LineIntersector = li
 
   /**
-   * @return the proper intersection point, or <code>null</code> if none was found
+   * return the proper intersection point, or <code>null</code> if none was found
    */
   def getProperIntersectionPoint: Coordinate = properIntersectionPoint
 
@@ -103,8 +103,8 @@ class IntersectionAdder(var li: LineIntersector) extends SegmentIntersector {
 
   /**
    * This method is called by clients
-   * of the {@link SegmentIntersector} class to process
-   * intersections for two segments of the {@link SegmentString}s being intersected.
+   * of the {link SegmentIntersector} class to process
+   * intersections for two segments of the {link SegmentString}s being intersected.
    * Note that some clients (such as <code>MonotoneChain</code>s) may optimize away
    * this call for segment pairs which they have determined do not intersect
    * (e.g. by an disjoint envelope test).
@@ -146,7 +146,7 @@ class IntersectionAdder(var li: LineIntersector) extends SegmentIntersector {
   /**
    * Always process all intersections
    *
-   * @return false always
+   * return false always
    */
   override def isDone = false
 }

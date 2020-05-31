@@ -68,7 +68,7 @@ object BufferInputLineSimplifier {
    *
    * @param inputLine   the coordinate list to simplify
    * @param distanceTol simplification distance tolerance to use
-   * @return the simplified coordinate list
+   * return the simplified coordinate list
    */
     def simplify(inputLine: Array[Coordinate], distanceTol: Double): Array[Coordinate] = {
       val simp = new BufferInputLineSimplifier(inputLine)
@@ -94,7 +94,7 @@ class BufferInputLineSimplifier(var inputLine: Array[Coordinate]) {
    * concavities on the RIGHT side of the line are simplified.
    *
    * @param distanceTol simplification distance tolerance to use
-   * @return the simplified coordinate list
+   * return the simplified coordinate list
    */
   def simplify(distanceTol: Double): Array[Coordinate] = {
     this.distanceTol = Math.abs(distanceTol)
@@ -113,7 +113,7 @@ class BufferInputLineSimplifier(var inputLine: Array[Coordinate]) {
    * in which the middle vertex can be deleted, since it does not
    * affect the shape of the resulting buffer in a significant way.
    *
-   * @return
+   * return
    */
   private def deleteShallowConcavities = {
     /**
@@ -146,7 +146,7 @@ class BufferInputLineSimplifier(var inputLine: Array[Coordinate]) {
    * Finds the next non-deleted index, or the end of the point array if none
    *
    * @param index
-   * @return the next non-deleted index, if any
+   * return the next non-deleted index, if any
    *         or inputLine.length if there are no more non-deleted indices
    */
   private def findNextNonDeletedIndex(index: Int) = {
@@ -201,7 +201,7 @@ class BufferInputLineSimplifier(var inputLine: Array[Coordinate]) {
    * @param i0          start index of section
    * @param i2          end index of section
    * @param distanceTol distance tolerance
-   * @return
+   * return
    */
   private def isShallowSampled(p0: Coordinate, p2: Coordinate, i0: Int, i2: Int, distanceTol: Double): Boolean = { // check every n'th point to see if it is within tolerance
     var inc = (i2 - i0) / BufferInputLineSimplifier.NUM_PTS_TO_CHECK

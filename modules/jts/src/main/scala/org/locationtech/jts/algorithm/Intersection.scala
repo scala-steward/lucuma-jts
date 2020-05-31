@@ -49,7 +49,7 @@ object Intersection {
    * @param p2 an endpoint of line 1
    * @param q1 an endpoint of line 2
    * @param q2 an endpoint of line 2
-   * @return the intersection point between the lines, if there is one,
+   * return the intersection point between the lines, if there is one,
    *         or null if the lines are parallel or collinear
    * @see CGAlgorithmsDD#intersection(Coordinate, Coordinate, Coordinate, Coordinate)
    */

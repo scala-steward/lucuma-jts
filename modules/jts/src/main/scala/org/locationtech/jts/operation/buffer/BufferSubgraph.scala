@@ -26,7 +26,7 @@ import org.locationtech.jts.geomgraph.Position
 
 /**
  * A connected subset of the graph of
- * {@link DirectedEdge}s and {@link Node}s.
+ * {link DirectedEdge}s and {link Node}s.
  * Its edges will generate either
  * <ul>
  * <li> a single polygon in the complete buffer, with zero or more holes, or
@@ -50,7 +50,7 @@ class BufferSubgraph() extends Comparable[BufferSubgraph] {
    * Computes the envelope of the edges in the subgraph.
    * The envelope is cached after being computed.
    *
-   * @return the envelope of the graph.
+   * return the envelope of the graph.
    */
   def getEnvelope: Envelope = {
     if (env == null) {

@@ -16,11 +16,11 @@ import java.util
 import org.locationtech.jts.util.Assert
 
 /**
- * A node of an {@link AbstractSTRtree}. A node is one of:
+ * A node of an {link AbstractSTRtree}. A node is one of:
  * <ul>
  * <li>empty
- * <li>an <i>interior node</i> containing child {@link AbstractNode}s
- * <li>a <i>leaf node</i> containing data items ({@link ItemBoundable}s).
+ * <li>an <i>interior node</i> containing child {link AbstractNode}s
+ * <li>a <i>leaf node</i> containing data items ({link ItemBoundable}s).
  * </ul>
  * A node stores the bounds of its children, and its level within the index tree.
  *
@@ -49,10 +49,10 @@ abstract class AbstractNode(level: Int = 0)
 //  }
 
   /**
-   * Returns either child {@link AbstractNode}s, or if this is a leaf node, real data (wrapped
-   * in {@link ItemBoundable}s).
+   * Returns either child {link AbstractNode}s, or if this is a leaf node, real data (wrapped
+   * in {link ItemBoundable}s).
    *
-   * @return a list of the children
+   * return a list of the children
    */
   def getChildBoundables: util.ArrayList[Boundable] = childBoundables
 
@@ -62,7 +62,7 @@ abstract class AbstractNode(level: Int = 0)
    * test for intersection with the bounds of other Boundables. The class of
    * object returned depends on the subclass of AbstractSTRtree.
    *
-   * @return an Envelope (for STRtrees), an Interval (for SIRtrees), or other
+   * return an Envelope (for STRtrees), an Interval (for SIRtrees), or other
    *         object (for other subclasses of AbstractSTRtree)
    * @see AbstractSTRtree.IntersectsOp
    */
@@ -71,7 +71,7 @@ abstract class AbstractNode(level: Int = 0)
   /**
    * Gets the bounds of this node
    *
-   * @return the object representing bounds in this index
+   * return the object representing bounds in this index
    */
   override def getBounds: AnyRef = {
     if (bounds == null) bounds = computeBounds
@@ -82,21 +82,21 @@ abstract class AbstractNode(level: Int = 0)
    * Returns 0 if this node is a leaf, 1 if a parent of a leaf, and so on; the
    * root node will have the highest level
    *
-   * @return the node level
+   * return the node level
    */
   def getLevel: Int = level
 
   /**
-   * Gets the count of the {@link Boundable}s at this node.
+   * Gets the count of the {link Boundable}s at this node.
    *
-   * @return the count of boundables at this node
+   * return the count of boundables at this node
    */
   def size: Int = childBoundables.size
 
   /**
-   * Tests whether there are any {@link Boundable}s at this node.
+   * Tests whether there are any {link Boundable}s at this node.
    *
-   * @return true if there are boundables at this node
+   * return true if there are boundables at this node
    */
   def isEmpty: Boolean = childBoundables.isEmpty
 

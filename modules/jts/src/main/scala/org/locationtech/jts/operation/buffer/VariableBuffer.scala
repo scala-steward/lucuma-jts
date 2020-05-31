@@ -49,7 +49,7 @@ object VariableBuffer {
    * @param line          the line to buffer
    * @param startDistance the buffer width at the start of the line
    * @param endDistance   the buffer width at the end of the line
-   * @return the variable-distance buffer polygon
+   * return the variable-distance buffer polygon
    */
     def buffer(line: Geometry, startDistance: Double, endDistance: Double) = {
       val distance = interpolate(line.asInstanceOf[LineString], startDistance, endDistance)
@@ -57,20 +57,20 @@ object VariableBuffer {
       vb.getResult
     }
 
-  /**
-   * Creates a buffer polygon along a line with the buffer distance interpolated
-   * between a start distance, a middle distance and an end distance.
-   * The middle distance is attained at
-   * the vertex at or just past the half-length of the line.
-   * For smooth buffering of a {@link LinearRing} (or the rings of a {@link Polygon})
-   * the start distance and end distance should be equal.
-   *
-   * @param line          the line to buffer
-   * @param startDistance the buffer width at the start of the line
-   * @param midDistance   the buffer width at the middle vertex of the line
-   * @param endDistance   the buffer width at the end of the line
-   * @return the variable-distance buffer polygon
-   */
+  // /**
+  //  * Creates a buffer polygon along a line with the buffer distance interpolated
+  //  * between a start distance, a middle distance and an end distance.
+  //  * The middle distance is attained at
+  //  * the vertex at or just past the half-length of the line.
+  //  * For smooth buffering of a {link LinearRing} (or the rings of a {link Polygon})
+  //  * the start distance and end distance should be equal.
+  //  *
+  //  * @param line          the line to buffer
+  //  * @param startDistance the buffer width at the start of the line
+  //  * @param midDistance   the buffer width at the middle vertex of the line
+  //  * @param endDistance   the buffer width at the end of the line
+  //  * return the variable-distance buffer polygon
+  //  */
   def buffer(line: Geometry, startDistance: Double, midDistance: Double, endDistance: Double) = {
     val distance = interpolate(line.asInstanceOf[LineString], startDistance, midDistance, endDistance)
     val vb = new VariableBuffer(line, distance)
@@ -83,7 +83,7 @@ object VariableBuffer {
    *
    * @param line     the line to buffer
    * @param distance the buffer distance for each vertex of the line
-   * @return the variable-distance buffer polygon
+   * return the variable-distance buffer polygon
    */
   def buffer(line: Geometry, distance: Array[Double]) = {
     val vb = new VariableBuffer(line, distance)
@@ -100,7 +100,7 @@ object VariableBuffer {
    * @param line       the line to interpolate along
    * @param startValue the start value
    * @param endValue   the end value
-   * @return the array of interpolated values
+   * return the array of interpolated values
    */
   private def interpolate(line: LineString, startValueArg: Double, endValueArg: Double) = {
     val startValue = Math.abs(startValueArg)
@@ -138,7 +138,7 @@ object VariableBuffer {
    * @param startValue the start value
    * @param midValue   the start value
    * @param endValue   the end value
-   * @return the array of interpolated values
+   * return the array of interpolated values
    */
   private def interpolate(line: LineString, startValueArg: Double, midValueArg: Double, endValueArg: Double) = {
     val startValue = Math.abs(startValueArg)
@@ -216,7 +216,7 @@ object VariableBuffer {
    * @param r1 the radius of circle 1
    * @param c2 the centre of circle 2
    * @param r2 the center of circle 2
-   * @return the outer tangent line segment, or null if none exists
+   * return the outer tangent line segment, or null if none exists
    */
   private def outerTangent(c1: Coordinate, r1: Double, c2: Coordinate, r2: Double): LineSegment = {
     /**
@@ -258,7 +258,7 @@ object VariableBuffer {
    * Snap trig values to integer values for better consistency.
    *
    * @param x the result of a trigonometric function
-   * @return x snapped to the integer interval
+   * return x snapped to the integer interval
    */
   private def snapTrig(x: Double): Double = {
     if (x > (1 - SNAP_TRIG_TOL)) return 1
@@ -284,7 +284,7 @@ class VariableBuffer(val lineArg: Geometry, var distance: Array[Double]) {
   /**
    * Computes the buffer polygon.
    *
-   * @return a buffer polygon
+   * return a buffer polygon
    */
   def getResult: Geometry = {
     val parts = new util.ArrayList[Geometry]
@@ -321,7 +321,7 @@ class VariableBuffer(val lineArg: Geometry, var distance: Array[Double]) {
    * @param p1    the segment end point
    * @param dist0 the buffer distance at the start point
    * @param dist1 the buffer distance at the end point
-   * @return the segment buffer.
+   * return the segment buffer.
    */
   private def segmentBuffer(p0: Coordinate, p1: Coordinate, dist0: Double, dist1: Double): Polygon = {
     /**
@@ -367,7 +367,7 @@ class VariableBuffer(val lineArg: Geometry, var distance: Array[Double]) {
    *
    * @param center the circle center point
    * @param radius the radius
-   * @return a polygon, or null if the radius is 0
+   * return a polygon, or null if the radius is 0
    */
   private def circle(center: Coordinate, radius: Double): Polygon = {
     if (radius <= 0) return null
@@ -414,7 +414,7 @@ class VariableBuffer(val lineArg: Geometry, var distance: Array[Double]) {
    * Computes the angle for the given cap point index.
    *
    * @param index the fillet angle index
-   * @return
+   * return
    */
   private def capAngle(index: Int) = {
     val capSegAng = Math.PI / 2 / quadrantSegs
@@ -434,7 +434,7 @@ class VariableBuffer(val lineArg: Geometry, var distance: Array[Double]) {
    * <code>4 * quadrantSegs</code>.
    *
    * @param ang the angle
-   * @return the index for the angle.
+   * return the index for the angle.
    */
   private def capAngleIndex(ang: Double) = {
     val capSegAng = Math.PI / 2 / quadrantSegs

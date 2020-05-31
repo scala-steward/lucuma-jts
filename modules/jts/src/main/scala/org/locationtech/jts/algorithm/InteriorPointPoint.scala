@@ -29,7 +29,7 @@ object InteriorPointPoint {
    * puntal components of a Geometry.
    *
    * @param geom the geometry to compute
-   * @return the computed interior point,
+   * return the computed interior point,
    *         or <code>null</code> if the geometry has no puntal components
    */
     def getInteriorPoint(geom: Geometry): Coordinate = {

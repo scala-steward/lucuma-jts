@@ -12,7 +12,7 @@
 package org.locationtech.jts.geom
 
 /**
- * Models a collection of {@link Point}s.
+ * Models a collection of {link Point}s.
  * <p>
  * Any collection of Points is a valid MultiPoint.
  *
@@ -57,7 +57,7 @@ class MultiPoint(points: Array[Point], factory: GeometryFactory) extends Geometr
    * Zero-dimensional geometries have no boundary by definition,
    * so an empty GeometryCollection is returned.
    *
-   * @return an empty GeometryCollection
+   * return an empty GeometryCollection
    * @see Geometry#getBoundary
    */
   override def getBoundary: GeometryCollection = getFactory.createGeometryCollection
@@ -74,7 +74,7 @@ class MultiPoint(points: Array[Point], factory: GeometryFactory) extends Geometr
    *
    * @param  n the index of the <code>Coordinate</code> to retrieve, beginning
    *           at 0
-   * @return the <code>n</code>th <code>Coordinate</code>
+   * return the <code>n</code>th <code>Coordinate</code>
    */
   protected def getCoordinate(n: Int): Coordinate = geometries(n).asInstanceOf[Point].getCoordinate
 

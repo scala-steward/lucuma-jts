@@ -104,7 +104,7 @@ class PlanarGraph(nodeFact: NodeFactory) {
   def addNode(coord: Coordinate): Node = nodes.addNode(coord)
 
   /**
-   * @return the node if found; null otherwise
+   * return the node if found; null otherwise
    */
   def find(coord: Coordinate): Node = nodes.find(coord)
 
@@ -157,7 +157,7 @@ class PlanarGraph(nodeFact: NodeFactory) {
    * Returns the EdgeEnd which has edge e as its base edge
    * (MD 18 Feb 2002 - this should return a pair of edges)
    *
-   * @return the edge, if found
+   * return the edge, if found
    *         <code>null</code> if the edge was not found
    */
   def findEdgeEnd(e: Edge): EdgeEnd = {
@@ -174,7 +174,7 @@ class PlanarGraph(nodeFact: NodeFactory) {
   /**
    * Returns the edge whose first two coordinates are p0 and p1
    *
-   * @return the edge, if found
+   * return the edge, if found
    *         <code>null</code> if the edge was not found
    */
   def findEdge(p0: Coordinate, p1: Coordinate): Edge = {
@@ -194,7 +194,7 @@ class PlanarGraph(nodeFact: NodeFactory) {
    * Returns the edge which starts at p0 and whose first segment is
    * parallel to p1
    *
-   * @return the edge, if found
+   * return the edge, if found
    *         <code>null</code> if the edge was not found
    */
   def findEdgeInSameDirection(p0: Coordinate, p1: Coordinate): Edge = {

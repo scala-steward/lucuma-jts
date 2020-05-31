@@ -25,7 +25,7 @@ import java.io.PrintStream
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * Represents an intersection point between two {@link SegmentString}s.
+ * Represents an intersection point between two {link SegmentString}s.
  *
  * @version 1.7
  */
@@ -35,9 +35,9 @@ class SegmentNode(val segString: NodedSegmentString, val coordArg: Coordinate, v
   final private val visInterior = !coord.equals2D(segString.getCoordinate(segmentIndex))
 
   /**
-   * Gets the {@link Coordinate} giving the location of this node.
+   * Gets the {link Coordinate} giving the location of this node.
    *
-   * @return the coordinate of the node
+   * return the coordinate of the node
    */
   def getCoordinate: Coordinate = coord
 
@@ -50,7 +50,7 @@ class SegmentNode(val segString: NodedSegmentString, val coordArg: Coordinate, v
   }
 
   /**
-   * @return -1 this SegmentNode is located before the argument location;
+   * return -1 this SegmentNode is located before the argument location;
    *         0 this SegmentNode is at the argument location;
    *         1 this SegmentNode is located after the argument location
    */

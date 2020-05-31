@@ -26,7 +26,7 @@ import java.util
 import org.locationtech.jts.index.strtree.BoundablePair
 
 /**
- * A priority queue over a set of {@link Comparable} objects.
+ * A priority queue over a set of {link Comparable} objects.
  *
  * @author Martin Davis
  *
@@ -68,14 +68,14 @@ class PriorityQueue() {
   /**
    * Test if the priority queue is logically empty.
    *
-   * @return true if empty, false otherwise.
+   * return true if empty, false otherwise.
    */
   def isEmpty: Boolean = vsize == 0
 
   /**
    * Returns size.
    *
-   * @return current size.
+   * return current size.
    */
   def size(): Int = vsize
 
@@ -90,7 +90,7 @@ class PriorityQueue() {
   /**
    * Remove the smallest item from the priority queue.
    *
-   * @return the smallest item, or null if empty
+   * return the smallest item, or null if empty
    */
   def poll: BoundablePair = {
     if (isEmpty) return null

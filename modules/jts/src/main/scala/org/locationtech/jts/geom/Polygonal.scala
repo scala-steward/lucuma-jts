@@ -22,9 +22,9 @@
 package org.locationtech.jts.geom
 
 /**
- * Identifies {@link Geometry} subclasses which
+ * Identifies {link Geometry} subclasses which
  * are 2-dimensional
- * and have components which have {@link Lineal} boundaries.
+ * and have components which have {link Lineal} boundaries.
  *
  * @author Martin Davis
  *

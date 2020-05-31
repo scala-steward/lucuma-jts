@@ -85,7 +85,7 @@ class TopologyLocation(var location: Array[Int] = Array.empty[Int]) {
   }
 
   /**
-   * @return true if all locations are NULL
+   * return true if all locations are NULL
    */
   def isNull: Boolean = {
     var i = 0
@@ -99,7 +99,7 @@ class TopologyLocation(var location: Array[Int] = Array.empty[Int]) {
   }
 
   /**
-   * @return true if any locations are NULL
+   * return true if any locations are NULL
    */
   def isAnyNull: Boolean = {
     var i = 0

@@ -28,13 +28,13 @@ import org.locationtech.jts.geomgraph.Position
 
 /**
  * Computes the raw offset curve for a
- * single {@link Geometry} component (ring, line or point).
+ * single {link Geometry} component (ring, line or point).
  * A raw offset curve line is not noded -
  * it may contain self-intersections (and usually will).
  * The final buffer polygon is computed by forming a topological graph
  * of all the noded raw curves and tracing outside contours.
  * The points in the raw curve are rounded
- * to a given {@link PrecisionModel}.
+ * to a given {link PrecisionModel}.
  *
  * @version 1.7
  */
@@ -58,7 +58,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
   /**
    * Gets the buffer parameters being used to generate the curve.
    *
-   * @return the buffer parameters being used
+   * return the buffer parameters being used
    */
   def getBufferParameters: BufferParameters = bufParams
 
@@ -69,7 +69,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
    *
    * @param inputPts the vertices of the line to offset
    * @param distance the offset distance
-   * @return a Coordinate array representing the curve
+   * return a Coordinate array representing the curve
    *         or null if the curve is empty
    */
   def getLineCurve(inputPts: Array[Coordinate], distance: Double): Array[Coordinate] = {
@@ -97,7 +97,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
    * </ul>
    *
    * @param distance the offset curve distance
-   * @return true if the offset curve is empty
+   * return true if the offset curve is empty
    */
   def isLineOffsetEmpty(distance: Double): Boolean = { // a zero width buffer of a line or point is empty
     if (distance == 0.0) return true
@@ -114,7 +114,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
    * @param inputPts the coordinates of the ring (must not contain repeated points)
    * @param side     side the side { @link Position} of the ring on which to construct the buffer line
    * @param distance the positive distance at which to create the offset
-   * @return a Coordinate array representing the curve,
+   * return a Coordinate array representing the curve,
    *         or null if the curve is empty
    */
   def getRingCurve(inputPts: Array[Coordinate], side: Int, distance: Double): Array[Coordinate] = {
@@ -149,7 +149,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
    * line simplification.
    *
    * @param distance the buffer distance
-   * @return the simplification tolerance
+   * return the simplification tolerance
    */
   private def simplifyTolerance(bufDistance: Double) = bufDistance * bufParams.getSimplifyFactor
 

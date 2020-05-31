@@ -28,7 +28,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.math.DD
 
 /**
- * Implements basic computational geometry algorithms using {@link DD} arithmetic.
+ * Implements basic computational geometry algorithms using {link DD} arithmetic.
  *
  * @author Martin Davis
  *
@@ -41,9 +41,9 @@ object CGAlgorithmsDD {
    * @param p1 the origin point of the vector
    * @param p2 the final point of the vector
    * @param q  the point to compute the direction to
-   * @return 1 if q is counter-clockwise (left) from p1-p2
-   * @return -1 if q is clockwise (right) from p1-p2
-   * @return 0 if q is collinear with p1-p2
+   * return 1 if q is counter-clockwise (left) from p1-p2
+   * return -1 if q is clockwise (right) from p1-p2
+   * return 0 if q is collinear with p1-p2
    */
     def orientationIndex(p1: Coordinate, p2: Coordinate, q: Coordinate): Int = { // fast filter for orientation index
       // avoids use of slow extended-precision arithmetic in many cases
@@ -62,9 +62,9 @@ object CGAlgorithmsDD {
    * Computes the sign of the determinant of the 2x2 matrix
    * with the given entries.
    *
-   * @return -1 if the determinant is negative,
-   * @return 1 if the determinant is positive,
-   * @return 0 if the determinant is 0.
+   * return -1 if the determinant is negative,
+   * return 1 if the determinant is positive,
+   * return 0 if the determinant is 0.
    */
   def signOfDet2x2(x1: DD, y1: DD, x2: DD, y2: DD): Int = {
     val det = x1.multiply(y2).selfSubtract(y1.multiply(x2))
@@ -103,8 +103,8 @@ object CGAlgorithmsDD {
    * @param pa a coordinate
    * @param pb a coordinate
    * @param pc a coordinate
-   * @return the orientation index if it can be computed safely
-   * @return i > 1 if the orientation index cannot be computed safely
+   * return the orientation index if it can be computed safely
+   * return i > 1 if the orientation index cannot be computed safely
    */
   private def orientationIndexFilter(pa: Coordinate, pb: Coordinate, pc: Coordinate): Int = {
     var detsum = .0
@@ -137,7 +137,7 @@ object CGAlgorithmsDD {
    * @param p2 an endpoint of line segment 1
    * @param q1 an endpoint of line segment 2
    * @param q2 an endpoint of line segment 2
-   * @return an intersection point if one exists, or null if the lines are parallel
+   * return an intersection point if one exists, or null if the lines are parallel
    */
   def intersection(p1: Coordinate, p2: Coordinate, q1: Coordinate, q2: Coordinate): Coordinate = {
     val px = new DD(p1.y).selfSubtract(p2.y)

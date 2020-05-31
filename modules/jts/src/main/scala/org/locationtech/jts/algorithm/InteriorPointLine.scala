@@ -34,7 +34,7 @@ object InteriorPointLine {
    * linear components of a Geometry.
    *
    * @param geom the geometry to compute
-   * @return the computed interior point,
+   * return the computed interior point,
    *         or <code>null</code> if the geometry has no linear components
    */
     def getInteriorPoint(geom: Geometry): Coordinate = {

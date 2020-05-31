@@ -97,7 +97,7 @@ class Point(factory: GeometryFactory) extends Geometry(factory) with Puntal {
    * Zero-dimensional geometries have no boundary by definition,
    * so an empty GeometryCollection is returned.
    *
-   * @return an empty GeometryCollection
+   * return an empty GeometryCollection
    * @see Geometry#getBoundary
    */
   override def getBoundary: GeometryCollection = getFactory.createGeometryCollection
@@ -132,10 +132,10 @@ class Point(factory: GeometryFactory) extends Geometry(factory) with Puntal {
   override def applyF(filter: GeometryComponentFilter): Unit = filter.filter(this)
 
   /**
-   * Creates and returns a full copy of this {@link Point} object.
+   * Creates and returns a full copy of this {link Point} object.
    * (including all coordinates contained by it).
    *
-   * @return a clone of this instance
+   * return a clone of this instance
    * @deprecated
    */
   override def clone: AnyRef = copy

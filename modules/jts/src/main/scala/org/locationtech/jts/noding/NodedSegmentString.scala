@@ -20,7 +20,7 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence
 /**
  * Represents a list of contiguous line segments,
  * and supports noding the segments.
- * The line segments are represented by an array of {@link Coordinate}s.
+ * The line segments are represented by an array of {link Coordinate}s.
  * Intended to optimize the noding of contiguous segments by
  * reducing the number of allocated objects.
  * SegmentStrings can carry a context object, which is useful
@@ -31,10 +31,10 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence
  */
 object NodedSegmentString {
   /**
-   * Gets the {@link SegmentString}s which result from splitting this string at node points.
+   * Gets the {link SegmentString}s which result from splitting this string at node points.
    *
    * @param segStrings a Collection of NodedSegmentStrings
-   * @return a Collection of NodedSegmentStrings representing the substrings
+   * return a Collection of NodedSegmentStrings representing the substrings
    */
     def getNodedSubstrings(segStrings: util.Collection[NodedSegmentString]): util.ArrayList[NodedSegmentString] = {
       val resultEdgelist = new util.ArrayList[NodedSegmentString]
@@ -43,7 +43,7 @@ object NodedSegmentString {
     }
 
   /**
-   * Adds the noded {@link SegmentString}s which result from splitting this string at node points.
+   * Adds the noded {link SegmentString}s which result from splitting this string at node points.
    *
    * @param segStrings     a Collection of NodedSegmentStrings
    * @param resultEdgelist a List which will collect the NodedSegmentStrings representing the substrings
@@ -73,7 +73,7 @@ class NodedSegmentString(var pts: Array[Coordinate], var data: Any)
   /**
    * Gets the user-defined data for this segment string.
    *
-   * @return the user-defined data
+   * return the user-defined data
    */
   override def getData: Any = data
 
@@ -99,7 +99,7 @@ class NodedSegmentString(var pts: Array[Coordinate], var data: Any)
    *
    * @param index the index of the vertex starting the segment.  Must not be
    *              the last index in the vertex list
-   * @return the octant of the segment at the vertex
+   * return the octant of the segment at the vertex
    */
   def getSegmentOctant(index: Int): Int = {
     if (index == pts.length - 1) return -1
@@ -155,7 +155,7 @@ class NodedSegmentString(var pts: Array[Coordinate], var data: Any)
    *
    * @param intPt        the location of the intersection
    * @param segmentIndex the index of the segment containing the intersection
-   * @return the intersection node for the point
+   * return the intersection node for the point
    */
   def addIntersectionNode(intPt: Coordinate, segmentIndex: Int): SegmentNode = {
     var normalizedSegmentIndex = segmentIndex

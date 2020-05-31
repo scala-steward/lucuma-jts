@@ -12,7 +12,7 @@
 package org.locationtech.jts.algorithm
 
 /**
- * Indicates that a {@link HCoordinate} has been computed which is
+ * Indicates that a {link HCoordinate} has been computed which is
  * not representable on the Cartesian plane.
  *
  * @version 1.7

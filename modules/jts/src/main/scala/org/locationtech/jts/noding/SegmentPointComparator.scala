@@ -37,10 +37,10 @@ import org.locationtech.jts.util.Assert
  */
 object SegmentPointComparator {
   /**
-   * Compares two {@link Coordinate}s for their relative position along a segment
-   * lying in the specified {@link Octant}.
+   * Compares two {link Coordinate}s for their relative position along a segment
+   * lying in the specified {link Octant}.
    *
-   * @return -1 node0 occurs first;
+   * return -1 node0 occurs first;
    *         0 the two nodes are equal;
    *         1 node1 occurs first
    */

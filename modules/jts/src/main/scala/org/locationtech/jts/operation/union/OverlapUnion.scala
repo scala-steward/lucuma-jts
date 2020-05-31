@@ -85,7 +85,7 @@ object OverlapUnion {
    *
    * @param g0 a geometry to union
    * @param g1 a geometry to union
-   * @return the union of the inputs
+   * return the union of the inputs
    */
     def union(g0: Geometry, g1: Geometry): Geometry = {
       val union = new OverlapUnion(g0, g1)
@@ -106,7 +106,7 @@ object OverlapUnion {
    *
    * @param g0 a geometry
    * @param g1 a geometry
-   * @return the union of the geometries
+   * return the union of the geometries
    */
   private def unionBuffer(g0: Geometry, g1: Geometry): Geometry = {
     val factory = g0.getFactory
@@ -164,7 +164,7 @@ class OverlapUnion(var g0: Geometry, var g1: Geometry) {
    * Unions the input geometries,
    * using the more performant overlap union algorithm if possible.
    *
-   * @return the union of the inputs
+   * return the union of the inputs
    */
   def union: Geometry = {
     val overlapEnv = OverlapUnion.overlapEnvelope(g0, g1)
@@ -199,7 +199,7 @@ class OverlapUnion(var g0: Geometry, var g1: Geometry) {
    * or full union was performed.
    * Used for unit testing.
    *
-   * @return true if the optimized union was performed
+   * return true if the optimized union was performed
    */
   private[union] def isUnionOptimized = isUnionSafe
 

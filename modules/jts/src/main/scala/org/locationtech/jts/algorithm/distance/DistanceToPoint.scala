@@ -29,7 +29,7 @@ import org.locationtech.jts.geom.LineString
 import org.locationtech.jts.geom.Polygon
 
 /**
- * Computes the Euclidean distance (L2 metric) from a {@link Coordinate} to a {@link Geometry}.
+ * Computes the Euclidean distance (L2 metric) from a {link Coordinate} to a {link Geometry}.
  * Also computes two points on the geometry which are separated by the distance found.
  */
 object DistanceToPoint {

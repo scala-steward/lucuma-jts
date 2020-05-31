@@ -29,7 +29,7 @@ class Interval(var min: Double, var max: Double) {
   def getCentre: Double = (min + max) / 2
 
   /**
-   * @return this
+   * return this
    */
   def expandToInclude(other: Interval): Interval = {
     max = Math.max(max, other.max)

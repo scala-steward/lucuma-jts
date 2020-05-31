@@ -60,7 +60,7 @@ abstract class EdgeEndStar() {
   }
 
   /**
-   * @return the coordinate for the node this star is based at
+   * return the coordinate for the node this star is based at
    */
   def getCoordinate: Coordinate = {
     val it = iterator

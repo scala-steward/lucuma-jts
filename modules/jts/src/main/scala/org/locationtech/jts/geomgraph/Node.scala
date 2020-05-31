@@ -32,7 +32,7 @@ class Node(var coord: Coordinate // only non-null if this node is precise
    * This test can be used to determine if the node is in the result,
    * since if any incident edge is in the result, the node must be in the result as well.
    *
-   * @return <code>true</code> if any incident edge in the in the result
+   * return <code>true</code> if any incident edge in the in the result
    */
   def isIncidentEdgeInResult: Boolean = {
     val it = getEdges.getEdges.iterator

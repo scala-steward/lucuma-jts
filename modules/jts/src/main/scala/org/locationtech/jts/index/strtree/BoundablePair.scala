@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Envelope
 import org.locationtech.jts.util.PriorityQueue
 
 /**
- * A pair of {@link Boundable}s, whose leaf items
+ * A pair of {link Boundable}s, whose leaf items
  * support a distance metric between them.
  * Used to compute the distance between the members,
  * and to expand a member relative to the other
@@ -47,11 +47,11 @@ class BoundablePair(var boundable1: Boundable, var boundable2: Boundable, var it
   private val vdistance = distance
 
   /**
-   * Gets one of the member {@link Boundable}s in the pair
+   * Gets one of the member {link Boundable}s in the pair
    * (indexed by [0, 1]).
    *
    * @param i the index of the member to return (0 or 1)
-   * @return the chosen member
+   * return the chosen member
    */
   def getBoundable(i: Int): Boundable = {
     if (i == 0) return boundable1
@@ -62,18 +62,18 @@ class BoundablePair(var boundable1: Boundable, var boundable2: Boundable, var it
    * Computes the maximum distance between any
    * two items in the pair of nodes.
    *
-   * @return the maximum distance between items in the pair
+   * return the maximum distance between items in the pair
    */
   def maximumDistance: Double = EnvelopeDistance.maximumDistance(boundable1.getBounds.asInstanceOf[Envelope], boundable2.getBounds.asInstanceOf[Envelope])
 
   /**
-   * Computes the distance between the {@link Boundable}s in this pair.
+   * Computes the distance between the {link Boundable}s in this pair.
    * The boundables are either composites or leaves.
    * If either is composite, the distance is computed as the minimum distance
    * between the bounds.
-   * If both are leaves, the distance is computed by {@link #itemDistance(ItemBoundable, ItemBoundable)}.
+   * If both are leaves, the distance is computed by {link #itemDistance(ItemBoundable, ItemBoundable)}.
    *
-   * @return
+   * return
    */
   private def distance: Double = { // if items, compute exact distance
     if (isLeaves) return itemDistance.distance(boundable1.asInstanceOf[ItemBoundable], boundable2.asInstanceOf[ItemBoundable])
@@ -89,7 +89,7 @@ class BoundablePair(var boundable1: Boundable, var boundable2: Boundable, var it
    * Otherwise, this distance will be a lower bound on
    * the distances between the items in the members.
    *
-   * @return the exact or lower bound distance for this pair
+   * return the exact or lower bound distance for this pair
    */
   def getDistance: Double = vdistance
 
@@ -105,7 +105,7 @@ class BoundablePair(var boundable1: Boundable, var boundable2: Boundable, var it
   /**
    * Tests if both elements of the pair are leaf nodes
    *
-   * @return true if both pair elements are leaf nodes
+   * return true if both pair elements are leaf nodes
    */
   def isLeaves: Boolean = !(BoundablePair.isComposite(boundable1) || BoundablePair.isComposite(boundable2))
 

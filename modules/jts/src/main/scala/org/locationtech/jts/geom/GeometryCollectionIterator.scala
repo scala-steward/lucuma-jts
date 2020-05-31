@@ -15,7 +15,7 @@ import java.util
 import java.util.NoSuchElementException
 
 /**
- * Iterates over all {@link Geometry}s in a {@link Geometry},
+ * Iterates over all {link Geometry}s in a {link Geometry},
  * (which may be either a collection or an atomic geometry).
  * The iteration sequence follows a pre-order, depth-first traversal of the
  * structure of the <code>GeometryCollection</code>
@@ -35,12 +35,12 @@ class GeometryCollectionIterator(/**
                                   */
                                  var parent: Geometry)
 
-/**
- * Constructs an iterator over the given <code>Geometry</code>.
- *
- * @param  parent the geometry over which to iterate; also, the first
- *                element returned by the iterator.
- */
+// /**
+//  * Constructs an iterator over the given <code>Geometry</code>.
+//  *
+//  * @param  parent the geometry over which to iterate; also, the first
+//  *                element returned by the iterator.
+//  */
   extends util.Iterator[Geometry] {
   /**
    * Indicates whether or not the first element
@@ -69,7 +69,7 @@ class GeometryCollectionIterator(/**
   /**
    * Tests whether any geometry elements remain to be returned.
    *
-   * @return true if more geometry elements remain
+   * return true if more geometry elements remain
    */
   override def hasNext: Boolean = {
     if (atStart) return true
@@ -84,7 +84,7 @@ class GeometryCollectionIterator(/**
   /**
    * Gets the next geometry in the iteration sequence.
    *
-   * @return the next geometry in the iteration
+   * return the next geometry in the iteration
    */
   override def next: Geometry = { // the parent GeometryCollection is the first object returned
     if (atStart) {
@@ -111,7 +111,7 @@ class GeometryCollectionIterator(/**
   /**
    * Removal is not supported.
    *
-   * @throws  UnsupportedOperationException This method is not implemented.
+   * throws  UnsupportedOperationException This method is not implemented.
    */
   override def remove(): Unit = throw new UnsupportedOperationException(getClass.getName)
 }

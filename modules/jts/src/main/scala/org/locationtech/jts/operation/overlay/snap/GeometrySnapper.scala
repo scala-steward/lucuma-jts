@@ -30,7 +30,7 @@ import org.locationtech.jts.geom.PrecisionModel
 import org.locationtech.jts.geom.util.GeometryTransformer
 
 /**
- * Snaps the vertices and segments of a {@link Geometry}
+ * Snaps the vertices and segments of a {link Geometry}
  * to another Geometry's vertices.
  * A snap distance tolerance is used to control where snapping is performed.
  * Snapping one geometry to another can improve
@@ -55,7 +55,7 @@ object GeometrySnapper {
    * Estimates the snap tolerance for a Geometry, taking into account its precision model.
    *
    * @param g a Geometry
-   * @return the estimated snap tolerance
+   * return the estimated snap tolerance
    */
   def computeOverlaySnapTolerance(g: Geometry): Double = {
     var snapTolerance = computeSizeBasedSnapTolerance(g)
@@ -91,7 +91,7 @@ object GeometrySnapper {
    * @param g0            a geometry to snap
    * @param g1            a geometry to snap
    * @param snapTolerance the tolerance to use
-   * @return the snapped geometries
+   * return the snapped geometries
    */
   def snap(g0: Geometry, g1: Geometry, snapTolerance: Double): Array[Geometry] = {
     val snapGeom = new Array[Geometry](2)
@@ -119,7 +119,7 @@ object GeometrySnapper {
    * @param geom          the geometry to snap
    * @param snapTolerance the snapping tolerance
    * @param cleanResult   whether the result should be made valid
-   * @return a new snapped Geometry
+   * return a new snapped Geometry
    */
   def snapToSelf(geom: Geometry, snapTolerance: Double, cleanResult: Boolean): Geometry = {
     val snapper0 = new GeometrySnapper(geom)
@@ -134,32 +134,32 @@ class GeometrySnapper(var srcGeom: Geometry) {
  *
  * @param srcGeom the geometry to snap
  */
-  /**
-   * Snaps the vertices in the component {@link LineString}s
-   * of the source geometry
-   * to the vertices of the given snap geometry.
-   *
-   * @param snapGeom a geometry to snap the source to
-   * @return a new snapped Geometry
-   */
+  // /**
+  //  * Snaps the vertices in the component {link LineString}s
+  //  * of the source geometry
+  //  * to the vertices of the given snap geometry.
+  //  *
+  //  * @param snapGeom a geometry to snap the source to
+  //  * return a new snapped Geometry
+  //  */
   def snapTo(snapGeom: Geometry, snapTolerance: Double): Geometry = {
     val snapPts = extractTargetCoordinates(snapGeom)
     val snapTrans = new SnapTransformer(snapTolerance, snapPts)
     snapTrans.transform(srcGeom)
   }
 
-  /**
-   * Snaps the vertices in the component {@link LineString}s
-   * of the source geometry
-   * to the vertices of the same geometry.
-   * Allows optionally cleaning the result to ensure it is
-   * topologically valid
-   * (which fixes issues such as topology collapses in polygonal inputs).
-   *
-   * @param snapTolerance the snapping tolerance
-   * @param cleanResult   whether the result should be made valid
-   * @return a new snapped Geometry
-   */
+  // /**
+  //  * Snaps the vertices in the component {link LineString}s
+  //  * of the source geometry
+  //  * to the vertices of the same geometry.
+  //  * Allows optionally cleaning the result to ensure it is
+  //  * topologically valid
+  //  * (which fixes issues such as topology collapses in polygonal inputs).
+  //  *
+  //  * @param snapTolerance the snapping tolerance
+  //  * @param cleanResult   whether the result should be made valid
+  //  * return a new snapped Geometry
+  //  */
   def snapToSelf(snapTolerance: Double, cleanResult: Boolean): Geometry = {
     val snapPts = extractTargetCoordinates(srcGeom)
     val snapTrans = new SnapTransformer(snapTolerance, snapPts, true)
@@ -184,12 +184,12 @@ class GeometrySnapper(var srcGeom: Geometry) {
     ptSet.toArray(new Array[Coordinate](0))
   }
 
-  /**
-   * Computes the snap tolerance based on the input geometries.
-   *
-   * @param ringPts
-   * @return
-   */
+  // /**
+  //  * Computes the snap tolerance based on the input geometries.
+  //  *
+  //  * @param ringPts
+  //  * return
+  //  */
 //  private def computeSnapTolerance(ringPts: Array[Coordinate]) = {
 //    val minSegLen = computeMinimumSegmentLength(ringPts)
 //    // use a small percentage of this to be safe

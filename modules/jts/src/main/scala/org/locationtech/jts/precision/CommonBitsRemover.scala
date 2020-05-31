@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.Geometry
 
 /**
  * Removes common most-significant mantissa bits
- * from one or more {@link Geometry}s.
+ * from one or more {link Geometry}s.
  * <p>
  * The CommonBitsRemover "scavenges" precision
  * which is "wasted" by a large displacement of the geometry
@@ -105,7 +105,7 @@ class CommonBitsRemover() {
    * The coordinates of the Geometry are changed.
    *
    * @param geom the Geometry from which to remove the common coordinate bits
-   * @return the shifted Geometry
+   * return the shifted Geometry
    */
   def removeCommonBits(geom: Geometry): Geometry = {
     if ((commonCoord.x == 0.0) && (commonCoord.y == 0.0)) return geom

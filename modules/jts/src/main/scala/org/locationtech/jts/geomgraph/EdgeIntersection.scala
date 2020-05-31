@@ -39,9 +39,9 @@ class EdgeIntersection(val coordArg: Coordinate, var segmentIndex: Int // the in
   }
 
   /**
-   * @return -1 this EdgeIntersection is located before the argument location
-   * @return 0 this EdgeIntersection is at the argument location
-   * @return 1 this EdgeIntersection is located after the argument location
+   * return -1 this EdgeIntersection is located before the argument location
+   * return 0 this EdgeIntersection is at the argument location
+   * return 1 this EdgeIntersection is located after the argument location
    */
   def compare(segmentIndex: Int, dist: Double): Int = {
     if (this.segmentIndex < segmentIndex) return -1

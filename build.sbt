@@ -11,14 +11,20 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
   .in(file("modules/jts"))
   .settings(
     name := "gpp-jts",
-    publishArtifact in (Compile, packageDoc) := false,
+    // publishArtifact in (Compile, packageDoc) := false,
+    scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
+      Set(
+        "-Werror"
+      )
+    )),
     scalacOptions ~= (_.filterNot(
       Set(
         // By necessity facades will have unused params
         "-Wdead-code",
         "-Wunused:params",
         "-Ywarn-dead-code",
-        "-Ywarn-unused:params"
+        "-Ywarn-unused:params",
+        "-Werror"
       )))
   )
 
@@ -27,13 +33,19 @@ lazy val jts_awt = project
   .settings(
     name := "gpp-jts-awt",
     publishArtifact in (Compile, packageDoc) := false,
+    scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
+      Set(
+        "-Werror"
+      )
+    )),
     scalacOptions ~= (_.filterNot(
       Set(
         // By necessity facades will have unused params
         "-Wdead-code",
         "-Wunused:params",
         "-Ywarn-dead-code",
-        "-Ywarn-unused:params"
+        "-Ywarn-unused:params",
+        "-Werror"
       )))
   )
   .dependsOn(jts.jvm)

@@ -53,13 +53,13 @@ object SubgraphDepthLocater {
      *
      * KNOWN BUGS:
      * <ul>
-     * <li>The logic does not obey the {@link Comparator.compareTo} contract.
+     * <li>The logic does not obey the {link Comparator.compareTo} contract.
      * This is acceptable for the intended usage, but may cause problems if used with some
-     * utilities in the Java standard library (e.g. {@link Collections.sort()}.
+     * utilities in the Java standard library (e.g. {link Collections.sort()}.
      * </ul>
      *
      * @param obj a DepthSegment
-     * @return the comparison value
+     * return the comparison value
      */
     override def compareTo(other: DepthSegment): Int = {
       // fast check if segments are trivially ordered along X
@@ -92,7 +92,7 @@ object SubgraphDepthLocater {
      *
      * @param seg0 a segment to compare
      * @param seg1 a segment to compare
-     * @return
+     * return
      */
 //    private def compareX(seg0: LineSegment, seg1: LineSegment): Int = {
 //      val compare0 = seg0.p0.compareTo(seg1.p0)
@@ -121,7 +121,7 @@ class SubgraphDepthLocater(var subgraphs: util.Collection[BufferSubgraph]) {
    * The stabbing line is the ray to the right of stabbingRayLeftPt.
    *
    * @param stabbingRayLeftPt the left-hand origin of the stabbing line
-   * @return a List of { @link DepthSegments} intersecting the stabbing line
+   * return a List of { @link DepthSegments} intersecting the stabbing line
    */
   private def findStabbedSegments(stabbingRayLeftPt: Coordinate): util.List[DepthSegment] = {
     val stabbedSegments = new util.ArrayList[DepthSegment]

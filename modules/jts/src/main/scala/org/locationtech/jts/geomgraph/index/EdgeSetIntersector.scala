@@ -27,7 +27,7 @@ import org.locationtech.jts.geomgraph.Edge
  * <li>determining the internal intersections between a single set of edges
  * <li>determining the mutual intersections between two different sets of edges
  * </ul>
- * It uses a {@link SegmentIntersector} to compute the intersections between
+ * It uses a {link SegmentIntersector} to compute the intersections between
  * segments and to record statistics about what kinds of intersections were found.
  *
  * @version 1.7

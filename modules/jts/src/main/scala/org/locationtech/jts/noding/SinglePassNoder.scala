@@ -14,9 +14,9 @@ package org.locationtech.jts.noding
 import java.util
 
 /**
- * Base class for {@link Noder}s which make a single
+ * Base class for  Noder}s which make a single
  * pass to find intersections.
- * This allows using a custom {@link SegmentIntersector}
+ * This allows using a custom  SegmentIntersector}
  * (which for instance may simply identify intersections, rather than
  * insert them).
  *
@@ -42,7 +42,7 @@ abstract class SinglePassNoder[A](var segInt: SegmentIntersector) extends Noder[
   def setSegmentIntersector(segInt: SegmentIntersector): Unit = this.segInt = segInt
 
   /**
-   * Computes the noding for a collection of {@link SegmentString}s.
+   * Computes the noding for a collection of  SegmentString}s.
    * Some Noders may add all these nodes to the input SegmentStrings;
    * others may only add some or none at all.
    *
@@ -51,10 +51,10 @@ abstract class SinglePassNoder[A](var segInt: SegmentIntersector) extends Noder[
   override def computeNodes(segStrings: util.Collection[A]): Unit
 
   /**
-   * Returns a {@link Collection} of fully noded {@link SegmentString}s.
+   * Returns a  Collection} of fully noded  SegmentString}s.
    * The SegmentStrings have the same context as their parent.
    *
-   * @return a Collection of SegmentStrings
+   * return a Collection of SegmentStrings
    */
   override def getNodedSubstrings: util.Collection[A]
 }

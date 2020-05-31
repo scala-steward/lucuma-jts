@@ -31,8 +31,8 @@ import org.locationtech.jts.geomgraph.Edge
 import org.locationtech.jts.util.Assert
 
 /**
- * Forms JTS LineStrings out of a the graph of {@link DirectedEdge}s
- * created by an {@link OverlayOp}.
+ * Forms JTS LineStrings out of a the graph of {link DirectedEdge}s
+ * created by an {link OverlayOp}.
  *
  * @version 1.7
  */
@@ -41,7 +41,7 @@ class LineBuilder(var op: OverlayOp, var geometryFactory: GeometryFactory, var p
   private val resultLineList = new util.ArrayList[LineString]
 
   /**
-   * @return a list of the LineStrings in the result of the specified overlay operation
+   * return a list of the LineStrings in the result of the specified overlay operation
    */
   def build(opCode: Int): util.ArrayList[LineString] = {
     findCoveredLineEdges()

@@ -29,7 +29,7 @@ package org.locationtech.jts.geom
  * <p>
  * This data object is suitable for use with coordinate sequences with <tt>dimension</tt> = 2.
  * <p>
- * The {@link Coordinate#z} field is visible, but intended to be ignored.
+ * The {link Coordinate#z} field is visible, but intended to be ignored.
  *
  * @since 1.16
  */
@@ -71,7 +71,7 @@ class CoordinateXY(xArg: Double, yArg: Double)
   /**
    * Creates a copy of this CoordinateXY.
    *
-   * @return a copy of this CoordinateXY
+   * return a copy of this CoordinateXY
    */
   override def copy = new CoordinateXY(this)
 

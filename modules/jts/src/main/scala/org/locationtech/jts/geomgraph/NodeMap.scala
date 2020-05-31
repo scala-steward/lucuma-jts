@@ -63,7 +63,7 @@ class NodeMap(var nodeFact: NodeFactory) {
   }
 
   /**
-   * @return the node if found; null otherwise
+   * return the node if found; null otherwise
    */
   def find(coord: Coordinate): Node = nodeMap.get(coord).orNull
 

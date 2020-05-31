@@ -38,7 +38,7 @@ import scala.jdk.CollectionConverters._
  * input geometries or collections,
  * recording the dimension found.
  * Empty geometries are discarded since they
- * do not contribute to the result of {@link UnaryUnionOp}.
+ * do not contribute to the result of {link UnaryUnionOp}.
  *
  * @author Martin Davis
  *
@@ -48,7 +48,7 @@ object InputExtracter {
    * Extracts elements from a collection of geometries.
    *
    * @param geoms a collection of geometries
-   * @return an extracter over the geometries
+   * return an extracter over the geometries
    */
     def extract(geoms: util.Collection[Geometry]): InputExtracter = {
       val extracter = new InputExtracter
@@ -60,7 +60,7 @@ object InputExtracter {
    * Extracts elements from a geometry.
    *
    * @param geoms a geometry to extract from
-   * @return an extracter over the geometry
+   * return an extracter over the geometry
    */
   def extract(geom: Geometry): InputExtracter = {
     val extracter = new InputExtracter
@@ -82,14 +82,14 @@ class InputExtracter() extends GeometryFilter {
   /**
    * Tests whether there were any non-empty geometries extracted.
    *
-   * @return true if there is a non-empty geometry present
+   * return true if there is a non-empty geometry present
    */
   def isEmpty: Boolean = polygons.isEmpty && lines.isEmpty && points.isEmpty
 
   /**
    * Gets the maximum dimension extracted.
    *
-   * @return the maximum extracted dimension
+   * return the maximum extracted dimension
    */
   def getDimension: Int = dimension
 
@@ -98,7 +98,7 @@ class InputExtracter() extends GeometryFilter {
    * if there is one.
    * If an empty collection was extracted, will return <code>null</code>.
    *
-   * @return a geometry factory, or null if one could not be determined
+   * return a geometry factory, or null if one could not be determined
    */
   def getFactory: GeometryFactory = geomFactory
 
@@ -106,7 +106,7 @@ class InputExtracter() extends GeometryFilter {
    * Gets the extracted atomic geometries of the given dimension <code>dim</code>.
    *
    * @param dim the dimension of geometry to return
-   * @return a list of the extracted geometries of dimension dim.
+   * return a list of the extracted geometries of dimension dim.
    */
   def getExtract(dim: Int): util.List[Geometry] = {
     dim match {

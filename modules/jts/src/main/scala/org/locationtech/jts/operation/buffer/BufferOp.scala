@@ -30,52 +30,52 @@ import org.locationtech.jts.math.MathUtil
 import org.locationtech.jts.noding.ScaledNoder
 import org.locationtech.jts.noding.snaprounder.MCIndexSnapRounder
 //import debug.*;
-/**
- * Computes the buffer of a geometry, for both positive and negative buffer distances.
- * <p>
- * In GIS, the positive (or negative) buffer of a geometry is defined as
- * the Minkowski sum (or difference) of the geometry
- * with a circle of radius equal to the absolute value of the buffer distance.
- * In the CAD/CAM world buffers are known as <i>offset curves</i>.
- * In morphological analysis the
- * operation of positive and negative buffering
- * is referred to as <i>erosion</i> and <i>dilation</i>
- * <p>
- * The buffer operation always returns a polygonal result.
- * The negative or zero-distance buffer of lines and points is always an empty {@link Polygon}.
- * <p>
- * Since true buffer curves may contain circular arcs,
- * computed buffer polygons are only approximations to the true geometry.
- * The user can control the accuracy of the approximation by specifying
- * the number of linear segments used to approximate arcs.
- * This is specified via {@link BufferParameters#setQuadrantSegments(int)} or {@link #setQuadrantSegments(int)}.
- * <p>
- * The <b>end cap style</b> of a linear buffer may be {@link BufferParameters#setEndCapStyle(int) specified}. The
- * following end cap styles are supported:
- * <ul>
- * <li>{@link BufferParameters#CAP_ROUND} - the usual round end caps
- * <li>{@link BufferParameters#CAP_FLAT} - end caps are truncated flat at the line ends
- * <li>{@link BufferParameters#CAP_SQUARE} - end caps are squared off at the buffer distance beyond the line ends
- * </ul>
- * <p>
- * The <b>join style</b> of the corners in a buffer may be {@link BufferParameters#setJoinStyle(int) specified}. The
- * following join styles are supported:
- * <ul>
- * <li>{@link BufferParameters#JOIN_ROUND} - the usual round join
- * <li>{@link BufferParameters#JOIN_MITRE} - corners are "sharp" (up to a {@link BufferParameters#getMitreLimit() distance limit})
- * <li>{@link BufferParameters#JOIN_BEVEL} - corners are beveled (clipped off).
- * </ul>
- * <p>
- * The buffer algorithm can perform simplification on the input to increase performance.
- * The simplification is performed a way that always increases the buffer area
- * (so that the simplified input covers the original input).
- * The degree of simplification can be {@link BufferParameters#setSimplifyFactor(double) specified},
- * with a {@link BufferParameters#DEFAULT_SIMPLIFY_FACTOR default} used otherwise.
- * Note that if the buffer distance is zero then so is the computed simplify tolerance,
- * no matter what the simplify factor.
- *
- * @version 1.7
- */
+// /**
+//  * Computes the buffer of a geometry, for both positive and negative buffer distances.
+//  * <p>
+//  * In GIS, the positive (or negative) buffer of a geometry is defined as
+//  * the Minkowski sum (or difference) of the geometry
+//  * with a circle of radius equal to the absolute value of the buffer distance.
+//  * In the CAD/CAM world buffers are known as <i>offset curves</i>.
+//  * In morphological analysis the
+//  * operation of positive and negative buffering
+//  * is referred to as <i>erosion</i> and <i>dilation</i>
+//  * <p>
+//  * The buffer operation always returns a polygonal result.
+//  * The negative or zero-distance buffer of lines and points is always an empty {link Polygon}.
+//  * <p>
+//  * Since true buffer curves may contain circular arcs,
+//  * computed buffer polygons are only approximations to the true geometry.
+//  * The user can control the accuracy of the approximation by specifying
+//  * the number of linear segments used to approximate arcs.
+//  * This is specified via {link BufferParameters#setQuadrantSegments(int)} or {link #setQuadrantSegments(int)}.
+//  * <p>
+//  * The <b>end cap style</b> of a linear buffer may be {link BufferParameters#setEndCapStyle(int) specified}. The
+//  * following end cap styles are supported:
+//  * <ul>
+//  * <li>{link BufferParameters#CAP_ROUND} - the usual round end caps
+//  * <li>{link BufferParameters#CAP_FLAT} - end caps are truncated flat at the line ends
+//  * <li>{link BufferParameters#CAP_SQUARE} - end caps are squared off at the buffer distance beyond the line ends
+//  * </ul>
+//  * <p>
+//  * The <b>join style</b> of the corners in a buffer may be {link BufferParameters#setJoinStyle(int) specified}. The
+//  * following join styles are supported:
+//  * <ul>
+//  * <li>{link BufferParameters#JOIN_ROUND} - the usual round join
+//  * <li>{link BufferParameters#JOIN_MITRE} - corners are "sharp" (up to a {link BufferParameters#getMitreLimit() distance limit})
+//  * <li>{link BufferParameters#JOIN_BEVEL} - corners are beveled (clipped off).
+//  * </ul>
+//  * <p>
+//  * The buffer algorithm can perform simplification on the input to increase performance.
+//  * The simplification is performed a way that always increases the buffer area
+//  * (so that the simplified input covers the original input).
+//  * The degree of simplification can be {link BufferParameters#setSimplifyFactor(double) specified},
+//  * with a {link BufferParameters#DEFAULT_SIMPLIFY_FACTOR default} used otherwise.
+//  * Note that if the buffer distance is zero then so is the computed simplify tolerance,
+//  * no matter what the simplify factor.
+//  *
+//  * @version 1.7
+//  */
 object BufferOp {
   /**
    * Specifies a round line buffer end cap style.
@@ -118,7 +118,7 @@ object BufferOp {
    * @param distance           the buffer distance
    * @param maxPrecisionDigits the max # of digits that should be allowed by
    *                           the precision determined by the computed scale factor
-   * @return a scale factor for the buffer computation
+   * return a scale factor for the buffer computation
    */
   private def precisionScaleFactor(g: Geometry, distance: Double, maxPrecisionDigits: Int) = {
     val env = g.getEnvelopeInternal
@@ -138,7 +138,7 @@ object BufferOp {
    *
    * @param g        the geometry to buffer
    * @param distance the buffer distance
-   * @return the buffer of the input geometry
+   * return the buffer of the input geometry
    */
   def bufferOp(g: Geometry, distance: Double): Geometry = {
     val gBuf = new BufferOp(g)
@@ -155,7 +155,7 @@ object BufferOp {
    * @param g        the geometry to buffer
    * @param distance the buffer distance
    * @param params   the buffer parameters to use
-   * @return the buffer of the input geometry
+   * return the buffer of the input geometry
    *
    */
   def bufferOp(g: Geometry, distance: Double, params: BufferParameters): Geometry = {
@@ -171,7 +171,7 @@ object BufferOp {
    * @param g                the geometry to buffer
    * @param distance         the buffer distance
    * @param quadrantSegments the number of segments used to approximate a quarter circle
-   * @return the buffer of the input geometry
+   * return the buffer of the input geometry
    *
    */
   def bufferOp(g: Geometry, distance: Double, quadrantSegments: Int): Geometry = {
@@ -189,7 +189,7 @@ object BufferOp {
    * @param distance         the buffer distance
    * @param quadrantSegments the number of segments used to approximate a quarter circle
    * @param endCapStyle      the end cap style to use
-   * @return the buffer of the input geometry
+   * return the buffer of the input geometry
    *
    */
   def bufferOp(g: Geometry, distance: Double, quadrantSegments: Int, endCapStyle: Int): Geometry = {
@@ -231,7 +231,7 @@ class BufferOp(g: Geometry, bufParams: BufferParameters = new BufferParameters()
 
   /**
    * Specifies the end cap style of the generated buffer.
-   * The styles supported are {@link BufferParameters#CAP_ROUND}, {@link BufferParameters#CAP_FLAT}, and {@link BufferParameters#CAP_SQUARE}.
+   * The styles supported are {link BufferParameters#CAP_ROUND}, {link BufferParameters#CAP_FLAT}, and {link BufferParameters#CAP_SQUARE}.
    * The default is CAP_ROUND.
    *
    * @param endCapStyle the end cap style to specify
@@ -249,7 +249,7 @@ class BufferOp(g: Geometry, bufParams: BufferParameters = new BufferParameters()
    * Returns the buffer computed for a geometry for a given buffer distance.
    *
    * @param distance the buffer distance
-   * @return the buffer of the input geometry
+   * return the buffer of the input geometry
    */
   def getResultGeometry(distance: Double): Geometry = {
     this.distance = distance

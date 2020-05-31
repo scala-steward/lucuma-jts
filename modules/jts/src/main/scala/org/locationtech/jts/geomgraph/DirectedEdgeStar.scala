@@ -353,7 +353,7 @@ class DirectedEdgeStar() extends EdgeEndStar {
   /**
    * Compute the DirectedEdge depths for a subsequence of the edge array.
    *
-   * @return the last depth assigned (from the R side of the last edge visited)
+   * return the last depth assigned (from the R side of the last edge visited)
    */
   private def computeDepths(startIndex: Int, endIndex: Int, startDepth: Int): Int = {
     var currDepth = startDepth

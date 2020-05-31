@@ -26,29 +26,29 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geomgraph.Quadrant
 
 /**
- * Constructs {@link MonotoneChain}s
- * for sequences of {@link Coordinate}s.
+ * Constructs {link MonotoneChain}s
+ * for sequences of {link Coordinate}s.
  *
  * @version 1.7
  */
 object MonotoneChainBuilder {
   /**
-   * Computes a list of the {@link MonotoneChain}s
+   * Computes a list of the {link MonotoneChain}s
    * for a list of coordinates.
    *
    * @param pts the list of points to compute chains for
-   * @return a list of the monotone chains for the points
+   * return a list of the monotone chains for the points
    */
     def getChains(pts: Array[Coordinate]): util.ArrayList[MonotoneChain] = getChains(pts, null)
 
   /**
-   * Computes a list of the {@link MonotoneChain}s
+   * Computes a list of the {link MonotoneChain}s
    * for a list of coordinates,
    * attaching a context data object to each.
    *
    * @param pts     the list of points to compute chains for
    * @param context a data object to attach to each chain
-   * @return a list of the monotone chains for the points
+   * return a list of the monotone chains for the points
    */
   def getChains(pts: Array[Coordinate], context: Any): util.ArrayList[MonotoneChain] = {
     val mcList = new util.ArrayList[MonotoneChain]
@@ -72,7 +72,7 @@ object MonotoneChainBuilder {
    *
    * @param pts   the points to scan
    * @param start the index of the start of this chain
-   * @return the index of the last point in the monotone chain
+   * return the index of the last point in the monotone chain
    *         starting at <code>start</code>.
    */
   private def findChainEnd(pts: Array[Coordinate], start: Int): Int = {

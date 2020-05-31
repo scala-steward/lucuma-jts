@@ -29,8 +29,8 @@ import org.locationtech.jts.noding.NodedSegmentString
 import org.locationtech.jts.noding.SegmentString
 
 /**
- * "Snaps" all {@link SegmentString}s in a {@link SpatialIndex} containing
- * {@link MonotoneChain}s to a given {@link HotPixel}.
+ * "Snaps" all {link SegmentString}s in a {link SpatialIndex} containing
+ * {link MonotoneChain}s to a given {link HotPixel}.
  *
  * @version 1.7
  */
@@ -45,7 +45,7 @@ object MCIndexPointSnapper {
      * segmentString (including its own). If so, the HotPixel must be added as a
      * node as well.
      *
-     * @return true if a node was added in any target segmentString.
+     * return true if a node was added in any target segmentString.
      */
     def isNodeAdded: Boolean = visNodeAdded
 
@@ -91,7 +91,7 @@ class MCIndexPointSnapper(val vindex: SpatialIndex[Any]) {
    * @param hotPixel            the hot pixel to snap to
    * @param parentEdge          the edge containing the vertex, if applicable, or <code>null</code>
    * @param hotPixelVertexIndex the index of the hotPixel vertex, if applicable, or -1
-   * @return <code>true</code> if a node was added for this pixel
+   * return <code>true</code> if a node was added for this pixel
    */
   def snap(hotPixel: HotPixel, parentEdge: SegmentString, hotPixelVertexIndex: Int): Boolean = {
 

@@ -18,7 +18,7 @@ import org.locationtech.jts.algorithm.Orientation
 /**
  * Represents a polygon with linear edges, which may include holes.
  * The outer boundary (shell)
- * and inner boundaries (holes) of the polygon are represented by {@link LinearRing}s.
+ * and inner boundaries (holes) of the polygon are represented by {link LinearRing}s.
  * The boundary rings of the polygon may have any orientation.
  * Polygons are closed, simple geometries by definition.
  * <p>
@@ -44,24 +44,24 @@ import org.locationtech.jts.algorithm.Orientation
 @SerialVersionUID(-3494792200821764533L)
 class Polygon(val shellArg: LinearRing,
 
-              /**
-               * The interior boundaries, if any.
-               * This instance var is never null.
-               * If there are no holes, the array is of zero length.
-               */
+              // /**
+              //  * The interior boundaries, if any.
+              //  * This instance var is never null.
+              //  * If there are no holes, the array is of zero length.
+              //  */
               var holes: Array[LinearRing], override val factory: GeometryFactory)
 
-/**
- * Constructs a <code>Polygon</code> with the given exterior boundary and
- * interior boundaries.
- *
- * @param  shell the outer boundary of the new <code>Polygon</code>,
- *               or <code>null</code> or an empty <code>LinearRing</code> if the empty
- *               geometry is to be created.
- * @param  holes the inner boundaries of the new <code>Polygon</code>
- *               , or <code>null</code> or empty <code>LinearRing</code>s if the empty
- *               geometry is to be created.
- */
+// /**
+//  * Constructs a <code>Polygon</code> with the given exterior boundary and
+//  * interior boundaries.
+//  *
+//  * @param  shell the outer boundary of the new <code>Polygon</code>,
+//  *               or <code>null</code> or an empty <code>LinearRing</code> if the empty
+//  *               geometry is to be created.
+//  * @param  holes the inner boundaries of the new <code>Polygon</code>
+//  *               , or <code>null</code> or empty <code>LinearRing</code>s if the empty
+//  *               geometry is to be created.
+//  */
   extends Geometry(factory) with Polygonal {
   var shell: LinearRing = if (shellArg == null) getFactory.createLinearRing else shellArg
   if (holes == null) holes = Array.empty[LinearRing]
@@ -208,7 +208,7 @@ class Polygon(val shellArg: LinearRing,
   /**
    * Returns the area of this <code>Polygon</code>
    *
-   * @return the area of the polygon
+   * return the area of the polygon
    */
   override def getArea: Double = {
     var area = 0.0
@@ -226,7 +226,7 @@ class Polygon(val shellArg: LinearRing,
   /**
    * Returns the perimeter of this <code>Polygon</code>
    *
-   * @return the perimeter of the polygon
+   * return the perimeter of the polygon
    */
   override def getLength: Double = {
     var len = 0.0
@@ -244,7 +244,7 @@ class Polygon(val shellArg: LinearRing,
   /**
    * Computes the boundary of this geometry
    *
-   * @return a lineal geometry (which may be empty)
+   * return a lineal geometry (which may be empty)
    * @see Geometry#getBoundary
    */
   override def getBoundary: Geometry = {
@@ -326,10 +326,10 @@ class Polygon(val shellArg: LinearRing,
     }
 
     /**
-     * Creates and returns a full copy of this {@link Polygon} object.
+     * Creates and returns a full copy of this {link Polygon} object.
      * (including all coordinates contained by it).
      *
-     * @return a clone of this instance
+     * return a clone of this instance
      * @deprecated
      */
     override def clone: Geometry = copy

@@ -17,7 +17,7 @@ import org.locationtech.jts.geom.GeometryCollection
 import org.locationtech.jts.geom.GeometryFilter
 
 /**
- * Extracts the components of a given type from a {@link Geometry}.
+ * Extracts the components of a given type from a {link Geometry}.
  *
  * @version 1.7
  */
@@ -28,8 +28,8 @@ object GeometryExtracter {
   }
 
   /**
-   * Extracts the components of type <tt>clz</tt> from a {@link Geometry}
-   * and adds them to the provided {@link List}.
+   * Extracts the components of type <tt>clz</tt> from a {link Geometry}
+   * and adds them to the provided {link List}.
    *
    * @param geom the geometry from which to extract
    * @param list the list to add the extracted elements to
@@ -42,8 +42,8 @@ object GeometryExtracter {
   }
 
   /**
-   * Extracts the components of type <tt>clz</tt> from a {@link Geometry}
-   * and returns them in a {@link List}.
+   * Extracts the components of type <tt>clz</tt> from a {link Geometry}
+   * and returns them in a {link List}.
    *
    * @param geom the geometry from which to extract
    */

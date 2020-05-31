@@ -22,7 +22,7 @@
 package org.locationtech.jts.index
 
 /**
- * A visitor for items in a {@link SpatialIndex}.
+ * A visitor for items in a {link SpatialIndex}.
  *
  * @version 1.7
  */

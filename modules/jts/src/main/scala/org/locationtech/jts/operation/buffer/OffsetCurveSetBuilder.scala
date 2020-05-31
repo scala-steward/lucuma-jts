@@ -37,7 +37,7 @@ import org.locationtech.jts.geomgraph.Position
 import org.locationtech.jts.noding.{NodedSegmentString, SegmentString}
 
 /**
- * Creates all the raw offset curves for a buffer of a {@link Geometry}.
+ * Creates all the raw offset curves for a buffer of a {link Geometry}.
  * Raw curves need to be noded together and polygonized to form the final buffer area.
  *
  * @version 1.7
@@ -45,20 +45,20 @@ import org.locationtech.jts.noding.{NodedSegmentString, SegmentString}
 class OffsetCurveSetBuilder(var inputGeom: Geometry, var distance: Double, var curveBuilder: OffsetCurveBuilder) {
   private val curveList = new util.ArrayList[SegmentString]
 
-  /**
-   * Computes the set of raw offset curves for the buffer.
-   * Each offset curve has an attached {@link Label} indicating
-   * its left and right location.
-   *
-   * @return a Collection of SegmentStrings representing the raw buffer curves
-   */
+  // /**
+  //  * Computes the set of raw offset curves for the buffer.
+  //  * Each offset curve has an attached {link Label} indicating
+  //  * its left and right location.
+  //  *
+  //  * return a Collection of SegmentStrings representing the raw buffer curves
+  //  */
   def getCurves: util.List[SegmentString] = {
     add(inputGeom)
     curveList
   }
 
   /**
-   * Creates a {@link SegmentString} for a coordinate list which is a raw offset curve,
+   * Creates a {link SegmentString} for a coordinate list which is a raw offset curve,
    * and adds it to the list of buffer curves.
    * The SegmentString is tagged with a Label giving the topology of the curve.
    * The curve may be oriented in either direction.
@@ -210,7 +210,7 @@ class OffsetCurveSetBuilder(var inputGeom: Geometry, var distance: Double, var c
      *
      * @param ringCoord
      * @param offsetDistance
-     * @return
+     * return
      */
     private def isErodedCompletely(ring: LinearRing, bufferDistance: Double): Boolean = {
       val ringCoord = ring.getCoordinates
@@ -260,7 +260,7 @@ class OffsetCurveSetBuilder(var inputGeom: Geometry, var distance: Double, var c
      *
      * @param triangleCoord
      * @param bufferDistance
-     * @return
+     * return
      */
     private def isTriangleErodedCompletely(triangleCoord: Array[Coordinate], bufferDistance: Double) = {
       val tri = new Triangle(triangleCoord(0), triangleCoord(1), triangleCoord(2))

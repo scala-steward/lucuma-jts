@@ -36,8 +36,8 @@ import org.locationtech.jts.geom.Point
 import org.locationtech.jts.geom.Polygon
 
 /**
- * A framework for processes which transform an input {@link Geometry} into
- * an output {@link Geometry}, possibly changing its structure and type(s).
+ * A framework for processes which transform an input {link Geometry} into
+ * an output {link Geometry}, possibly changing its structure and type(s).
  * This class is a framework for implementing subclasses
  * which perform transformations on
  * various different Geometry subclasses.
@@ -51,7 +51,7 @@ import org.locationtech.jts.geom.Polygon
  * A typically usage would be a transformation class that transforms <tt>Polygons</tt> into
  * <tt>Polygons</tt>, <tt>LineStrings</tt> or <tt>Points</tt>, depending on the geometry of the input
  * (For instance, a simplification operation).
- * This class would likely need to override the {@link #transformMultiPolygon(MultiPolygon, Geometry)}
+ * This class would likely need to override the {link #transformMultiPolygon(MultiPolygon, Geometry)}
  * method to ensure that if input Polygons change type the result is a <tt>GeometryCollection</tt>,
  * not a <tt>MultiPolygon</tt>.
  * <p>
@@ -65,7 +65,7 @@ import org.locationtech.jts.geom.Polygon
  * geometry - if they cannot do this they should return <code>null</code>
  * (for instance, it may not be possible for a transformLineString implementation
  * to return at least two points - in this case, it should return <code>null</code>).
- * The {@link #transform(Geometry)} method itself will always
+ * The {link #transform(Geometry)} method itself will always
  * return a non-null Geometry object (but this may be empty).
  *
  * @version 1.7
@@ -84,7 +84,7 @@ class GeometryTransformer() {
   private val pruneEmptyGeometry = true
   /**
    * <code>true</code> if a homogenous collection result
-   * from a {@link GeometryCollection} should still
+   * from a {link GeometryCollection} should still
    * be a general GeometryCollection
    */
   private val preserveGeometryCollectionType = true
@@ -100,7 +100,7 @@ class GeometryTransformer() {
   /**
    * Utility function to make input geometry available
    *
-   * @return the input geometry
+   * return the input geometry
    */
   def getInputGeometry: Geometry = inputGeom
 
@@ -120,33 +120,33 @@ class GeometryTransformer() {
 
   /**
    * Convenience method which provides standard way of
-   * creating a {@link CoordinateSequence}
+   * creating a {link CoordinateSequence}
    *
    * @param coords the coordinate array to copy
-   * @return a coordinate sequence for the array
+   * return a coordinate sequence for the array
    */
   final protected def createCoordinateSequence(coords: Array[Coordinate]): CoordinateSequence = factory.getCoordinateSequenceFactory.create(coords)
 
   /**
-   * Convenience method which provides a standard way of copying {@link CoordinateSequence}s
+   * Convenience method which provides a standard way of copying {link CoordinateSequence}s
    *
    * @param seq the sequence to copy
-   * @return a deep copy of the sequence
+   * return a deep copy of the sequence
    */
   final protected def copy(seq: CoordinateSequence): CoordinateSequence = seq.copy
 
-  /**
-   * Transforms a {@link CoordinateSequence}.
-   * This method should always return a valid coordinate list for
-   * the desired result type.  (E.g. a coordinate list for a LineString
-   * must have 0 or at least 2 points).
-   * If this is not possible, return an empty sequence -
-   * this will be pruned out.
-   *
-   * @param coords the coordinates to transform
-   * @param parent the parent geometry
-   * @return the transformed coordinates
-   */
+  // /**
+  //  * Transforms a {link CoordinateSequence}.
+  //  * This method should always return a valid coordinate list for
+  //  * the desired result type.  (E.g. a coordinate list for a LineString
+  //  * must have 0 or at least 2 points).
+  //  * If this is not possible, return an empty sequence -
+  //  * this will be pruned out.
+  //  *
+  //  * @param coords the coordinates to transform
+  //  * @param parent the parent geometry
+  //  * return the transformed coordinates
+  //  */
   protected def transformCoordinates(coords: CoordinateSequence, parent: Geometry): CoordinateSequence = copy(coords)
 
   protected def transformPoint(geom: Point, parent: Geometry): Point = factory.createPoint(transformCoordinates(geom.getCoordinateSequence, geom))
@@ -168,19 +168,19 @@ class GeometryTransformer() {
     factory.buildGeometry(transGeomList)
   }
 
-  /**
-   * Transforms a LinearRing.
-   * The transformation of a LinearRing may result in a coordinate sequence
-   * which does not form a structurally valid ring (i.e. a degenerate ring of 3 or fewer points).
-   * In this case a LineString is returned.
-   * Subclasses may wish to override this method and check for this situation
-   * (e.g. a subclass may choose to eliminate degenerate linear rings)
-   *
-   * @param geom   the ring to simplify
-   * @param parent the parent geometry
-   * @return a LinearRing if the transformation resulted in a structurally valid ring
-   * @return a LineString if the transformation caused the LinearRing to collapse to 3 or fewer points
-   */
+  // /**
+  //  * Transforms a LinearRing.
+  //  * The transformation of a LinearRing may result in a coordinate sequence
+  //  * which does not form a structurally valid ring (i.e. a degenerate ring of 3 or fewer points).
+  //  * In this case a LineString is returned.
+  //  * Subclasses may wish to override this method and check for this situation
+  //  * (e.g. a subclass may choose to eliminate degenerate linear rings)
+  //  *
+  //  * @param geom   the ring to simplify
+  //  * @param parent the parent geometry
+  //  * return a LinearRing if the transformation resulted in a structurally valid ring
+  //  * return a LineString if the transformation caused the LinearRing to collapse to 3 or fewer points
+  //  */
   protected def transformLinearRing(geom: LinearRing, parent: Geometry): Geometry = {
     val seq = transformCoordinates(geom.getCoordinateSequence, geom)
     if (seq == null) return factory.createLinearRing(null.asInstanceOf[CoordinateSequence])
@@ -191,11 +191,11 @@ class GeometryTransformer() {
   }
 
   /**
-   * Transforms a {@link LineString} geometry.
+   * Transforms a {link LineString} geometry.
    *
    * @param geom
    * @param parent
-   * @return
+   * return
    */
   protected def transformLineString(geom: LineString, parent: Geometry): LineString = { // should check for 1-point sequences and downgrade them to points
     factory.createLineString(transformCoordinates(geom.getCoordinateSequence, geom))

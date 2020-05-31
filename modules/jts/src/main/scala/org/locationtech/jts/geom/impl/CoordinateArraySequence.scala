@@ -28,8 +28,8 @@ import java.io.Serializable
 import org.locationtech.jts.geom._
 
 /**
- * A {@link CoordinateSequence} backed by an array of {@link Coordinate}s.
- * This is the implementation that {@link Geometry}s use by default.
+ * A {link CoordinateSequence} backed by an array of {link Coordinate}s.
+ * This is the implementation that {link Geometry}s use by default.
  * Coordinates returned by #toArray and #getCoordinate are live --
  * modifications to them are actually changing the
  * CoordinateSequence's underlying data.
@@ -58,7 +58,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
 
   /**
    * Constructs a sequence based on the given array
-   * of {@link Coordinate}s (the
+   * of {link Coordinate}s (the
    * array is not copied).
    * The coordinate dimension defaults to 3.
    *
@@ -70,7 +70,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
 
   /**
    * Constructs a sequence based on the given array
-   * of {@link Coordinate}s (the
+   * of {link Coordinate}s (the
    * array is not copied).
    *
    * @param coordinates the coordinate array that will be referenced.
@@ -82,7 +82,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
 
   /**
    * Constructs a sequence of a given size, populated
-   * with new {@link Coordinate}s.
+   * with new {link Coordinate}s.
    *
    * @param size the size of the sequence to create
    */
@@ -101,7 +101,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
 
   /**
    * Constructs a sequence of a given size, populated
-   * with new {@link Coordinate}s.
+   * with new {link Coordinate}s.
    *
    * @param size      the size of the sequence to create
    * @param dimension the dimension of the coordinates
@@ -117,7 +117,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   }
 
   /**
-   * Creates a new sequence based on a deep copy of the given {@link CoordinateSequence}.
+   * Creates a new sequence based on a deep copy of the given {link CoordinateSequence}.
    * The coordinate dimension is set to equal the dimension of the input.
    *
    * @param coordSeq the coordinate sequence that will be copied.
@@ -139,7 +139,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   }
 
   /**
-   * Ensure array contents of the same type, making use of {@link #createCoordinate()} as needed.
+   * Ensure array contents of the same type, making use of {link #createCoordinate()} as needed.
    * <p>
    * A new array will be created if needed to return a consistent result.
    * </p>
@@ -177,7 +177,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
    *
    * @param i
    * the index of the coordinate
-   * @return the requested Coordinate instance
+   * return the requested Coordinate instance
    */
   override def getCoordinate(i: Int): Coordinate = coordinates(i)
 
@@ -185,7 +185,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
    * Get a copy of the Coordinate with index i.
    *
    * @param i the index of the coordinate
-   * @return a copy of the requested Coordinate
+   * return a copy of the requested Coordinate
    */
   override def getCoordinateCopy(i: Int): Coordinate = {
     val copy = createCoordinate
@@ -232,7 +232,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   /**
    * Creates a deep copy of the Object
    *
-   * @return The deep copy
+   * return The deep copy
    * @deprecated
    */
   override def clone: Object = copy
@@ -240,7 +240,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   /**
    * Creates a deep copy of the CoordinateArraySequence
    *
-   * @return The deep copy
+   * return The deep copy
    */
   override def copy: CoordinateArraySequence = {
     val cloneCoordinates = new Array[Coordinate](size)
@@ -255,7 +255,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   /**
    * Returns the size of the coordinate sequence
    *
-   * @return the number of coordinates
+   * return the number of coordinates
    */
   override def size: Int = coordinates.length
 
@@ -274,7 +274,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   /**
    * This method exposes the internal Array of Coordinate Objects
    *
-   * @return the Coordinate[] array.
+   * return the Coordinate[] array.
    */
   override def toCoordinateArray: Array[Coordinate] = coordinates
 
@@ -286,7 +286,7 @@ class CoordinateArraySequence(coordinatesArg: Array[Coordinate], dimension: Int 
   /**
    * Returns the string Representation of the coordinate array
    *
-   * @return The string
+   * return The string
    */
   override def toString: String = if (coordinates.length > 0) {
     val strBuilder = new StringBuilder(17 * coordinates.length)

@@ -16,7 +16,7 @@ import org.locationtech.jts.geomgraph.EdgeEnd
 import org.locationtech.jts.geomgraph.EdgeEndStar
 
 /**
- * An ordered list of {@link EdgeEndBundle}s around a {@link RelateNode}.
+ * An ordered list of {link EdgeEndBundle}s around a {link RelateNode}.
  * They are maintained in CCW order (starting with the positive x-axis) around the node
  * for efficient lookup and topology building.
  *

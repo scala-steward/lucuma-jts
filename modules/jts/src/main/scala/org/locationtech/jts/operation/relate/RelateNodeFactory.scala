@@ -16,7 +16,7 @@ import org.locationtech.jts.geomgraph.Node
 import org.locationtech.jts.geomgraph.NodeFactory
 
 /**
- * Used by the {@link NodeMap} in a {@link RelateNodeGraph} to create {@link RelateNode}s.
+ * Used by the {link NodeMap} in a {link RelateNodeGraph} to create {link RelateNode}s.
  *
  * @version 1.7
  */

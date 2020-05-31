@@ -27,23 +27,23 @@ import org.locationtech.jts.geom.Envelope
  */
 trait SpatialIndex[A] {
   /**
-   * Adds a spatial item with an extent specified by the given {@link Envelope} to the index
+   * Adds a spatial item with an extent specified by the given {link Envelope} to the index
    */
     def insert(itemEnv: Envelope, item: A): Unit
 
   /**
-   * Queries the index for all items whose extents intersect the given search {@link Envelope}
+   * Queries the index for all items whose extents intersect the given search {link Envelope}
    * Note that some kinds of indexes may also return objects which do not in fact
    * intersect the query envelope.
    *
    * @param searchEnv the envelope to query for
-   * @return a list of the items found by the query
+   * return a list of the items found by the query
    */
   def query(searchEnv: Envelope): util.List[A]
 
   /**
-   * Queries the index for all items whose extents intersect the given search {@link Envelope},
-   * and applies an {@link ItemVisitor} to them.
+   * Queries the index for all items whose extents intersect the given search {link Envelope},
+   * and applies an {link ItemVisitor} to them.
    * Note that some kinds of indexes may also return objects which do not in fact
    * intersect the query envelope.
    *
@@ -57,7 +57,7 @@ trait SpatialIndex[A] {
    *
    * @param itemEnv the Envelope of the item to remove
    * @param item    the item to remove
-   * @return <code>true</code> if the item was found
+   * return <code>true</code> if the item was found
    */
   def remove(itemEnv: Envelope, item: A): Unit
 }

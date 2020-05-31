@@ -37,7 +37,7 @@ object Vector3D {
    * @param B the end point of the first vector
    * @param C the start point of the second vector
    * @param D the end point of the second vector
-   * @return the dot product
+   * return the dot product
    */
     def dot(A: Coordinate, B: Coordinate, C: Coordinate, D: Coordinate): Double = {
       val ABx = B.x - A.x
@@ -55,26 +55,26 @@ object Vector3D {
    * @param x the X component
    * @param y the Y component
    * @param z the Z component
-   * @return a new vector
+   * return a new vector
    */
   def create(x: Double, y: Double, z: Double) = new Vector3D(x, y, z)
 
   /**
-   * Creates a vector from a 3D {@link Coordinate}.
+   * Creates a vector from a 3D {link Coordinate}.
    * The coordinate should have the
    * X,Y and Z ordinates specified.
    *
    * @param coord the Coordinate to copy
-   * @return a new vector
+   * return a new vector
    */
   def create(coord: Coordinate) = new Vector3D(coord)
 
   /**
-   * Computes the 3D dot-product of two {@link Coordinate}s.
+   * Computes the 3D dot-product of two {link Coordinate}s.
    *
    * @param v1 the first vector
    * @param v2 the second vector
-   * @return the dot product of the vectors
+   * return the dot product of the vectors
    */
   def dot(v1: Coordinate, v2: Coordinate): Double = v1.x * v2.x + v1.y * v2.y + v1.getZ * v2.getZ
 
@@ -82,7 +82,7 @@ object Vector3D {
    * Computes the length of a vector.
    *
    * @param v a coordinate representing a 3D vector
-   * @return the length of the vector
+   * return the length of the vector
    */
   def length(v: Coordinate): Double = Math.sqrt(v.x * v.x + v.y * v.y + v.getZ * v.getZ)
 
@@ -91,7 +91,7 @@ object Vector3D {
    * but normalized to have length 1.
    *
    * @param v a coordinate representing a 3D vector
-   * @return a coordinate representing the normalized vector
+   * return a coordinate representing the normalized vector
    */
   def normalize(v: Coordinate): Coordinate = {
     val len = length(v)
@@ -105,11 +105,11 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
 //  private var z = .0
 
   /**
-   * Creates a new 3D vector from a {@link Coordinate}. The coordinate should have
+   * Creates a new 3D vector from a {link Coordinate}. The coordinate should have
    * the X,Y and Z ordinates specified.
    *
    * @param coord the Coordinate to copy
-   * @return a new vector
+   * return a new vector
    */
   def this(v: Coordinate) = {
     this(x = v.x, y = v.y, z = v.getZ)
@@ -118,11 +118,11 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
   /**
    * Creates a vector with the direction and magnitude
    * of the difference between the
-   * <tt>to</tt> and <tt>from</tt> {@link Coordinate}s.
+   * <tt>to</tt> and <tt>from</tt> {link Coordinate}s.
    *
    * @param from the origin Coordinate
    * @param to   the destination Coordinate
-   * @return a new vector
+   * return a new vector
    */
   def this(from: Coordinate, to: Coordinate) = {
     this(x = to.x - from.x, y = to.y - from.y, z = to.getZ - from.getZ)
@@ -145,21 +145,21 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
   /**
    * Gets the X component of this vector.
    *
-   * @return the value of the X component
+   * return the value of the X component
    */
   def getX: Double = x
 
   /**
    * Gets the Y component of this vector.
    *
-   * @return the value of the Y component
+   * return the value of the Y component
    */
   def getY: Double = y
 
   /**
    * Gets the Z component of this vector.
    *
-   * @return the value of the Z component
+   * return the value of the Z component
    */
   def getZ: Double = z
 
@@ -168,7 +168,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * of this vector and the given vector.
    *
    * @param v the vector to add
-   * @return the sum of this and <code>v</code>
+   * return the sum of this and <code>v</code>
    */
   def add(v: Vector3D): Vector3D = Vector3D.create(x + v.x, y + v.y, z + v.z)
 
@@ -177,7 +177,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * of this vector and the given vector.
    *
    * @param v the vector to subtract
-   * @return the difference of this and <code>v</code>
+   * return the difference of this and <code>v</code>
    */
   def subtract(v: Vector3D): Vector3D = Vector3D.create(x - v.x, y - v.y, z - v.z)
 
@@ -187,7 +187,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * divided by the scalar value <code>d</code>.
    *
    * @param d the scalar divisor
-   * @return a new vector with divided length
+   * return a new vector with divided length
    */
   def divide(d: Double): Vector3D = Vector3D.create(x / d, y / d, z / d)
 
@@ -195,14 +195,14 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * Computes the dot-product of two vectors
    *
    * @param v a vector
-   * @return the dot product of the vectors
+   * return the dot product of the vectors
    */
   def dot(v: Vector3D): Double = x * v.x + y * v.y + z * v.z
 
   /**
    * Computes the length of this vector.
    *
-   * @return the length of the vector
+   * return the length of the vector
    */
   def length: Double = Math.sqrt(x * x + y * y + z * z)
 
@@ -210,7 +210,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * Computes a vector having identical direction
    * but normalized to have length 1.
    *
-   * @return a new normalized vector
+   * return a new normalized vector
    */
   def normalize: Vector3D = {
     val vlength = length
@@ -221,7 +221,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
   /**
    * Gets a string representation of this vector
    *
-   * @return a string representing this vector
+   * return a string representing this vector
    */
   override def toString: String = "[" + x + ", " + y + ", " + z + "]"
 
@@ -229,7 +229,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
    * Tests if a vector <tt>o</tt> has the same values for the components.
    *
    * @param o a <tt>Vector3D</tt> with which to do the comparison.
-   * @return true if <tt>other</tt> is a <tt>Vector3D</tt> with the same values
+   * return true if <tt>other</tt> is a <tt>Vector3D</tt> with the same values
    *         for the x and y components.
    */
   override def equals(o: Any): Boolean = {
@@ -241,7 +241,7 @@ class Vector3D(protected val x: Double = 0, protected val y: Double = 0, protect
   /**
    * Gets a hashcode for this vector.
    *
-   * @return a hashcode for this vector
+   * return a hashcode for this vector
    */
   override def hashCode: Int = { // Algorithm from Effective Java by Joshua Bloch
     var result = 17

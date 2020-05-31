@@ -34,9 +34,9 @@ import org.locationtech.jts.geom.util.ShortCircuitedGeometryVisitor
 
 /**
  * Implementation of the <tt>intersects</tt> spatial predicate
- * optimized for the case where one {@link Geometry} is a rectangle.
+ * optimized for the case where one {link Geometry} is a rectangle.
  * This class works for all
- * input geometries, including {@link GeometryCollection}s.
+ * input geometries, including {link GeometryCollection}s.
  * <p>
  * As a further optimization,
  * this class can be used in batch style
@@ -53,7 +53,7 @@ object RectangleIntersects {
    * a rectangular Polygon
    * @param b
    * a Geometry of any type
-   * @return true if the geometries intersect
+   * return true if the geometries intersect
    */
     def intersects(rectangle: Polygon, b: Geometry): Boolean = {
       val rp = new RectangleIntersects(rectangle)
@@ -76,7 +76,7 @@ class RectangleIntersects(var rectangle: Polygon) {
    * the query rectangle.
    *
    * @param geom the Geometry to test (may be of any type)
-   * @return true if the geometry intersects the query rectangle
+   * return true if the geometry intersects the query rectangle
    */
   def intersects(geom: Geometry): Boolean = {
     if (!rectEnv.intersects(geom.getEnvelopeInternal)) return false
@@ -117,7 +117,7 @@ class EnvelopeIntersectsVisitor(var rectEnv: Envelope) extends ShortCircuitedGeo
    * Reports whether it can be concluded that an intersection occurs,
    * or whether further testing is required.
    *
-   * @return true if an intersection must occur
+   * return true if an intersection must occur
    *         or false if no conclusion about intersection can be made
    */
   def intersects: Boolean = vintersects
@@ -171,7 +171,7 @@ class GeometryContainsPointVisitor(val rectangle: Polygon) extends ShortCircuite
    * Reports whether it can be concluded that a corner point of the rectangle is
    * contained in the geometry, or whether further testing is required.
    *
-   * @return true if a corner point is contained
+   * return true if a corner point is contained
    *         or false if no conclusion about intersection can be made
    */
   def containsPoint: Boolean = vcontainsPoint
@@ -228,7 +228,7 @@ class GeometryContainsPointVisitor(val rectangle: Polygon) extends ShortCircuite
     /**
      * Reports whether any segment intersection exists.
      *
-     * @return true if a segment intersection exists
+     * return true if a segment intersection exists
      *         or false if no segment intersection exists
      */
     def intersects: Boolean = hasIntersection

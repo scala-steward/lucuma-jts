@@ -57,7 +57,7 @@ class CoordinateXYZM(xArg: Double, yArg: Double, zArg: Double, var m: Double)
   /**
    * Creates a copy of this CoordinateXYZM.
    *
-   * @return a copy of this CoordinateXYZM
+   * return a copy of this CoordinateXYZM
    */
   override def copy = new CoordinateXYZM(this)
 

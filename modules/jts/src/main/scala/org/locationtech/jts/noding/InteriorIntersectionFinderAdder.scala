@@ -26,12 +26,12 @@ import org.locationtech.jts.algorithm.LineIntersector
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * Finds <b>interior</b> intersections between line segments in {@link NodedSegmentString}s,
+ * Finds <b>interior</b> intersections between line segments in {link NodedSegmentString}s,
  * and adds them as nodes
- * using {@link NodedSegmentString#addIntersection(LineIntersector, int, int, int)}.
+ * using {link NodedSegmentString#addIntersection(LineIntersector, int, int, int)}.
  * <p>
  * This class is used primarily for Snap-Rounding.
- * For general-purpose noding, use {@link IntersectionAdder}.
+ * For general-purpose noding, use {link IntersectionAdder}.
  *
  * @version 1.7
  * @see IntersectionAdder
@@ -50,8 +50,8 @@ class InteriorIntersectionFinderAdder(var li: LineIntersector)
 
   /**
    * This method is called by clients
-   * of the {@link SegmentIntersector} class to process
-   * intersections for two segments of the {@link SegmentString}s being intersected.
+   * of the {link SegmentIntersector} class to process
+   * intersections for two segments of the {link SegmentString}s being intersected.
    * Note that some clients (such as <code>MonotoneChain</code>s) may optimize away
    * this call for segment pairs which they have determined do not intersect
    * (e.g. by an disjoint envelope test).
@@ -80,7 +80,7 @@ class InteriorIntersectionFinderAdder(var li: LineIntersector)
   /**
    * Always process all intersections
    *
-   * @return false always
+   * return false always
    */
   override def isDone = false
 }

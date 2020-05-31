@@ -42,7 +42,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  points the <code>List</code> of Points to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toPointArray(points: util.Collection[_]): Array[Point] = {
     val pointArray = new Array[Point](points.size)
@@ -53,7 +53,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  geometries the list of <code>Geometry's</code> to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toGeometryArray(geometries: util.Collection[_]): Array[Geometry] = {
     if (geometries == null) return null
@@ -65,7 +65,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  linearRings the <code>List</code> of LinearRings to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toLinearRingArray(linearRings: util.Collection[_]): Array[LinearRing] = {
     val linearRingArray = new Array[LinearRing](linearRings.size)
@@ -76,7 +76,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  lineStrings the <code>List</code> of LineStrings to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toLineStringArray(lineStrings: util.Collection[_]): Array[LineString] = {
     val lineStringArray = new Array[LineString](lineStrings.size)
@@ -87,7 +87,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  polygons the <code>List</code> of Polygons to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toPolygonArray(polygons: util.Collection[_]): Array[Polygon] = {
     val polygonArray = new Array[Polygon](polygons.size)
@@ -98,7 +98,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  multiPolygons the <code>List</code> of MultiPolygons to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toMultiPolygonArray(multiPolygons: util.Collection[_]): Array[MultiPolygon] = {
     val multiPolygonArray = new Array[MultiPolygon](multiPolygons.size)
@@ -109,7 +109,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  multiLineStrings the <code>List</code> of MultiLineStrings to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toMultiLineStringArray(multiLineStrings: util.Collection[_]): Array[MultiLineString] = {
     val multiLineStringArray = new Array[MultiLineString](multiLineStrings.size)
@@ -120,7 +120,7 @@ object GeometryFactory {
    * Converts the <code>List</code> to an array.
    *
    * @param  multiPoints the <code>List</code> of MultiPoints to convert
-   * @return the <code>List</code> in array format
+   * return the <code>List</code> in array format
    */
   def toMultiPointArray(multiPoints: util.Collection[_]): Array[MultiPoint] = {
     val multiPointArray = new Array[MultiPoint](multiPoints.size)
@@ -152,7 +152,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
 
   /**
    * Constructs a GeometryFactory that generates Geometries having the given
-   * {@link PrecisionModel} and the default CoordinateSequence
+   * {link PrecisionModel} and the default CoordinateSequence
    * implementation.
    *
    * @param precisionModel the PrecisionModel to use
@@ -163,7 +163,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
 
   /**
    * Constructs a GeometryFactory that generates Geometries having the given
-   * {@link PrecisionModel} and spatial-reference ID, and the default CoordinateSequence
+   * {link PrecisionModel} and spatial-reference ID, and the default CoordinateSequence
    * implementation.
    *
    * @param precisionModel the PrecisionModel to use
@@ -182,21 +182,21 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
   }
 
   /**
-   * Creates a {@link Geometry} with the same extent as the given envelope.
+   * Creates a {link Geometry} with the same extent as the given envelope.
    * The Geometry returned is guaranteed to be valid.
    * To provide this behaviour, the following cases occur:
    * <p>
    * If the <code>Envelope</code> is:
    * <ul>
-   * <li>null : returns an empty {@link Point}
-   * <li>a point : returns a non-empty {@link Point}
-   * <li>a line : returns a two-point {@link LineString}
-   * <li>a rectangle : returns a {@link Polygon} whose points are (minx, miny),
+   * <li>null : returns an empty {link Point}
+   * <li>a point : returns a non-empty {link Point}
+   * <li>a line : returns a two-point {link LineString}
+   * <li>a rectangle : returns a {link Polygon} whose points are (minx, miny),
    * (minx, maxy), (maxx, maxy), (maxx, miny), (minx, miny).
    * </ul>
    *
    * @param  envelope the <code>Envelope</code> to convert
-   * @return an empty <code>Point</code> (for null <code>Envelope</code>s),
+   * return an empty <code>Point</code> (for null <code>Envelope</code>s),
    *         a <code>Point</code> (when min x = max x and min y = max y) or a
    *         <code>Polygon</code> (in all other cases)
    */
@@ -214,14 +214,14 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * Returns the PrecisionModel that Geometries created by this factory
    * will be associated with.
    *
-   * @return the PrecisionModel for this factory
+   * return the PrecisionModel for this factory
    */
   def getPrecisionModel: PrecisionModel = precisionModel
 
   /**
-   * Constructs an empty {@link Point} geometry.
+   * Constructs an empty {link Point} geometry.
    *
-   * @return an empty Point
+   * return an empty Point
    */
   def createPoint: Point = createPoint(getCoordinateSequenceFactory.create(Array.empty[Coordinate]))
 
@@ -230,7 +230,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * A null Coordinate creates an empty Geometry.
    *
    * @param coordinate a Coordinate, or null
-   * @return the created Point
+   * return the created Point
    */
   def createPoint(coordinate: Coordinate): Point = createPoint(if (coordinate != null) getCoordinateSequenceFactory.create(Array[Coordinate](coordinate))
   else null)
@@ -240,14 +240,14 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * CoordinateSequence will create an empty Point.
    *
    * @param coordinates a CoordinateSequence (possibly empty), or null
-   * @return the created Point
+   * return the created Point
    */
   def createPoint(coordinates: CoordinateSequence) = new Point(coordinates, this)
 
   /**
-   * Constructs an empty {@link MultiLineString} geometry.
+   * Constructs an empty {link MultiLineString} geometry.
    *
-   * @return an empty MultiLineString
+   * return an empty MultiLineString
    */
   def createMultiLineString = new MultiLineString(null, this)
 
@@ -256,14 +256,14 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * array will create an empty MultiLineString.
    *
    * @param lineStrings LineStrings, each of which may be empty but not null
-   * @return the created MultiLineString
+   * return the created MultiLineString
    */
   def createMultiLineString(lineStrings: Array[LineString]) = new MultiLineString(lineStrings, this)
 
   /**
-   * Constructs an empty {@link GeometryCollection} geometry.
+   * Constructs an empty {link GeometryCollection} geometry.
    *
-   * @return an empty GeometryCollection
+   * return an empty GeometryCollection
    */
   def createGeometryCollection = new GeometryCollection(null, this)
 
@@ -272,14 +272,14 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * array will create an empty GeometryCollection.
    *
    * @param geometries an array of Geometries, each of which may be empty but not null, or null
-   * @return the created GeometryCollection
+   * return the created GeometryCollection
    */
   def createGeometryCollection(geometries: Array[Geometry]) = new GeometryCollection(geometries, this)
 
   /**
-   * Constructs an empty {@link MultiPolygon} geometry.
+   * Constructs an empty {link MultiPolygon} geometry.
    *
-   * @return an empty MultiPolygon
+   * return an empty MultiPolygon
    */
   def createMultiPolygon = new MultiPolygon(null, this)
 
@@ -292,84 +292,84 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    *
    * @param polygons
    * Polygons, each of which may be empty but not null
-   * @return the created MultiPolygon
+   * return the created MultiPolygon
    */
   def createMultiPolygon(polygons: Array[Polygon]) = new MultiPolygon(polygons, this)
 
   /**
-   * Constructs an empty {@link LinearRing} geometry.
+   * Constructs an empty {link LinearRing} geometry.
    *
-   * @return an empty LinearRing
+   * return an empty LinearRing
    */
   def createLinearRing: LinearRing = createLinearRing(getCoordinateSequenceFactory.create(Array.empty[Coordinate]))
 
   /**
-   * Creates a {@link LinearRing} using the given {@link Coordinate}s.
+   * Creates a {link LinearRing} using the given {link Coordinate}s.
    * A null or empty array creates an empty LinearRing.
    * The points must form a closed and simple linestring.
    *
    * @param coordinates an array without null elements, or an empty array, or null
-   * @return the created LinearRing
-   * @throws IllegalArgumentException if the ring is not closed, or has too few points
+   * return the created LinearRing
+   * throws IllegalArgumentException if the ring is not closed, or has too few points
    */
   def createLinearRing(coordinates: Array[Coordinate]): LinearRing = createLinearRing(if (coordinates != null) getCoordinateSequenceFactory.create(coordinates)
   else null)
 
   /**
-   * Creates a {@link LinearRing} using the given {@link CoordinateSequence}.
+   * Creates a {link LinearRing} using the given {link CoordinateSequence}.
    * A null or empty array creates an empty LinearRing.
    * The points must form a closed and simple linestring.
    *
    * @param coordinates a CoordinateSequence (possibly empty), or null
-   * @return the created LinearRing
-   * @throws IllegalArgumentException if the ring is not closed, or has too few points
+   * return the created LinearRing
+   * throws IllegalArgumentException if the ring is not closed, or has too few points
    */
   def createLinearRing(coordinates: CoordinateSequence) = new LinearRing(coordinates, this)
 
   /**
-   * Constructs an empty {@link MultiPoint} geometry.
+   * Constructs an empty {link MultiPoint} geometry.
    *
-   * @return an empty MultiPoint
+   * return an empty MultiPoint
    */
   def createMultiPoint = new MultiPoint(null, this)
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Point}s.
+   * Creates a {link MultiPoint} using the given {link Point}s.
    * A null or empty array will create an empty MultiPoint.
    *
    * @param point an array of Points (without null elements), or an empty array, or <code>null</code>
-   * @return a MultiPoint object
+   * return a MultiPoint object
    */
   def createMultiPoint(point: Array[Point]) = new MultiPoint(point, this)
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Coordinate}s.
+   * Creates a {link MultiPoint} using the given {link Coordinate}s.
    * A null or empty array will create an empty MultiPoint.
    *
    * @param coordinates an array (without null elements), or an empty array, or <code>null</code>
-   * @return a MultiPoint object
+   * return a MultiPoint object
    * @deprecated Use { @link GeometryFactory#createMultiPointFromCoords} instead
    */
   def createMultiPoint(coordinates: Array[Coordinate]): MultiPoint = createMultiPoint(if (coordinates != null) getCoordinateSequenceFactory.create(coordinates)
   else null)
 
   /**
-   * Creates a {@link MultiPoint} using the given {@link Coordinate}s.
+   * Creates a {link MultiPoint} using the given {link Coordinate}s.
    * A null or empty array will create an empty MultiPoint.
    *
    * @param coordinates an array (without null elements), or an empty array, or <code>null</code>
-   * @return a MultiPoint object
+   * return a MultiPoint object
    */
   def createMultiPointFromCoords(coordinates: Array[Coordinate]): MultiPoint = createMultiPoint(if (coordinates != null) getCoordinateSequenceFactory.create(coordinates)
   else null)
 
   /**
-   * Creates a {@link MultiPoint} using the
-   * points in the given {@link CoordinateSequence}.
+   * Creates a {link MultiPoint} using the
+   * points in the given {link CoordinateSequence}.
    * A <code>null</code> or empty CoordinateSequence creates an empty MultiPoint.
    *
    * @param coordinates a CoordinateSequence (possibly empty), or <code>null</code>
-   * @return a MultiPoint geometry
+   * return a MultiPoint geometry
    */
   def createMultiPoint(coordinates: CoordinateSequence): MultiPoint = {
     if (coordinates == null) return createMultiPoint(new Array[Point](0))
@@ -398,7 +398,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * the inner boundaries of the new <code>Polygon</code>, or
    * <code>null</code> or empty <code>LinearRing</code> s if
    * the empty geometry is to be created.
-   * @throws IllegalArgumentException if a ring is invalid
+   * throws IllegalArgumentException if a ring is invalid
    */
   def createPolygon(shell: LinearRing, holes: Array[LinearRing]) = new Polygon(shell, holes, this)
 
@@ -409,7 +409,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * the outer boundary of the new <code>Polygon</code>, or
    * <code>null</code> or an empty <code>LinearRing</code> if
    * the empty geometry is to be created.
-   * @throws IllegalArgumentException if the boundary ring is invalid
+   * throws IllegalArgumentException if the boundary ring is invalid
    */
   def createPolygon(shell: CoordinateSequence): Polygon = createPolygon(createLinearRing(shell))
 
@@ -418,9 +418,9 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
   def createPolygon(shell: LinearRing): Polygon = createPolygon(shell, null)
 
   /**
-   * Constructs an empty {@link Polygon} geometry.
+   * Constructs an empty {link Polygon} geometry.
    *
-   * @return an empty polygon
+   * return an empty polygon
    */
   def createPolygon: Polygon = createPolygon(null, null)
 
@@ -447,7 +447,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
    * them will be returned.
    *
    * @param  geomList the <code>Geometry</code>s to combine
-   * @return a <code>Geometry</code> of the "smallest", "most
+   * return a <code>Geometry</code> of the "smallest", "most
    *         type-specific" class that can contain the elements of <code>geomList</code>
    *         .
    */
@@ -490,9 +490,9 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
   }
 
   /**
-   * Constructs an empty {@link LineString} geometry.
+   * Constructs an empty {link LineString} geometry.
    *
-   * @return an empty LineString
+   * return an empty LineString
    */
   def createLineString: LineString = createLineString(getCoordinateSequenceFactory.create(Array.empty[Coordinate]))
 
@@ -515,10 +515,10 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
 
   /**
    * Creates an empty atomic geometry of the given dimension.
-   * If passed a dimension of -1 will create an empty {@link GeometryCollection}.
+   * If passed a dimension of -1 will create an empty {link GeometryCollection}.
    *
    * @param dimension the required dimension (-1, 0, 1 or 2)
-   * @return an empty atomic geometry of given dimension
+   * return an empty atomic geometry of given dimension
    */
   def createEmpty(dimension: Int): Geometry = dimension match {
     case -1 =>
@@ -534,19 +534,19 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
   }
 
   /**
-   * Creates a deep copy of the input {@link Geometry}.
-   * The {@link CoordinateSequenceFactory} defined for this factory
-   * is used to copy the {@link CoordinateSequence}s
+   * Creates a deep copy of the input {link Geometry}.
+   * The {link CoordinateSequenceFactory} defined for this factory
+   * is used to copy the {link CoordinateSequence}s
    * of the input geometry.
    * <p>
    * This is a convenient way to change the <tt>CoordinateSequence</tt>
    * used to represent a geometry, or to change the
    * factory used for a geometry.
    * <p>
-   * {@link Geometry#copy()} can also be used to make a deep copy,
+   * {link Geometry#copy()} can also be used to make a deep copy,
    * but it does not allow changing the CoordinateSequence type.
    *
-   * @return a deep copy of the input geometry, using the CoordinateSequence type of this factory
+   * return a deep copy of the input geometry, using the CoordinateSequence type of this factory
    * @see Geometry#copy()
    */
   def createGeometry(g: Geometry): Geometry = {
@@ -557,7 +557,7 @@ class GeometryFactory(var precisionModel: PrecisionModel, var SRID: Int, var coo
   /**
    * Gets the SRID value defined for this factory.
    *
-   * @return the factory SRID value
+   * return the factory SRID value
    */
   def getSRID: Int = SRID
 

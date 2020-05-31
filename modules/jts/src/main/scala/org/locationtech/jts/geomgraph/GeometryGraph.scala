@@ -288,7 +288,7 @@ class GeometryGraph(var argIndex: Int // the index of this geometry as an argume
    *
    * @param li                   the LineIntersector to use
    * @param computeRingSelfNodes if <code>false</code>, intersection checks are optimized to not test rings for self-intersection
-   * @return the computed SegmentIntersector containing information about the intersections found
+   * return the computed SegmentIntersector containing information about the intersections found
    */
   def computeSelfNodes(li: LineIntersector, computeRingSelfNodes: Boolean): SegmentIntersector = computeSelfNodes(li, computeRingSelfNodes, false)
 
@@ -300,7 +300,7 @@ class GeometryGraph(var argIndex: Int // the index of this geometry as an argume
    * @param li                   the LineIntersector to use
    * @param computeRingSelfNodes if <code>false</code>, intersection checks are optimized to not test rings for self-intersection
    * @param isDoneIfProperInt    short-circuit the intersection computation if a proper intersection is found
-   * @return the computed SegmentIntersector containing information about the intersections found
+   * return the computed SegmentIntersector containing information about the intersections found
    */
   def computeSelfNodes(li: LineIntersector, computeRingSelfNodes: Boolean, isDoneIfProperInt: Boolean): SegmentIntersector = {
     val si = new SegmentIntersector(li, true, false)
@@ -336,7 +336,7 @@ class GeometryGraph(var argIndex: Int // the index of this geometry as an argume
   }
 
   /**
-   * Adds candidate boundary points using the current {@link BoundaryNodeRule}.
+   * Adds candidate boundary points using the current {link BoundaryNodeRule}.
    * This is used to add the boundary
    * points of dim-1 geometries (Curves/MultiCurves).
    */
@@ -387,11 +387,11 @@ class GeometryGraph(var argIndex: Int // the index of this geometry as an argume
   }
 
   /**
-   * Determines the {@link Location} of the given {@link Coordinate}
+   * Determines the {link Location} of the given {link Coordinate}
    * in this geometry.
    *
    * @param pt the point to test
-   * @return the location of the point in the geometry
+   * return the location of the point in the geometry
    */
   def locate(pt: Coordinate): Int = {
     if (parentGeom.isInstanceOf[Polygonal] && parentGeom.getNumGeometries > 50) { // lazily init point locator

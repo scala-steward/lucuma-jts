@@ -100,12 +100,12 @@ object GeometricShapeFactory {
 
 class GeometricShapeFactory(var geomFact: GeometryFactory) {
 
-/**
- * Create a shape factory which will create shapes using the given
- * {@link GeometryFactory}.
- *
- * @param geomFact the factory to use
- */
+// /**
+//  * Create a shape factory which will create shapes using the given
+//  * {link GeometryFactory}.
+//  *
+//  * @param geomFact the factory to use
+//  */
   protected var precModel: PrecisionModel = geomFact.getPrecisionModel
   protected var dim = new GeometricShapeFactory.Dimensions
   protected var nPts = 100
@@ -116,7 +116,7 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
 
   /**
    * Create a shape factory which will create shapes using the default
-   * {@link GeometryFactory}.
+   * {link GeometryFactory}.
    */
   def this() = {
     this(new GeometryFactory)
@@ -141,11 +141,11 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
    */
   def setCentre(centre: Coordinate): Unit = dim.setCentre(centre)
 
-  /**
-   * Sets the total number of points in the created {@link Geometry}.
-   * The created geometry will have no more than this number of points,
-   * unless more are needed to create a valid geometry.
-   */
+  // /**
+  //  * Sets the total number of points in the created {link Geometry}.
+  //  * The created geometry will have no more than this number of points,
+  //  * unless more are needed to create a valid geometry.
+  //  */
   def setNumPoints(nPts: Int): Unit = this.nPts = nPts
 
   /**
@@ -185,12 +185,12 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
     geom
   }
 
-  /**
-   * Creates a rectangular {@link Polygon}.
-   *
-   * @return a rectangular Polygon
-   *
-   */
+  // /**
+  //  * Creates a rectangular {link Polygon}.
+  //  *
+  //  * return a rectangular Polygon
+  //  *
+  //  */
   def createRectangle: Polygon = {
     var i = 0
     var ipt = 0
@@ -254,20 +254,20 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
     rotate(poly).asInstanceOf[Polygon]
   }
 
-  /**
-   * Creates a circular or elliptical {@link Polygon}.
-   *
-   * @return a circle or ellipse
-   */
+  // /**
+  //  * Creates a circular or elliptical {link Polygon}.
+  //  *
+  //  * return a circle or ellipse
+  //  */
   def createCircle: Polygon = createEllipse
 
-  /**
-   * Creates an elliptical {@link Polygon}.
-   * If the supplied envelope is square the
-   * result will be a circle.
-   *
-   * @return an ellipse or circle
-   */
+  // /**
+  //  * Creates an elliptical {link Polygon}.
+  //  * If the supplied envelope is square the
+  //  * result will be a circle.
+  //  *
+  //  * return an ellipse or circle
+  //  */
   def createEllipse: Polygon = {
     val env = dim.getEnvelope
     val xRadius = env.getWidth / 2.0
@@ -294,19 +294,19 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
     rotate(poly).asInstanceOf[Polygon]
   }
 
-  /**
-   * Creates a squircular {@link Polygon}.
-   *
-   * @return a squircle
-   */
+  // /**
+  //  * Creates a squircular {link Polygon}.
+  //  *
+  //  * return a squircle
+  //  */
   def createSquircle: Polygon = createSupercircle(4)
 
-  /**
-   * Creates a supercircular {@link Polygon}
-   * of a given positive power.
-   *
-   * @return a supercircle
-   */
+  // /**
+  //  * Creates a supercircular {link Polygon}
+  //  * of a given positive power.
+  //  *
+  //  * return a supercircle
+  //  */
   def createSupercircle(power: Double): Polygon = {
     val recipPow = 1.0 / power
     val radius = dim.getMinSize / 2
@@ -346,14 +346,14 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
   }
 
   /**
-   * Creates an elliptical arc, as a {@link LineString}.
+   * Creates an elliptical arc, as a {link LineString}.
    * The arc is always created in a counter-clockwise direction.
    * This can easily be reversed if required by using
    * {#link LineString.reverse()}
    *
    * @param startAng  start angle in radians
    * @param angExtent size of angle in radians
-   * @return an elliptical arc
+   * return an elliptical arc
    */
   def createArc(startAng: Double, angExtent: Double): LineString = {
     val env = dim.getEnvelope
@@ -389,7 +389,7 @@ class GeometricShapeFactory(var geomFact: GeometryFactory) {
    *
    * @param startAng  start angle in radians
    * @param angExtent size of angle in radians
-   * @return an elliptical arc polygon
+   * return an elliptical arc polygon
    */
   def createArcPolygon(startAng: Double, angExtent: Double): Polygon = {
     val env = dim.getEnvelope

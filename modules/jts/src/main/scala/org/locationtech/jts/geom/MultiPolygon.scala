@@ -14,7 +14,7 @@ package org.locationtech.jts.geom
 import java.util
 
 /**
- * Models a collection of {@link Polygon}s.
+ * Models a collection of {link Polygon}s.
  * <p>
  * As per the OGC SFS specification,
  * the Polygons in a MultiPolygon may not overlap,
@@ -27,16 +27,16 @@ import java.util
 @SerialVersionUID(-551033529766975875L)
 class MultiPolygon(val polygons: Array[Polygon], override val factory: GeometryFactory)
 
-/**
- * @param polygons
- *            the <code>Polygon</code>s for this <code>MultiPolygon</code>,
- *            or <code>null</code> or an empty array to create the empty
- *            geometry. Elements may be empty <code>Polygon</code>s, but
- *            not <code>null</code>s. The polygons must conform to the
- *            assertions specified in the <A
- *            HREF="http://www.opengis.org/techno/specs.htm">OpenGIS Simple
- *            Features Specification for SQL</A>.
- */
+// /**
+//  * @param polygons
+//  *            the <code>Polygon</code>s for this <code>MultiPolygon</code>,
+//  *            or <code>null</code> or an empty array to create the empty
+//  *            geometry. Elements may be empty <code>Polygon</code>s, but
+//  *            not <code>null</code>s. The polygons must conform to the
+//  *            assertions specified in the <A
+//  *            HREF="http://www.opengis.org/techno/specs.htm">OpenGIS Simple
+//  *            Features Specification for SQL</A>.
+//  */
   extends GeometryCollection(polygons.map(x => x: Geometry), factory) with Polygonal {
   /**
    * Constructs a <code>MultiPolygon</code>.
@@ -66,7 +66,7 @@ class MultiPolygon(val polygons: Array[Polygon], override val factory: GeometryF
   /**
    * Computes the boundary of this geometry
    *
-   * @return a lineal geometry (which may be empty)
+   * return a lineal geometry (which may be empty)
    * @see Geometry#getBoundary
    */
   override def getBoundary: Geometry = {
@@ -97,11 +97,11 @@ class MultiPolygon(val polygons: Array[Polygon], override val factory: GeometryF
   }
 
   /**
-   * Creates a {@link MultiPolygon} with
+   * Creates a {link MultiPolygon} with
    * every component reversed.
    * The order of the components in the collection are not reversed.
    *
-   * @return a MultiPolygon in the reverse order
+   * return a MultiPolygon in the reverse order
    * @deprecated
    */
   override def reverse: Geometry = super.reverse

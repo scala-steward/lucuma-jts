@@ -31,7 +31,7 @@ import org.locationtech.jts.index.SpatialIndex
 import org.locationtech.jts.index.strtree.STRtree
 
 /**
- * Tests whether any of a set of {@link LinearRing}s are
+ * Tests whether any of a set of {link LinearRing}s are
  * nested inside another ring in the set, using a spatial
  * index to speed up the comparisons.
  *
@@ -103,7 +103,7 @@ class IndexedNestedRingTester(var graph: GeometryGraph // used to find non-node 
    *
    * Not used for now, since improvement is small and very data-dependent.
    *
-   * @return
+   * return
    */
   /*
     private boolean isNonNestedWithIndex()

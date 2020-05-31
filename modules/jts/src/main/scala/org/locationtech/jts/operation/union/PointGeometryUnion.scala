@@ -32,8 +32,8 @@ import org.locationtech.jts.geom.Puntal
 import org.locationtech.jts.geom.util.GeometryCombiner
 
 /**
- * Computes the union of a {@link Puntal} geometry with
- * another arbitrary {@link Geometry}.
+ * Computes the union of a {link Puntal} geometry with
+ * another arbitrary {link Geometry}.
  * Does not copy any component geometries.
  *
  * @author mbdavis

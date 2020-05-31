@@ -23,7 +23,7 @@ import org.locationtech.jts.util.Assert
 import org.locationtech.jts.util.UniqueCoordinateArrayFilter
 
 /**
- * Computes the convex hull of a {@link Geometry}.
+ * Computes the convex hull of a {link Geometry}.
  * The convex hull is the smallest convex Geometry that contains all the
  * points in the input Geometry.
  * <p>
@@ -39,7 +39,7 @@ object ConvexHull {
   }
 
   /**
-   * Compares {@link Coordinate}s for their angle and distance
+   * Compares {link Coordinate}s for their angle and distance
    * relative to an origin.
    *
    * @author Martin Davis
@@ -61,7 +61,7 @@ object ConvexHull {
      * @param o the origin
      * @param p a point
      * @param q another point
-     * @return -1, 0 or 1 depending on whether p is less than,
+     * return -1, 0 or 1 depending on whether p is less than,
      *         equal to or greater than q
      */
     private def polarCompare(o: Coordinate, p: Coordinate, q: Coordinate): Int = {
@@ -115,27 +115,27 @@ object ConvexHull {
 class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
 
 /**
- * Create a new convex hull construction for the input {@link Coordinate} array.
+ * Create a new convex hull construction for the input {link Coordinate} array.
  */
 //inputPts = pts;
 
   private val inputPts: Array[Coordinate] = UniqueCoordinateArrayFilter.filterCoordinates(pts)
 
   /**
-   * Create a new convex hull construction for the input {@link Geometry}.
+   * Create a new convex hull construction for the input {link Geometry}.
    */
   def this(geometry: Geometry) = {
     this(ConvexHull.extractCoordinates(geometry), geometry.getFactory)
   }
 
   /**
-   * Returns a {@link Geometry} that represents the convex hull of the input
+   * Returns a {link Geometry} that represents the convex hull of the input
    * geometry.
    * The returned geometry contains the minimal number of points needed to
    * represent the convex hull.  In particular, no more than two consecutive
    * points will be collinear.
    *
-   * @return if the convex hull contains 3 or more points, a { @link Polygon};
+   * return if the convex hull contains 3 or more points, a { @link Polygon};
    *                                                                 2 points, a { @link LineString};
    *                                                                 1 point, a { @link Point};
    *                                                                 0 points, an empty { @link GeometryCollection}.
@@ -202,7 +202,7 @@ class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
    * the returned array has at least 3 entries.
    *
    * @param pts the points to reduce
-   * @return the reduced list of points (at least 3)
+   * return the reduced list of points (at least 3)
    */
   private def reduce(inputPts: Array[Coordinate]): Array[Coordinate] = { //Coordinate[] polyPts = computeQuad(inputPts);
     val polyPts: Array[Coordinate] = computeOctRing(inputPts)
@@ -291,7 +291,7 @@ class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
    * Uses the Graham Scan algorithm to compute the convex hull vertices.
    *
    * @param c a list of points, with at least 3 entries
-   * @return a Stack containing the ordered points of the convex hull ring
+   * return a Stack containing the ordered points of the convex hull ring
    */
   private def grahamScan(c: Array[Coordinate]): util.Stack[Coordinate] = {
     var p: Coordinate = null
@@ -322,7 +322,7 @@ class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
   }
 
   /**
-   * @return whether the three coordinates are collinear and c2 lies between
+   * return whether the three coordinates are collinear and c2 lies between
    *         c1 and c3 inclusive
    */
   private def isBetween(c1: Coordinate, c2: Coordinate, c3: Coordinate): Boolean = {
@@ -411,7 +411,7 @@ class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
   /**
    * @param  vertices the vertices of a linear ring, which may or may not be
    *                  flattened (i.e. vertices collinear)
-   * @return a 2-vertex <code>LineString</code> if the vertices are
+   * return a 2-vertex <code>LineString</code> if the vertices are
    *         collinear; otherwise, a <code>Polygon</code> with unnecessary
    *         (collinear) vertices removed
    */
@@ -429,7 +429,7 @@ class ConvexHull(val pts: Array[Coordinate], var geomFactory: GeometryFactory) {
   /**
    * @param  vertices the vertices of a linear ring, which may or may not be
    *                  flattened (i.e. vertices collinear)
-   * @return the coordinates with unnecessary (collinear) vertices
+   * return the coordinates with unnecessary (collinear) vertices
    *         removed
    */
   private def cleanRing(original: Array[Coordinate]): Array[Coordinate] = {

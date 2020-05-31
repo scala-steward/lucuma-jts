@@ -88,7 +88,7 @@ object Distance {
    * a point
    * @param line
    * a sequence of contiguous line segments defined by their vertices
-   * @return the minimum distance between the point and the line segments
+   * return the minimum distance between the point and the line segments
    */
   def pointToSegmentString(p: Coordinate, line: Array[Coordinate]) = {
     if (line.length == 0) throw new IllegalArgumentException("Line array must contain at least one vertex")
@@ -116,7 +116,7 @@ object Distance {
    * one point of the line
    * @param B
    * another point of the line (must be different to A)
-   * @return the distance from p to line segment AB
+   * return the distance from p to line segment AB
    */
   def pointToSegment(p: Coordinate, A: Coordinate, B: Coordinate): Double = { // if start = end, then just compute distance to one of the endpoints
     if ((A.x == B.x) && (A.y == B.y)) return p.distance(A)
@@ -143,7 +143,7 @@ object Distance {
          *
          * Then the distance from C to P = |s|*L.
          *
-         * This is the same calculation as {@link #distancePointLinePerpendicular}.
+         * This is the same calculation as {link #distancePointLinePerpendicular}.
          * Unrolled here for performance.
          */ val s = ((A.y - p.y) * (B.x - A.x) - (A.x - p.x) * (B.y - A.y)) / len2
     Math.abs(s) * Math.sqrt(len2)
@@ -159,7 +159,7 @@ object Distance {
    * one point of the line
    * @param B
    * another point of the line (must be different to A)
-   * @return the distance from p to line AB
+   * return the distance from p to line AB
    */
   def pointToLinePerpendicular(p: Coordinate, A: Coordinate, B: Coordinate) = { // use comp.graphics.algorithms Frequently Asked Questions method
     /*

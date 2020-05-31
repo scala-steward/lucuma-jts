@@ -30,7 +30,7 @@ import org.locationtech.jts.operation.overlay.OverlayOp
  * This class only uses snapping
  * if an error is detected when running the standard JTS overlay code.
  * Errors detected include thrown exceptions
- * (in particular, {@link TopologyException})
+ * (in particular, {link TopologyException})
  * and invalid overlay computations.
  *
  * @author Martin Davis

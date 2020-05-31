@@ -33,7 +33,7 @@ import org.locationtech.jts.geomgraph.{DirectedEdge, EdgeEnd, EdgeRing, Node, Pl
 import org.locationtech.jts.util.Assert
 
 /**
- * Forms {@link Polygon}s out of a graph of {@link DirectedEdge}s.
+ * Forms {link Polygon}s out of a graph of {link DirectedEdge}s.
  * The edges to use are marked as being in the result Area.
  * <p>
  *
@@ -51,7 +51,7 @@ object PolygonBuilder {
    * is known to be properly contained in a shell
    * (which is guaranteed to be the case if the hole does not touch its shell)
    *
-   * @return containing EdgeRing, if there is one
+   * return containing EdgeRing, if there is one
    *         or null if no containing EdgeRing is found
    */
   private def findEdgeRingContaining(testEr: EdgeRing, shellList: util.List[_]): EdgeRing = {
@@ -169,7 +169,7 @@ object PolygonBuilder {
          * The other possibility is that they are a series of connected holes, in which case
          * no shell is returned.
          *
-         * @return the shell EdgeRing, if there is one
+         * return the shell EdgeRing, if there is one
          *         or null, if all the rings are holes
          */
         private def findShell(minEdgeRings: util.List[MinimalEdgeRing]): MinimalEdgeRing = {
@@ -240,7 +240,7 @@ object PolygonBuilder {
          * parent shell) would have formed part of a MaximalEdgeRing
          * and been handled in a previous step).
          *
-         * @throws TopologyException if a hole cannot be assigned to a shell
+         * throws TopologyException if a hole cannot be assigned to a shell
          */
         private def placeFreeHoles(shellList: util.List[_], freeHoleList: util.List[EdgeRing]): Unit = {
           val it = freeHoleList.iterator

@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateArrays
 
 /**
- * Allows comparing {@link Coordinate} arrays
+ * Allows comparing {link Coordinate} arrays
  * in an orientation-independent way.
  *
  * @author Martin Davis
@@ -36,7 +36,7 @@ object OrientedCoordinateArray {
    * Computes the canonical orientation for a coordinate array.
    *
    * @param pts the array to test
-   * @return <code>true</code> if the points are oriented forwards
+   * return <code>true</code> if the points are oriented forwards
    *         or <code>false</code if the points are oriented in reverse
    */
     private def orientation(pts: Array[Coordinate]) = CoordinateArrays.increasingDirection(pts) == 1
@@ -73,19 +73,13 @@ object OrientedCoordinateArray {
 
 class OrientedCoordinateArray(var pts: Array[Coordinate])
 
-/**
- * Creates a new {@link OrientedCoordinateArray}
- * for the given {@link Coordinate} array.
- *
- * @param pts the coordinates to orient
- */
   extends Comparable[OrientedCoordinateArray] {
   private val orientation = OrientedCoordinateArray.orientation(pts)
 
   /**
-   * Compares two {@link OrientedCoordinateArray}s for their relative order
+   * Compares two {link OrientedCoordinateArray}s for their relative order
    *
-   * @return -1 this one is smaller;
+   * return -1 this one is smaller;
    *         0 the two objects are equal;
    *         1 this one is greater
    */

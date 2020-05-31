@@ -24,7 +24,7 @@ package org.locationtech.jts.geom
 import org.locationtech.jts.operation.BoundaryOp
 
 /**
- * Models a collection of {@link LineString}s.
+ * Models a collection of {link LineString}s.
  * <p>
  * Any collection of LineStrings is a valid MultiLineString.
  *
@@ -86,19 +86,19 @@ class MultiLineString(lineStrings: Array[LineString], factory: GeometryFactory) 
    * Gets the boundary of this geometry.
    * The boundary of a lineal geometry is always a zero-dimensional geometry (which may be empty).
    *
-   * @return the boundary geometry
+   * return the boundary geometry
    * @see Geometry#getBoundary
    */
   override def getBoundary: Geometry = new BoundaryOp(this).getBoundary
 
   /**
-   * Creates a {@link MultiLineString} in the reverse
+   * Creates a {link MultiLineString} in the reverse
    * order to this object.
    * Both the order of the component LineStrings
    * and the order of their coordinate sequences
    * are reversed.
    *
-   * @return a { @link MultiLineString} in the reverse order
+   * return a { @link MultiLineString} in the reverse order
    * @deprecated
    */
   override def reverse: Geometry = super.reverse

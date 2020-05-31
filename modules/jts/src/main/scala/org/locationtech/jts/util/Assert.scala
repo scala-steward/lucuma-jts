@@ -25,7 +25,7 @@ object Assert {
    * not true.
    *
    * @param  assertion a condition that is supposed to be true
-   * @throws  AssertionFailedException if the condition is false
+   * throws  AssertionFailedException if the condition is false
    */
     def isTrue(assertion: Boolean): Unit = isTrue(assertion, null)
 
@@ -35,7 +35,7 @@ object Assert {
    *
    * @param  assertion a condition that is supposed to be true
    * @param  message   a description of the assertion
-   * @throws  AssertionFailedException if the condition is false
+   * throws  AssertionFailedException if the condition is false
    */
   def isTrue(assertion: Boolean, message: String): Unit = if (!assertion) if (message == null) throw new AssertionFailedException
   else throw new AssertionFailedException(message)
@@ -46,7 +46,7 @@ object Assert {
    *
    * @param  expectedValue the correct value
    * @param  actualValue   the value being checked
-   * @throws  AssertionFailedException if the two objects are not equal
+   * throws  AssertionFailedException if the two objects are not equal
    */
   def equals(expectedValue: Any, actualValue: Any): Unit = equals(expectedValue, actualValue, null)
 
@@ -58,7 +58,7 @@ object Assert {
    * @param  expectedValue the correct value
    * @param  actualValue   the value being checked
    * @param  message       a description of the assertion
-   * @throws  AssertionFailedException if the two objects are not equal
+   * throws  AssertionFailedException if the two objects are not equal
    */
   def equals(expectedValue: Any, actualValue: Any, message: String): Unit = if (!(actualValue == expectedValue)) throw new AssertionFailedException("Expected " + expectedValue + " but encountered " + actualValue + (if (message != null) ": " + message
   else ""))
@@ -66,7 +66,7 @@ object Assert {
   /**
    * Always throws an <code>AssertionFailedException</code>.
    *
-   * @throws  AssertionFailedException thrown always
+   * throws  AssertionFailedException thrown always
    */
   def shouldNeverReachHere(): Unit = shouldNeverReachHere(null)
 
@@ -75,7 +75,7 @@ object Assert {
    * message.
    *
    * @param  message a description of the assertion
-   * @throws  AssertionFailedException thrown always
+   * throws  AssertionFailedException thrown always
    */
   def shouldNeverReachHere(message: String): Unit = throw new AssertionFailedException("Should never reach here" + (if (message != null) ": " + message
   else ""))

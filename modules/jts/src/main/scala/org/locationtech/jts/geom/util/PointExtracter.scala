@@ -19,15 +19,15 @@ import org.locationtech.jts.geom.GeometryFilter
 import org.locationtech.jts.geom.Point
 
 /**
- * Extracts all the 0-dimensional ({@link Point}) components from a {@link Geometry}.
+ * Extracts all the 0-dimensional ({link Point}) components from a {link Geometry}.
  *
  * @version 1.7
  * @see GeometryExtracter
  */
 object PointExtracter {
   /**
-   * Extracts the {@link Point} elements from a single {@link Geometry}
-   * and adds them to the provided {@link List}.
+   * Extracts the {link Point} elements from a single {link Geometry}
+   * and adds them to the provided {link List}.
    *
    * @param geom the geometry from which to extract
    * @param list the list to add the extracted elements to
@@ -43,8 +43,8 @@ object PointExtracter {
     }
 
   /**
-   * Extracts the {@link Point} elements from a single {@link Geometry}
-   * and returns them in a {@link List}.
+   * Extracts the {link Point} elements from a single {link Geometry}
+   * and returns them in a {link List}.
    *
    * @param geom the geometry from which to extract
    */

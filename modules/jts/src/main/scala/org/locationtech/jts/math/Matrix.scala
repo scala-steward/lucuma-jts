@@ -56,9 +56,9 @@ object Matrix {
    *
    * @param a an nxn matrix in row/column order )modified by this method)
    * @param b a vector of length n
-   * @return a vector containing the solution (if any)
+   * return a vector containing the solution (if any)
    *         or null if the system has no or no unique solution
-   * @throws IllegalArgumentException if the matrix is the wrong size
+   * throws IllegalArgumentException if the matrix is the wrong size
    */
   def solve(a: Array[Array[Double]], b: Array[Double]): Array[Double] = {
     val n = b.length

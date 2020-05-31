@@ -27,7 +27,7 @@ import org.locationtech.jts.geom.LineSegment
 import org.locationtech.jts.geom.LineString
 
 /**
- * Snaps the vertices and segments of a {@link LineString}
+ * Snaps the vertices and segments of a {link LineString}
  * to a set of target snap vertices.
  * A snap distance tolerance is used to control where snapping is performed.
  * <p>
@@ -58,13 +58,13 @@ class LineStringSnapper(var srcPts: Array[Coordinate], val snapTolerance: Double
   private var allowSnappingToSourceVertices = false
   private val visClosed = LineStringSnapper.isClosed(srcPts)
 
-  /**
-   * Creates a new snapper using the points in the given {@link LineString}
-   * as source snap points.
-   *
-   * @param srcLine       a LineString to snap (may be empty)
-   * @param snapTolerance the snap tolerance to use
-   */
+  // /**
+  //  * Creates a new snapper using the points in the given {link LineString}
+  //  * as source snap points.
+  //  *
+  //  * @param srcLine       a LineString to snap (may be empty)
+  //  * @param snapTolerance the snap tolerance to use
+  //  */
   def this(srcLine: LineString, snapTolerance: Double) = {
     this(srcLine.getCoordinates, snapTolerance)
   }
@@ -76,7 +76,7 @@ class LineStringSnapper(var srcPts: Array[Coordinate], val snapTolerance: Double
    * to the given set of snap vertices.
    *
    * @param snapPts the vertices to snap to
-   * @return a list of the snapped points
+   * return a list of the snapped points
    */
   def snapTo(snapPts: Array[Coordinate]) = {
     val coordList = new CoordinateList(srcPts)
@@ -179,7 +179,7 @@ class LineStringSnapper(var srcPts: Array[Coordinate], val snapTolerance: Double
    *
    * @param snapPt    the point to snap to
    * @param srcCoords the source segment coordinates
-   * @return the index of the snapped segment
+   * return the index of the snapped segment
    *         or -1 if no segment snaps to the snap point
    */
   private def findSegmentIndexToSnap(snapPt: Coordinate, srcCoords: CoordinateList): Int = {

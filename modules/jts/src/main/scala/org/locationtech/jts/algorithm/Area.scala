@@ -35,7 +35,7 @@ object Area {
    * Computes the area for a ring.
    *
    * @param ring the coordinates forming the ring
-   * @return the area of the ring
+   * return the area of the ring
    */
     def ofRing(ring: Array[Coordinate]): Double = Math.abs(ofRingSigned(ring))
 
@@ -48,7 +48,7 @@ object Area {
    *
    * @param ring
    * the coordinates forming the ring
-   * @return the signed area of the ring
+   * return the signed area of the ring
    */
   def ofRingSigned(ring: Array[Coordinate]): Double = {
     if (ring.length < 3) return 0.0
@@ -81,7 +81,7 @@ object Area {
    *
    * @param ring
    * the coordinates forming the ring
-   * @return the signed area of the ring
+   * return the signed area of the ring
    */
   def ofRingSigned(ring: CoordinateSequence): Double = {
     val n = ring.size

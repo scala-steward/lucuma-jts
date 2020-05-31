@@ -28,11 +28,11 @@ import org.locationtech.jts.geomgraph.Quadrant
 import org.locationtech.jts.util.Assert
 
 /**
- * Represents a directed component of an edge in an {@link EdgeGraph}.
- * HalfEdges link vertices whose locations are defined by {@link Coordinate}s.
+ * Represents a directed component of an edge in an {link EdgeGraph}.
+ * HalfEdges link vertices whose locations are defined by {link Coordinate}s.
  * HalfEdges start at an <b>origin</b> vertex,
  * and terminate at a <b>destination</b> vertex.
- * HalfEdges always occur in symmetric pairs, with the {@link #sym()} method
+ * HalfEdges always occur in symmetric pairs, with the {link #sym()} method
  * giving access to the oppositely-oriented component.
  * HalfEdges and the methods on them form an edge algebra,
  * which can be used to traverse and query the topology
@@ -50,7 +50,7 @@ import org.locationtech.jts.util.Assert
  * They can be subclassed to carry more information if required.
  * <p>
  * HalfEdges form a complete and consistent data structure by themselves,
- * but an {@link EdgeGraph} is useful to allow retrieving edges
+ * but an {link EdgeGraph} is useful to allow retrieving edges
  * by vertex and edge location, as well as ensuring
  * edges are created and linked appropriately.
  *
@@ -64,7 +64,7 @@ object HalfEdge {
    *
    * @param p0 a vertex coordinate
    * @param p1 a vertex coordinate
-   * @return the HalfEdge with origin at p0
+   * return the HalfEdge with origin at p0
    */
     def create(p0: Coordinate, p1: Coordinate): HalfEdge = {
       val e0 = new HalfEdge(p0)
@@ -101,28 +101,28 @@ class HalfEdge(var origI: Coordinate) {
   /**
    * Gets the origin coordinate of this edge.
    *
-   * @return the origin coordinate
+   * return the origin coordinate
    */
   def orig: Coordinate = this.origI
 
   /**
    * Gets the destination coordinate of this edge.
    *
-   * @return the destination coordinate
+   * return the destination coordinate
    */
   def dest: Coordinate = this.symI.orig
 
   /**
    * The X component of the direction vector.
    *
-   * @return the X component of the direction vector
+   * return the X component of the direction vector
    */
   private[edgegraph] def directionX = directionPt.getX - this.origI.getX
 
   /**
    * The Y component of the direction vector.
    *
-   * @return the Y component of the direction vector
+   * return the Y component of the direction vector
    */
   private[edgegraph] def directionY = directionPt.getY - origI.getY
 
@@ -133,7 +133,7 @@ class HalfEdge(var origI: Coordinate) {
    * Subclasses may override to
    * allow a HalfEdge to represent an edge with more than two coordinates.
    *
-   * @return the direction point for the edge
+   * return the direction point for the edge
    */
   protected def directionPt: Coordinate = { // default is to assume edges have only 2 vertices
     // subclasses may override to provide an internal direction point
@@ -143,7 +143,7 @@ class HalfEdge(var origI: Coordinate) {
   /**
    * Gets the symmetric pair edge of this edge.
    *
-   * @return the symmetric pair edge
+   * return the symmetric pair edge
    */
   def sym: HalfEdge = symI
 
@@ -160,7 +160,7 @@ class HalfEdge(var origI: Coordinate) {
    * with the dest vertex as its origin.
    * If the vertex has degree 1 then this is the <b>sym</b> edge.
    *
-   * @return the next edge
+   * return the next edge
    */
   def next: HalfEdge = nextI
 
@@ -168,7 +168,7 @@ class HalfEdge(var origI: Coordinate) {
    * Gets the edge previous to this one
    * (with dest being the same as this orig).
    *
-   * @return the previous edge to this one
+   * return the previous edge to this one
    */
   def prev: HalfEdge = symI.nextI.sym
 
@@ -176,7 +176,7 @@ class HalfEdge(var origI: Coordinate) {
    * Gets the next edge CCW around the origin of this edge,
    * with the same origin.
    *
-   * @return the next edge around the origin
+   * return the next edge around the origin
    */
   def oNext: HalfEdge = symI.nextI
 
@@ -193,7 +193,7 @@ class HalfEdge(var origI: Coordinate) {
    * if any.
    *
    * @param dest the dest vertex to search for
-   * @return the edge with the required dest vertex, if it exists,
+   * return the edge with the required dest vertex, if it exists,
    *         or null
    */
   def find(dest: Coordinate): HalfEdge = {
@@ -213,7 +213,7 @@ class HalfEdge(var origI: Coordinate) {
    *
    * @param p0 the origin vertex to test
    * @param p1 the destination vertex to test
-   * @return true if the vertices are equal to the ones of this edge
+   * return true if the vertices are equal to the ones of this edge
    */
   def equals(p0: Coordinate, p1: Coordinate): Boolean = origI.equals2D(p0) && symI.orig == p1
 
@@ -243,7 +243,7 @@ class HalfEdge(var origI: Coordinate) {
    * around the origin remains fully CCW.
    *
    * @param eAdd the edge being added
-   * @return the edge to insert after
+   * return the edge to insert after
    */
   private def insertionEdge(eAdd: HalfEdge): HalfEdge = {
     var ePrev = this
@@ -294,7 +294,7 @@ class HalfEdge(var origI: Coordinate) {
    * Note that edges must be strictly increasing,
    * which implies no two edges can have the same direction point.
    *
-   * @return true if the origin edges are sorted correctly
+   * return true if the origin edges are sorted correctly
    */
   def isEdgesSorted: Boolean = { // find lowest edge at origin
     val lowest= findLowest
@@ -322,7 +322,7 @@ class HalfEdge(var origI: Coordinate) {
      * Finds the lowest edge around the origin,
      * using the standard edge ordering.
      *
-     * @return the lowest edge around the origin
+     * return the lowest edge around the origin
      */
     private def findLowest: HalfEdge =
     {
@@ -367,7 +367,7 @@ class HalfEdge(var origI: Coordinate) {
      * it is trivial to determine which edge has a greater angle.
      *
      * <li>if the vectors lie in the same quadrant, the
-     * {@link Orientation#index(Coordinate, Coordinate, Coordinate)} function
+     * {link Orientation#index(Coordinate, Coordinate, Coordinate)} function
      * can be used to determine the relative orientation of the vectors.
      * </ul>
      */
@@ -398,7 +398,7 @@ class HalfEdge(var origI: Coordinate) {
     /**
      * Computes a string representation of a HalfEdge.
      *
-     * @return a string representation
+     * return a string representation
      */
     override def toString: String = {
       "HE(" + origI.x + " " + origI.y + ", " + symI.orig.x + " " + symI.orig.y + ")"
@@ -428,7 +428,7 @@ class HalfEdge(var origI: Coordinate) {
      * The degree is the number of edges
      * originating from the vertex.
      *
-     * @return the degree of the origin vertex
+     * return the degree of the origin vertex
      */
     def degree: Int = {
       var degree = 0
@@ -447,7 +447,7 @@ class HalfEdge(var origI: Coordinate) {
      * If no such node exists (i.e. the edge is part of a ring)
      * then null is returned.
      *
-     * @return an edge originating at the node prior to this edge, if any,
+     * return an edge originating at the node prior to this edge, if any,
      *         or null if no node exists
      */
     def prevNode: HalfEdge = {

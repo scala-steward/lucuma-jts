@@ -100,7 +100,7 @@ class DirectedEdge(val edg: Edge, var visForward: Boolean) extends EdgeEnd(edg) 
    * Each Edge gives rise to a pair of symmetric DirectedEdges, in opposite
    * directions.
    *
-   * @return the DirectedEdge for the same Edge but in the opposite direction
+   * return the DirectedEdge for the same Edge but in the opposite direction
    */
   def getSym: DirectedEdge = sym
 
@@ -137,7 +137,7 @@ class DirectedEdge(val edg: Edge, var visForward: Boolean) extends EdgeEnd(edg) 
    * <li> and for each Geometry both sides are in the interior.
    * </ul>
    *
-   * @return true if this is an interior Area edge
+   * return true if this is an interior Area edge
    */
   def isInteriorAreaEdge: Boolean = {
     var isInteriorAreaEdge = true

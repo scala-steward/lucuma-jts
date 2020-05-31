@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.math.Matrix
 
 /**
- * Builds an {@link AffineTransformation} defined by a set of control vectors.
+ * Builds an {link AffineTransformation} defined by a set of control vectors.
  * A control vector consists of a source point and a destination point,
  * which is the image of the source point under the desired transformation.
  * <p>
@@ -72,11 +72,11 @@ class AffineTransformationBuilder(var src0: Coordinate, var src1: Coordinate, va
   private var m12 = .0
 
   /**
-   * Computes the {@link AffineTransformation}
+   * Computes the {link AffineTransformation}
    * determined by the control point mappings,
    * or <code>null</code> if the control vectors do not determine a well-defined transformation.
    *
-   * @return an affine transformation, or null if the control vectors do not determine a well-defined transformation
+   * return an affine transformation, or null if the control vectors do not determine a well-defined transformation
    */
   def getTransformation: AffineTransformation = { // compute full 3-point transformation
     val isSolvable = compute
@@ -90,7 +90,7 @@ class AffineTransformationBuilder(var src0: Coordinate, var src1: Coordinate, va
    * defined by the control point mappings,
    * if this is possible.
    *
-   * @return true if the transformation matrix is solvable
+   * return true if the transformation matrix is solvable
    */
   private def compute: Boolean = {
     val bx = Array[Double](dest0.x, dest1.x, dest2.x)
@@ -113,7 +113,7 @@ class AffineTransformationBuilder(var src0: Coordinate, var src1: Coordinate, va
    * for the given right-hand side vector.
    *
    * @param b the vector for the right-hand side of the system
-   * @return the solution vector, or <code>null</code> if no solution could be determined
+   * return the solution vector, or <code>null</code> if no solution could be determined
    */
   private def solve(b: Array[Double]): Array[Double] = {
     val a = Array[Array[Double]](Array(src0.x, src0.y, 1), Array(src1.x, src1.y, 1), Array(src2.x, src2.y, 1))

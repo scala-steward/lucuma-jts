@@ -29,9 +29,9 @@ import org.locationtech.jts.geom.Polygon
 
 /**
  * Optimized implementation of the <tt>contains</tt> spatial predicate
- * for cases where the first {@link Geometry} is a rectangle.
+ * for cases where the first {link Geometry} is a rectangle.
  * This class works for all input geometries, including
- * {@link GeometryCollection}s.
+ * {link GeometryCollection}s.
  * <p>
  * As a further optimization,
  * this class can be used to test
@@ -46,7 +46,7 @@ object RectangleContains {
    *
    * @param rectangle a rectangular Polygon
    * @param b         a Geometry of any type
-   * @return true if the geometries intersect
+   * return true if the geometries intersect
    */
     def contains(rectangle: Polygon, b: Geometry): Boolean = {
       val rc = new RectangleContains(rectangle)
@@ -96,7 +96,7 @@ class RectangleContains(val rectangle: Polygon) {
    * Tests if a point is contained in the boundary of the target rectangle.
    *
    * @param pt the point to test
-   * @return true if the point is contained in the boundary
+   * return true if the point is contained in the boundary
    */
   private def isPointContainedInBoundary(pt: Coordinate): Boolean = {
     /**
@@ -111,7 +111,7 @@ class RectangleContains(val rectangle: Polygon) {
    * Tests if a linestring is completely contained in the boundary of the target rectangle.
    *
    * @param line the linestring to test
-   * @return true if the linestring is contained in the boundary
+   * return true if the linestring is contained in the boundary
    */
   private def isLineStringContainedInBoundary(line: LineString): Boolean = {
     val seq = line.getCoordinateSequence
@@ -134,7 +134,7 @@ class RectangleContains(val rectangle: Polygon) {
    *
    * @param p0 an endpoint of the segment
    * @param p1 an endpoint of the segment
-   * @return true if the line segment is contained in the boundary
+   * return true if the line segment is contained in the boundary
    */
   private def isLineSegmentContainedInBoundary(p0: Coordinate, p1: Coordinate): Boolean = {
     if (p0 == p1) return isPointContainedInBoundary(p0)

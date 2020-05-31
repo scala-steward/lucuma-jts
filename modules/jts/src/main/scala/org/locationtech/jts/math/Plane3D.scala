@@ -49,7 +49,7 @@ class Plane3D(var normal: Vector3D, var basePt: Coordinate) {
    * </ul>
    *
    * @param p the point to compute the distance for
-   * @return the oriented distance to the plane
+   * return the oriented distance to the plane
    */
   def orientedDistance(p: Coordinate): Double = {
     val pb = new Vector3D(p, basePt)
@@ -68,7 +68,7 @@ class Plane3D(var normal: Vector3D, var basePt: Coordinate) {
    * This provides optimal conditioning for
    * computing a Point-in-Polygon test.
    *
-   * @return the index of the closest axis plane.
+   * return the index of the closest axis plane.
    */
   def closestAxisPlane: Int = {
     val xmag = Math.abs(normal.getX)

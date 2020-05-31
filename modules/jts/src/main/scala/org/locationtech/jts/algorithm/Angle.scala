@@ -51,7 +51,7 @@ object Angle {
    * Converts from radians to degrees.
    *
    * @param radians an angle in radians
-   * @return the angle in degrees
+   * return the angle in degrees
    */
   def toDegrees(radians: Double): Double = (radians * 180) / Math.PI
 
@@ -59,7 +59,7 @@ object Angle {
    * Converts from degrees to radians.
    *
    * @param angleDegrees an angle in degrees
-   * @return the angle in radians
+   * return the angle in radians
    */
   def toRadians(angleDegrees: Double): Double = (angleDegrees * Math.PI) / 180.0
 
@@ -70,7 +70,7 @@ object Angle {
    *
    * @param p0 the initial point of the vector
    * @param p1 the terminal point of the vector
-   * @return the normalized angle (in radians) that p0-p1 makes with the positive x-axis.
+   * return the normalized angle (in radians) that p0-p1 makes with the positive x-axis.
    */
   def angle(p0: Coordinate, p1: Coordinate): Double = {
     val dx = p1.x - p0.x
@@ -84,7 +84,7 @@ object Angle {
    * The angle is normalized to be in the range ( -Pi, Pi ].
    *
    * @param p the terminal point of the vector
-   * @return the normalized angle (in radians) that p makes with the positive x-axis.
+   * return the normalized angle (in radians) that p makes with the positive x-axis.
    */
   def angle(p: Coordinate): Double = Math.atan2(p.y, p.x)
 
@@ -97,7 +97,7 @@ object Angle {
    * @param p0 an endpoint of the angle
    * @param p1 the base of the angle
    * @param p2 the other endpoint of the angle
-   * @return true if the angle is acute
+   * return true if the angle is acute
    */
   def isAcute(p0: Coordinate, p1: Coordinate, p2: Coordinate): Boolean = { // relies on fact that A dot B is positive iff A ang B is acute
     val dx0 = p0.x - p1.x
@@ -117,7 +117,7 @@ object Angle {
    * @param p0 an endpoint of the angle
    * @param p1 the base of the angle
    * @param p2 the other endpoint of the angle
-   * @return true if the angle is obtuse
+   * return true if the angle is obtuse
    */
   def isObtuse(p0: Coordinate, p1: Coordinate, p2: Coordinate): Boolean = { // relies on fact that A dot B is negative iff A ang B is obtuse
     val dx0 = p0.x - p1.x
@@ -135,7 +135,7 @@ object Angle {
    * @param tip1 the tip of one vector
    * @param tail the tail of each vector
    * @param tip2 the tip of the other vector
-   * @return the angle between tail-tip1 and tail-tip2
+   * return the angle between tail-tip1 and tail-tip2
    */
   def angleBetween(tip1: Coordinate, tail: Coordinate, tip2: Coordinate): Double = {
     val a1 = angle(tail, tip1)
@@ -155,7 +155,7 @@ object Angle {
    * @param tip1 the tip of v1
    * @param tail the tail of each vector
    * @param tip2 the tip of v2
-   * @return the angle between v1 and v2, relative to v1
+   * return the angle between v1 and v2, relative to v1
    */
   def angleBetweenOriented(tip1: Coordinate, tail: Coordinate, tip2: Coordinate): Double = {
     val a1 = angle(tail, tip1)
@@ -178,7 +178,7 @@ object Angle {
    * the next point of the ring
    * @param p2
    * the next point of the ring
-   * @return the interior angle based at <code>p1</code>
+   * return the interior angle based at <code>p1</code>
    */
   def interiorAngle(p0: Coordinate, p1: Coordinate, p2: Coordinate): Double = {
     val anglePrev = Angle.angle(p1, p0)
@@ -192,7 +192,7 @@ object Angle {
    *
    * @param ang1 an angle (in radians)
    * @param ang2 an angle (in radians)
-   * @return whether a1 must turn CLOCKWISE, COUNTERCLOCKWISE or NONE to
+   * return whether a1 must turn CLOCKWISE, COUNTERCLOCKWISE or NONE to
    *         overlap a2.
    */
   def getTurn(ang1: Double, ang2: Double): Int = {
@@ -207,7 +207,7 @@ object Angle {
    * equivalent angle in the range ( -Pi, Pi ].
    *
    * @param angle the angle to normalize
-   * @return an equivalent angle in the range (-Pi, Pi]
+   * return an equivalent angle in the range (-Pi, Pi]
    */
   def normalize(angl: Double): Double = {
     var angle = angl
@@ -237,7 +237,7 @@ object Angle {
    * </ul>
    *
    * @param angle the angle to normalize, in radians
-   * @return an equivalent positive angle
+   * return an equivalent positive angle
    */
   def normalizePositive(angl: Double): Double = {
     var angle = angl
@@ -265,7 +265,7 @@ object Angle {
    *
    * @param ang1 the angle of one vector (in [-Pi, Pi] )
    * @param ang2 the angle of the other vector (in range [-Pi, Pi] )
-   * @return the angle (in radians) between the two vectors (in range [0, Pi] )
+   * return the angle (in radians) between the two vectors (in range [0, Pi] )
    */
   def diff(ang1: Double, ang2: Double): Double = {
     var delAngle = .0

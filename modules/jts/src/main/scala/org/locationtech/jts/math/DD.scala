@@ -141,7 +141,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Creates a new DoubleDouble with value equal to the argument.
      *
      * @param str the value to initialize by
-     * @throws NumberFormatException if <tt>str</tt> is not a valid representation of a number
+     * throws NumberFormatException if <tt>str</tt> is not a valid representation of a number
      */
 //    def this(str: String) = {
 //      this(DD.parse(str))
@@ -150,7 +150,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
     /**
      * Creates and returns a copy of this value.
      *
-     * @return a copy of this value
+     * return a copy of this value
      */
     override def clone: AnyRef = try {
       super.clone
@@ -180,7 +180,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * operations concept described in the class documentation (see above).
      *
      * @param value a DD instance supplying an extended-precision value.
-     * @return a self-reference to the DD instance.
+     * return a self-reference to the DD instance.
      */
     def setValue(value: DD): DD = {
       init(value)
@@ -192,7 +192,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * operations concept described in the class documentation (see above).
      *
      * @param value a floating point value to be stored in the instance.
-     * @return a self-reference to the DD instance.
+     * return a self-reference to the DD instance.
      */
     def setValue(value: Double): DD = {
       init(value)
@@ -203,7 +203,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Returns a new DoubleDouble whose value is <tt>(this + y)</tt>.
      *
      * @param y the addend
-     * @return <tt>(this + y)</tt>
+     * return <tt>(this + y)</tt>
      */
     final def add(y: DD): DD = DD.copy(this).selfAdd(y)
 
@@ -216,7 +216,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * be newly created.
      *
      * @param y the addend
-     * @return this object, increased by y
+     * return this object, increased by y
      */
     final def selfAdd(y: DD): DD = selfAdd(y.hi, y.lo)
 
@@ -272,7 +272,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Computes a new DoubleDouble object whose value is <tt>(this - y)</tt>.
      *
      * @param y the subtrahend
-     * @return <tt>(this - y)</tt>
+     * return <tt>(this - y)</tt>
      */
     final def subtract(y: DD): DD = add(y.negate)
 
@@ -285,7 +285,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * be newly created.
      *
      * @param y the addend
-     * @return this object, decreased by y
+     * return this object, decreased by y
      */
     final def selfSubtract(y: DD): DD = {
       if (isNaN) return this
@@ -300,7 +300,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
     /**
      * Returns a new DoubleDouble whose value is <tt>-this</tt>.
      *
-     * @return <tt>-this</tt>
+     * return <tt>-this</tt>
      */
     final def negate: DD = {
       if (isNaN) return this
@@ -311,7 +311,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Returns a new DoubleDouble whose value is <tt>(this * y)</tt>.
      *
      * @param y the multiplicand
-     * @return <tt>(this * y)</tt>
+     * return <tt>(this * y)</tt>
      */
     final def multiply(y: DD): DD = {
       if (y.isNaN) return DD.createNaN
@@ -330,7 +330,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * be newly created.
      *
      * @param y the value to multiply by
-     * @return this object, multiplied by y
+     * return this object, multiplied by y
      */
     final def selfMultiply(y: DD): DD = selfMultiply(y.hi, y.lo)
 
@@ -365,7 +365,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Computes a new DoubleDouble whose value is <tt>(this / y)</tt>.
      *
      * @param y the divisor
-     * @return a new object with the value <tt>(this / y)</tt>
+     * return a new object with the value <tt>(this / y)</tt>
      */
     final def divide(y: DD): DD = {
       var hc = .0
@@ -406,7 +406,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * be newly created.
      *
      * @param y the value to divide by
-     * @return this object, divided by y
+     * return this object, divided by y
      */
     final def selfDivide(y: DD): DD = selfDivide(y.hi, y.lo)
 
@@ -442,7 +442,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
     /**
      * Returns a DoubleDouble whose value is  <tt>1 / this</tt>.
      *
-     * @return the reciprocal of this value
+     * return the reciprocal of this value
      */
     final def reciprocal: DD = {
       var hc = .0
@@ -479,7 +479,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>If this value is NaN, returns NaN.
      * </ul>
      *
-     * @return the largest (closest to positive infinity)
+     * return the largest (closest to positive infinity)
      *         value that is not greater than the argument
      *         and is equal to a mathematical integer.
      */
@@ -501,7 +501,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>If this value is NaN, returns NaN.
      * </ul>
      *
-     * @return the smallest (closest to negative infinity) value
+     * return the smallest (closest to negative infinity) value
      *         that is not less than the argument and is equal to a mathematical integer.
      */
     def ceil: DD = {
@@ -525,7 +525,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>if this value is NaN, returns 0
      * </ul>
      *
-     * @return an integer indicating the sign of this value
+     * return an integer indicating the sign of this value
      */
     def signum: Int = {
       if (hi > 0) return 1
@@ -543,7 +543,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>If this value is NaN, returns NaN.
      * </ul>
      *
-     * @return this value rounded to the nearest integer
+     * return this value rounded to the nearest integer
      */
     def rint: DD = {
       if (isNaN) return this
@@ -560,7 +560,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>If this value is NaN, returns NaN.
      * </ul>
      *
-     * @return the integer which is largest in absolute value and not further from zero than this value
+     * return the integer which is largest in absolute value and not further from zero than this value
      */
     def trunc: DD = {
       if (isNaN) return DD.NaN
@@ -575,7 +575,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * <li>If this value is NaN, it is returned.
      * </ul>
      *
-     * @return the absolute value of this value
+     * return the absolute value of this value
      */
     def abs: DD = {
       if (isNaN) return DD.NaN
@@ -591,7 +591,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * this method <b>must only</b> be used on values known to
      * be newly created.
      *
-     * @return the square of this value.
+     * return the square of this value.
      */
     def selfSqr: DD = this.selfMultiply(this)
 
@@ -599,7 +599,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Computes the positive square root of this value.
      * If the number is NaN or negative, NaN is returned.
      *
-     * @return the positive square root of this number.
+     * return the positive square root of this number.
      *         If the argument is NaN or less than zero, the result is NaN.
      */
     def sqrt: DD = {
@@ -626,7 +626,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Follows semantics of Java Math.pow as closely as possible.
      *
      * @param exp the integer exponent
-     * @return x raised to the integral power exp
+     * return x raised to the integral power exp
      */
     def pow(exp: Int): DD = {
       if (exp == 0.0) return DD.valueOf(1.0)
@@ -649,7 +649,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Computes the minimum of this and another DD number.
      *
      * @param x a DD number
-     * @return the minimum of the two numbers
+     * return the minimum of the two numbers
      */
     def min(x: DD): DD = if (this.le(x)) this
     else x
@@ -658,7 +658,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Computes the maximum of this and another DD number.
      *
      * @param x a DD number
-     * @return the maximum of the two numbers
+     * return the maximum of the two numbers
      */
     def max(x: DD): DD = if (this.ge(x)) this
     else x
@@ -666,42 +666,42 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
     /**
      * Converts this value to the nearest double-precision number.
      *
-     * @return the nearest double-precision number to this value
+     * return the nearest double-precision number to this value
      */
     def doubleValue: Double = hi + lo
 
     /**
      * Converts this value to the nearest integer.
      *
-     * @return the nearest integer to this value
+     * return the nearest integer to this value
      */
     def intValue: Int = hi.toInt
 
     /**
      * Tests whether this value is equal to 0.
      *
-     * @return true if this value is equal to 0
+     * return true if this value is equal to 0
      */
     def isZero: Boolean = hi == 0.0 && lo == 0.0
 
     /**
      * Tests whether this value is less than 0.
      *
-     * @return true if this value is less than 0
+     * return true if this value is less than 0
      */
     def isNegative: Boolean = hi < 0.0 || (hi == 0.0 && lo < 0.0)
 
     /**
      * Tests whether this value is greater than 0.
      *
-     * @return true if this value is greater than 0
+     * return true if this value is greater than 0
      */
     def isPositive: Boolean = hi > 0.0 || (hi == 0.0 && lo > 0.0)
 
     /**
      * Tests whether this value is NaN.
      *
-     * @return true if this value is NaN
+     * return true if this value is NaN
      */
     def isNaN = java.lang.Double.isNaN(hi)
 
@@ -709,7 +709,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Tests whether this value is equal to another <tt>DoubleDouble</tt> value.
      *
      * @param y a DoubleDouble value
-     * @return true if this value = y
+     * return true if this value = y
      */
     def equals(y: DD): Boolean = hi == y.hi && lo == y.lo
 
@@ -717,7 +717,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Tests whether this value is greater than another <tt>DoubleDouble</tt> value.
      *
      * @param y a DoubleDouble value
-     * @return true if this value &gt; y
+     * return true if this value &gt; y
      */
     def gt(y: DD): Boolean = (hi > y.hi) || (hi == y.hi && lo > y.lo)
 
@@ -725,7 +725,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Tests whether this value is greater than or equals to another <tt>DoubleDouble</tt> value.
      *
      * @param y a DoubleDouble value
-     * @return true if this value &gt;= y
+     * return true if this value &gt;= y
      */
     def ge(y: DD): Boolean = (hi > y.hi) || (hi == y.hi && lo >= y.lo)
 
@@ -733,7 +733,7 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Tests whether this value is less than another <tt>DoubleDouble</tt> value.
      *
      * @param y a DoubleDouble value
-     * @return true if this value &lt; y
+     * return true if this value &lt; y
      */
     def lt(y: DD): Boolean = (hi < y.hi) || (hi == y.hi && lo < y.lo)
 
@@ -741,14 +741,14 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
      * Tests whether this value is less than or equal to another <tt>DoubleDouble</tt> value.
      *
      * @param y a DoubleDouble value
-     * @return true if this value &lt;= y
+     * return true if this value &lt;= y
      */
     def le(y: DD): Boolean = (hi < y.hi) || (hi == y.hi && lo <= y.lo)
 
     /**
      * Compares two DoubleDouble objects numerically.
      *
-     * @return -1,0 or 1 depending on whether this value is less than, equal to
+     * return -1,0 or 1 depending on whether this value is less than, equal to
      *         or greater than the value of <tt>o</tt>
      */
     override def compareTo(other: DD): Int = {
@@ -762,28 +762,28 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
     /**
      * Dumps the components of this number to a string.
      *
-     * @return a string showing the components of the number
+     * return a string showing the components of the number
      */
     def dump: String = "DD<" + hi + ", " + lo + ">"
 
-    /**
-     * Returns a string representation of this number, in either standard or scientific notation.
-     * If the magnitude of the number is in the range [ 10<sup>-3</sup>, 10<sup>8</sup> ]
-     * standard notation will be used.  Otherwise, scientific notation will be used.
-     *
-     * @return a string representation of this number
-     */
+    // /**
+    //  * Returns a string representation of this number, in either standard or scientific notation.
+    //  * If the magnitude of the number is in the range [ 10<sup>-3</sup>, 10<sup>8</sup> ]
+    //  * standard notation will be used.  Otherwise, scientific notation will be used.
+    //  *
+    //  * return a string representation of this number
+    //  */
 //    override def toString: String = {
 //      val mag = DD.magnitude(hi)
 //      if (mag >= -3 && mag <= 20) return toStandardNotation
 //      toSciNotation
 //    }
 
-    /**
-     * Returns the string representation of this value in standard notation.
-     *
-     * @return the string representation in standard notation
-     */
+    // /**
+    //  * Returns the string representation of this value in standard notation.
+    //  *
+    //  * return the string representation in standard notation
+    //  */
 //    def toStandardNotation: String = {
 //      val specialStr = getSpecialNumberString
 //      if (specialStr != null) return specialStr
@@ -804,12 +804,12 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
 //      num
 //    }
 
-    /**
-     * Returns the string representation of this value in scientific notation.
-     *
-     * @return the string representation in scientific notation
-     */
-//    def toSciNotation: String = { // special case zero, to allow as
+//     /**
+//      * Returns the string representation of this value in scientific notation.
+//      *
+//      * return the string representation in scientific notation
+//      */
+// //    def toSciNotation: String = { // special case zero, to allow as
 //      if (isZero) return DD.SCI_NOT_ZERO
 //      val specialStr = getSpecialNumberString
 //      if (specialStr != null) return specialStr
@@ -827,16 +827,6 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
 //      digitsWithDecimal + expStr
 //    }
 
-    /**
-     * Extracts the significant digits in the decimal representation of the argument.
-     * A decimal point may be optionally inserted in the string of digits
-     * (as long as its position lies within the extracted digits
-     * - if not, the caller must prepend or append the appropriate zeroes and decimal point).
-     *
-     * @param y               the number to extract ( >= 0)
-     * @param decimalPointPos the position in which to insert a decimal point
-     * @return the string containing the significant digits and possibly a decimal point
-     */
 //    private def extractSignificantDigits(insertDecimalPoint: Boolean, magnitude: Array[Int]): String = {
 //      var y = this.abs
 //      // compute *correct* magnitude of y
@@ -916,13 +906,6 @@ final class DD(private var hi: Double = 0.0, private var lo: Double = 0.0)
 //
 //    }
 
-    /**
-     * Returns the string for this value if it has a known representation.
-     * (E.g. NaN or 0.0)
-     *
-     * @return the string for this special number
-     *         or null if the number is not a special number
-     */
 //    private def getSpecialNumberString: String = {
 //      if (isZero) return "0.0"
 //      if (isNaN) return "NaN "
@@ -963,17 +946,17 @@ object DD {
    * Converts the string argument to a DoubleDouble number.
    *
    * @param str a string containing a representation of a numeric value
-   * @return the extended precision version of the value
-   * @throws NumberFormatException if <tt>s</tt> is not a valid representation of a number
+   * return the extended precision version of the value
+   * throws NumberFormatException if <tt>s</tt> is not a valid representation of a number
    */
-//  @throws[NumberFormatException]
+//  throws[NumberFormatException]
 //  def valueOf(str: String): DD = parse(str)
 
   /**
    * Converts the <tt>double</tt> argument to a DoubleDouble number.
    *
    * @param x a numeric value
-   * @return the extended precision version of the value
+   * return the extended precision version of the value
    */
   def valueOf(x: Double): DD = new DD(x)
 
@@ -985,14 +968,14 @@ object DD {
    * Creates a new DoubleDouble with the value of the argument.
    *
    * @param dd the DoubleDouble value to copy
-   * @return a copy of the input value
+   * return a copy of the input value
    */
   def copy(dd: DD): DD = new DD(dd)
 
   /**
    * Computes the square of this value.
    *
-   * @return the square of this value.
+   * return the square of this value.
    */
   def sqr(x: Double): DD = valueOf(x).selfMultiply(x)
 
@@ -1005,7 +988,7 @@ object DD {
    * @param y1 a double value
    * @param x2 a double value
    * @param y2 a double value
-   * @return the determinant of the values
+   * return the determinant of the values
    */
   def determinant(x1: Double, y1: Double, x2: Double, y2: Double): DD = determinant(valueOf(x1), valueOf(y1), valueOf(x2), valueOf(y2))
 
@@ -1016,7 +999,7 @@ object DD {
    * @param y1 a matrix entry
    * @param x2 a matrix entry
    * @param y2 a matrix entry
-   * @return the determinant of the matrix of values
+   * return the determinant of the matrix of values
    */
   def determinant(x1: DD, y1: DD, x2: DD, y2: DD): DD = {
     val det = x1.multiply(y2).selfSubtract(y1.multiply(x2))
@@ -1029,14 +1012,14 @@ object DD {
 //  private val SCI_NOT_EXPONENT_CHAR = "E"
 //  private val SCI_NOT_ZERO = "0.0E0"
 
-  /**
-   * Creates a string of a given length containing the given character
-   *
-   * @param ch  the character to be repeated
-   * @param len the len of the desired string
-   * @return the string
-   */
-//  private def stringOfChar(ch: Char, len: Int): String = {
+//   /**
+//    * Creates a string of a given length containing the given character
+//    *
+//    * @param ch  the character to be repeated
+//    * @param len the len of the desired string
+//    * return the string
+//    */
+// //  private def stringOfChar(ch: Char, len: Int): String = {
 //    val buf = new StringBuffer
 //    var i = 0
 //    while ( {
@@ -1048,14 +1031,6 @@ object DD {
 //    buf.toString
 //  }
 
-  /**
-   * Determines the decimal magnitude of a number.
-   * The magnitude is the exponent of the greatest power of 10 which is less than
-   * or equal to the number.
-   *
-   * @param x the number to find the magnitude of
-   * @return the decimal magnitude of x
-   */
 //  private def magnitude(x: Double): Int = {
 //    val xAbs = Math.abs(x)
 //    val xLog10 = Math.log(xAbs) / Math.log(10)
@@ -1070,19 +1045,7 @@ object DD {
 //    xMag
 //  }
 
-  /**
-   * Converts a string representation of a real number into a DoubleDouble value.
-   * The format accepted is similar to the standard Java real number syntax.
-   * It is defined by the following regular expression:
-   * <pre>
-   * [<tt>+</tt>|<tt>-</tt>] {<i>digit</i>} [ <tt>.</tt> {<i>digit</i>} ] [ ( <tt>e</tt> | <tt>E</tt> ) [<tt>+</tt>|<tt>-</tt>] {<i>digit</i>}+
-   * </pre>
-   *
-   * @param str the string to parse
-   * @return the value of the parsed number
-   * @throws NumberFormatException if <tt>str</tt> is not a valid representation of a number
-   */
-//  @throws[NumberFormatException]
+//  throws[NumberFormatException]
 //  def parse(str: String): DD = {
 //    var i = 0
 //    val strlen = str.length

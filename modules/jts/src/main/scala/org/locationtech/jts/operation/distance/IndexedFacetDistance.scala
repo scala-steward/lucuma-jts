@@ -28,7 +28,7 @@ import org.locationtech.jts.index.strtree.ItemDistance
 
 /**
  * Computes the distance between the facets (segments and vertices)
- * of two {@link Geometry}s
+ * of two {link Geometry}s
  * using a Branch-and-Bound algorithm.
  * The Branch-and-Bound algorithm operates over a
  * traversal of R-trees built
@@ -43,7 +43,7 @@ import org.locationtech.jts.index.strtree.ItemDistance
  * which allow reuse in an repeated query situation.
  * </ul>
  * Using this technique is usually much more performant
- * than using the brute-force {@link Geometry#distance(Geometry)}
+ * than using the brute-force {link Geometry#distance(Geometry)}
  * when one or both input geometries are large,
  * or when evaluating many distance computations against
  * a single geometry.
@@ -65,7 +65,7 @@ object IndexedFacetDistance {
    *
    * @param g1 a geometry
    * @param g2 a geometry
-   * @return the distance between facets of the geometries
+   * return the distance between facets of the geometries
    */
   def distance(g1: Geometry, g2: Geometry): Double = {
     val dist = new IndexedFacetDistance(g1)
@@ -78,7 +78,7 @@ object IndexedFacetDistance {
    * @param g1       a geometry
    * @param g2       a geometry
    * @param distance the distance limit
-   * @return true if two facets lie with the given distance
+   * return true if two facets lie with the given distance
    */
   def isWithinDistance(g1: Geometry, g2: Geometry, distance: Double): Boolean = {
     val dist = new IndexedFacetDistance(g1)
@@ -90,7 +90,7 @@ object IndexedFacetDistance {
    *
    * @param g1 a geometry
    * @param g2 a geometry
-   * @return the nearest points on the facets of the geometries
+   * return the nearest points on the facets of the geometries
    */
   def nearestPoints(g1: Geometry, g2: Geometry): Array[Coordinate] = {
     val dist = new IndexedFacetDistance(g1)
@@ -117,14 +117,14 @@ object IndexedFacetDistance {
 class IndexedFacetDistance(var baseGeometry: Geometry) {
 
 /**
- * Creates a new distance-finding instance for a given target {@link Geometry}.
+ * Creates a new distance-finding instance for a given target {link Geometry}.
  * <p>
  * Distances will be computed to all facets of the input geometry.
  * The facets of the geometry are the discrete segments and points
  * contained in its components.
- * In the case of {@link Lineal} and {@link Puntal} inputs,
+ * In the case of {link Lineal} and {link Puntal} inputs,
  * this is equivalent to computing the conventional distance.
- * In the case of {@link Polygonal} inputs, this is equivalent
+ * In the case of {link Polygonal} inputs, this is equivalent
  * to computing the distance to the polygon boundaries.
  *
  * @param geom a Geometry, which may be of any type.
@@ -136,7 +136,7 @@ class IndexedFacetDistance(var baseGeometry: Geometry) {
    * the given geometry.
    *
    * @param g the geometry to compute the distance to
-   * @return the computed distance
+   * return the computed distance
    */
 
   def distance(g: Geometry): Double = {
@@ -152,7 +152,7 @@ class IndexedFacetDistance(var baseGeometry: Geometry) {
    * and the given geometry.
    *
    * @param g the geometry to compute the nearest location to
-   * @return the nearest locations
+   * return the nearest locations
    */
   def nearestLocations(g: Geometry): Array[GeometryLocation] = {
     val tree2 = FacetSequenceTreeBuilder.build(g)
@@ -167,7 +167,7 @@ class IndexedFacetDistance(var baseGeometry: Geometry) {
    * and the given geometry.
    *
    * @param g the geometry to compute the nearest point to
-   * @return the nearest points
+   * return the nearest points
    */
   def nearestPoints(g: Geometry): Array[Coordinate] = {
     val minDistanceLocation = nearestLocations(g)
@@ -181,7 +181,7 @@ class IndexedFacetDistance(var baseGeometry: Geometry) {
    *
    * @param g           the geometry to test
    * @param maxDistance the maximum distance to test
-   * @return true if the geometry lies with the specified distance
+   * return true if the geometry lies with the specified distance
    */
   def isWithinDistance(g: Geometry, maxDistance: Double): Boolean = { // short-ciruit check
     val envDist = baseGeometry.getEnvelopeInternal.distance(g.getEnvelopeInternal)

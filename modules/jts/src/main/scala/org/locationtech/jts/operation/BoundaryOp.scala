@@ -33,37 +33,37 @@ import org.locationtech.jts.geom.Point
 
 import scala.collection.mutable.TreeMap
 
-/**
- * Computes the boundary of a {@link Geometry}.
- * Allows specifying the {@link BoundaryNodeRule} to be used.
- * This operation will always return a {@link Geometry} of the appropriate
- * dimension for the boundary (even if the input geometry is empty).
- * The boundary of zero-dimensional geometries (Points) is
- * always the empty {@link GeometryCollection}.
- *
- * @author Martin Davis
- * @version 1.7
- */
+// /**
+//  * Computes the boundary of a {link Geometry}.
+//  * Allows specifying the {link BoundaryNodeRule} to be used.
+//  * This operation will always return a {link Geometry} of the appropriate
+//  * dimension for the boundary (even if the input geometry is empty).
+//  * The boundary of zero-dimensional geometries (Points) is
+//  * always the empty {link GeometryCollection}.
+//  *
+//  * @author Martin Davis
+//  * @version 1.7
+//  */
 object BoundaryOp {
   /**
    * Computes a geometry representing the boundary of a geometry.
    *
    * @param g the input geometry
-   * @return the computed boundary
+   * return the computed boundary
    */
     def getBoundary(g: Geometry): Geometry = {
       val bop = new BoundaryOp(g)
       bop.getBoundary
     }
 
-  /**
-   * Computes a geometry representing the boundary of a geometry,
-   * using an explicit {@link BoundaryNodeRule}.
-   *
-   * @param g      the input geometry
-   * @param bnRule the Boundary Node Rule to use
-   * @return the computed boundary
-   */
+  // /**
+  //  * Computes a geometry representing the boundary of a geometry,
+  //  * using an explicit {link BoundaryNodeRule}.
+  //  *
+  //  * @param g      the input geometry
+  //  * @param bnRule the Boundary Node Rule to use
+  //  * return the computed boundary
+  //  */
   def getBoundary(g: Geometry, bnRule: BoundaryNodeRule): Geometry = {
     val bop = new BoundaryOp(g, bnRule)
     bop.getBoundary
@@ -92,7 +92,7 @@ class BoundaryOp(var geom: Geometry, var bnRule: BoundaryNodeRule) {
   /**
    * Gets the computed boundary.
    *
-   * @return the boundary geometry
+   * return the boundary geometry
    */
   def getBoundary: Geometry = {
     geom match {

@@ -34,8 +34,8 @@ import org.locationtech.jts.geom.CoordinateXYZM
 import org.locationtech.jts.geom.Envelope
 
 /**
- * A {@link CoordinateSequence} implementation based on a packed arrays.
- * In this implementation, {@link Coordinate}s returned by #toArray and #get are copies
+ * A {link CoordinateSequence} implementation based on a packed arrays.
+ * In this implementation, {link Coordinate}s returned by #toArray and #get are copies
  * of the internal values.
  * To change the actual values, use the provided setters.
  * <p>
@@ -146,7 +146,7 @@ object PackedCoordinateSequence {
     /**
      * Gets the underlying array containing the coordinate values.
      *
-     * @return the array of coordinate values
+     * return the array of coordinate values
      */
     def getRawCoordinates: Array[scala.Double] = coords
 
@@ -479,7 +479,7 @@ abstract class PackedCoordinateSequence protected(/**
    * building a new Coordinate object
    *
    * @param index the coordinate index
-   * @return the { @link Coordinate} at the given index
+   * return the { @link Coordinate} at the given index
    */
   protected def getCoordinateInternal(index: Int): Coordinate
 

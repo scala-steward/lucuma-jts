@@ -23,27 +23,27 @@ package org.locationtech.jts.algorithm
 
 /**
  * An interface for rules which determine whether node points
- * which are in boundaries of {@link Lineal} geometry components
+ * which are in boundaries of {link Lineal} geometry components
  * are in the boundary of the parent geometry collection.
  * The SFS specifies a single kind of boundary node rule,
- * the {@link Mod2BoundaryNodeRule} rule.
+ * the {link Mod2BoundaryNodeRule} rule.
  * However, other kinds of Boundary Node Rules are appropriate
  * in specific situations (for instance, linear network topology
- * usually follows the {@link EndPointBoundaryNodeRule}.)
+ * usually follows the {link EndPointBoundaryNodeRule}.)
  * Some JTS operations
- * (such as {@link RelateOp}, {@link BoundaryOp} and {@link IsSimpleOp})
+ * (such as {link RelateOp}, {link BoundaryOp} and {link IsSimpleOp})
  * allow the BoundaryNodeRule to be specified,
  * and respect the supplied rule when computing the results of the operation.
  * <p>
  * An example use case for a non-SFS-standard Boundary Node Rule is
- * that of checking that a set of {@link LineString}s have
+ * that of checking that a set of {link LineString}s have
  * valid linear network topology, when turn-arounds are represented
  * as closed rings.  In this situation, the entry road to the
  * turn-around is only valid when it touches the turn-around ring
  * at the single (common) endpoint.  This is equivalent
  * to requiring the set of <tt>LineString</tt>s to be
- * <b>simple</b> under the {@link EndPointBoundaryNodeRule}.
- * The SFS-standard {@link Mod2BoundaryNodeRule} is not
+ * <b>simple</b> under the {link EndPointBoundaryNodeRule}.
+ * The SFS-standard {link Mod2BoundaryNodeRule} is not
  * sufficient to perform this test, since it
  * states that closed rings have <b>no</b> boundary points.
  * <p>
@@ -90,12 +90,12 @@ object BoundaryNodeRule {
   val OGC_SFS_BOUNDARY_RULE: Mod2BoundaryNodeRule = MOD2_BOUNDARY_RULE
 
   /**
-   * A {@link BoundaryNodeRule} specifies that points are in the
+   * A {link BoundaryNodeRule} specifies that points are in the
    * boundary of a lineal geometry iff
    * the point lies on the boundary of an odd number
    * of components.
-   * Under this rule {@link LinearRing}s and closed
-   * {@link LineString}s have an empty boundary.
+   * Under this rule {link LinearRing}s and closed
+   * {link LineString}s have an empty boundary.
    * <p>
    * This is the rule specified by the <i>OGC SFS</i>,
    * and is the default rule used in JTS.
@@ -111,12 +111,12 @@ object BoundaryNodeRule {
   }
 
   /**
-   * A {@link BoundaryNodeRule} which specifies that any points which are endpoints
+   * A {link BoundaryNodeRule} which specifies that any points which are endpoints
    * of lineal components are in the boundary of the
    * parent geometry.
    * This corresponds to the "intuitive" topological definition
    * of boundary.
-   * Under this rule {@link LinearRing}s have a non-empty boundary
+   * Under this rule {link LinearRing}s have a non-empty boundary
    * (the common endpoint of the underlying LineString).
    * <p>
    * This rule is useful when dealing with linear networks.
@@ -137,9 +137,9 @@ object BoundaryNodeRule {
   }
 
   /**
-   * A {@link BoundaryNodeRule} which determines that only
+   * A {link BoundaryNodeRule} which determines that only
    * endpoints with valency greater than 1 are on the boundary.
-   * This corresponds to the boundary of a {@link MultiLineString}
+   * This corresponds to the boundary of a {link MultiLineString}
    * being all the "attached" endpoints, but not
    * the "unattached" ones.
    *
@@ -151,9 +151,9 @@ object BoundaryNodeRule {
   }
 
   /**
-   * A {@link BoundaryNodeRule} which determines that only
+   * A {link BoundaryNodeRule} which determines that only
    * endpoints with valency of exactly 1 are on the boundary.
-   * This corresponds to the boundary of a {@link MultiLineString}
+   * This corresponds to the boundary of a {link MultiLineString}
    * being all the "unattached" endpoints.
    *
    * @author Martin Davis
@@ -172,7 +172,7 @@ trait BoundaryNodeRule {
    * of the parent geometry.
    *
    * @param boundaryCount the number of component boundaries that this point occurs in
-   * @return true if points in this number of boundaries lie in the parent boundary
+   * return true if points in this number of boundaries lie in the parent boundary
    */
     def isInBoundary(boundaryCount: Int): Boolean
 }

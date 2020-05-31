@@ -23,7 +23,7 @@ import org.locationtech.jts.geomgraph.Label
 import org.locationtech.jts.geomgraph.Position
 
 /**
- * A collection of {@link EdgeEnd}s which obey the following invariant:
+ * A collection of {link EdgeEnd}s which obey the following invariant:
  * They originate at the same node and have the same direction.
  *
  * @version 1.7
@@ -87,7 +87,7 @@ class EdgeEndBundle(val boundaryNodeRule: BoundaryNodeRule, val e: EdgeEnd) /*
    * edgeStubs can be either on the boundary (e.g. Polygon edge)
    * OR in the interior (e.g. segment of a LineString)
    * of their parent Geometry.
-   * In addition, GeometryCollections use a {@link BoundaryNodeRule} to determine
+   * In addition, GeometryCollections use a {link BoundaryNodeRule} to determine
    * whether a segment is on the boundary or not.
    * Finally, in GeometryCollections it can occur that an edge is both
    * on the boundary and in the interior (e.g. a LineString segment lying on

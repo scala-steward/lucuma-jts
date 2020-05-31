@@ -28,7 +28,7 @@ import org.locationtech.jts.geom.Point
 import org.locationtech.jts.geomgraph.Node
 
 /**
- * Constructs {@link Point}s from the nodes of an overlay graph.
+ * Constructs {link Point}s from the nodes of an overlay graph.
  *
  * @version 1.7
  */
@@ -40,7 +40,7 @@ class PointBuilder(var op: OverlayOp, var geometryFactory: GeometryFactory, val 
    * Computes the Point geometries which will appear in the result,
    * given the specified overlay operation.
    *
-   * @return a list of the Points objects in the result
+   * return a list of the Points objects in the result
    */
   def build(opCode: Int): util.ArrayList[Point] = {
     extractNonCoveredResultNodes(opCode)
@@ -54,7 +54,7 @@ class PointBuilder(var op: OverlayOp, var geometryFactory: GeometryFactory, val 
   }
 
   /**
-   * Determines nodes which are in the result, and creates {@link Point}s for them.
+   * Determines nodes which are in the result, and creates {link Point}s for them.
    *
    * This method determines nodes which are candidates for the result via their
    * labelling and their graph topology.

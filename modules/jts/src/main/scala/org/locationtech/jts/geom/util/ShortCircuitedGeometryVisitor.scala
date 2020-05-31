@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Geometry
 import org.locationtech.jts.geom.GeometryCollection
 
 /**
- * A visitor to {@link Geometry} components, which
+ * A visitor to {link Geometry} components, which
  * allows short-circuiting when a defined condition holds.
  *
  * @version 1.7
@@ -58,7 +58,7 @@ abstract class ShortCircuitedGeometryVisitor() {
    * Once this method returns <tt>true</tt>, it must
    * continue to return <tt>true</tt> on every subsequent call.
    *
-   * @return true if visiting can be terminated.
+   * return true if visiting can be terminated.
    */
   protected def isDone: Boolean
 }

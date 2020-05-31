@@ -90,7 +90,7 @@ class BufferDistanceValidator(var input: Geometry, var bufDistance: Double, var 
    * The indicator is a line segment showing the location and size
    * of the distance discrepancy.
    *
-   * @return a geometric error indicator
+   * return a geometric error indicator
    *         or null if no error was found
    */
   def getErrorIndicator: Geometry = errorIndicator

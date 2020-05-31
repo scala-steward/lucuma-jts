@@ -85,7 +85,7 @@ object BufferParameters {
    * of approximation to a true arc.
    *
    * @param quadSegs the number of segments used to approximate a quarter-circle
-   * @return the error of approximation
+   * return the error of approximation
    */
   def bufferDistanceError(quadSegs: Int): Double = {
     val alpha = Math.PI / 2.0 / quadSegs
@@ -150,7 +150,7 @@ class BufferParameters() {
   /**
    * Gets the number of quadrant segments which will be used
    *
-   * @return the number of quadrant segments
+   * return the number of quadrant segments
    */
   def getQuadrantSegments: Int = quadrantSegments
 
@@ -207,39 +207,39 @@ class BufferParameters() {
   /**
    * Gets the end cap style.
    *
-   * @return the end cap style
+   * return the end cap style
    */
   def getEndCapStyle: Int = endCapStyle
 
-  /**
-   * Specifies the end cap style of the generated buffer.
-   * The styles supported are {@link #CAP_ROUND}, {@link #CAP_FLAT}, and {@link #CAP_SQUARE}.
-   * The default is CAP_ROUND.
-   *
-   * @param endCapStyle the end cap style to specify
-   */
+  // /**
+  //  * Specifies the end cap style of the generated buffer.
+  //  * The styles supported are {link #CAP_ROUND}, {link #CAP_FLAT}, and {link #CAP_SQUARE}.
+  //  * The default is CAP_ROUND.
+  //  *
+  //  * @param endCapStyle the end cap style to specify
+  //  */
   def setEndCapStyle(endCapStyle: Int): Unit = this.endCapStyle = endCapStyle
 
   /**
    * Gets the join style
    *
-   * @return the join style code
+   * return the join style code
    */
   def getJoinStyle: Int = joinStyle
 
-  /**
-   * Sets the join style for outside (reflex) corners between line segments.
-   * Allowable values are {@link #JOIN_ROUND} (which is the default),
-   * {@link #JOIN_MITRE} and {link JOIN_BEVEL}.
-   *
-   * @param joinStyle the code for the join style
-   */
+  // /**
+  //  * Sets the join style for outside (reflex) corners between line segments.
+  //  * Allowable values are {link #JOIN_ROUND} (which is the default),
+  //  * {link #JOIN_MITRE} and {link JOIN_BEVEL}.
+  //  *
+  //  * @param joinStyle the code for the join style
+  //  */
   def setJoinStyle(joinStyle: Int): Unit = this.joinStyle = joinStyle
 
   /**
    * Gets the mitre ratio limit.
    *
-   * @return the limit value
+   * return the limit value
    */
   def getMitreLimit: Double = mitreLimit
 
@@ -281,14 +281,14 @@ class BufferParameters() {
   /**
    * Tests whether the buffer is to be generated on a single side only.
    *
-   * @return true if the generated buffer is to be single-sided
+   * return true if the generated buffer is to be single-sided
    */
   def isSingleSided: Boolean = visSingleSided
 
   /**
    * Gets the simplify factor.
    *
-   * @return the simplify factor
+   * return the simplify factor
    */
   def getSimplifyFactor: Double = simplifyFactor
 

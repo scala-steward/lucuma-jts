@@ -24,7 +24,7 @@ package org.locationtech.jts.geom
 //import org.locationtech.jts.io.OrdinateFormat
 
 /**
- * Utility functions for manipulating {@link CoordinateSequence}s
+ * Utility functions for manipulating {link CoordinateSequence}s
  *
  * @version 1.7
  */
@@ -67,7 +67,7 @@ object CoordinateSequences {
   }
 
   /**
-   * Copies a section of a {@link CoordinateSequence} to another {@link CoordinateSequence}.
+   * Copies a section of a {link CoordinateSequence} to another {link CoordinateSequence}.
    * The sequences may have different dimensions;
    * in this case only the common dimensions are copied.
    *
@@ -88,7 +88,7 @@ object CoordinateSequences {
   }
 
   /**
-   * Copies a coordinate of a {@link CoordinateSequence} to another {@link CoordinateSequence}.
+   * Copies a coordinate of a {link CoordinateSequence} to another {link CoordinateSequence}.
    * The sequences may have different dimensions;
    * in this case only the common dimensions are copied.
    *
@@ -109,13 +109,13 @@ object CoordinateSequences {
   }
 
   /**
-   * Tests whether a {@link CoordinateSequence} forms a valid {@link LinearRing},
+   * Tests whether a {link CoordinateSequence} forms a valid {link LinearRing},
    * by checking the sequence length and closure
    * (whether the first and last points are identical in 2D).
    * Self-intersection is not checked.
    *
    * @param seq the sequence to test
-   * @return true if the sequence is a ring
+   * return true if the sequence is a ring
    * @see LinearRing
    */
   def isRing(seq: CoordinateSequence): Boolean = {
@@ -137,7 +137,7 @@ object CoordinateSequences {
    *
    * @param fact the CoordinateSequenceFactory to use to create the new sequence
    * @param seq  the sequence to test
-   * @return the original sequence, if it was a valid ring, or a new sequence which is valid.
+   * return the original sequence, if it was a valid ring, or a new sequence which is valid.
    */
   def ensureValidRing(fact: CoordinateSequenceFactory, seq: CoordinateSequence): CoordinateSequence = {
     val n = seq.size
@@ -182,7 +182,7 @@ object CoordinateSequences {
   }
 
   /**
-   * Tests whether two {@link CoordinateSequence}s are equal.
+   * Tests whether two {link CoordinateSequence}s are equal.
    * To be equal, the sequences must be the same length.
    * They do not need to be of the same dimension,
    * but the ordinate values for the smallest dimension of the two
@@ -191,7 +191,7 @@ object CoordinateSequences {
    *
    * @param cs1 a CoordinateSequence
    * @param cs2 a CoordinateSequence
-   * @return true if the sequences are equal in the common dimensions
+   * return true if the sequences are equal in the common dimensions
    */
 //  def isEqual(cs1: CoordinateSequence, cs2: CoordinateSequence): Boolean = {
 //    val cs1Size = cs1.size
@@ -224,14 +224,14 @@ object CoordinateSequences {
 //  }
 
       /**
-       * Creates a string representation of a {@link CoordinateSequence}.
+       * Creates a string representation of a {link CoordinateSequence}.
        * The format is:
        * <pre>
        * ( ord0,ord1.. ord0,ord1,...  ... )
        * </pre>
        *
        * @param cs the sequence to output
-       * @return the string representation of the sequence
+       * return the string representation of the sequence
        */
       def toString(cs: CoordinateSequence): String = {
         val size = cs.size
@@ -268,7 +268,7 @@ object CoordinateSequences {
        * Returns the minimum coordinate, using the usual lexicographic comparison.
        *
        * @param  seq the coordinate sequence to search
-       * @return the minimum coordinate in the sequence, found using <code>compareTo</code>
+       * return the minimum coordinate in the sequence, found using <code>compareTo</code>
        * @see Coordinate#compareTo(Object)
        */
       def minCoordinate(seq: CoordinateSequence): Coordinate = {
@@ -289,7 +289,7 @@ object CoordinateSequences {
        * coordinate sequence, using the usual lexicographic comparison.
        *
        * @param  seq the coordinate sequence to search
-       * @return the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
+       * return the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
        * @see Coordinate#compareTo(Object)
        */
       def minCoordinateIndex(seq: CoordinateSequence): Int = minCoordinateIndex(seq, 0, seq.size - 1)
@@ -302,7 +302,7 @@ object CoordinateSequences {
        * @param  seq  the coordinate sequence to search
        * @param  from the lower search index
        * @param  to   the upper search index
-       * @return the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
+       * return the index of the minimum coordinate in the sequence, found using <code>compareTo</code>
        * @see Coordinate#compareTo(Object)
        */
       def minCoordinateIndex(seq: CoordinateSequence, from: Int, to: Int) = {
@@ -391,12 +391,12 @@ object CoordinateSequences {
       }
 
       /**
-       * Returns the index of <code>coordinate</code> in a {@link CoordinateSequence}
+       * Returns the index of <code>coordinate</code> in a {link CoordinateSequence}
        * The first position is 0; the second, 1; etc.
        *
        * @param  coordinate the <code>Coordinate</code> to search for
        * @param  seq        the coordinate sequence to search
-       * @return the position of <code>coordinate</code>, or -1 if it is
+       * return the position of <code>coordinate</code>, or -1 if it is
        *         not found
        */
       def indexOf(coordinate: Coordinate, seq: CoordinateSequence): Int = {

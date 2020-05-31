@@ -48,7 +48,7 @@ import org.locationtech.jts.geom.LineSegment
  * </ul>
  *
  * This implementation of MonotoneChains uses the concept of internal iterators
- * ({@link MonotoneChainSelectAction} and {@link MonotoneChainOverlapAction})
+ * ({link MonotoneChainSelectAction} and {link MonotoneChainOverlapAction})
  * to return the results for queries.
  * This has time and space advantages, since it
  * is not necessary to build lists of instantiated objects to represent the segments
@@ -88,21 +88,21 @@ class MonotoneChain(var pts: Array[Coordinate], var start: Int, var end: Int, va
   /**
    * Gets the id of this chain.
    *
-   * @return the id value
+   * return the id value
    */
   def getId: Int = id
 
   /**
    * Gets the user-defined context data value.
    *
-   * @return a data value
+   * return a data value
    */
   def getContext: Any = context
 
   /**
    * Gets the envelope of the chain.
    *
-   * @return the envelope of the chain
+   * return the envelope of the chain
    */
   def getEnvelope: Envelope = {
     if (env == null) {
@@ -120,7 +120,7 @@ class MonotoneChain(var pts: Array[Coordinate], var start: Int, var end: Int, va
    * Gets the index of the start of the monotone chain
    * in the underlying array of points.
    *
-   * @return the start index of the chain
+   * return the start index of the chain
    */
   def getStartIndex: Int = start
 
@@ -128,7 +128,7 @@ class MonotoneChain(var pts: Array[Coordinate], var start: Int, var end: Int, va
    * Gets the index of the end of the monotone chain
    * in the underlying array of points.
    *
-   * @return the end index of the chain
+   * return the end index of the chain
    */
   def getEndIndex: Int = end
 
@@ -259,7 +259,7 @@ class MonotoneChain(var pts: Array[Coordinate], var start: Int, var end: Int, va
    * @param mc     the target monotone chain
    * @param start1 the start index of the target chain section
    * @param end1   the end index of the target chain section
-   * @return true if the section envelopes overlap
+   * return true if the section envelopes overlap
    */
   private def overlaps(start0: Int, end0: Int, mc: MonotoneChain, start1: Int, end1: Int) =
     Envelope.intersects(pts(start0), pts(end0), mc.pts(start1), mc.pts(end1))

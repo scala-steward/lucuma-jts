@@ -21,12 +21,6 @@ import java.util.Comparator
 class BoundablePairDistanceComparator(/** The normal order. */
                                       var normalOrder: Boolean)
 
-/**
- * Instantiates a new boundable pair distance comparator.
- *
- * @param normalOrder true puts the lowest record at the head of this queue.
- *                    This is the natural order. PriorityQueue peek() will get the least element.
- */
   extends Comparator[BoundablePair] with Serializable {
   /* (non-Javadoc)
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)

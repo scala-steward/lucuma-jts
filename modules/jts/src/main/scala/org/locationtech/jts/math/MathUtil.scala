@@ -37,7 +37,7 @@ object MathUtil {
    * @param x   the value to clamp
    * @param min the minimum value of the range
    * @param max the maximum value of the range
-   * @return the clamped value
+   * return the clamped value
    */
     def clamp(x: Double, min: Double, max: Double): Double = {
       if (x < min) return min
@@ -51,7 +51,7 @@ object MathUtil {
    * @param x   the value to clamp
    * @param min the minimum value of the range
    * @param max the maximum value of the range
-   * @return the clamped value
+   * return the clamped value
    */
   def clamp(x: Int, min: Int, max: Int): Int = {
     if (x < min) return min
@@ -70,7 +70,7 @@ object MathUtil {
    * </ul>
    *
    * @param x a positive number
-   * @return the value log a, the base-10 logarithm of the input value
+   * return the value log a, the base-10 logarithm of the input value
    */
   def log10(x: Double): Double = {
     val ln = Math.log(x)
@@ -86,7 +86,7 @@ object MathUtil {
    *
    * @param index the value to wrap
    * @param max   the maximum value (or modulus)
-   * @return the wrapped index
+   * return the wrapped index
    */
   def wrap(index: Int, max: Int): Int = {
     if (index < 0) return max - ((-index) % max)
@@ -98,7 +98,7 @@ object MathUtil {
    *
    * @param x1 a number
    * @param x2 a number
-   * @return the average of the inputs
+   * return the average of the inputs
    */
   def average(x1: Double, x2: Double): Double = (x1 + x2) / 2.0
 

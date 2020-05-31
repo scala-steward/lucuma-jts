@@ -37,7 +37,7 @@ import org.locationtech.jts.geom.util.PointExtracter
 import org.locationtech.jts.geom.util.PolygonExtracter
 
 /**
- * Find two points on two {@link Geometry}s which lie
+ * Find two points on two {link Geometry}s which lie
  * within a given distance, or else are the nearest points
  * on the geometries (in which case this also
  * provides the distance between the geometries).
@@ -63,7 +63,7 @@ object DistanceOp {
    *
    * @param g0 a { @link Geometry}
    * @param g1 another { @link Geometry}
-   * @return the distance between the geometries
+   * return the distance between the geometries
    */
     def distance(g0: Geometry, g1: Geometry): Double = {
       val distOp = new DistanceOp(g0, g1)
@@ -76,7 +76,7 @@ object DistanceOp {
    * @param g0 a { @link Geometry}
    * @param g1 another { @link Geometry}
    * @param distance the distance to test
-   * @return true if g0.distance(g1) &lt;= distance
+   * return true if g0.distance(g1) &lt;= distance
    */
   def isWithinDistance(g0: Geometry, g1: Geometry, distance: Double): Boolean = { // check envelope distance for a short-circuit negative result
     val envDist = g0.getEnvelopeInternal.distance(g1.getEnvelopeInternal)
@@ -92,7 +92,7 @@ object DistanceOp {
    *
    * @param g0 a { @link Geometry}
    * @param g1 another { @link Geometry}
-   * @return the nearest points in the geometries
+   * return the nearest points in the geometries
    */
   def nearestPoints(g0: Geometry, g1: Geometry): Array[Coordinate] = {
     val distOp = new DistanceOp(g0, g1)
@@ -105,7 +105,7 @@ object DistanceOp {
    *
    * @param g0 a { @link Geometry}
    * @param g1 another { @link Geometry}
-   * @return the closest points in the geometries
+   * return the closest points in the geometries
    * @deprecated renamed to nearestPoints
    */
   def closestPoints(g0: Geometry, g1: Geometry): Array[Coordinate] = {
@@ -148,9 +148,9 @@ class DistanceOp(val g0: Geometry, val g1: Geometry, val terminateDistance: Doub
   /**
    * Report the distance between the nearest points on the input geometries.
    *
-   * @return the distance between the geometries
+   * return the distance between the geometries
    *         or 0 if either input geometry is empty
-   * @throws IllegalArgumentException if either input geometry is null
+   * throws IllegalArgumentException if either input geometry is null
    */
   def distance: Double = {
     if (geom(0) == null || geom(1) == null) throw new IllegalArgumentException("null geometries are not supported")
@@ -163,7 +163,7 @@ class DistanceOp(val g0: Geometry, val g1: Geometry, val terminateDistance: Doub
    * Report the coordinates of the nearest points in the input geometries.
    * The points are presented in the same order as the input Geometries.
    *
-   * @return a pair of { @link Coordinate}s of the nearest points
+   * return a pair of { @link Coordinate}s of the nearest points
    */
   def nearestPoints: Array[Coordinate] = {
     computeMinDistance()
@@ -173,7 +173,7 @@ class DistanceOp(val g0: Geometry, val g1: Geometry, val terminateDistance: Doub
 
   /**
    *
-   * @return a pair of { @link Coordinate}s of the nearest points
+   * return a pair of { @link Coordinate}s of the nearest points
    * @deprecated renamed to nearestPoints
    */
   def closestPoints: Array[Coordinate] = nearestPoints
@@ -182,7 +182,7 @@ class DistanceOp(val g0: Geometry, val g1: Geometry, val terminateDistance: Doub
    * Report the locations of the nearest points in the input geometries.
    * The locations are presented in the same order as the input Geometries.
    *
-   * @return a pair of { @link GeometryLocation}s for the nearest points
+   * return a pair of { @link GeometryLocation}s for the nearest points
    */
   def nearestLocations: Array[GeometryLocation] = {
     computeMinDistance()
@@ -191,7 +191,7 @@ class DistanceOp(val g0: Geometry, val g1: Geometry, val terminateDistance: Doub
 
   /**
    *
-   * @return a pair of { @link GeometryLocation}s for the nearest points
+   * return a pair of { @link GeometryLocation}s for the nearest points
    * @deprecated renamed to nearestLocations
    */
   def closestLocations: Array[GeometryLocation] = nearestLocations

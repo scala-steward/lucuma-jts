@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.PrecisionModel
 import org.locationtech.jts.geomgraph.GeometryGraph
 
 /**
- * The base class for operations that require {@link GeometryGraph}s.
+ * The base class for operations that require {link GeometryGraph}s.
  *
  * @version 1.7
  */

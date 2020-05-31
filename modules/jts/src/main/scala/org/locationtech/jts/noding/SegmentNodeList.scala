@@ -32,7 +32,7 @@ import scala.collection.mutable
 import scala.jdk.CollectionConverters._
 
 /**
- * A list of the {@link SegmentNode}s present along a noded {@link SegmentString}.
+ * A list of the {link SegmentNode}s present along a noded {link SegmentString}.
  *
  * @version 1.7
  */
@@ -45,7 +45,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
    * Adds an intersection into the list, if it isn't already there.
    * The input segmentIndex and dist are expected to be normalized.
    *
-   * @return the SegmentIntersection found or added
+   * return the SegmentIntersection found or added
    */
   def add(intPt: Coordinate, segmentIndex: Int): SegmentNode = {
     val eiNew = new SegmentNode(edge, intPt, segmentIndex, edge.getSegmentOctant(segmentIndex))
@@ -154,7 +154,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
    * list split the parent edge into.
    * Adds the edges to the provided argument list
    * (this is so a single list can be used to accumulate all split edges
-   * for a set of {@link SegmentString}s).
+   * for a set of {link SegmentString}s).
    */
   def addSplitEdges(edgeList: util.Collection[NodedSegmentString]): Unit = { // ensure that the list has entries for the first and last point of the edge
     addEndpoints()
@@ -210,7 +210,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
    *
    * @param ei0 the start node of the split edge
    * @param ei1 the end node of the split edge
-   * @return the points for the split edge
+   * return the points for the split edge
    */
   private def createSplitEdgePts(ei0: SegmentNode, ei1: SegmentNode): Array[Coordinate] = { //Debug.println("\ncreateSplitEdge"); Debug.print(ei0); Debug.print(ei1);
     var npts = ei1.segmentIndex - ei0.segmentIndex + 2
@@ -252,7 +252,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
    * introduced by nodes in this list.
    * Repeated coordinates are collapsed.
    *
-   * @return an array of Coordinates
+   * return an array of Coordinates
    *
    */
   def getSplitCoordinates: Array[Coordinate] = {
@@ -328,7 +328,7 @@ class SegmentNodeList(var edge: NodedSegmentString) { // the parent edge
 //  /**
 //   *  Not implemented.
 //   *
-//   *@throws  UnsupportedOperationException  This method is not implemented.
+//   *throws  UnsupportedOperationException  This method is not implemented.
 //   */
 //  public void remove() {
 //    throw new UnsupportedOperationException(getClass().getName());

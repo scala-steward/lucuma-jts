@@ -44,7 +44,7 @@ object SineStarFactory {
    * @param nPts           the number of points in the star
    * @param nArms          the number of arms to generate
    * @param armLengthRatio the arm length ratio
-   * @return a sine star shape
+   * return a sine star shape
    */
     def create(origin: Coordinate, size: Double, nPts: Int, nArms: Int, armLengthRatio: Double): Polygon = {
       val gsf = new SineStarFactory
@@ -62,7 +62,7 @@ class SineStarFactory(geomFac: GeometryFactory)
 
 /**
  * Creates a factory which will create sine stars using the default
- * {@link GeometryFactory}.
+ * {link GeometryFactory}.
  */
   extends GeometricShapeFactory(geomFac) {
   protected var numArms = 8
@@ -70,7 +70,7 @@ class SineStarFactory(geomFac: GeometryFactory)
 
   /**
    * Creates a factory which will create sine stars using the given
-   * {@link GeometryFactory}.
+   * {link GeometryFactory}.
    *
    * @param geomFact the factory to use
    */
@@ -98,7 +98,7 @@ class SineStarFactory(geomFac: GeometryFactory)
   /**
    * Generates the geometry for the sine star
    *
-   * @return the geometry representing the sine star
+   * return the geometry representing the sine star
    */
   def createSineStar: Polygon = {
     val env = dim.getEnvelope

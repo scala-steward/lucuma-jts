@@ -13,7 +13,7 @@ package org.locationtech.jts.geom
 
 /**
  * Models an OGC SFS <code>LinearRing</code>.
- * A <code>LinearRing</code> is a {@link LineString} which is both closed and simple.
+ * A <code>LinearRing</code> is a {link LineString} which is both closed and simple.
  * In other words,
  * the first and last coordinate in the ring must be equal,
  * and the interior of the ring must not self-intersect.
@@ -22,7 +22,7 @@ package org.locationtech.jts.geom
  * A ring must have either 0 or 4 or more points.
  * The first and last points must be equal (in 2D).
  * If these conditions are not met, the constructors throw
- * an {@link IllegalArgumentException}
+ * an {link IllegalArgumentException}
  *
  * @version 1.7
  */
@@ -38,15 +38,15 @@ object LinearRing {
 @SerialVersionUID(-4261142084085851829L)
 class LinearRing(val point: CoordinateSequence, val factor: GeometryFactory)
 
-/**
- * Constructs a <code>LinearRing</code> with the vertices
- * specified by the given {@link CoordinateSequence}.
- *
- * @param  points a sequence points forming a closed and simple linestring, or
- *                <code>null</code> to create the empty geometry.
- * @throws IllegalArgumentException if the ring is not closed, or has too few points
- *
- */
+// /**
+//  * Constructs a <code>LinearRing</code> with the vertices
+//  * specified by the given {link CoordinateSequence}.
+//  *
+//  * @param  points a sequence points forming a closed and simple linestring, or
+//  *                <code>null</code> to create the empty geometry.
+//  * throws IllegalArgumentException if the ring is not closed, or has too few points
+//  *
+//  */
   extends LineString(point, factor) {
   validateConstruction()
 
@@ -55,7 +55,7 @@ class LinearRing(val point: CoordinateSequence, val factor: GeometryFactory)
    *
    * @param points
    * @param factory
-   * @throws IllegalArgumentException if the ring is not closed, or has too few points
+   * throws IllegalArgumentException if the ring is not closed, or has too few points
    */
   def this(points: Array[Coordinate], factory: GeometryFactory) = {
     this(factory.getCoordinateSequenceFactory.create(points), factory)
@@ -71,7 +71,7 @@ class LinearRing(val point: CoordinateSequence, val factor: GeometryFactory)
    *                        for this <code>LinearRing</code>
    * @param  SRID           the ID of the Spatial Reference System used by this
    *                        <code>LinearRing</code>
-   * @throws IllegalArgumentException if the ring is not closed, or has too few points
+   * throws IllegalArgumentException if the ring is not closed, or has too few points
    * @deprecated Use GeometryFactory instead
    */
   def this(points: Array[Coordinate], precisionModel: PrecisionModel, SRID: Int) = {
@@ -88,7 +88,7 @@ class LinearRing(val point: CoordinateSequence, val factor: GeometryFactory)
    * Returns <code>Dimension.FALSE</code>, since by definition LinearRings do
    * not have a boundary.
    *
-   * @return Dimension.FALSE
+   * return Dimension.FALSE
    */
   override def getBoundaryDimension: Int = Dimension.FALSE
 
@@ -96,7 +96,7 @@ class LinearRing(val point: CoordinateSequence, val factor: GeometryFactory)
    * Tests whether this ring is closed.
    * Empty rings are closed by definition.
    *
-   * @return true if this ring is closed
+   * return true if this ring is closed
    */
   override def isClosed: Boolean = {
     if (isEmpty) { // empty LinearRings are closed by definition

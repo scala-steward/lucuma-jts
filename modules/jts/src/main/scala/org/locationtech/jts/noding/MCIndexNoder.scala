@@ -19,11 +19,11 @@ import org.locationtech.jts.index.strtree.STRtree
 import scala.jdk.CollectionConverters._
 
 /**
- * Nodes a set of {@link SegmentString}s using a index based
- * on {@link MonotoneChain}s and a {@link SpatialIndex}.
- * The {@link SpatialIndex} used should be something that supports
+ * Nodes a set of {link SegmentString}s using a index based
+ * on {link MonotoneChain}s and a {link SpatialIndex}.
+ * The {link SpatialIndex} used should be something that supports
  * envelope (range) queries efficiently (such as a <code>Quadtree</code>}
- * or {@link STRtree} (which is the default index provided).
+ * or {link STRtree} (which is the default index provided).
  *
  * @version 1.7
  */

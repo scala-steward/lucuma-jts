@@ -18,19 +18,19 @@ import org.locationtech.jts.geom.GeometryFilter
 import org.locationtech.jts.geom.LineString
 
 /**
- * Extracts all the {@link LineString} elements from a {@link Geometry}.
+ * Extracts all the {link LineString} elements from a {link Geometry}.
  *
  * @version 1.7
  * @see GeometryExtracter
  */
 object LineStringExtracter {
   /**
-   * Extracts the {@link LineString} elements from a single {@link Geometry}
-   * and adds them to the provided {@link List}.
+   * Extracts the {link LineString} elements from a single {link Geometry}
+   * and adds them to the provided {link List}.
    *
    * @param geom  the geometry from which to extract
    * @param lines the list to add the extracted LineStrings to
-   * @return the list argument
+   * return the list argument
    */
     def getLines(geom: Geometry, lines: util.List[Geometry]): util.List[Geometry] = {
       geom match {
@@ -43,20 +43,20 @@ object LineStringExtracter {
     }
 
   /**
-   * Extracts the {@link LineString} elements from a single {@link Geometry}
-   * and returns them in a {@link List}.
+   * Extracts the {link LineString} elements from a single {link Geometry}
+   * and returns them in a {link List}.
    *
    * @param geom the geometry from which to extract
-   * @return a list containing the linear elements
+   * return a list containing the linear elements
    */
   def getLines(geom: Geometry): util.List[Geometry] = getLines(geom, new util.ArrayList[Geometry])
 
   /**
-   * Extracts the {@link LineString} elements from a single {@link Geometry}
-   * and returns them as either a {@link LineString} or {@link MultiLineString}.
+   * Extracts the {link LineString} elements from a single {link Geometry}
+   * and returns them as either a {link LineString} or {link MultiLineString}.
    *
    * @param geom the geometry from which to extract
-   * @return a linear geometry
+   * return a linear geometry
    */
   def getGeometry(geom: Geometry): Geometry = geom.getFactory.buildGeometry(getLines(geom))
 }

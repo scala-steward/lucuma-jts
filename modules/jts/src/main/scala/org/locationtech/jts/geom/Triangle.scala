@@ -46,7 +46,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return true if the triangle is acute
+   * return true if the triangle is acute
    */
     def isAcute(a: Coordinate, b: Coordinate, c: Coordinate): Boolean = {
       if (!Angle.isAcute(a, b, c)) return false
@@ -63,7 +63,7 @@ object Triangle {
    * a point
    * @param b
    * another point
-   * @return the perpendicular bisector, as an HCoordinate
+   * return the perpendicular bisector, as an HCoordinate
    */
   def perpendicularBisector(a: Coordinate, b: Coordinate) = { // returns the perpendicular bisector of the line segment ab
     val dx = b.x - a.x
@@ -93,7 +93,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the circumcentre of the triangle
+   * return the circumcentre of the triangle
    */
   def circumcentre(a: Coordinate, b: Coordinate, c: Coordinate) = {
     val cx = c.x
@@ -120,8 +120,8 @@ object Triangle {
    * The circumcentre does not necessarily lie within the triangle. For example,
    * the circumcentre of an obtuse isosceles triangle lies outside the triangle.
    * <p>
-   * This method uses {@link DD} extended-precision arithmetic to
-   * provide more accurate results than {@link #circumcentre(Coordinate, Coordinate, Coordinate)}
+   * This method uses {link DD} extended-precision arithmetic to
+   * provide more accurate results than {link #circumcentre(Coordinate, Coordinate, Coordinate)}
    *
    * @param a
    * a vertex of the triangle
@@ -129,7 +129,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the circumcentre of the triangle
+   * return the circumcentre of the triangle
    */
   def circumcentreDD(a: Coordinate, b: Coordinate, c: Coordinate) = {
     val ax = DD.valueOf(a.x).subtract(c.x)
@@ -158,7 +158,7 @@ object Triangle {
    * the [1,0] entry of the matrix
    * @param m11
    * the [1,1] entry of the matrix
-   * @return the determinant
+   * return the determinant
    */
   private def det(m00: Double, m01: Double, m10: Double, m11: Double) = m00 * m11 - m01 * m10
 
@@ -177,7 +177,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the point which is the incentre of the triangle
+   * return the point which is the incentre of the triangle
    */
   def inCentre(a: Coordinate, b: Coordinate, c: Coordinate) = { // the lengths of the sides, labelled by their opposite vertex
     val len0 = b.distance(c)
@@ -203,7 +203,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the centroid of the triangle
+   * return the centroid of the triangle
    */
   def centroid(a: Coordinate, b: Coordinate, c: Coordinate) = {
     val x = (a.x + b.x + c.x) / 3
@@ -220,7 +220,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the length of the longest side of the triangle
+   * return the length of the longest side of the triangle
    */
   def longestSideLength(a: Coordinate, b: Coordinate, c: Coordinate) = {
     val lenAB = a.distance(b)
@@ -242,7 +242,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the angle bisector cut point
+   * return the angle bisector cut point
    */
   def angleBisector(a: Coordinate, b: Coordinate, c: Coordinate) = {
     /**
@@ -267,7 +267,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the area of the triangle
+   * return the area of the triangle
    * @see #signedArea(Coordinate, Coordinate, Coordinate)
    */
   def area(a: Coordinate, b: Coordinate, c: Coordinate) = Math.abs(((c.x - a.x) * (b.y - a.y) - (b.x - a.x) * (c.y - a.y)) / 2)
@@ -278,7 +278,7 @@ object Triangle {
    * <p>
    * The signed area value can be used to determine point orientation, but the
    * implementation in this method is susceptible to round-off errors. Use
-   * {@link Orientation#index(Coordinate, Coordinate, Coordinate)}
+   * {link Orientation#index(Coordinate, Coordinate, Coordinate)}
    * for robust orientation calculation.
    *
    * @param a
@@ -287,7 +287,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the signed 2D area of the triangle
+   * return the signed 2D area of the triangle
    * @see Orientation#index(Coordinate, Coordinate, Coordinate)
    */
   def signedArea(a: Coordinate, b: Coordinate, c: Coordinate) = {
@@ -309,7 +309,7 @@ object Triangle {
    * a vertex of the triangle
    * @param c
    * a vertex of the triangle
-   * @return the 3D area of the triangle
+   * return the 3D area of the triangle
    */
   def area3D(a: Coordinate, b: Coordinate, c: Coordinate) = {
     /**
@@ -350,7 +350,7 @@ object Triangle {
    * a vertex of a triangle, with a Z ordinate
    * @param v2
    * a vertex of a triangle, with a Z ordinate
-   * @return the computed Z-value (elevation) of the point
+   * return the computed Z-value (elevation) of the point
    */
   def interpolateZ(p: Coordinate, v0: Coordinate, v1: Coordinate, v2: Coordinate) = {
     val x0 = v0.x
@@ -391,7 +391,7 @@ class Triangle(/**
    * the centre of the triangle's <i>incircle</i>, which is the unique circle
    * that is tangent to each of the triangle's three sides.
    *
-   * @return the point which is the inCentre of this triangle
+   * return the point which is the inCentre of this triangle
    */
   def inCentre = Triangle.inCentre(p0, p1, p2)
 
@@ -403,7 +403,7 @@ class Triangle(/**
    * Note: this implementation is not robust for angles very close to 90
    * degrees.
    *
-   * @return true if this triangle is acute
+   * return true if this triangle is acute
    */
   def isAcute = Triangle.isAcute(this.p0, this.p1, this.p2)
 
@@ -420,7 +420,7 @@ class Triangle(/**
    * to the origin to improve the accuracy of computation. (See <i>Lecture Notes
    * on Geometric Robustness</i>, Jonathan Richard Shewchuk, 1999).
    *
-   * @return the circumcentre of this triangle
+   * return the circumcentre of this triangle
    */
   def circumcentre = Triangle.circumcentre(this.p0, this.p1, this.p2)
 
@@ -432,14 +432,14 @@ class Triangle(/**
    * <p>
    * The centroid always lies within the triangle.
    *
-   * @return the centroid of this triangle
+   * return the centroid of this triangle
    */
   def centroid = Triangle.centroid(this.p0, this.p1, this.p2)
 
   /**
    * Computes the length of the longest side of this triangle
    *
-   * @return the length of the longest side of this triangle
+   * return the length of the longest side of this triangle
    */
   def longestSideLength = Triangle.longestSideLength(this.p0, this.p1, this.p2)
 
@@ -447,7 +447,7 @@ class Triangle(/**
    * Computes the 2D area of this triangle. The area value is always
    * non-negative.
    *
-   * @return the area of this triangle
+   * return the area of this triangle
    * @see #signedArea()
    */
   def area = Triangle.area(this.p0, this.p1, this.p2)
@@ -458,10 +458,10 @@ class Triangle(/**
    * <p>
    * The signed area value can be used to determine point orientation, but the
    * implementation in this method is susceptible to round-off errors. Use
-   * {@link Orientation#index(Coordinate, Coordinate, Coordinate)}
+   * {link Orientation#index(Coordinate, Coordinate, Coordinate)}
    * for robust orientation calculation.
    *
-   * @return the signed 2D area of this triangle
+   * return the signed 2D area of this triangle
    * @see Orientation#index(Coordinate, Coordinate, Coordinate)
    */
   def signedArea = Triangle.signedArea(this.p0, this.p1, this.p2)
@@ -470,7 +470,7 @@ class Triangle(/**
    * Computes the 3D area of this triangle. The value computed is always
    * non-negative.
    *
-   * @return the 3D area of this triangle
+   * return the 3D area of this triangle
    */
   def area3D = Triangle.area3D(this.p0, this.p1, this.p2)
 
@@ -485,7 +485,7 @@ class Triangle(/**
    *
    * @param p
    * the point to compute the Z-value of
-   * @return the computed Z-value (elevation) of the point
+   * return the computed Z-value (elevation) of the point
    */
   def interpolateZ(p: Coordinate) = {
     if (p == null) throw new IllegalArgumentException("Supplied point is null.")

@@ -19,8 +19,8 @@ import org.locationtech.jts.operation.relate.RelateNode
 import org.locationtech.jts.operation.relate.RelateNodeGraph
 
 /**
- * Checks that a {@link GeometryGraph} representing an area
- * (a {@link Polygon} or {@link MultiPolygon} )
+ * Checks that a {link GeometryGraph} representing an area
+ * (a {link Polygon} or {link MultiPolygon} )
  * has consistent semantics for area geometries.
  * This check is required for any reasonable polygonal model
  * (including the OGC-SFS model, as well as models which allow ring self-intersection at single points)
@@ -52,14 +52,14 @@ class ConsistentAreaTester(var geomGraph: GeometryGraph){
   private var invalidPoint: Coordinate = null
 
   /**
-   * @return the intersection point, or <code>null</code> if none was found
+   * return the intersection point, or <code>null</code> if none was found
    */
   def getInvalidPoint: Coordinate = invalidPoint
 
   /**
    * Check all nodes to see if their labels are consistent with area topology.
    *
-   * @return <code>true</code> if this area has a consistent node labelling
+   * return <code>true</code> if this area has a consistent node labelling
    */
   def isNodeConsistentArea: Boolean = {
     /**
@@ -83,7 +83,7 @@ class ConsistentAreaTester(var geomGraph: GeometryGraph){
    * Check all nodes to see if their labels are consistent.
    * If any are not, return false
    *
-   * @return <code>true</code> if the edge area labels are consistent at this node
+   * return <code>true</code> if the edge area labels are consistent at this node
    */
   private def isNodeEdgeAreaLabelsConsistent: Boolean = {
     val nodeIt = nodeGraph.getNodeIterator
@@ -112,7 +112,7 @@ class ConsistentAreaTester(var geomGraph: GeometryGraph){
    * The start point of one of the equal rings will be placed in
    * invalidPoint.
    *
-   * @return true if this area Geometry is topologically consistent but has two duplicate rings
+   * return true if this area Geometry is topologically consistent but has two duplicate rings
    */
   def hasDuplicateRings: Boolean = {
     val nodeIt = nodeGraph.getNodeIterator

@@ -23,7 +23,7 @@ import org.locationtech.jts.geom.Geometry
  * and segment index where the point occurs.
  * Locations inside area Geometrys will not have an associated segment index,
  * so in this case the segment index will have the sentinel value of
- * {@link #INSIDE_AREA}.
+ * {link #INSIDE_AREA}.
  *
  * @version 1.7
  */
@@ -41,7 +41,7 @@ class GeometryLocation(val component: Geometry, var segIndex: Int, val pt: Coord
 /**
  * Constructs a GeometryLocation specifying a point on a geometry, as well as the
  * segment that the point is on
- * (or {@link #INSIDE_AREA} if the point is not on a segment).
+ * (or {link #INSIDE_AREA} if the point is not on a segment).
  *
  * @param component the component of the geometry containing the point
  * @param segIndex  the segment index of the location, or INSIDE_AREA
@@ -69,14 +69,14 @@ class GeometryLocation(val component: Geometry, var segIndex: Int, val pt: Coord
 
   /**
    * Returns the segment index for this location. If the location is inside an
-   * area, the index will have the value {@link #INSIDE_AREA};
+   * area, the index will have the value {link #INSIDE_AREA};
    *
-   * @return the segment index for the location, or INSIDE_AREA
+   * return the segment index for the location, or INSIDE_AREA
    */
   def getSegmentIndex: Int = segIndex
 
   /**
-   * Returns the {@link Coordinate} of this location.
+   * Returns the {link Coordinate} of this location.
    */
   def getCoordinate: Coordinate = pt
 

@@ -39,7 +39,7 @@ object PointLocation {
    *
    * @param p    the point to test
    * @param line the line coordinates
-   * @return true if the point is a vertex of the line or lies in the interior
+   * return true if the point is a vertex of the line or lies in the interior
    *         of a line segment in the line
    */
     def isOnLine(p: Coordinate, line: Array[Coordinate]): Boolean = {
@@ -59,11 +59,11 @@ object PointLocation {
 
   /**
    * Tests whether a point lies on the line defined by a
-   * {@link CoordinateSequence}.
+   * {link CoordinateSequence}.
    *
    * @param p    the point to test
    * @param line the line coordinates
-   * @return true if the point is a vertex of the line or lies in the interior
+   * return true if the point is a vertex of the line or lies in the interior
    *         of a line segment in the line
    */
   def isOnLine(p: Coordinate, line: CoordinateSequence): Boolean = {
@@ -97,7 +97,7 @@ object PointLocation {
    * @param ring
    * an array of coordinates representing the ring (which must have
    * first point identical to last point)
-   * @return true if p is inside ring
+   * return true if p is inside ring
    * @see locatePointInRing
    */
   def isInRing(p: Coordinate, ring: Array[Coordinate]): Boolean = PointLocation.locateInRing(p, ring) != Location.EXTERIOR
@@ -114,7 +114,7 @@ object PointLocation {
    * @param ring
    * an array of coordinates representing the ring (which must have
    * first point identical to last point)
-   * @return the { @link Location} of p relative to the ring
+   * return the { @link Location} of p relative to the ring
    */
   def locateInRing(p: Coordinate, ring: Array[Coordinate]): Int = RayCrossingCounter.locatePointInRing(p, ring)
 }

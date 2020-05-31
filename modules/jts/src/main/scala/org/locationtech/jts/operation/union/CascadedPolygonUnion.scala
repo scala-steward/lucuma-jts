@@ -32,7 +32,7 @@ import scala.jdk.CollectionConverters._
 
 /**
  * Provides an efficient method of unioning a collection of
- * {@link Polygonal} geometries.
+ * {link Polygonal} geometries.
  * The geometries are indexed using a spatial index,
  * and unioned recursively in index order.
  * For geometries with a high degree of overlap,
@@ -59,12 +59,12 @@ import scala.jdk.CollectionConverters._
  *
  */
 object CascadedPolygonUnion {
-  /**
-   * Computes the union of
-   * a collection of {@link Polygonal} {@link Geometry}s.
-   *
-   * @param polys a collection of { @link Polygonal} { @link Geometry}s
-   */
+  // /**
+  //  * Computes the union of
+  //  * a collection of {link Polygonal} {link Geometry}s.
+  //  *
+  //  * @param polys a collection of { @link Polygonal} { @link Geometry}s
+  //  */
     def union(polys: util.Collection[Geometry]): Geometry = {
       val op = new CascadedPolygonUnion(polys)
       op.union
@@ -85,7 +85,7 @@ object CascadedPolygonUnion {
    *
    * @param list
    * @param index
-   * @return the geometry at the given index
+   * return the geometry at the given index
    *         or null if the index is out of range
    */
   private def getGeometry(list: util.List[_], index: Int): Geometry = {
@@ -94,9 +94,9 @@ object CascadedPolygonUnion {
   }
 
   /**
-   * Computes a {@link Geometry} containing only {@link Polygonal} components.
-   * Extracts the {@link Polygon}s from the input
-   * and returns them as an appropriate {@link Polygonal} geometry.
+   * Computes a {link Geometry} containing only {link Polygonal} components.
+   * Extracts the {link Polygon}s from the input
+   * and returns them as an appropriate {link Polygonal} geometry.
    * <p>
    * If the input is already <tt>Polygonal</tt>, it is returned unchanged.
    * <p>
@@ -104,7 +104,7 @@ object CascadedPolygonUnion {
    * returned from an overlay operation.
    *
    * @param g the geometry to filter
-   * @return a Polygonal geometry
+   * return a Polygonal geometry
    */
   private def restrictToPolygons(g: Geometry): Geometry = {
     if (g.isInstanceOf[Polygonal]) return g
@@ -116,29 +116,29 @@ object CascadedPolygonUnion {
 
 class CascadedPolygonUnion(var inputPolysArg: util.Collection[Geometry]) {
 
-/**
- * Creates a new instance to union
- * the given collection of {@link Geometry}s.
- *
- * @param polys a collection of { @link Polygonal} { @link Geometry}s
- */  // guard against null input
+// /**
+//  * Creates a new instance to union
+//  * the given collection of {link Geometry}s.
+//  *
+//  * @param polys a collection of { @link Polygonal} { @link Geometry}s
+//  */  // guard against null input
   var inputPolys: util.Collection[Geometry] = if (inputPolysArg == null) new util.ArrayList[Geometry] else inputPolysArg
 //  private var geomFactory: GeometryFactory = null
 
-  /**
-   * Computes the union of the input geometries.
-   * <p>
-   * This method discards the input geometries as they are processed.
-   * In many input cases this reduces the memory retained
-   * as the operation proceeds.
-   * Optimal memory usage is achieved
-   * by disposing of the original input collection
-   * before calling this method.
-   *
-   * @return the union of the input geometries
-   *         or null if no input geometries were provided
-   * @throws IllegalStateException if this method is called more than once
-   */
+  // /**
+  //  * Computes the union of the input geometries.
+  //  * <p>
+  //  * This method discards the input geometries as they are processed.
+  //  * In many input cases this reduces the memory retained
+  //  * as the operation proceeds.
+  //  * Optimal memory usage is achieved
+  //  * by disposing of the original input collection
+  //  * before calling this method.
+  //  *
+  //  * return the union of the input geometries
+  //  *         or null if no input geometries were provided
+  //  * throws IllegalStateException if this method is called more than once
+  //  */
   def union: Geometry = {
     if (inputPolys == null) throw new IllegalStateException("union() method cannot be called twice")
     if (inputPolys.isEmpty) return null
@@ -220,7 +220,7 @@ class CascadedPolygonUnion(var inputPolysArg: util.Collection[Geometry]) {
    * @param geoms the list of geometries containing the section to union
    * @param start the start index of the section
    * @param end   the index after the end of the section
-   * @return the union of the list section
+   * return the union of the list section
    */
   private def binaryUnion(geoms: util.List[Geometry], start: Int, end: Int): Geometry = if (end - start <= 1) {
     val g0 = CascadedPolygonUnion.getGeometry(geoms, start)
@@ -239,7 +239,7 @@ class CascadedPolygonUnion(var inputPolysArg: util.Collection[Geometry]) {
    * by recursively unioning the subtrees in the list.
    *
    * @param geomTree a tree-structured list of geometries
-   * @return a list of Geometrys
+   * return a list of Geometrys
    */
   private def reduceToGeometries(geomTree: util.List[Geometry]) = {
     val geoms = new util.ArrayList[Geometry]
@@ -262,7 +262,7 @@ class CascadedPolygonUnion(var inputPolysArg: util.Collection[Geometry]) {
    *
    * @param g0 a Geometry
    * @param g1 a Geometry
-   * @return the union of the input(s)
+   * return the union of the input(s)
    *         or null if both inputs are null
    */
   private def unionSafe(g0: Geometry, g1: Geometry): Geometry = {
@@ -277,7 +277,7 @@ class CascadedPolygonUnion(var inputPolysArg: util.Collection[Geometry]) {
    *
    * @param g0
    * @param g1
-   * @return
+   * return
    */
   private def unionActual(g0: Geometry, g1: Geometry): Geometry = {
     val union = OverlapUnion.union(g0, g1)

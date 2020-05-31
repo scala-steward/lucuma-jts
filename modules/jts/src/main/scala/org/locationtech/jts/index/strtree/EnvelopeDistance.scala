@@ -24,7 +24,7 @@ package org.locationtech.jts.index.strtree
 import org.locationtech.jts.geom.Envelope
 
 /**
- * Functions for computing distances between {@link Envelope}s.
+ * Functions for computing distances between {link Envelope}s.
  *
  * @author mdavis
  *
@@ -39,7 +39,7 @@ object EnvelopeDistance {
    *
    * @param env1 an envelope
    * @param env2 an envelope
-   * @return the maximum distance between the points defining the envelopes
+   * return the maximum distance between the points defining the envelopes
    */
     def maximumDistance(env1: Envelope, env2: Envelope): Double = {
       val minx = Math.min(env1.getMinX, env2.getMinX)
@@ -56,19 +56,19 @@ object EnvelopeDistance {
   }
 
   /**
-   * Computes the Min-Max Distance between two {@link Envelope}s.
+   * Computes the Min-Max Distance between two {link Envelope}s.
    * It is equal to the minimum of the maximum distances between all pairs of
    * edge segments from the two envelopes.
    * This is the tight upper bound on the distance between
    * geometric items bounded by the envelopes.
    * <p>
    * Theoretically this bound can be used in the R-tree nearest-neighbour branch-and-bound search
-   * instead of {@link #maximumDistance(Envelope, Envelope)}.
+   * instead of {link #maximumDistance(Envelope, Envelope)}.
    * However, little performance improvement is observed in practice.
    *
    * @param a an envelope
    * @param b an envelope
-   * @return the min-max-distance between the envelopes
+   * return the min-max-distance between the envelopes
    */
   def minMaxDistance(a: Envelope, b: Envelope): Double = {
     val aminx = a.getMinX
@@ -109,7 +109,7 @@ object EnvelopeDistance {
    * @param by1 y ordinate of first endpoint of segment 2
    * @param bx2 x ordinate of second endpoint of segment 2
    * @param by2 y ordinate of second endpoint of segment 2
-   * @return maximum distance between the segments
+   * return maximum distance between the segments
    */
   private def maxDistance(ax1: Double, ay1: Double, ax2: Double, ay2: Double, bx1: Double, by1: Double, bx2: Double, by2: Double) = {
     var dist = distance(ax1, ay1, bx1, by1)

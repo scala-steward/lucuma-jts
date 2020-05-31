@@ -28,8 +28,8 @@ import java.io.Serializable
 
 /**
  * Defines a rectangular region of the 2D coordinate plane.
- * It is often used to represent the bounding box of a {@link Geometry},
- *  e.g. the minimum and maximum x and y values of the {@link Coordinate}s.
+ * It is often used to represent the bounding box of a {link Geometry},
+ *  e.g. the minimum and maximum x and y values of the {link Coordinate}s.
  * <p>
  * Envelopes support infinite or half-infinite regions, by using the values of
  * <code>Double.POSITIVE_INFINITY</code> and <code>Double.NEGATIVE_INFINITY</code>.
@@ -48,7 +48,7 @@ object Envelope {
    * @param p1 one extremal point of the envelope
    * @param p2 another extremal point of the envelope
    * @param q  the point to test for intersection
-   * @return <code>true</code> if q intersects the envelope p1-p2
+   * return <code>true</code> if q intersects the envelope p1-p2
    */
     def intersects(p1: Coordinate, p2: Coordinate, q: Coordinate): Boolean = { //OptimizeIt shows that Math#min and Math#max here are a bottleneck.
       //Replace with direct comparisons. [Jon Aquino]
@@ -69,7 +69,7 @@ object Envelope {
    * @param p2 another extremal point of the envelope P
    * @param q1 one extremal point of the envelope Q
    * @param q2 another extremal point of the envelope Q
-   * @return <code>true</code> if Q intersects P
+   * return <code>true</code> if Q intersects P
    */
   def intersects(p1: Coordinate, p2: Coordinate, q1: Coordinate, q2: Coordinate): Boolean = {
     var minq = Math.min(q1.x, q2.x)
@@ -199,7 +199,7 @@ class Envelope()
   /**
    * Creates a copy of this envelope object.
    *
-   * @return a copy of this envelope
+   * return a copy of this envelope
    */
   def copy = new Envelope(this)
 
@@ -245,7 +245,7 @@ class Envelope()
    * Returns <code>true</code> if this <code>Envelope</code> is a "null"
    * envelope.
    *
-   * @return <code>true</code> if this <code>Envelope</code> is uninitialized
+   * return <code>true</code> if this <code>Envelope</code> is uninitialized
    *         or is the envelope of the empty geometry.
    */
   def isNull: Boolean = maxx < minx
@@ -253,7 +253,7 @@ class Envelope()
   /**
    * Returns the difference between the maximum and minimum x values.
    *
-   * @return max x - min x, or 0 if this is a null <code>Envelope</code>
+   * return max x - min x, or 0 if this is a null <code>Envelope</code>
    */
   def getWidth: Double = {
     if (isNull) return 0
@@ -263,7 +263,7 @@ class Envelope()
   /**
    * Returns the difference between the maximum and minimum y values.
    *
-   * @return max y - min y, or 0 if this is a null <code>Envelope</code>
+   * return max y - min y, or 0 if this is a null <code>Envelope</code>
    */
   def getHeight: Double = {
     if (isNull) return 0
@@ -273,7 +273,7 @@ class Envelope()
   /**
    * Gets the length of the diameter (diagonal) of the envelope.
    *
-   * @return the diameter length
+   * return the diameter length
    */
   def getDiameter: Double = {
     if (isNull) return 0
@@ -286,7 +286,7 @@ class Envelope()
    * Returns the <code>Envelope</code>s minimum x-value. min x &gt; max x
    * indicates that this is a null <code>Envelope</code>.
    *
-   * @return the minimum x-coordinate
+   * return the minimum x-coordinate
    */
   def getMinX: Double = minx
 
@@ -294,7 +294,7 @@ class Envelope()
    * Returns the <code>Envelope</code>s maximum x-value. min x &gt; max x
    * indicates that this is a null <code>Envelope</code>.
    *
-   * @return the maximum x-coordinate
+   * return the maximum x-coordinate
    */
   def getMaxX: Double = maxx
 
@@ -302,7 +302,7 @@ class Envelope()
    * Returns the <code>Envelope</code>s minimum y-value. min y &gt; max y
    * indicates that this is a null <code>Envelope</code>.
    *
-   * @return the minimum y-coordinate
+   * return the minimum y-coordinate
    */
   def getMinY: Double = miny
 
@@ -310,22 +310,22 @@ class Envelope()
    * Returns the <code>Envelope</code>s maximum y-value. min y &gt; max y
    * indicates that this is a null <code>Envelope</code>.
    *
-   * @return the maximum y-coordinate
+   * return the maximum y-coordinate
    */
   def getMaxY: Double = maxy
 
   /**
    * Gets the area of this envelope.
    *
-   * @return the area of the envelope
-   * @return 0.0 if the envelope is null
+   * return the area of the envelope
+   * return 0.0 if the envelope is null
    */
   def getArea: Double = getWidth * getHeight
 
   /**
    * Gets the minimum extent of this envelope across both dimensions.
    *
-   * @return the minimum extent of this envelope
+   * return the minimum extent of this envelope
    */
   def minExtent: Double = {
     if (isNull) return 0.0
@@ -338,7 +338,7 @@ class Envelope()
   /**
    * Gets the maximum extent of this envelope across both dimensions.
    *
-   * @return the maximum extent of this envelope
+   * return the maximum extent of this envelope
    */
   def maxExtent: Double = {
     if (isNull) return 0.0
@@ -350,7 +350,7 @@ class Envelope()
 
   /**
    * Enlarges this <code>Envelope</code> so that it contains
-   * the given {@link Coordinate}.
+   * the given {link Coordinate}.
    * Has no effect if the point is already on or within the envelope.
    *
    * @param  p the Coordinate to expand to include
@@ -441,7 +441,7 @@ class Envelope()
   /**
    * Computes the coordinate of the centre of this envelope (as long as it is non-null
    *
-   * @return the centre coordinate of this envelope
+   * return the centre coordinate of this envelope
    *         <code>null</code> if the envelope is null
    */
   def centre: Coordinate = {
@@ -450,10 +450,10 @@ class Envelope()
   }
 
   /**
-   * Computes the intersection of two {@link Envelope}s.
+   * Computes the intersection of two {link Envelope}s.
    *
    * @param env the envelope to intersect with
-   * @return a new Envelope representing the intersection of the envelopes (this will be
+   * return a new Envelope representing the intersection of the envelopes (this will be
    *         the null envelope if either argument is null, or they do not intersect
    */
   def intersection(env: Envelope): Envelope = {
@@ -475,7 +475,7 @@ class Envelope()
    *
    * @param  other the <code>Envelope</code> which this <code>Envelope</code> is
    *               being checked for intersecting
-   * @return <code>true</code> if the <code>Envelope</code>s intersect
+   * return <code>true</code> if the <code>Envelope</code>s intersect
    */
   def intersects(other: Envelope): Boolean = {
     if (isNull || other.isNull) return false
@@ -488,7 +488,7 @@ class Envelope()
    *
    * @param a a point
    * @param b another point
-   * @return <code>true</code> if the extents intersect
+   * return <code>true</code> if the extents intersect
    */
   def intersects(a: Coordinate, b: Coordinate): Boolean = {
     if (isNull) return false
@@ -512,7 +512,7 @@ class Envelope()
    * is disjoint from the region of this <code>Envelope</code>.
    *
    * @param  other the <code>Envelope</code> being checked for disjointness
-   * @return <code>true</code> if the <code>Envelope</code>s are disjoint
+   * return <code>true</code> if the <code>Envelope</code>s are disjoint
    * @see #intersects(Envelope)
    */
   def disjoint(other: Envelope): Boolean = {
@@ -532,7 +532,7 @@ class Envelope()
    * intersects (lies inside) the region of this <code>Envelope</code>.
    *
    * @param  p the <code>Coordinate</code> to be tested
-   * @return <code>true</code> if the point intersects this <code>Envelope</code>
+   * return <code>true</code> if the point intersects this <code>Envelope</code>
    */
   def intersects(p: Coordinate): Boolean = intersects(p.x, p.y)
 
@@ -547,7 +547,7 @@ class Envelope()
    *
    * @param  x the x-ordinate of the point
    * @param  y the y-ordinate of the point
-   * @return <code>true</code> if the point overlaps this <code>Envelope</code>
+   * return <code>true</code> if the point overlaps this <code>Envelope</code>
    */
   def intersects(x: Double, y: Double): Boolean = {
     if (isNull) return false
@@ -564,7 +564,7 @@ class Envelope()
    * which would exclude the envelope boundary.
    *
    * @param  other the <code>Envelope</code> to check
-   * @return true if <code>other</code> is contained in this <code>Envelope</code>
+   * return true if <code>other</code> is contained in this <code>Envelope</code>
    * @see #covers(Envelope)
    */
   def contains(other: Envelope): Boolean = covers(other)
@@ -577,7 +577,7 @@ class Envelope()
    *
    * @param  p the point which this <code>Envelope</code> is
    *           being checked for containing
-   * @return <code>true</code> if the point lies in the interior or
+   * return <code>true</code> if the point lies in the interior or
    *         on the boundary of this <code>Envelope</code>.
    * @see #covers(Coordinate)
    */
@@ -593,7 +593,7 @@ class Envelope()
    *           being checked for containing
    * @param  y the y-coordinate of the point which this <code>Envelope</code> is
    *           being checked for containing
-   * @return <code>true</code> if <code>(x, y)</code> lies in the interior or
+   * return <code>true</code> if <code>(x, y)</code> lies in the interior or
    *         on the boundary of this <code>Envelope</code>.
    * @see #covers(double, double)
    */
@@ -606,7 +606,7 @@ class Envelope()
    *           being checked for containing
    * @param  y the y-coordinate of the point which this <code>Envelope</code> is
    *           being checked for containing
-   * @return <code>true</code> if <code>(x, y)</code> lies in the interior or
+   * return <code>true</code> if <code>(x, y)</code> lies in the interior or
    *         on the boundary of this <code>Envelope</code>.
    */
   def covers(x: Double, y: Double): Boolean = {
@@ -619,7 +619,7 @@ class Envelope()
    *
    * @param  p the point which this <code>Envelope</code> is
    *           being checked for containing
-   * @return <code>true</code> if the point lies in the interior or
+   * return <code>true</code> if the point lies in the interior or
    *         on the boundary of this <code>Envelope</code>.
    */
   def covers(p: Coordinate): Boolean = covers(p.x, p.y)
@@ -629,7 +629,7 @@ class Envelope()
    * lies wholely inside this <code>Envelope</code> (inclusive of the boundary).
    *
    * @param  other the <code>Envelope</code> to check
-   * @return true if this <code>Envelope</code> covers the <code>other</code>
+   * return true if this <code>Envelope</code> covers the <code>other</code>
    */
   def covers(other: Envelope): Boolean = {
     if (isNull || other.isNull) return false

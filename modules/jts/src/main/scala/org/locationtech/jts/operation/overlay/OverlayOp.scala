@@ -28,7 +28,7 @@ import org.locationtech.jts.operation.GeometryGraphOperation
 import org.locationtech.jts.util.Assert
 
 /**
- * Computes the geometric overlay of two {@link Geometry}s.  The overlay
+ * Computes the geometric overlay of two {link Geometry}s.  The overlay
  * can be used to determine any boolean combination of the geometries.
  *
  * @version 1.7
@@ -51,53 +51,53 @@ object OverlayOp {
    */
   val SYMDIFFERENCE = 4
 
-  /**
-   * Computes an overlay operation for
-   * the given geometry arguments.
-   *
-   * @param geom0  the first geometry argument
-   * @param geom1  the second geometry argument
-   * @param opCode the code for the desired overlay operation
-   * @return the result of the overlay operation
-   * @throws TopologyException if a robustness problem is encountered
-   */
+  // /**
+  //  * Computes an overlay operation for
+  //  * the given geometry arguments.
+  //  *
+  //  * @param geom0  the first geometry argument
+  //  * @param geom1  the second geometry argument
+  //  * @param opCode the code for the desired overlay operation
+  //  * return the result of the overlay operation
+  //  * throws TopologyException if a robustness problem is encountered
+  //  */
   def overlayOp(geom0: Geometry, geom1: Geometry, opCode: Int): Geometry = {
     val gov = new OverlayOp(geom0, geom1)
     val geomOv = gov.getResultGeometry(opCode)
     geomOv
   }
 
-  /**
-   * Tests whether a point with a given topological {@link Label}
-   * relative to two geometries is contained in
-   * the result of overlaying the geometries using
-   * a given overlay operation.
-   * <p>
-   * The method handles arguments of {@link Location#NONE} correctly
-   *
-   * @param label  the topological label of the point
-   * @param opCode the code for the overlay operation to test
-   * @return true if the label locations correspond to the overlayOpCode
-   */
+  // /**
+  //  * Tests whether a point with a given topological {link Label}
+  //  * relative to two geometries is contained in
+  //  * the result of overlaying the geometries using
+  //  * a given overlay operation.
+  //  * <p>
+  //  * The method handles arguments of {link Location#NONE} correctly
+  //  *
+  //  * @param label  the topological label of the point
+  //  * @param opCode the code for the overlay operation to test
+  //  * return true if the label locations correspond to the overlayOpCode
+  //  */
   def isResultOfOp(label: Label, opCode: Int): Boolean = {
     val loc0 = label.getLocation(0)
     val loc1 = label.getLocation(1)
     isResultOfOp(loc0, loc1, opCode)
   }
 
-  /**
-   * Tests whether a point with given {@link Location}s
-   * relative to two geometries is contained in
-   * the result of overlaying the geometries using
-   * a given overlay operation.
-   * <p>
-   * The method handles arguments of {@link Location#NONE} correctly
-   *
-   * @param loc0          the code for the location in the first geometry
-   * @param loc1          the code for the location in the second geometry
-   * @param overlayOpCode the code for the overlay operation to test
-   * @return true if the locations correspond to the overlayOpCode
-   */
+  // /**
+  //  * Tests whether a point with given {link Location}s
+  //  * relative to two geometries is contained in
+  //  * the result of overlaying the geometries using
+  //  * a given overlay operation.
+  //  * <p>
+  //  * The method handles arguments of {link Location#NONE} correctly
+  //  *
+  //  * @param loc0          the code for the location in the first geometry
+  //  * @param loc1          the code for the location in the second geometry
+  //  * @param overlayOpCode the code for the overlay operation to test
+  //  * return true if the locations correspond to the overlayOpCode
+  //  */
   def isResultOfOp(loc0Arg: Int, loc1Arg: Int, overlayOpCode: Int): Boolean = {
     val loc0 = if (loc0Arg == Location.BOUNDARY) Location.INTERIOR else loc0Arg
     val loc1 = if (loc1Arg == Location.BOUNDARY) Location.INTERIOR else loc1Arg
@@ -122,10 +122,10 @@ object OverlayOp {
    * <p>
    * The empty result is constructed using the following rules:
    * <ul>
-   * <li>{@link #INTERSECTION} - result has the dimension of the lowest input dimension
-   * <li>{@link #UNION} - result has the dimension of the highest input dimension
-   * <li>{@link #DIFFERENCE} - result has the dimension of the left-hand input
-   * <li>{@link #SYMDIFFERENCE} - result has the dimension of the highest input dimension
+   * <li>{link #INTERSECTION} - result has the dimension of the lowest input dimension
+   * <li>{link #UNION} - result has the dimension of the highest input dimension
+   * <li>{link #DIFFERENCE} - result has the dimension of the left-hand input
+   * <li>{link #SYMDIFFERENCE} - result has the dimension of the highest input dimension
    * (since the symmetric Difference is the union of the differences).
    * </ul>
    *
@@ -133,7 +133,7 @@ object OverlayOp {
    * @param a             an input geometry
    * @param b             an input geometry
    * @param geomFact      the geometry factory being used for the operation
-   * @return an empty atomic geometry of the appropriate dimension
+   * return an empty atomic geometry of the appropriate dimension
    */
   def createEmptyResult(overlayOpCode: Int, a: Geometry, b: Geometry, geomFact: GeometryFactory): Geometry = {
     val resultDim = resultDimension(overlayOpCode, a, b)
@@ -172,13 +172,6 @@ object OverlayOp {
 
 class OverlayOp(val g0: Geometry, val g1: Geometry)
 
-/**
- * Constructs an instance to compute a single overlay operation
- * for the given geometries.
- *
- * @param g0 the first geometry argument
- * @param g1 the second geometry argument
- */
   extends GeometryGraphOperation(g0, g1) {
   private val graph = new PlanarGraph(new OverlayNodeFactory)
   /**
@@ -194,15 +187,15 @@ class OverlayOp(val g0: Geometry, val g1: Geometry)
   private var resultLineList = new util.ArrayList[LineString]
   private var resultPointList = new util.ArrayList[Point]
 
-  /**
-   * Gets the result of the overlay for a given overlay operation.
-   * <p>
-   * Note: this method can be called once only.
-   *
-   * @param overlayOpCode the overlay operation to perform
-   * @return the compute result geometry
-   * @throws TopologyException if a robustness problem is encountered
-   */
+  // /**
+  //  * Gets the result of the overlay for a given overlay operation.
+  //  * <p>
+  //  * Note: this method can be called once only.
+  //  *
+  //  * @param overlayOpCode the overlay operation to perform
+  //  * return the compute result geometry
+  //  * throws TopologyException if a robustness problem is encountered
+  //  */
   def getResultGeometry(overlayOpCode: Int): Geometry = {
     computeOverlay(overlayOpCode)
     resultGeom
@@ -211,7 +204,7 @@ class OverlayOp(val g0: Geometry, val g1: Geometry)
   /**
    * Gets the graph constructed to compute the overlay.
    *
-   * @return the overlay graph
+   * return the overlay graph
    */
   def getGraph: PlanarGraph = graph
 
@@ -563,7 +556,7 @@ class OverlayOp(val g0: Geometry, val g1: Geometry)
    * Tests if a point node should be included in the result or not.
    *
    * @param coord the point coordinate
-   * @return true if the coordinate point is covered by a result Line or Area geometry
+   * return true if the coordinate point is covered by a result Line or Area geometry
    */
   def isCoveredByLA(coord: Coordinate): Boolean = {
     if (isCovered(coord, resultLineList)) return true
@@ -575,7 +568,7 @@ class OverlayOp(val g0: Geometry, val g1: Geometry)
    * Tests if an L edge should be included in the result or not.
    *
    * @param coord the point coordinate
-   * @return true if the coordinate point is covered by a result Area geometry
+   * return true if the coordinate point is covered by a result Area geometry
    */
   def isCoveredByA(coord: Coordinate): Boolean = {
     if (isCovered(coord, resultPolyList)) return true
@@ -583,7 +576,7 @@ class OverlayOp(val g0: Geometry, val g1: Geometry)
   }
 
   /**
-   * @return true if the coord is located in the interior or boundary of
+   * return true if the coord is located in the interior or boundary of
    *         a geometry in the list.
    */
   private def isCovered(coord: Coordinate, geomList: util.List[_]): Boolean = {

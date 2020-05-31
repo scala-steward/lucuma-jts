@@ -49,7 +49,7 @@ class ArrayListVisitor()
   /**
    * Gets the array of visited items.
    *
-   * @return the array of items
+   * return the array of items
    */
   def getItems: util.ArrayList[Any] = items
 }

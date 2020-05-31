@@ -72,7 +72,7 @@ object InteriorPointArea {
    * polygonal components of a Geometry.
    *
    * @param geom the geometry to compute
-   * @return the computed interior point,
+   * return the computed interior point,
    *         or <code>null</code> if the geometry has no polygonal components
    */
     def getInteriorPoint(geom: Geometry): Coordinate = {
@@ -83,7 +83,7 @@ object InteriorPointArea {
   private def avg(a: Double, b: Double) = (a + b) / 2.0
 
   /**
-   * Computes an interior point in a single {@link Polygon},
+   * Computes an interior point in a single {link Polygon},
    * as well as the width of the scan-line section it occurs in
    * to allow choosing the widest section occurrence.
    *
@@ -100,7 +100,7 @@ object InteriorPointArea {
      * @param p0    an endpoint of the segment
      * @param p1    an endpoint of the segment
      * @param scanY the Y-ordinate of the horizontal line
-     * @return true if the edge crossing is counted
+     * return true if the edge crossing is counted
      */
       private def isEdgeCrossingCounted(p0: Coordinate, p1: Coordinate, scanY: Double): Boolean = {
         val y0 = p0.getY
@@ -125,7 +125,7 @@ object InteriorPointArea {
      * @param p0 an endpoint of the segment
      * @param p1 an endpoint of the segment
      * @param Y  the Y-ordinate of the horizontal line
-     * @return
+     * return
      */
     private def intersection(p0: Coordinate, p1: Coordinate, Y: Double): Double = {
       val x0 = p0.getX
@@ -144,7 +144,7 @@ object InteriorPointArea {
      *
      * @param env the envelope to test
      * @param y   the Y-ordinate of the horizontal line
-     * @return true if the envelope and line intersect
+     * return true if the envelope and line intersect
      */
     private def intersectsHorizontalLine(env: Envelope, y: Double): Boolean = {
       if (y < env.getMinY) return false
@@ -158,7 +158,7 @@ object InteriorPointArea {
      * @param p0 a segment endpoint
      * @param p1 a segment endpoint
      * @param y  the Y-ordinate of the horizontal line
-     * @return true if the segment and line intersect
+     * return true if the segment and line intersect
      */
     private def intersectsHorizontalLine(p0: Coordinate, p1: Coordinate, y: Double): Boolean = { // both ends above?
       if (p0.getY > y && p1.getY > y) return false
@@ -183,7 +183,7 @@ object InteriorPointArea {
     /**
      * Gets the computed interior point.
      *
-     * @return the interior point coordinate,
+     * return the interior point coordinate,
      *         or <code>null</code> if the input geometry is empty
      */
     def getInteriorPoint: Coordinate = interiorPoint
@@ -192,7 +192,7 @@ object InteriorPointArea {
      * Gets the width of the scanline section containing the interior point.
      * Used to determine the best point to use.
      *
-     * @return the width
+     * return the width
      */
     def getWidth: Double = interiorSectionWidth
 
@@ -248,8 +248,8 @@ object InteriorPointArea {
 
     /**
      * Finds the midpoint of the widest interior section.
-     * Sets the {@link #interiorPoint} location
-     * and the {@link #interiorSectionWidth}
+     * Sets the {link #interiorPoint} location
+     * and the {link #interiorSectionWidth}
      *
      * @param crossings the list of scan-line crossing X ordinates
      */
@@ -382,7 +382,7 @@ class InteriorPointArea(val g: Geometry) {
   /**
    * Gets the computed interior point.
    *
-   * @return the coordinate of an interior point
+   * return the coordinate of an interior point
    *         or <code>null</code> if the input geometry is empty
    */
   def getInteriorPoint: Coordinate = interiorPoint

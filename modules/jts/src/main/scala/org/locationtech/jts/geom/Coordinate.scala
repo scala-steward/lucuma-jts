@@ -32,8 +32,8 @@ import org.locationtech.jts.util.NumberUtil
 /**
  * A lightweight class used to store coordinates on the 2-dimensional Cartesian plane.
  * <p>
- * It is distinct from {@link Point}, which is a subclass of {@link Geometry}.
- * Unlike objects of type {@link Point} (which contain additional
+ * It is distinct from {link Point}, which is a subclass of {link Geometry}.
+ * Unlike objects of type {link Point} (which contain additional
  * information such as an envelope, a precision model, and spatial reference
  * system information), a <code>Coordinate</code> only contains ordinate values
  * and accessor methods. </p>
@@ -47,9 +47,9 @@ import org.locationtech.jts.util.NumberUtil
  * only specific operations involving the Z-ordinate.</p>
  * <p>
  * Implementations may optionally support Z-ordinate and M-measure values
- * as appropriate for a {@link CoordinateSequence}.
- * Use of {@link #getZ()} and {@link #getM()}
- * accessors, or {@link #getOrdinate(int)} are recommended.</p>
+ * as appropriate for a {link CoordinateSequence}.
+ * Use of {link #getZ()} and {link #getM()}
+ * accessors, or {link #getOrdinate(int)} are recommended.</p>
  *
  * @version 1.16
  */
@@ -69,14 +69,14 @@ object Coordinate {
    * Standard ordinate index value for, where Z is 2.
    *
    * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-   * using {@link #getDimension()} and {@link #getMeasures()} before use.
+   * using {link #getDimension()} and {link #getMeasures()} before use.
    */
   val Z = 2
   /**
    * Standard ordinate index value for, where M is 3.
    *
    * <p>This constant assumes XYZM coordinate sequence definition, please check this assumption
-   * using {@link #getDimension()} and {@link #getMeasures()} before use.
+   * using {link #getDimension()} and {link #getMeasures()} before use.
    */
   val M = 3
 
@@ -85,7 +85,7 @@ object Coordinate {
    * Joshua Bloch's book <i>Effective Java"</i>
    *
    * @param x the value to compute for
-   * @return a hashcode for x
+   * return a hashcode for x
    */
   def hashCode(x: Double): Int = {
     val f = java.lang.Double.doubleToLongBits(x)
@@ -93,7 +93,7 @@ object Coordinate {
   }
 
   /**
-   * Compares two {@link Coordinate}s, allowing for either a 2-dimensional
+   * Compares two {link Coordinate}s, allowing for either a 2-dimensional
    * or 3-dimensional comparison, and handling NaN values correctly.
    */
   object DimensionalComparator {
@@ -103,7 +103,7 @@ object Coordinate {
      *
      * @param a a <code>double</code>
      * @param b a <code>double</code>
-     * @return -1, 0, or 1 depending on whether a is less than, equal to or greater than b
+     * return -1, 0, or 1 depending on whether a is less than, equal to or greater than b
      */
       def compare(a: Double, b: Double): Int = {
         if (a < b) return -1
@@ -129,12 +129,12 @@ object Coordinate {
     }
 
     /**
-     * Compares two {@link Coordinate}s along to the number of
+     * Compares two {link Coordinate}s along to the number of
      * dimensions specified.
      *
      * @param o1 a { @link Coordinate}
      * @param o2 a {link Coordinate}
-     * @return -1, 0, or 1 depending on whether o1 is less than,
+     * return -1, 0, or 1 depending on whether o1 is less than,
      *         equal to, or greater than 02
      *
      */
@@ -196,7 +196,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   /**
    * Retrieves the value of the X ordinate.
    *
-   * @return the value of the X ordinate
+   * return the value of the X ordinate
    */
   def getX: Double = x
 
@@ -210,7 +210,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   /**
    * Retrieves the value of the Y ordinate.
    *
-   * @return the value of the Y ordinate
+   * return the value of the Y ordinate
    */
   def getY: Double = y
 
@@ -225,7 +225,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Retrieves the value of the Z ordinate, if present.
    * If no Z value is present returns <tt>NaN</tt>.
    *
-   * @return the value of the Z ordinate, or <tt>NaN</tt>
+   * return the value of the Z ordinate, or <tt>NaN</tt>
    */
   def getZ: Double = z
 
@@ -240,7 +240,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Retrieves the value of the measure, if present.
    * If no measure value is present returns <tt>NaN</tt>.
    *
-   * @return the value of the measure, or <tt>NaN</tt>
+   * return the value of the measure, or <tt>NaN</tt>
    */
   def getM: Double = Double.NaN
 
@@ -255,11 +255,11 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Gets the ordinate value for the given index.
    *
    * The base implementation supports values for the index are
-   * {@link X}, {@link Y}, and {@link Z}.
+   * {link X}, {link Y}, and {link Z}.
    *
    * @param ordinateIndex the ordinate index
-   * @return the value of the ordinate
-   * @throws IllegalArgumentException if the index is not valid
+   * return the value of the ordinate
+   * throws IllegalArgumentException if the index is not valid
    */
   def getOrdinate(ordinateIndex: Int): Double = {
     ordinateIndex match {
@@ -274,11 +274,11 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * to a given value.
    *
    * The base implementation supported values for the index are
-   * {@link X}, {@link Y}, and {@link Z}.
+   * {link X}, {link Y}, and {link Z}.
    *
    * @param ordinateIndex the ordinate index
    * @param value         the value to set
-   * @throws IllegalArgumentException if the index is not valid
+   * throws IllegalArgumentException if the index is not valid
    */
   def setOrdinate(ordinateIndex: Int, value: Double): Unit = ordinateIndex match {
     case Coordinate.X =>
@@ -296,7 +296,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * are equal.
    *
    * @param  other a <code>Coordinate</code> with which to do the 2D comparison.
-   * @return <code>true</code> if the x- and y-coordinates are equal; the
+   * return <code>true</code> if the x- and y-coordinates are equal; the
    *         z-coordinates do not have to be equal.
    */
   def equals2D(other: Coordinate): Boolean = {
@@ -312,7 +312,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    *
    * @param c         a <code>Coordinate</code> with which to do the 2D comparison.
    * @param tolerance the tolerance value to use
-   * @return true if <code>other</code> is a <code>Coordinate</code>
+   * return true if <code>other</code> is a <code>Coordinate</code>
    *         with the same values for X and Y.
    */
   def equals2D(c: Coordinate, tolerance: Double): Boolean = {
@@ -325,7 +325,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Tests if another coordinate has the same values for the X, Y and Z ordinates.
    *
    * @param other a <code>Coordinate</code> with which to do the 3D comparison.
-   * @return true if <code>other</code> is a <code>Coordinate</code>
+   * return true if <code>other</code> is a <code>Coordinate</code>
    *         with the same values for X, Y and Z.
    */
   def equals3D(other: Coordinate): Boolean = (x == other.x) && (y == other.y) && ((getZ == other.getZ) || (java.lang.Double.isNaN(getZ) && java.lang.Double.isNaN(other.getZ)))
@@ -335,7 +335,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    *
    * @param c         a coordinate
    * @param tolerance the tolerance value
-   * @return true if the Z ordinates are within the given tolerance
+   * return true if the Z ordinates are within the given tolerance
    */
   def equalInZ(c: Coordinate, tolerance: Double): Boolean = NumberUtil.equalsWithTolerance(this.getZ, c.getZ, tolerance)
 
@@ -345,7 +345,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Since Coordinates are 2.5D, this routine ignores the z value when making the comparison.
    *
    * @param  other a <code>Coordinate</code> with which to do the comparison.
-   * @return <code>true</code> if <code>other</code> is a <code>Coordinate</code>
+   * return <code>true</code> if <code>other</code> is a <code>Coordinate</code>
    *         with the same values for the x and y ordinates.
    */
   override def equals(other: Any): Boolean = {
@@ -354,7 +354,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   }
 
   /**
-   * Compares this {@link Coordinate} with the specified {@link Coordinate} for order.
+   * Compares this {link Coordinate} with the specified {link Coordinate} for order.
    * This method ignores the z value when making the comparison.
    * Returns:
    * <UL>
@@ -368,7 +368,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    *
    * @param  o the <code>Coordinate</code> with which this <code>Coordinate</code>
    *           is being compared
-   * @return -1, zero, or 1 as this <code>Coordinate</code>
+   * return -1, zero, or 1 as this <code>Coordinate</code>
    *         is less than, equal to, or greater than the specified <code>Coordinate</code>
    */
   override def compareTo(o: Coordinate): Int = {
@@ -383,7 +383,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   /**
    * Returns a <code>String</code> of the form <I>(x,y,z)</I> .
    *
-   * @return a <code>String</code> of the form <I>(x,y,z)</I>
+   * return a <code>String</code> of the form <I>(x,y,z)</I>
    */
   override def toString: String = "(" + x + ", " + y + ", " + getZ + ")"
 
@@ -399,7 +399,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   /**
    * Creates a copy of this Coordinate.
    *
-   * @return a copy of this coordinate.
+   * return a copy of this coordinate.
    */
   def copy = new Coordinate(this)
 
@@ -408,7 +408,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * The Z-ordinate is ignored.
    *
    * @param c a point
-   * @return the 2-dimensional Euclidean distance between the locations
+   * return the 2-dimensional Euclidean distance between the locations
    */
   def distance(c: Coordinate): Double = {
     val dx = x - c.x
@@ -420,7 +420,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * Computes the 3-dimensional Euclidean distance to another location.
    *
    * @param c a coordinate
-   * @return the 3-dimensional Euclidean distance between the locations
+   * return the 3-dimensional Euclidean distance between the locations
    */
   def distance3D(c: Coordinate): Double = {
     val dx = x - c.x
@@ -432,7 +432,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
   /**
    * Gets a hashcode for this coordinate.
    *
-   * @return a hashcode for this coordinate
+   * return a hashcode for this coordinate
    */
   override def hashCode: Int = { //Algorithm from Effective Java by Joshua Bloch [Jon Aquino]
     var result = 17

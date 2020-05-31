@@ -37,7 +37,7 @@ object Quadrant {
    * Returns the quadrant of a directed line segment (specified as x and y
    * displacements, which cannot both be 0).
    *
-   * @throws IllegalArgumentException if the displacements are both 0
+   * throws IllegalArgumentException if the displacements are both 0
    */
   def quadrant(dx: Double, dy: Double): Int = {
     if (dx == 0.0 && dy == 0.0) throw new IllegalArgumentException("Cannot compute the quadrant for point ( " + dx + ", " + dy + " )")
@@ -50,7 +50,7 @@ object Quadrant {
   /**
    * Returns the quadrant of a directed line segment from p0 to p1.
    *
-   * @throws IllegalArgumentException if the points are equal
+   * throws IllegalArgumentException if the points are equal
    */
   def quadrant(p0: Coordinate, p1: Coordinate): Int = {
     if ((p1.x == p0.x) && (p1.y == p0.y)) throw new IllegalArgumentException("Cannot compute the quadrant for two identical points " + p0)

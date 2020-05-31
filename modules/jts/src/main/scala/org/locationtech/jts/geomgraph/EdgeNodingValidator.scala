@@ -16,21 +16,21 @@ import java.util
 import org.locationtech.jts.noding.{BasicSegmentString, FastNodingValidator, SegmentString}
 
 /**
- * Validates that a collection of {@link Edge}s is correctly noded.
+ * Validates that a collection of {link Edge}s is correctly noded.
  * Throws an appropriate exception if an noding error is found.
- * Uses {@link FastNodingValidator} to perform the validation.
+ * Uses {link FastNodingValidator} to perform the validation.
  *
  * @version 1.7
  * @see FastNodingValidator
  */
 object EdgeNodingValidator {
   /**
-   * Checks whether the supplied {@link Edge}s
+   * Checks whether the supplied {link Edge}s
    * are correctly noded.
-   * Throws a  {@link TopologyException} if they are not.
+   * Throws a  {link TopologyException} if they are not.
    *
    * @param edges a collection of Edges.
-   * @throws TopologyException if the SegmentStrings are not correctly noded
+   * throws TopologyException if the SegmentStrings are not correctly noded
    *
    */
     def checkValid(edges: util.Collection[Edge]): Unit = {
@@ -54,7 +54,7 @@ object EdgeNodingValidator {
 class EdgeNodingValidator(val edges: util.Collection[Edge]) {
 
 /**
- * Creates a new validator for the given collection of {@link Edge}s.
+ * Creates a new validator for the given collection of {link Edge}s.
  *
  * @param edges a collection of Edges.
  */
@@ -64,7 +64,7 @@ class EdgeNodingValidator(val edges: util.Collection[Edge]) {
    * Checks whether the supplied edges
    * are correctly noded.  Throws an exception if they are not.
    *
-   * @throws TopologyException if the SegmentStrings are not correctly noded
+   * throws TopologyException if the SegmentStrings are not correctly noded
    *
    */
   def checkValid(): Unit = nv.checkValid()

@@ -31,20 +31,20 @@ import org.locationtech.jts.geomgraph.EdgeIntersectionList
 import org.locationtech.jts.geomgraph.GeometryGraph
 import org.locationtech.jts.util.Assert
 
-/**
- * Implements the algorithms required to compute the <code>isValid()</code> method
- * for {@link Geometry}s.
- * See the documentation for the various geometry types for a specification of validity.
- *
- * @version 1.7
- */
+// /**
+//  * Implements the algorithms required to compute the <code>isValid()</code> method
+//  * for {link Geometry}s.
+//  * See the documentation for the various geometry types for a specification of validity.
+//  *
+//  * @version 1.7
+//  */
 object IsValidOp {
-  /**
-   * Tests whether a {@link Geometry} is valid.
-   *
-   * @param geom the Geometry to test
-   * @return true if the geometry is valid
-   */
+  // /**
+  //  * Tests whether a {link Geometry} is valid.
+  //  *
+  //  * @param geom the Geometry to test
+  //  * return true if the geometry is valid
+  //  */
     def isValid(geom: Geometry): Boolean = {
       val isValidOp = new IsValidOp(geom)
       isValidOp.isValid
@@ -56,7 +56,7 @@ object IsValidOp {
    * range of the floating point representation.
    *
    * @param coord the coordinate to validate
-   * @return <code>true</code> if the coordinate is valid
+   * return <code>true</code> if the coordinate is valid
    */
   def isValid(coord: Coordinate): Boolean = {
     if (java.lang.Double.isNaN(coord.x)) return false
@@ -70,7 +70,7 @@ object IsValidOp {
    * Find a point from the list of testCoords
    * that is NOT a node in the edge for the list of searchCoords
    *
-   * @return the point found, or <code>null</code> if none found
+   * return the point found, or <code>null</code> if none found
    */
   def findPtNotNode(testCoords: Array[Coordinate], searchRing: LinearRing, graph: GeometryGraph): Coordinate = { // find edge corresponding to searchRing.
     val searchEdge = graph.findEdge(searchRing)
@@ -127,7 +127,7 @@ class IsValidOp(var parentGeometry: Geometry) {// the base Geometry to be valida
    * Computes the validity of the geometry,
    * and returns <tt>true</tt> if it is valid.
    *
-   * @return true if the geometry is valid
+   * return true if the geometry is valid
    */
   def isValid: Boolean = {
     checkValid(parentGeometry)
@@ -139,7 +139,7 @@ class IsValidOp(var parentGeometry: Geometry) {// the base Geometry to be valida
    * and if not valid returns the validation error for the geometry,
    * or null if the geometry is valid.
    *
-   * @return the validation error, if the geometry is invalid
+   * return the validation error, if the geometry is invalid
    *         or null if the geometry is valid
    */
   def getValidationError: TopologyValidationError = {
@@ -550,7 +550,7 @@ class IsValidOp(var parentGeometry: Geometry) {// the base Geometry to be valida
          * It assumes that the edges of the shell and hole do not
          * properly intersect.
          *
-         * @return <code>null</code> if the shell is properly contained, or
+         * return <code>null</code> if the shell is properly contained, or
          *         a Coordinate which is not inside the hole if it is not
          *
          */

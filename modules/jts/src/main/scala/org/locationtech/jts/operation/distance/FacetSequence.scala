@@ -30,8 +30,8 @@ import org.locationtech.jts.geom.LineSegment
 
 /**
  * Represents a sequence of facets (points or line segments)
- * of a {@link Geometry}
- * specified by a subsequence of a {@link CoordinateSequence}.
+ * of a {link Geometry}
+ * specified by a subsequence of a {link CoordinateSequence}.
  *
  * @author Martin Davis
  *
@@ -43,8 +43,8 @@ class FacetSequence (val geom: Geometry, val pts: CoordinateSequence, val start:
 //  private var end = 0
 
   /**
-   * Creates a new sequence of facets based on a {@link CoordinateSequence}
-   * contained in the given {@link Geometry}.
+   * Creates a new sequence of facets based on a {link CoordinateSequence}
+   * contained in the given {link Geometry}.
    *
    * @param geom  the geometry containing the facets
    * @param pts   the sequence containing the facet points
@@ -60,7 +60,7 @@ class FacetSequence (val geom: Geometry, val pts: CoordinateSequence, val start:
 //  }
 
   /**
-   * Creates a new sequence of facets based on a {@link CoordinateSequence}.
+   * Creates a new sequence of facets based on a {link CoordinateSequence}.
    *
    * @param pts   the sequence containing the facet points
    * @param start the index of the start point
@@ -74,7 +74,7 @@ class FacetSequence (val geom: Geometry, val pts: CoordinateSequence, val start:
   }
 
   /**
-   * Creates a new sequence for a single point from a {@link CoordinateSequence}.
+   * Creates a new sequence for a single point from a {link CoordinateSequence}.
    *
    * @param pts   the sequence containing the facet point
    * @param start the index of the point
@@ -109,7 +109,7 @@ class FacetSequence (val geom: Geometry, val pts: CoordinateSequence, val start:
    * <tt>FacetSequence</tt>.
    *
    * @param facetSeq the sequence to compute the distance to
-   * @return the minimum distance between the sequences
+   * return the minimum distance between the sequences
    */
   def distance(facetSeq: FacetSequence): Double = {
     val visPoint = isPoint
@@ -137,7 +137,7 @@ class FacetSequence (val geom: Geometry, val pts: CoordinateSequence, val start:
    * and another sequence.
    * The locations are presented in the same order as the input sequences.
    *
-   * @return a pair of { @link GeometryLocation}s for the nearest points
+   * return a pair of { @link GeometryLocation}s for the nearest points
    */
   def nearestLocations(facetSeq: FacetSequence): Array[GeometryLocation] = {
     val visPoint = isPoint

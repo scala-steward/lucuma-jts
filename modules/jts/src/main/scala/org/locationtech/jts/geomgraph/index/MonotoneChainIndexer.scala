@@ -89,7 +89,7 @@ class MonotoneChainIndexer() {
   }
 
   /**
-   * @return the index of the last point in the monotone chain
+   * return the index of the last point in the monotone chain
    */
   private def findChainEnd(pts: Array[Coordinate], start: Int): Int = { // determine quadrant for chain
     val chainQuad = Quadrant.quadrant(pts(start), pts(start + 1))

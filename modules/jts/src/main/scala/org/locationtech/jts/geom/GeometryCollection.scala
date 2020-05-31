@@ -15,7 +15,7 @@ import java.util
 import org.locationtech.jts.util.Assert
 
 /**
- * Models a collection of {@link Geometry}s of
+ * Models a collection of {link Geometry}s of
  * arbitrary type and dimension.
  *
  * @version 1.7
@@ -26,13 +26,13 @@ class GeometryCollection(/**
                           */
                          var geometries: Array[Geometry], override val factory: GeometryFactory)
 
-/**
- * @param geometries
- *            the <code>Geometry</code>s for this <code>GeometryCollection</code>,
- *            or <code>null</code> or an empty array to create the empty
- *            geometry. Elements may be empty <code>Geometry</code>s,
- *            but not <code>null</code>s.
- */
+// /**
+//  * @param geometries
+//  *            the <code>Geometry</code>s for this <code>GeometryCollection</code>,
+//  *            or <code>null</code> or an empty array to create the empty
+//  *            geometry. Elements may be empty <code>Geometry</code>s,
+//  *            but not <code>null</code>s.
+//  */
   extends Geometry(factory) {
   if (geometries == null) geometries = Array.empty[Geometry]
   if (Geometry.hasNullElements(geometries.map(x => x: AnyRef))) throw new IllegalArgumentException("geometries must not contain null elements")
@@ -54,7 +54,7 @@ class GeometryCollection(/**
    * may modify the Geometries in place, the returned Array as such
    * is only a temporary container which is not synchronized back.
    *
-   * @return the collected coordinates
+   * return the collected coordinates
    **/
   override def getCoordinates: Array[Coordinate] = {
     val coordinates = new Array[Coordinate](getNumPoints)
@@ -139,7 +139,7 @@ class GeometryCollection(/**
   /**
    * Returns the area of this <code>GeometryCollection</code>
    *
-   * @return the area of the polygon
+   * return the area of the polygon
    */
   override def getArea: Double = {
     var area = 0.0
@@ -225,10 +225,10 @@ class GeometryCollection(/**
   }
 
   /**
-   * Creates and returns a full copy of this {@link GeometryCollection} object.
+   * Creates and returns a full copy of this {link GeometryCollection} object.
    * (including all coordinates contained by it).
    *
-   * @return a clone of this instance
+   * return a clone of this instance
    * @deprecated
    */
   override def clone: AnyRef = copy
@@ -297,11 +297,11 @@ class GeometryCollection(/**
   override protected def getSortIndex: Int = Geometry.SORTINDEX_GEOMETRYCOLLECTION
 
   /**
-   * Creates a {@link GeometryCollection} with
+   * Creates a {link GeometryCollection} with
    * every component reversed.
    * The order of the components in the collection are not reversed.
    *
-   * @return a { @link GeometryCollection} in the reverse order
+   * return a { @link GeometryCollection} in the reverse order
    * @deprecated
    */
   override def reverse: Geometry = super.reverse

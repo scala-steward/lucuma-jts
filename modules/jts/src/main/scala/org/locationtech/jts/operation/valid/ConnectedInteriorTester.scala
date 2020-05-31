@@ -25,8 +25,8 @@ import org.locationtech.jts.operation.overlay.{MaximalEdgeRing, MinimalEdgeRing,
 import org.locationtech.jts.util.Assert
 
 /**
- * This class tests that the interior of an area {@link Geometry}
- * ( {@link Polygon}  or {@link MultiPolygon} )
+ * This class tests that the interior of an area {link Geometry}
+ * ( {link Polygon}  or {link MultiPolygon} )
  * is connected.
  * This can happen if:
  * <ul>
@@ -180,7 +180,7 @@ class ConnectedInteriorTester(var geomGraph: GeometryGraph) {
    * since the interior of holes will also be polygonized into CW rings
    * by the linkAllDirectedEdges() step)
    *
-   * @return true if there is an unvisited edge in a non-hole ring
+   * return true if there is an unvisited edge in a non-hole ring
    */
   private def hasUnvisitedShellEdge(edgeRings: util.List[MinimalEdgeRing]): Boolean = {
     var i = 0

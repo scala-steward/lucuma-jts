@@ -27,7 +27,7 @@ import org.locationtech.jts.geom.GeometryCollection
 import org.locationtech.jts.geom.GeometryFactory
 
 /**
- * Maps the members of a {@link GeometryCollection}
+ * Maps the members of a {link GeometryCollection}
  * into another <tt>GeometryCollection</tt> via a defined
  * mapping function.
  *

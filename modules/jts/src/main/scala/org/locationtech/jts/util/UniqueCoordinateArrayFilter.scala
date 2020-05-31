@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateFilter
 
 /**
- * A {@link CoordinateFilter} that extracts a unique array of <code>Coordinate</code>s.
+ * A {link CoordinateFilter} that extracts a unique array of <code>Coordinate</code>s.
  * The array of coordinates contains no duplicate points.
  * It preserves the order of the input points.
  *
@@ -27,10 +27,10 @@ import org.locationtech.jts.geom.CoordinateFilter
  */
 object UniqueCoordinateArrayFilter {
   /**
-   * Convenience method which allows running the filter over an array of {@link Coordinate}s.
+   * Convenience method which allows running the filter over an array of {link Coordinate}s.
    *
    * @param coords an array of coordinates
-   * @return an array of the unique coordinates
+   * return an array of the unique coordinates
    */
     def filterCoordinates(coords: Array[Coordinate]): Array[Coordinate] = {
       val filter = new UniqueCoordinateArrayFilter
@@ -53,7 +53,7 @@ class UniqueCoordinateArrayFilter() extends CoordinateFilter {
   /**
    * Returns the gathered <code>Coordinate</code>s.
    *
-   * @return the <code>Coordinate</code>s collected by this <code>CoordinateArrayFilter</code>
+   * return the <code>Coordinate</code>s collected by this <code>CoordinateArrayFilter</code>
    */
   def getCoordinates: Array[Coordinate] = {
     val coordinates = new Array[Coordinate](list.size)

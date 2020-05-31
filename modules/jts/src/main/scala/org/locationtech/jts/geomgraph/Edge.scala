@@ -79,7 +79,7 @@ class Edge(var pts: Array[Coordinate], val labelArg: Label) extends GraphCompone
   /**
    * The depthDelta is the change in depth as an edge is crossed from R to L
    *
-   * @return the change in depth as the edge is crossed from R to L
+   * return the change in depth as the edge is crossed from R to L
    */
   def getDepthDelta: Int = depthDelta
 
@@ -198,7 +198,7 @@ class Edge(var pts: Array[Coordinate], val labelArg: Label) extends GraphCompone
   }
 
   /**
-   * @return true if the coordinate sequences of the Edges are identical
+   * return true if the coordinate sequences of the Edges are identical
    */
   def isPointwiseEqual(e: Edge): Boolean = {
     if (pts.length != e.pts.length) return false

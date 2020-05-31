@@ -23,9 +23,9 @@ package org.locationtech.jts.geom
 
 /**
  * Constants representing the different topological locations
- * which can occur in a {@link Geometry}.
+ * which can occur in a {link Geometry}.
  * The constants are also used as the row and column indices
- * of DE-9IM {@link IntersectionMatrix}es.
+ * of DE-9IM {link IntersectionMatrix}es.
  *
  * @version 1.7
  */
@@ -58,7 +58,7 @@ object Location {
    * .
    *
    * @param  locationValue either EXTERIOR, BOUNDARY, INTERIOR or NONE
-   * @return either 'e', 'b', 'i' or '-'
+   * return either 'e', 'b', 'i' or '-'
    */
   def toLocationSymbol(locationValue: Int): Char = {
     locationValue match {

@@ -57,7 +57,7 @@ class SegmentIntersector(var li: LineIntersector, var includeProper: Boolean, va
 //  def isDone = isDone
 
   /**
-   * @return the proper intersection point, or <code>null</code> if none was found
+   * return the proper intersection point, or <code>null</code> if none was found
    */
   def getProperIntersectionPoint: Coordinate = properIntersectionPoint
 

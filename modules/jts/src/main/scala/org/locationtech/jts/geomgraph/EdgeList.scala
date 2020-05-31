@@ -54,7 +54,7 @@ class EdgeList() {
    * If there is an edge equal to e already in the list, return it.
    * Otherwise return null.
    *
-   * @return equal edge, if there is one already in the list
+   * return equal edge, if there is one already in the list
    *         null otherwise
    */
   def findEqualEdge(e: Edge): Edge = {
@@ -71,7 +71,7 @@ class EdgeList() {
   /**
    * If the edge e is already in the list, return its index.
    *
-   * @return index, if e is already in the list
+   * return index, if e is already in the list
    *         -1 otherwise
    */
   def findEdgeIndex(e: Edge): Int = {

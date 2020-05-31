@@ -108,7 +108,7 @@ class MonotoneChainEdge(var e: Edge) {
    * @param mce
    * @param start1
    * @param end1
-   * @return true if the section envelopes overlap
+   * return true if the section envelopes overlap
    */
   private def overlaps(start0: Int, end0: Int, mce: MonotoneChainEdge, start1: Int, end1: Int): Boolean = Envelope.intersects(pts(start0), pts(end0), mce.pts(start1), mce.pts(end1))
 }

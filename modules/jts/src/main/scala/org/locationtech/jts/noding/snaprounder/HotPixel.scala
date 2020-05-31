@@ -79,7 +79,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
   /**
    * Gets the coordinate this hot pixel is based at.
    *
-   * @return the coordinate of the pixel
+   * return the coordinate of the pixel
    */
   def getCoordinate = originalPt
 
@@ -88,7 +88,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
    * The envelope returned will be larger than the exact envelope of the
    * pixel.
    *
-   * @return an envelope which contains the hot pixel
+   * return an envelope which contains the hot pixel
    */
   def getSafeEnvelope = {
     if (safeEnv == null) {
@@ -118,7 +118,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
    *
    * @param p0 the first coordinate of the line segment to test
    * @param p1 the second coordinate of the line segment to test
-   * @return true if the line segment intersects this hot pixel
+   * return true if the line segment intersects this hot pixel
    */
   def intersects(p0: Coordinate, p1: Coordinate): Boolean = {
     if (scaleFactor == 1.0) return intersectsScaled(p0, p1)
@@ -179,7 +179,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
    *
    * @param p0
    * @param p1
-   * @return
+   * return
    */
   private def intersectsToleranceSquare(p0: Coordinate, p1: Coordinate): Boolean = {
     var intersectsLeft = false
@@ -212,7 +212,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
    *
    * @param p0 the start point of a line segment
    * @param p1 the end point of a line segment
-   * @return <code>true</code> if the segment intersects the closure of the pixel's tolerance square
+   * return <code>true</code> if the segment intersects the closure of the pixel's tolerance square
    */
 //  private def intersectsPixelClosure(p0: Coordinate, p1: Coordinate): Boolean = {
 //    li.computeIntersection(p0, p1, corner(0), corner(1))
@@ -232,7 +232,7 @@ class HotPixel(var originalPt: Coordinate, var scaleFactor: Double, var li: Line
    *
    * @param segStr
    * @param segIndex
-   * @return true if a node was added to the segment
+   * return true if a node was added to the segment
    */
   def addSnappedNode(segStr: NodedSegmentString, segIndex: Int): Boolean = {
     val p0 = segStr.getCoordinate(segIndex)

@@ -59,9 +59,9 @@ object CGAlgorithms {
    * @param p1 the origin point of the vector
    * @param p2 the final point of the vector
    * @param q  the point to compute the direction to
-   * @return 1 if q is counter-clockwise (left) from p1-p2
-   * @return -1 if q is clockwise (right) from p1-p2
-   * @return 0 if q is collinear with p1-p2
+   * return 1 if q is counter-clockwise (left) from p1-p2
+   * return -1 if q is clockwise (right) from p1-p2
+   * return 0 if q is collinear with p1-p2
    */
   def orientationIndex(p1: Coordinate, p2: Coordinate, q: Coordinate): Int = {
     /**
@@ -106,7 +106,7 @@ object CGAlgorithms {
    * @param ring
    * an array of coordinates representing the ring (which must have
    * first point identical to last point)
-   * @return true if p is inside ring
+   * return true if p is inside ring
    * @see locatePointInRing
    */
   def isPointInRing(p: Coordinate, ring: Array[Coordinate]): Boolean = locatePointInRing(p, ring) != Location.EXTERIOR
@@ -123,7 +123,7 @@ object CGAlgorithms {
    * @param ring
    * an array of coordinates representing the ring (which must have
    * first point identical to last point)
-   * @return the { @link Location} of p relative to the ring
+   * return the { @link Location} of p relative to the ring
    */
   def locatePointInRing(p: Coordinate, ring: Array[Coordinate]): Int = RayCrossingCounter.locatePointInRing(p, ring)
 
@@ -131,7 +131,7 @@ object CGAlgorithms {
    * Tests whether a point lies on the line segments defined by a list of
    * coordinates.
    *
-   * @return true if the point is a vertex of the line or lies in the interior
+   * return true if the point is a vertex of the line or lies in the interior
    *         of a line segment in the linestring
    */
   def isOnLine(p: Coordinate, pt: Array[Coordinate]): Boolean = {
@@ -150,7 +150,7 @@ object CGAlgorithms {
   }
 
   /**
-   * Computes whether a ring defined by an array of {@link Coordinate}s is
+   * Computes whether a ring defined by an array of {link Coordinate}s is
    * oriented counter-clockwise.
    * <ul>
    * <li>The list of points is assumed to have the first and last points equal.
@@ -162,8 +162,8 @@ object CGAlgorithms {
    *
    * @param ring
    * an array of Coordinates forming a ring
-   * @return true if the ring is oriented counter-clockwise.
-   * @throws IllegalArgumentException
+   * return true if the ring is oriented counter-clockwise.
+   * throws IllegalArgumentException
    * if there are too few points to determine orientation (&lt; 4)
    */
   def isCCW(ring: Array[Coordinate]): Boolean = { // # of points without closing endpoint
@@ -235,7 +235,7 @@ object CGAlgorithms {
    * @param p1 the first vertex of the line segment
    * @param p2 the second vertex of the line segment
    * @param q  the point to compute the relative orientation of
-   * @return 1 if q is counter-clockwise from p1-p2,
+   * return 1 if q is counter-clockwise from p1-p2,
    *         or -1 if q is clockwise from p1-p2,
    *         or 0 if q is collinear with p1-p2
    */
@@ -252,7 +252,7 @@ object CGAlgorithms {
    * one point of the line
    * @param B
    * another point of the line (must be different to A)
-   * @return the distance from p to line segment AB
+   * return the distance from p to line segment AB
    */
   def distancePointLine(p: Coordinate, A: Coordinate, B: Coordinate): Double = { // if start = end, then just compute distance to one of the endpoints
     if ((A.x == B.x) && (A.y == B.y)) return p.distance(A)
@@ -279,7 +279,7 @@ object CGAlgorithms {
          *
          * Then the distance from C to P = |s|*L.
          *
-         * This is the same calculation as {@link #distancePointLinePerpendicular}.
+         * This is the same calculation as {link #distancePointLinePerpendicular}.
          * Unrolled here for performance.
          */ val s = ((A.y - p.y) * (B.x - A.x) - (A.x - p.x) * (B.y - A.y)) / len2
     Math.abs(s) * Math.sqrt(len2)
@@ -295,7 +295,7 @@ object CGAlgorithms {
    * one point of the line
    * @param B
    * another point of the line (must be different to A)
-   * @return the distance from p to line AB
+   * return the distance from p to line AB
    */
   def distancePointLinePerpendicular(p: Coordinate, A: Coordinate, B: Coordinate): Double = { // use comp.graphics.algorithms Frequently Asked Questions method
     /*
@@ -316,7 +316,7 @@ object CGAlgorithms {
    * a point
    * @param line
    * a sequence of contiguous line segments defined by their vertices
-   * @return the minimum distance between the point and the line segments
+   * return the minimum distance between the point and the line segments
    */
   def distancePointLine(p: Coordinate, line: Array[Coordinate]): Double = {
     if (line.length == 0) throw new IllegalArgumentException("Line array must contain at least one vertex")
@@ -400,7 +400,7 @@ object CGAlgorithms {
    *
    * @param ring
    * the coordinates forming the ring
-   * @return the signed area of the ring
+   * return the signed area of the ring
    */
   def signedArea(ring: Array[Coordinate]): Double = {
     if (ring.length < 3) return 0.0
@@ -433,7 +433,7 @@ object CGAlgorithms {
    *
    * @param ring
    * the coordinates forming the ring
-   * @return the signed area of the ring
+   * return the signed area of the ring
    */
   def signedArea(ring: CoordinateSequence): Double = {
     val n = ring.size
@@ -466,7 +466,7 @@ object CGAlgorithms {
    *
    * @param pts
    * the points specifying the linestring
-   * @return the length of the linestring
+   * return the length of the linestring
    */
   def length(pts: CoordinateSequence): Double = { // optimized for processing CoordinateSequences
     val n = pts.size

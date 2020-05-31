@@ -14,7 +14,7 @@ package org.locationtech.jts.operation.valid
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * Contains information about the nature and location of a {@link Geometry}
+ * Contains information about the nature and location of a {link Geometry}
  * validation error
  *
  * @version 1.7
@@ -69,10 +69,10 @@ object TopologyValidationError {
    * </ul>
    */
   val TOO_FEW_POINTS = 9
-  /**
-   * Indicates that the <code>X</code> or <code>Y</code> ordinate of
-   * a Coordinate is not a valid numeric value (e.g. {@link Double#NaN} )
-   */
+  // /**
+  //  * Indicates that the <code>X</code> or <code>Y</code> ordinate of
+  //  * a Coordinate is not a valid numeric value (e.g. {link Double#NaN} )
+  //  */
   val INVALID_COORDINATE = 10
   /**
    * Indicates that a ring is not correctly closed
@@ -105,17 +105,17 @@ class TopologyValidationError(var errorType: Int, var pt: Coordinate) {
     this(errorType, null)
   }
 
-  /**
-   * Returns the location of this error (on the {@link Geometry} containing the error).
-   *
-   * @return a { @link Coordinate} on the input geometry
-   */
+  // /**
+  //  * Returns the location of this error (on the {link Geometry} containing the error).
+  //  *
+  //  * return a { @link Coordinate} on the input geometry
+  //  */
   def getCoordinate: Coordinate = pt
 
   /**
    * Gets the type of this error.
    *
-   * @return the error type
+   * return the error type
    */
   def getErrorType: Int = errorType
 
@@ -123,14 +123,14 @@ class TopologyValidationError(var errorType: Int, var pt: Coordinate) {
    * Gets an error message describing this error.
    * The error message does not describe the location of the error.
    *
-   * @return the error message
+   * return the error message
    */
   def getMessage: String = TopologyValidationError.errMsg(errorType)
 
   /**
    * Gets a message describing the type and location of this error.
    *
-   * @return the error message
+   * return the error message
    */
   override def toString: String = {
     var locStr = ""

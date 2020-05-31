@@ -29,7 +29,7 @@ import org.locationtech.jts.util.Assert
 
 /**
  * Represents an affine transformation on the 2D Cartesian plane.
- * It can be used to transform a {@link Coordinate} or {@link Geometry}.
+ * It can be used to transform a {link Coordinate} or {link Geometry}.
  * An affine transformation is a mapping of the 2D plane into itself
  * via a series of transformations of the following basic types:
  * <ul>
@@ -57,15 +57,15 @@ import org.locationtech.jts.util.Assert
  * | 1  |        | 1 |
  * </pre></blockquote>
  * <h3>Transformation Composition</h3>
- * Affine transformations can be composed using the {@link #compose} method.
+ * Affine transformations can be composed using the {link #compose} method.
  * Composition is computed via multiplication of the
  * transformation matrices, and is defined as:
  * <blockquote><pre>
  * A.compose(B) = T<sub>B</sub> x T<sub>A</sub>
  * </pre></blockquote>
  * This produces a transformation whose effect is that of A followed by B.
- * The methods {@link #reflect}, {@link #rotate},
- * {@link #scale}, {@link #shear}, and {@link #translate}
+ * The methods {link #reflect}, {link #rotate},
+ * {link #scale}, {link #shear}, and {link #translate}
  * have the effect of composing a transformation of that type with
  * the transformation they are invoked on.
  * <p>
@@ -76,7 +76,7 @@ import org.locationtech.jts.util.Assert
  * If a transformation is invertible, then there exists
  * an inverse transformation which when composed produces
  * the identity transformation.
- * The {@link #getInverse} method
+ * The {link #getInverse} method
  * computes the inverse of a transformation, if one exists.
  *
  * @author Martin Davis
@@ -91,7 +91,7 @@ object AffineTransformation {
    * @param y0 the y-ordinate of a point on the reflection line
    * @param x1 the x-ordinate of a another point on the reflection line
    * @param y1 the y-ordinate of a another point on the reflection line
-   * @return a transformation for the reflection
+   * return a transformation for the reflection
    */
     def reflectionInstance(x0: Double, y0: Double, x1: Double, y1: Double): AffineTransformation = {
       val trans = new AffineTransformation
@@ -105,7 +105,7 @@ object AffineTransformation {
    *
    * @param x the x-ordinate of a point on the reflection line
    * @param y the y-ordinate of a point on the reflection line
-   * @return a transformation for the reflection
+   * return a transformation for the reflection
    */
   def reflectionInstance(x: Double, y: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -121,7 +121,7 @@ object AffineTransformation {
    * in the counter-clockwise direction.
    *
    * @param theta the rotation angle, in radians
-   * @return a transformation for the rotation
+   * return a transformation for the rotation
    */
   def rotationInstance(theta: Double): AffineTransformation = rotationInstance(Math.sin(theta), Math.cos(theta))
 
@@ -134,7 +134,7 @@ object AffineTransformation {
    *
    * @param sinTheta the sine of the rotation angle
    * @param cosTheta the cosine of the rotation angle
-   * @return a transformation for the rotation
+   * return a transformation for the rotation
    */
   def rotationInstance(sinTheta: Double, cosTheta: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -151,7 +151,7 @@ object AffineTransformation {
    * @param theta the rotation angle, in radians
    * @param x     the x-ordinate of the rotation point
    * @param y     the y-ordinate of the rotation point
-   * @return a transformation for the rotation
+   * return a transformation for the rotation
    */
   def rotationInstance(theta: Double, x: Double, y: Double): AffineTransformation = rotationInstance(Math.sin(theta), Math.cos(theta), x, y)
 
@@ -166,7 +166,7 @@ object AffineTransformation {
    * @param cosTheta the cosine of the rotation angle
    * @param x        the x-ordinate of the rotation point
    * @param y        the y-ordinate of the rotation point
-   * @return a transformation for the rotation
+   * return a transformation for the rotation
    */
   def rotationInstance(sinTheta: Double, cosTheta: Double, x: Double, y: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -179,7 +179,7 @@ object AffineTransformation {
    *
    * @param xScale the value to scale by in the x direction
    * @param yScale the value to scale by in the y direction
-   * @return a transformation for the scaling
+   * return a transformation for the scaling
    */
   def scaleInstance(xScale: Double, yScale: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -194,7 +194,7 @@ object AffineTransformation {
    * @param yScale the value to scale by in the y direction
    * @param x      the x-ordinate of the point to scale around
    * @param y      the y-ordinate of the point to scale around
-   * @return a transformation for the scaling
+   * return a transformation for the scaling
    */
   def scaleInstance(xScale: Double, yScale: Double, x: Double, y: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -209,7 +209,7 @@ object AffineTransformation {
    *
    * @param xShear the value to shear by in the x direction
    * @param yShear the value to shear by in the y direction
-   * @return a transformation for the shear
+   * return a transformation for the shear
    */
   def shearInstance(xShear: Double, yShear: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -222,7 +222,7 @@ object AffineTransformation {
    *
    * @param x the value to translate by in the x direction
    * @param y the value to translate by in the y direction
-   * @return a transformation for the translation
+   * return a transformation for the translation
    */
   def translationInstance(x: Double, y: Double): AffineTransformation = {
     val trans = new AffineTransformation
@@ -252,8 +252,8 @@ class AffineTransformation()
    * matrix has the specified values.
    *
    * @param matrix an array containing the 6 values { m00, m01, m02, m10, m11, m12 }
-   * @throws NullPointerException           if matrix is null
-   * @throws ArrayIndexOutOfBoundsException if matrix is too small
+   * throws NullPointerException           if matrix is null
+   * throws ArrayIndexOutOfBoundsException if matrix is too small
    */
   def this(matrix: Array[Double]) = {
     this()
@@ -316,7 +316,7 @@ class AffineTransformation()
    * | 0 0 1 |
    * </pre></blockquote>
    *
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToIdentity: AffineTransformation = {
     m00 = 1.0
@@ -337,7 +337,7 @@ class AffineTransformation()
    * @param m10 the entry for the [1, 0] element in the transformation matrix
    * @param m11 the entry for the [1, 1] element in the transformation matrix
    * @param m12 the entry for the [1, 2] element in the transformation matrix
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setTransformation(m00: Double, m01: Double, m02: Double, m10: Double, m11: Double, m12: Double): AffineTransformation = {
     this.m00 = m00
@@ -353,7 +353,7 @@ class AffineTransformation()
    * Sets this transformation to be a copy of the given one
    *
    * @param trans a transformation to copy
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setTransformation(trans: AffineTransformation): AffineTransformation = {
     m00 = trans.m00
@@ -374,7 +374,7 @@ class AffineTransformation()
    * m00, m01, m02, m10, m11, m12
    * </pre>
    *
-   * @return an array of length 6
+   * return an array of length 6
    */
   def getMatrixEntries: Array[Double] = Array[Double](m00, m01, m02, m10, m11, m12)
 
@@ -391,7 +391,7 @@ class AffineTransformation()
    * and operations which attempt to compute
    * an inverse will throw a <tt>NoninvertibleTransformException</tt>.
    *
-   * @return the determinant of the transformation
+   * return the determinant of the transformation
    * @see #getInverse()
    */
   def getDeterminant: Double = m00 * m11 - m01 * m10
@@ -431,8 +431,8 @@ class AffineTransformation()
    *
    * </pre></blockquote>
    *
-   * @return a new inverse transformation
-   * @throws NoninvertibleTransformationException
+   * return a new inverse transformation
+   * throws NoninvertibleTransformationException
    * @see #getDeterminant()
    */
   @throws[NoninvertibleTransformationException]
@@ -455,7 +455,7 @@ class AffineTransformation()
    * @param y0 the Y ordinate of one point on the reflection line
    * @param x1 the X ordinate of another point on the reflection line
    * @param y1 the Y ordinate of another point on the reflection line
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToReflectionBasic(x0: Double, y0: Double, x1: Double, y1: Double): AffineTransformation = {
     if (x0 == x1 && y0 == y1) throw new IllegalArgumentException("Reflection line points must be distinct")
@@ -483,7 +483,7 @@ class AffineTransformation()
    * @param y0 the Y ordinate of one point on the reflection line
    * @param x1 the X ordinate of another point on the reflection line
    * @param y1 the Y ordinate of another point on the reflection line
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToReflection(x0: Double, y0: Double, x1: Double, y1: Double): AffineTransformation = {
     if (x0 == x1 && y0 == y1) throw new IllegalArgumentException("Reflection line points must be distinct")
@@ -520,7 +520,7 @@ class AffineTransformation()
    *
    * @param x the x-component of the reflection line vector
    * @param y the y-component of the reflection line vector
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToReflection(x: Double, y: Double): AffineTransformation = {
     if (x == 0.0 && y == 0.0) throw new IllegalArgumentException("Reflection vector must be non-zero")
@@ -562,7 +562,7 @@ class AffineTransformation()
    * </pre></blockquote>
    *
    * @param theta the rotation angle, in radians
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToRotation(theta: Double): AffineTransformation = {
     setToRotation(Math.sin(theta), Math.cos(theta))
@@ -582,7 +582,7 @@ class AffineTransformation()
    *
    * @param sinTheta the sine of the rotation angle
    * @param cosTheta the cosine of the rotation angle
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToRotation(sinTheta: Double, cosTheta: Double): AffineTransformation = {
     m00 = cosTheta
@@ -611,7 +611,7 @@ class AffineTransformation()
    * @param theta the rotation angle, in radians
    * @param x     the x-ordinate of the rotation point
    * @param y     the y-ordinate of the rotation point
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToRotation(theta: Double, x: Double, y: Double): AffineTransformation = {
     setToRotation(Math.sin(theta), Math.cos(theta), x, y)
@@ -634,7 +634,7 @@ class AffineTransformation()
    * @param cosTheta the cosine of the rotation angle
    * @param x        the x-ordinate of the rotation point
    * @param y        the y-ordinate of the rotation point
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToRotation(sinTheta: Double, cosTheta: Double, x: Double, y: Double): AffineTransformation = {
     m00 = cosTheta
@@ -658,7 +658,7 @@ class AffineTransformation()
    *
    * @param xScale the amount to scale x-ordinates by
    * @param yScale the amount to scale y-ordinates by
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToScale(xScale: Double, yScale: Double): AffineTransformation = {
     m00 = xScale
@@ -686,7 +686,7 @@ class AffineTransformation()
    *
    * @param xShear the x component to shear by
    * @param yShear the y component to shear by
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToShear(xShear: Double, yShear: Double): AffineTransformation = {
     m00 = 1.0
@@ -710,7 +710,7 @@ class AffineTransformation()
    *
    * @param dx the x component to translate by
    * @param dy the y component to translate by
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def setToTranslation(dx: Double, dy: Double): AffineTransformation = {
     m00 = 1.0
@@ -731,7 +731,7 @@ class AffineTransformation()
    * @param y0 the y-ordinate of a point on the line to reflect around
    * @param x1 the x-ordinate of a point on the line to reflect around
    * @param y1 the y-ordinate of a point on the line to reflect around
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def reflect(x0: Double, y0: Double, x1: Double, y1: Double): AffineTransformation = {
     compose(AffineTransformation.reflectionInstance(x0, y0, x1, y1))
@@ -745,7 +745,7 @@ class AffineTransformation()
    *
    * @param x the x-ordinate of the line to reflect around
    * @param y the y-ordinate of the line to reflect around
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def reflect(x: Double, y: Double): AffineTransformation = {
     compose(AffineTransformation.reflectionInstance(x, y))
@@ -760,7 +760,7 @@ class AffineTransformation()
    * in the counter-clockwise direction.
    *
    * @param theta the angle to rotate by, in radians
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def rotate(theta: Double): AffineTransformation = {
     compose(AffineTransformation.rotationInstance(theta))
@@ -775,7 +775,7 @@ class AffineTransformation()
    *
    * @param sinTheta the sine of the angle to rotate by
    * @param cosTheta the cosine of the angle to rotate by
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def rotate(sinTheta: Double, cosTheta: Double): AffineTransformation = {
     compose(AffineTransformation.rotationInstance(sinTheta, cosTheta))
@@ -792,7 +792,7 @@ class AffineTransformation()
    * @param theta the angle to rotate by, in radians
    * @param x     the x-ordinate of the rotation point
    * @param y     the y-ordinate of the rotation point
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def rotate(theta: Double, x: Double, y: Double): AffineTransformation = {
     compose(AffineTransformation.rotationInstance(theta, x, y))
@@ -809,7 +809,7 @@ class AffineTransformation()
    * @param cosTheta the cosine of the angle to rotate by
    * @param x        the x-ordinate of the rotation point
    * @param y        the y-ordinate of the rotation point
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def rotate(sinTheta: Double, cosTheta: Double, x: Double, y: Double): AffineTransformation = {
     compose(AffineTransformation.rotationInstance(sinTheta, cosTheta, x, y))
@@ -823,7 +823,7 @@ class AffineTransformation()
    *
    * @param xScale the value to scale by in the x direction
    * @param yScale the value to scale by in the y direction
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def scale(xScale: Double, yScale: Double): AffineTransformation = {
     compose(AffineTransformation.scaleInstance(xScale, yScale))
@@ -837,7 +837,7 @@ class AffineTransformation()
    *
    * @param xShear the value to shear by in the x direction
    * @param yShear the value to shear by in the y direction
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def shear(xShear: Double, yShear: Double): AffineTransformation = {
     compose(AffineTransformation.shearInstance(xShear, yShear))
@@ -851,7 +851,7 @@ class AffineTransformation()
    *
    * @param x the value to translate by in the x direction
    * @param y the value to translate by in the y direction
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def translate(x: Double, y: Double): AffineTransformation = {
     compose(AffineTransformation.translationInstance(x, y))
@@ -860,7 +860,7 @@ class AffineTransformation()
 
   /**
    * Updates this transformation to be
-   * the composition of this transformation with the given {@link AffineTransformation}.
+   * the composition of this transformation with the given {link AffineTransformation}.
    * This produces a transformation whose effect
    * is equal to applying this transformation
    * followed by the argument transformation.
@@ -870,7 +870,7 @@ class AffineTransformation()
    * </pre></blockquote>
    *
    * @param trans an affine transformation
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def compose(trans: AffineTransformation): AffineTransformation = {
     val mp00 = trans.m00 * m00 + trans.m01 * m10
@@ -890,7 +890,7 @@ class AffineTransformation()
 
   /**
    * Updates this transformation to be the composition
-   * of a given {@link AffineTransformation} with this transformation.
+   * of a given {link AffineTransformation} with this transformation.
    * This produces a transformation whose effect
    * is equal to applying the argument transformation
    * followed by this transformation.
@@ -900,7 +900,7 @@ class AffineTransformation()
    * </pre></blockquote>
    *
    * @param trans an affine transformation
-   * @return this transformation, with an updated matrix
+   * return this transformation, with an updated matrix
    */
   def composeBefore(trans: AffineTransformation): AffineTransformation = {
     val mp00 = m00 * trans.m00 + m01 * trans.m10
@@ -925,7 +925,7 @@ class AffineTransformation()
    *
    * @param src  the coordinate to transform
    * @param dest the coordinate to accept the results
-   * @return the <tt>dest</tt> coordinate
+   * return the <tt>dest</tt> coordinate
    */
   def transform(src: Coordinate, dest: Coordinate): Coordinate = {
     val xp = m00 * src.x + m01 * src.y + m02
@@ -936,11 +936,11 @@ class AffineTransformation()
   }
 
   /**
-   * Creates a new {@link Geometry} which is the result
+   * Creates a new {link Geometry} which is the result
    * of this transformation applied to the input Geometry.
    *
    * @param g a <code>Geometry</code>
-   * @return a transformed Geometry
+   * return a transformed Geometry
    */
   def transform(g: Geometry): Geometry = {
     val g2 = g.copy
@@ -976,14 +976,14 @@ class AffineTransformation()
    * Reports that this filter should continue to be executed until
    * all coordinates have been transformed.
    *
-   * @return false
+   * return false
    */
   override def isDone = false
 
   /**
    * Tests if this transformation is the identity transformation.
    *
-   * @return true if this is the identity transformation
+   * return true if this is the identity transformation
    */
   def isIdentity: Boolean = m00 == 1 && m01 == 0 && m02 == 0 && m10 == 0 && m11 == 1 && m12 == 0
 
@@ -994,7 +994,7 @@ class AffineTransformation()
    * this transformation.
    *
    * @param obj an object to test
-   * @return true if the given object is equal to this object
+   * return true if the given object is equal to this object
    */
   override def equals(obj: Any): Boolean = {
     if (obj == null) return false
@@ -1010,7 +1010,7 @@ class AffineTransformation()
    * AffineTransformation[[m00, m01, m02], [m10, m11, m12]]
    * </pre>
    *
-   * @return a string representing this transformation
+   * return a string representing this transformation
    *
    */
   override def toString: String = "AffineTransformation[[" + m00 + ", " + m01 + ", " + m02 + "], [" + m10 + ", " + m11 + ", " + m12 + "]]"
@@ -1018,7 +1018,7 @@ class AffineTransformation()
   /**
    * Clones this transformation
    *
-   * @return a copy of this transformation
+   * return a copy of this transformation
    */
   override def clone: Any = {
     try return super.clone

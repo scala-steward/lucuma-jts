@@ -18,7 +18,7 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence
 /**
  * Represents a list of contiguous line segments,
  * and supports noding the segments.
- * The line segments are represented by an array of {@link Coordinate}s.
+ * The line segments are represented by an array of {link Coordinate}s.
  * Intended to optimize the noding of contiguous segments by
  * reducing the number of allocated objects.
  * SegmentStrings can carry a context object, which is useful
@@ -39,7 +39,7 @@ class BasicSegmentString(var pts: Array[Coordinate], var data: Any)
   /**
    * Gets the user-defined data for this segment string.
    *
-   * @return the user-defined data
+   * return the user-defined data
    */
   override def getData: Any = data
 
@@ -63,7 +63,7 @@ class BasicSegmentString(var pts: Array[Coordinate], var data: Any)
    *
    * @param index the index of the vertex starting the segment.  Must not be
    *              the last index in the vertex list
-   * @return the octant of the segment at the vertex
+   * return the octant of the segment at the vertex
    */
   def getSegmentOctant(index: Int): Int = {
     if (index == pts.length - 1) return -1

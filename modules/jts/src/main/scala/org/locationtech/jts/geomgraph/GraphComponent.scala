@@ -57,7 +57,7 @@ abstract class GraphComponent(var label: Label) {
   def setVisited(isVisited: Boolean): Unit = this.visVisited = isVisited
 
   /**
-   * @return a coordinate in this component (or null, if there are none)
+   * return a coordinate in this component (or null, if there are none)
    */
   def getCoordinate: Coordinate
 
@@ -71,7 +71,7 @@ abstract class GraphComponent(var label: Label) {
    * component.  This is the case if the label has valid locations for
    * only a single Geometry.
    *
-   * @return true if this component is isolated
+   * return true if this component is isolated
    */
   def isIsolated: Boolean
 

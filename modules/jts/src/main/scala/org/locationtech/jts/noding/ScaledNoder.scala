@@ -26,7 +26,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateArrays
 
 /**
- * Wraps a {@link Noder} and transforms its input
+ * Wraps a {link Noder} and transforms its input
  * into the integer domain.
  * This is intended for use with Snap-Rounding noders,
  * which typically are only intended to work in the integer domain.

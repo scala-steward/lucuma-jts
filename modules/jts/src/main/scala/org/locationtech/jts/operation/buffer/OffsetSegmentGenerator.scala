@@ -118,7 +118,7 @@ class OffsetSegmentGenerator(var precisionModel: PrecisionModel, var bufParams: 
    * the output needs to be further treated
    * before it can be used.
    *
-   * @return true if the input has a narrow concave angle
+   * return true if the input has a narrow concave angle
    */
   def hasNarrowConcaveAngle: Boolean = vhasNarrowConcaveAngle
 

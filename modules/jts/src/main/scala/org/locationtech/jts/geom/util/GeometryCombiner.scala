@@ -26,12 +26,12 @@ import org.locationtech.jts.geom.Geometry
 import org.locationtech.jts.geom.GeometryFactory
 
 /**
- * Combines {@link Geometry}s
- * to produce a {@link GeometryCollection} of the most appropriate type.
+ * Combines {link Geometry}s
+ * to produce a {link GeometryCollection} of the most appropriate type.
  * Input geometries which are already collections
  * will have their elements extracted first.
  * No validation of the result geometry is performed.
- * (The only case where invalidity is possible is where {@link Polygonal} geometries
+ * (The only case where invalidity is possible is where {link Polygonal} geometries
  * are combined and result in a self-intersection).
  *
  * @author mbdavis
@@ -42,7 +42,7 @@ object GeometryCombiner {
    * Combines a collection of geometries.
    *
    * @param geoms the geometries to combine
-   * @return the combined geometry
+   * return the combined geometry
    */
     def combine(geoms: util.Collection[Geometry]): Geometry = {
       val combiner = new GeometryCombiner(geoms)
@@ -54,7 +54,7 @@ object GeometryCombiner {
    *
    * @param g0 a geometry to combine
    * @param g1 a geometry to combine
-   * @return the combined geometry
+   * return the combined geometry
    */
   def combine(g0: Geometry, g1: Geometry): Geometry = {
     val combiner = new GeometryCombiner(createList(g0, g1))
@@ -67,7 +67,7 @@ object GeometryCombiner {
    * @param g0 a geometry to combine
    * @param g1 a geometry to combine
    * @param g2 a geometry to combine
-   * @return the combined geometry
+   * return the combined geometry
    */
   def combine(g0: Geometry, g1: Geometry, g2: Geometry): Geometry = {
     val combiner = new GeometryCombiner(createList(g0, g1, g2))
@@ -79,7 +79,7 @@ object GeometryCombiner {
    *
    * @param obj0
    * @param obj1
-   * @return a List containing the two items
+   * return a List containing the two items
    */
   private def createList(obj0: Geometry, obj1: Geometry) = {
     val list = new util.ArrayList[Geometry]
@@ -100,7 +100,7 @@ object GeometryCombiner {
    * Extracts the GeometryFactory used by the geometries in a collection
    *
    * @param geoms
-   * @return a GeometryFactory
+   * return a GeometryFactory
    */
   def extractFactory(geoms: util.Collection[Geometry]): GeometryFactory = {
     if (geoms.isEmpty) return null
@@ -120,9 +120,9 @@ class GeometryCombiner(var inputGeoms: util.Collection[Geometry]) {
 
   /**
    * Computes the combination of the input geometries
-   * to produce the most appropriate {@link Geometry} or {@link GeometryCollection}
+   * to produce the most appropriate {link Geometry} or {link GeometryCollection}
    *
-   * @return a Geometry which is the combination of the inputs
+   * return a Geometry which is the combination of the inputs
    */
   def combine: Geometry = {
     val elems = new util.ArrayList[Geometry]

@@ -49,7 +49,7 @@ class IntArrayList(val initialCapacity: Int) {
   /**
    * Returns the number of values in this list.
    *
-   * @return the number of values in the list
+   * return the number of values in the list
    */
   def size: Int = vsize
 
@@ -95,7 +95,7 @@ class IntArrayList(val initialCapacity: Int) {
    * Returns a int array containing a copy of
    * the values in this list.
    *
-   * @return an array containing the values in this list
+   * return an array containing the values in this list
    */
   def toArray: Array[Int] = {
     val array = new Array[Int](vsize)

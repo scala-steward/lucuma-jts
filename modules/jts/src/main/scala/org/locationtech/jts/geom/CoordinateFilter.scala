@@ -15,7 +15,7 @@
 package org.locationtech.jts.geom
 
 /**
- * An interface for classes which use the values of the coordinates in a {@link Geometry}.
+ * An interface for classes which use the values of the coordinates in a {link Geometry}.
  * Coordinate filters can be used to implement centroid and
  * envelope computation, and many other functions.
  * <p>
@@ -24,8 +24,8 @@ package org.locationtech.jts.geom
  * <p>
  * <b>Note</b>: it is not recommended to use these filters to mutate the coordinates.
  * There is no guarantee that the coordinate is the actual object stored in the source geometry.
- * In particular, modified values may not be preserved if the source Geometry uses a non-default {@link CoordinateSequence}.
- * If in-place mutation is required, use {@link CoordinateSequenceFilter}.
+ * In particular, modified values may not be preserved if the source Geometry uses a non-default {link CoordinateSequence}.
+ * If in-place mutation is required, use {link CoordinateSequenceFilter}.
  *
  * @see Geometry#apply(CoordinateFilter)
  * @see CoordinateSequenceFilter

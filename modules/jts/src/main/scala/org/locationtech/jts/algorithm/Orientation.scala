@@ -61,15 +61,15 @@ object Orientation {
   /**
    * Returns the orientation index of the direction of the point <code>q</code> relative to
    * a directed infinite line specified by <code>p1-p2</code>.
-   * The index indicates whether the point lies to the {@link #LEFT} or {@link #RIGHT}
-   * of the line, or lies on it {@link #COLLINEAR}.
+   * The index indicates whether the point lies to the {link #LEFT} or {link #RIGHT}
+   * of the line, or lies on it {link #COLLINEAR}.
    * The index also indicates the orientation of the triangle formed by the three points
-   * ( {@link #COUNTERCLOCKWISE}, {@link #CLOCKWISE}, or {@link #STRAIGHT} )
+   * ( {link #COUNTERCLOCKWISE}, {link #CLOCKWISE}, or {link #STRAIGHT} )
    *
    * @param p1 the origin point of the line vector
    * @param p2 the final point of the line vector
    * @param q  the point to compute the direction to
-   * @return -1 ( { @link #CLOCKWISE} or { @link #RIGHT} ) if q is clockwise (right) from p1-p2;
+   * return -1 ( { @link #CLOCKWISE} or { @link #RIGHT} ) if q is clockwise (right) from p1-p2;
    *                      1 ( { @link #COUNTERCLOCKWISE} or { @link #LEFT} ) if q is counter-clockwise (left) from p1-p2;
    *                      0 ( { @link #COLLINEAR} or { @link #STRAIGHT} ) if q is collinear with p1-p2
    */
@@ -103,7 +103,7 @@ object Orientation {
   }
 
   /**
-   * Computes whether a ring defined by an array of {@link Coordinate}s is
+   * Computes whether a ring defined by an array of {link Coordinate}s is
    * oriented counter-clockwise.
    * <ul>
    * <li>The list of points is assumed to have the first and last points equal.
@@ -115,8 +115,8 @@ object Orientation {
    *
    * @param ring
    * an array of Coordinates forming a ring
-   * @return true if the ring is oriented counter-clockwise.
-   * @throws IllegalArgumentException
+   * return true if the ring is oriented counter-clockwise.
+   * throws IllegalArgumentException
    * if there are too few points to determine orientation (&lt; 4)
    */
   def isCCW(ring: Array[Coordinate]): Boolean = { // # of points without closing endpoint
@@ -178,7 +178,7 @@ object Orientation {
   }
 
   /**
-   * Computes whether a ring defined by an {@link CoordinateSequence} is
+   * Computes whether a ring defined by an {link CoordinateSequence} is
    * oriented counter-clockwise.
    * <ul>
    * <li>The list of points is assumed to have the first and last points equal.
@@ -190,8 +190,8 @@ object Orientation {
    *
    * @param ring
    * a CoordinateSequence forming a ring
-   * @return true if the ring is oriented counter-clockwise.
-   * @throws IllegalArgumentException
+   * return true if the ring is oriented counter-clockwise.
+   * throws IllegalArgumentException
    * if there are too few points to determine orientation (&lt; 4)
    */
   def isCCW(ring: CoordinateSequence): Boolean = {

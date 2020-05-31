@@ -37,7 +37,7 @@ import org.locationtech.jts.operation.BoundaryOp
  * <p>
  * A linestring must have either 0 or 2 or more points.
  * If these conditions are not met, the constructors throw
- * an {@link IllegalArgumentException}
+ * an {link IllegalArgumentException}
  *
  * @version 1.7
  */
@@ -60,7 +60,7 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
    *
    * @param  points the points of the linestring, or <code>null</code>
    *                to create the empty geometry.
-   * @throws IllegalArgumentException if too few points are provided
+   * throws IllegalArgumentException if too few points are provided
    */
   def this(points: CoordinateSequence, factory: GeometryFactory) ={
     this(null, null, 0, factory)
@@ -119,7 +119,7 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
   /**
    * Returns the length of this <code>LineString</code>
    *
-   * @return the length of the linestring
+   * return the length of the linestring
    */
   override def getLength: Double = Length.ofLine(points)
 
@@ -127,16 +127,16 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
    * Gets the boundary of this geometry.
    * The boundary of a lineal geometry is always a zero-dimensional geometry (which may be empty).
    *
-   * @return the boundary geometry
+   * return the boundary geometry
    * @see Geometry#getBoundary
    */
   override def getBoundary: Geometry = new BoundaryOp(this).getBoundary
 
   /**
-   * Creates a {@link LineString} whose coordinates are in the reverse
+   * Creates a {link LineString} whose coordinates are in the reverse
    * order of this objects
    *
-   * @return a { @link LineString} with coordinates in the reverse order
+   * return a { @link LineString} with coordinates in the reverse order
    * @deprecated
    */
   override def reverse: Geometry = super.reverse
@@ -151,7 +151,7 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
    * Returns true if the given point is a vertex of this <code>LineString</code>.
    *
    * @param  pt the <code>Coordinate</code> to check
-   * @return <code>true</code> if <code>pt</code> is one of this <code>LineString</code>
+   * return <code>true</code> if <code>pt</code> is one of this <code>LineString</code>
    *         's vertices
    */
   def isCoordinate(pt: Coordinate): Boolean = {
@@ -215,10 +215,10 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
     def applyF(filter: GeometryComponentFilter): Unit = filter.filter(this)
 
     /**
-     * Creates and returns a full copy of this {@link LineString} object.
+     * Creates and returns a full copy of this {link LineString} object.
      * (including all coordinates contained by it).
      *
-     * @return a clone of this instance
+     * return a clone of this instance
      * @deprecated
      */
     override def clone: AnyRef = copy

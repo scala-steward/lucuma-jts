@@ -63,7 +63,7 @@ object BufferResultValidator {
    * @param g
    * @param distance
    * @param result
-   * @return an appropriate error message
+   * return an appropriate error message
    *         or null if the buffer is valid
    */
   def isValidMsg(g: Geometry, distance: Double, result: Geometry): String = {
@@ -103,7 +103,7 @@ class BufferResultValidator(var input: Geometry, var distance: Double, var resul
    * to the input, the indicator is a line segment showing the location and size
    * of the discrepancy.
    *
-   * @return a geometric error indicator
+   * return a geometric error indicator
    *         or null if no error was found
    */
   def getErrorIndicator: Geometry = errorIndicator

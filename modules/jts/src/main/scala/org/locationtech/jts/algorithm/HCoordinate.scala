@@ -25,7 +25,7 @@ import org.locationtech.jts.geom.Coordinate
 
 /**
  * Represents a homogeneous coordinate in a 2-D coordinate space.
- * In JTS {@link HCoordinate}s are used as a clean way
+ * In JTS {link HCoordinate}s are used as a clean way
  * of computing intersections between line segments.
  *
  * @author David Skea
@@ -105,7 +105,7 @@ class HCoordinate(val x: Double = 0.0, val y: Double = 0.0, val w: Double = 1.0)
   /**
    * Constructs a homogeneous coordinate which is the intersection of the lines
    * define by the homogenous coordinates represented by two
-   * {@link Coordinate}s.
+   * {link Coordinate}s.
    *
    * @param p1
    * @param p2

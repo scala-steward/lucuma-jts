@@ -17,7 +17,7 @@ package org.locationtech.jts.geom
 import java.util
 
 /**
- * A list of {@link Coordinate}s, which may
+ * A list of {link Coordinate}s, which may
  * be set to prevent repeated coordinates from occurring in the list.
  *
  * @version 1.7
@@ -36,7 +36,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
 
   /**
    * Constructs a new list from an array of Coordinates, allowing repeated points.
-   * (I.e. this constructor produces a {@link CoordinateList} with exactly the same set of points
+   * (I.e. this constructor produces a {link CoordinateList} with exactly the same set of points
    * as the input array.)
    *
    * @param coord the initial coordinates
@@ -57,7 +57,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    * @param allowRepeated if set to false, repeated coordinates are collapsed
    * @param start         the index to start from
    * @param end           the index to add up to but not including
-   * @return true (as by general collection contract)
+   * return true (as by general collection contract)
    */
   def add(coord: Array[Coordinate], allowRepeated: Boolean, start: Int, end: Int): Boolean = {
     var inc = 1
@@ -78,7 +78,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    * @param coord         The coordinates
    * @param allowRepeated if set to false, repeated coordinates are collapsed
    * @param direction     if false, the array is added in reverse order
-   * @return true (as by general collection contract)
+   * return true (as by general collection contract)
    */
   def add(coord: Array[Coordinate], allowRepeated: Boolean, direction: Boolean): Boolean = {
     if (direction) {
@@ -104,7 +104,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    *
    * @param coord         The coordinates
    * @param allowRepeated if set to false, repeated coordinates are collapsed
-   * @return true (as by general collection contract)
+   * return true (as by general collection contract)
    */
   def add(coord: Array[Coordinate], allowRepeated: Boolean): Boolean = {
     add(coord, allowRepeated, true)
@@ -116,7 +116,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    *
    * @param obj           The coordinate to add
    * @param allowRepeated if set to false, repeated coordinates are collapsed
-   * @return true (as by general collection contract)
+   * return true (as by general collection contract)
    */
   def add(obj: Any, allowRepeated: Boolean): Boolean = {
     add(obj.asInstanceOf[Coordinate], allowRepeated)
@@ -166,7 +166,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    *
    * @param coll          The coordinates
    * @param allowRepeated if set to false, repeated coordinates are collapsed
-   * @return true (as by general collection contract)
+   * return true (as by general collection contract)
    */
   def addAll(coll: util.Collection[_ <: Coordinate], allowRepeated: Boolean): Boolean = {
     var isChanged = false
@@ -190,7 +190,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
 
   /** Returns the Coordinates in this collection.
    *
-   * @return the coordinates
+   * return the coordinates
    */
   def toCoordinateArray: Array[Coordinate] = toArray(CoordinateList.coordArrayType)
 
@@ -199,7 +199,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
    * oriented in the given direction (forward or reverse).
    *
    * @param direction the direction value: true for forward, false for reverse
-   * @return an oriented array of coordinates
+   * return an oriented array of coordinates
    */
   def toCoordinateArray(isForward: Boolean): Array[Coordinate] =
     if (isForward) toArray(CoordinateList.coordArrayType) else {
@@ -216,7 +216,7 @@ class CoordinateList(coord: Array[Coordinate], allowRepeated: Boolean)
   /**
    * Returns a deep copy of this <tt>CoordinateList</tt> instance.
    *
-   * @return a clone of this <tt>CoordinateList</tt> instance
+   * return a clone of this <tt>CoordinateList</tt> instance
    */
   override def clone: CoordinateList = {
     val clone = super.clone.asInstanceOf[CoordinateList]

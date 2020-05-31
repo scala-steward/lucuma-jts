@@ -24,7 +24,7 @@ trait SegmentString {
   /**
    * Gets the user-defined data for this segment string.
    *
-   * @return the user-defined data
+   * return the user-defined data
    */
     def getData: Any
 

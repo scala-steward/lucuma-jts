@@ -43,7 +43,7 @@ class RectangleLineIntersector(var rectEnv: Envelope) {
 
 /**
  * Creates a new intersector for the given query rectangle,
- * specified as an {@link Envelope}.
+ * specified as an {link Envelope}.
  *
  * @param rectEnv the query rectangle, specified as an Envelope
  */
@@ -65,7 +65,7 @@ class RectangleLineIntersector(var rectEnv: Envelope) {
    *
    * @param p0 the first endpoint of the segment
    * @param p1 the second endpoint of the segment
-   * @return true if the rectangle intersects the segment
+   * return true if the rectangle intersects the segment
    */
   def intersects(p0a: Coordinate, p1a: Coordinate): Boolean = { // TODO: confirm that checking envelopes first is faster
     var p0 = p0a

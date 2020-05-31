@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.Point
 import org.locationtech.jts.geom.Polygon
 
 /**
- * Computes the centroid of a {@link Geometry} of any dimension.
+ * Computes the centroid of a {link Geometry} of any dimension.
  * If the geometry is nominally of higher dimension,
  * but has lower <i>effective</i> dimension
  * (i.e. contains only components
@@ -52,7 +52,7 @@ object Centroid {
    * Computes the centroid point of a geometry.
    *
    * @param geom the geometry to use
-   * @return the centroid point, or null if the geometry is empty
+   * return the centroid point, or null if the geometry is empty
    */
     def getCentroid(geom: Geometry): Coordinate = {
       val cent = new Centroid(geom)
@@ -120,7 +120,7 @@ class Centroid(val geom: Geometry) {
   /**
    * Gets the computed centroid.
    *
-   * @return the computed centroid, or null if the input is empty
+   * return the computed centroid, or null if the input is empty
    */
   def getCentroid: Coordinate = {
     /**

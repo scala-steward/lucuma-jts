@@ -34,15 +34,15 @@ import org.locationtech.jts.geom.Point
 import org.locationtech.jts.geom.Polygon
 
 /**
- * Computes the topological ({@link Location})
- * of a single point to a {@link Geometry}.
- * A {@link BoundaryNodeRule} may be specified
+ * Computes the topological ({link Location})
+ * of a single point to a {link Geometry}.
+ * A {link BoundaryNodeRule} may be specified
  * to control the evaluation of whether the point lies on the boundary or not
  * The default rule is to use the the <i>SFS Boundary Determination Rule</i>
  * <p>
  * Notes:
  * <ul>
- * <li>{@link LinearRing}s do not enclose any area - points inside the ring are still in the EXTERIOR of the ring.
+ * <li>{link LinearRing}s do not enclose any area - points inside the ring are still in the EXTERIOR of the ring.
  * </ul>
  * Instances of this class are not reentrant.
  *
@@ -59,19 +59,19 @@ class PointLocator(boundaryRule: BoundaryNodeRule = BoundaryNodeRule.OGC_SFS_BOU
    *
    * @param p    the coordinate to test
    * @param geom the Geometry to test
-   * @return <code>true</code> if the point is in the interior or boundary of the Geometry
+   * return <code>true</code> if the point is in the interior or boundary of the Geometry
    */
   def intersects(p: Coordinate, geom: Geometry) = locate(p, geom) != Location.EXTERIOR
 
   /**
-   * Computes the topological relationship ({@link Location}) of a single point
+   * Computes the topological relationship ({link Location}) of a single point
    * to a Geometry.
    * It handles both single-element
    * and multi-element Geometries.
    * The algorithm for multi-part Geometries
    * takes into account the SFS Boundary Determination Rule.
    *
-   * @return the { @link Location} of the point relative to the input Geometry
+   * return the { @link Location} of the point relative to the input Geometry
    */
   def locate(p: Coordinate, geom: Geometry): Int = {
     if (geom.isEmpty) return Location.EXTERIOR

@@ -87,7 +87,7 @@ class OffsetSegmentString() {
    * point in the list (up to tolerance).
    *
    * @param pt
-   * @return true if the point is redundant
+   * return true if the point is redundant
    */
   private def isRedundant(pt: Coordinate): Boolean = {
     if (ptList.size < 1) return false

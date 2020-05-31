@@ -26,7 +26,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.Envelope
 
 /**
- * A robust version of {@link LineIntersector}.
+ * A robust version of {link LineIntersector}.
  *
  * @version 1.7
  */
@@ -48,7 +48,7 @@ object RobustLineIntersector {
    * @param p2 an endpoint of segment P
    * @param q1 an endpoint of segment Q
    * @param q2 an endpoint of segment Q
-   * @return the nearest endpoint to the other segment
+   * return the nearest endpoint to the other segment
    */
     private def nearestEndpoint(p1: Coordinate, p2: Coordinate, q1: Coordinate, q2: Coordinate) = {
       var nearestPt = p1
@@ -254,7 +254,7 @@ class RobustLineIntersector() extends LineIntersector {
    * @param p2 a segment endpoint
    * @param q1 a segment endpoint
    * @param q2 a segment endpoint
-   * @return the computed intersection point
+   * return the computed intersection point
    */
   private def intersectionSafe(p1: Coordinate, p2: Coordinate, q1: Coordinate, q2: Coordinate) = {
     var intPt = Intersection.intersection(p1, p2, q1, q2)
@@ -270,7 +270,7 @@ class RobustLineIntersector() extends LineIntersector {
    * Since this test is for debugging purposes only, no attempt is
    * made to optimize the envelope test.
    *
-   * @return <code>true</code> if the input point lies within both input segment envelopes
+   * return <code>true</code> if the input point lies within both input segment envelopes
    */
   private def isInSegmentEnvelopes(intPt: Coordinate) = {
     val env0 = new Envelope(inputLines(0)(0), inputLines(0)(1))

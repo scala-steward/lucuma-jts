@@ -38,7 +38,7 @@ object Vector2D {
    *
    * @param x the x component
    * @param y the y component
-   * @return a new vector
+   * return a new vector
    */
     def create(x: Double, y: Double) = new Vector2D(x, y)
 
@@ -46,26 +46,26 @@ object Vector2D {
    * Creates a new vector from an existing one.
    *
    * @param v the vector to copy
-   * @return a new vector
+   * return a new vector
    */
   def create(v: Vector2D) = new Vector2D(v)
 
   /**
-   * Creates a vector from a {@link Coordinate}.
+   * Creates a vector from a {link Coordinate}.
    *
    * @param coord the Coordinate to copy
-   * @return a new vector
+   * return a new vector
    */
   def create(coord: Coordinate) = new Vector2D(coord)
 
   /**
    * Creates a vector with the direction and magnitude
    * of the difference between the
-   * <tt>to</tt> and <tt>from</tt> {@link Coordinate}s.
+   * <tt>to</tt> and <tt>from</tt> {link Coordinate}s.
    *
    * @param from the origin Coordinate
    * @param to   the destination Coordinate
-   * @return a new vector
+   * return a new vector
    */
   def create(from: Coordinate, to: Coordinate) = new Vector2D(from, to)
 }
@@ -119,7 +119,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    * Multiplies the vector by a scalar value.
    *
    * @param d the value to multiply by
-   * @return a new vector with the value v * d
+   * return a new vector with the value v * d
    */
   def multiply(d: Double): Vector2D = Vector2D.create(x * d, y * d)
 
@@ -127,7 +127,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    * Divides the vector by a scalar value.
    *
    * @param d the value to divide by
-   * @return a new vector with the value v / d
+   * return a new vector with the value v / d
    */
   def divide(d: Double): Vector2D = Vector2D.create(x / d, y / d)
 
@@ -158,7 +158,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    *
    * @param v    the vector to sum
    * @param frac the fraction of the total contributed by this vector
-   * @return the weighted sum of the two vectors
+   * return the weighted sum of the two vectors
    */
   def weightedSum(v: Vector2D, frac: Double): Vector2D = Vector2D.create(frac * x + (1.0 - frac) * v.x, frac * y + (1.0 - frac) * v.y)
 
@@ -166,7 +166,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    * Computes the distance between this vector and another one.
    *
    * @param v a vector
-   * @return the distance between the vectors
+   * return the distance between the vectors
    */
   def distance(v: Vector2D): Double = {
     val delx = v.x - x
@@ -178,7 +178,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    * Computes the dot-product of two vectors
    *
    * @param v a vector
-   * @return the dot product of the vectors
+   * return the dot product of the vectors
    */
   def dot(v: Vector2D): Double = x * v.x + y * v.y
 
@@ -211,7 +211,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    *
    * @param numQuarters
    * the number of quarter-circles to rotate by
-   * @return the rotated vector.
+   * return the rotated vector.
    */
   def rotateByQuarterCircle(numQuarters: Int): Vector2D = {
     var nQuad = numQuarters % 4
@@ -239,14 +239,14 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
   /**
    * Creates a copy of this vector
    *
-   * @return a copy of this vector
+   * return a copy of this vector
    */
   override def clone = new Vector2D(this)
 
   /**
    * Gets a string representation of this vector
    *
-   * @return a string representing this vector
+   * return a string representing this vector
    */
   override def toString: String = "[" + x + ", " + y + "]"
 
@@ -256,7 +256,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
    *
    * @param o
    * a <tt>Vector2D</tt> with which to do the comparison.
-   * @return true if <tt>other</tt> is a <tt>Vector2D</tt> with the same
+   * return true if <tt>other</tt> is a <tt>Vector2D</tt> with the same
    *         values for the x and y components.
    */
   override def equals(o: Any): Boolean = {
@@ -268,7 +268,7 @@ class Vector2D(protected val x: Double = 0.0, protected val y: Double = 0.0) {
   /**
    * Gets a hashcode for this vector.
    *
-   * @return a hashcode for this vector
+   * return a hashcode for this vector
    */
   override def hashCode: Int = { // Algorithm from Effective Java by Joshua Bloch
     var result = 17

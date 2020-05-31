@@ -30,7 +30,7 @@ import scala.collection.mutable
 import scala.jdk.CollectionConverters._
 
 /**
- * A list of edge intersections along an {@link Edge}.
+ * A list of edge intersections along an {link Edge}.
  * Implements splitting an edge with intersections
  * into multiple resultant edges.
  *
@@ -45,7 +45,7 @@ class EdgeIntersectionList(var edge: Edge // the parent edge
    * Adds an intersection into the list, if it isn't already there.
    * The input segmentIndex and dist are expected to be normalized.
    *
-   * @return the EdgeIntersection found or added
+   * return the EdgeIntersection found or added
    */
   def add(intPt: Coordinate, segmentIndex: Int, dist: Double): EdgeIntersection = {
     val eiNew = new EdgeIntersection(intPt, segmentIndex, dist)
@@ -56,9 +56,9 @@ class EdgeIntersectionList(var edge: Edge // the parent edge
   }
 
   /**
-   * Returns an iterator of {@link EdgeIntersection}s
+   * Returns an iterator of {link EdgeIntersection}s
    *
-   * @return an Iterator of EdgeIntersections
+   * return an Iterator of EdgeIntersections
    */
   def iterator: util.Iterator[EdgeIntersection] = nodeMap.values.iterator.asJava
 
@@ -66,7 +66,7 @@ class EdgeIntersectionList(var edge: Edge // the parent edge
    * Tests if the given point is an edge intersection
    *
    * @param pt the point to test
-   * @return true if the point is an intersection
+   * return true if the point is an intersection
    */
   def isIntersection(pt: Coordinate): Boolean = {
     val it = iterator

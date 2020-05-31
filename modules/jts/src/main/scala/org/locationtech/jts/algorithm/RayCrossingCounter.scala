@@ -28,7 +28,7 @@ import org.locationtech.jts.geom.Location
 /**
  * Counts the number of segments crossed by a horizontal ray extending to the right
  * from a given point, in an incremental fashion.
- * This can be used to determine whether a point lies in a {@link Polygonal} geometry.
+ * This can be used to determine whether a point lies in a {link Polygonal} geometry.
  * The class determines the situation where the point lies exactly on a segment.
  * When being used for Point-In-Polygon determination, this case allows short-circuiting
  * the evaluation.
@@ -57,12 +57,12 @@ import org.locationtech.jts.geom.Location
  */
 object RayCrossingCounter {
   /**
-   * Determines the {@link Location} of a point in a ring.
+   * Determines the {link Location} of a point in a ring.
    * This method is an exemplar of how to use this class.
    *
    * @param p    the point to test
    * @param ring an array of Coordinates forming a ring
-   * @return the location of the point in the ring
+   * return the location of the point in the ring
    */
     def locatePointInRing(p: Coordinate, ring: Array[Coordinate]): Int = {
       val counter = new RayCrossingCounter(p)
@@ -80,13 +80,13 @@ object RayCrossingCounter {
     }
 
   /**
-   * Determines the {@link Location} of a point in a ring.
+   * Determines the {link Location} of a point in a ring.
    *
    * @param p
    * the point to test
    * @param ring
    * a coordinate sequence forming a ring
-   * @return the location of the point in the ring
+   * return the location of the point in the ring
    */
   def locatePointInRing(p: Coordinate, ring: CoordinateSequence): Int = {
     val counter = new RayCrossingCounter(p)
@@ -176,19 +176,19 @@ class RayCrossingCounter(var p: Coordinate) {
    * no further segments need be supplied, since the result
    * will never change again.
    *
-   * @return true if the point lies exactly on a segment
+   * return true if the point lies exactly on a segment
    */
   def isOnSegment: Boolean = isPointOnSegment
 
   /**
-   * Gets the {@link Location} of the point relative to
+   * Gets the {link Location} of the point relative to
    * the ring, polygon
    * or multipolygon from which the processed segments were provided.
    * <p>
    * This method only determines the correct location
    * if <b>all</b> relevant segments must have been processed.
    *
-   * @return the Location of the point
+   * return the Location of the point
    */
   def getLocation: Int = {
     if (isPointOnSegment) return Location.BOUNDARY
@@ -206,7 +206,7 @@ class RayCrossingCounter(var p: Coordinate) {
    * This method only determines the correct location
    * if <b>all</b> relevant segments must have been processed.
    *
-   * @return true if the point lies in or on the supplied polygon
+   * return true if the point lies in or on the supplied polygon
    */
   def isPointInPolygon: Boolean = getLocation != Location.EXTERIOR
 }

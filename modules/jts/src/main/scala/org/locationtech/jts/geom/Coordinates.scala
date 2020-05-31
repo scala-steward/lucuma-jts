@@ -32,7 +32,7 @@ object Coordinates {
    * Factory method providing access to common Coordinate implementations.
    *
    * @param dimension
-   * @return created coordinate
+   * return created coordinate
    */
     def create(dimension: Int): Coordinate = create(dimension, 0)
 
@@ -41,7 +41,7 @@ object Coordinates {
    *
    * @param dimension
    * @param measures
-   * @return created coordinate
+   * return created coordinate
    */
   def create(dimension: Int, measures: Int): Coordinate = {
     if (dimension == 2) return new CoordinateXY(0.0, 0.0)
@@ -52,10 +52,10 @@ object Coordinates {
   }
 
   /**
-   * Determine dimension based on subclass of {@link Coordinate}.
+   * Determine dimension based on subclass of {link Coordinate}.
    *
    * @param coordinate supplied coordinate
-   * @return number of ordinates recorded
+   * return number of ordinates recorded
    */
   def dimension(coordinate: Coordinate): Int = {
     if (coordinate.isInstanceOf[CoordinateXY]) return 2
@@ -66,10 +66,10 @@ object Coordinates {
   }
 
   /**
-   * Determine number of measures based on subclass of {@link Coordinate}.
+   * Determine number of measures based on subclass of {link Coordinate}.
    *
    * @param coordinate supplied coordinate
-   * @return number of measures recorded
+   * return number of measures recorded
    */
   def measures(coordinate: Coordinate): Int = {
     if (coordinate.isInstanceOf[CoordinateXY]) return 0

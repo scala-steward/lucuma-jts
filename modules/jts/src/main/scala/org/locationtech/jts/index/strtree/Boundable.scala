@@ -23,7 +23,7 @@ trait Boundable {
    * with the bounds of other Boundables. The class of object returned depends
    * on the subclass of AbstractSTRtree.
    *
-   * @return an Envelope (for STRtrees), an Interval (for SIRtrees), or other object
+   * return an Envelope (for STRtrees), an Interval (for SIRtrees), or other object
    *         (for other subclasses of AbstractSTRtree)
    */
     def getBounds: Any

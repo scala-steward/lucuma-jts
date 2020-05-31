@@ -23,7 +23,7 @@ import scala.jdk.CollectionConverters._
 
 /**
  * Uses Snap Rounding to compute a rounded,
- * fully noded arrangement from a set of {@link SegmentString}s.
+ * fully noded arrangement from a set of {link SegmentString}s.
  * Implements the Snap Rounding technique described in
  * papers by Hobby, Guibas &amp; Marimont, and Goodrich et al.
  * Snap Rounding assumes that all vertices lie on a uniform grid;
@@ -76,12 +76,12 @@ class MCIndexSnapRounder(val pm: PrecisionModel) extends Noder[SegmentString] {
   }
 
   /**
-   * Computes all interior intersections in the collection of {@link SegmentString}s,
-   * and returns their {@link Coordinate}s.
+   * Computes all interior intersections in the collection of {link SegmentString}s,
+   * and returns their {link Coordinate}s.
    *
    * Does NOT node the segStrings.
    *
-   * @return a list of Coordinates for the intersections
+   * return a list of Coordinates for the intersections
    */
   private def findInteriorIntersections(segStrings: util.Collection[SegmentString], li: LineIntersector): util.List[Coordinate] = {
     val intFinderAdder = new InteriorIntersectionFinderAdder(li)

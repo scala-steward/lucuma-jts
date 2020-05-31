@@ -26,7 +26,7 @@ import scala.jdk.CollectionConverters._
  * P. Rigaux, Michel Scholl and Agnes Voisard. <i>Spatial Databases With
  * Application To GIS.</i> Morgan Kaufmann, San Francisco, 2002.
  * <p>
- * This implementation is based on {@link Boundable}s rather than {@link AbstractNode}s,
+ * This implementation is based on {link Boundable}s rather than {link AbstractNode}s,
  * because the STR algorithm operates on both nodes and
  * data, both of which are treated as Boundables.
  * <p>
@@ -51,7 +51,7 @@ object AbstractSTRtree {
      *
      * @param aBounds the bounds of one spatial object
      * @param bBounds the bounds of another spatial object
-     * @return whether the two bounds intersect
+     * return whether the two bounds intersect
      */
       def intersects(aBounds: Any, bBounds: Any): Boolean
   }
@@ -137,7 +137,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
    * @param level
    * the level of the Boundables, or -1 if the boundables are item
    * boundables (that is, below level 0)
-   * @return the root, which may be a ParentNode or a LeafNode
+   * return the root, which may be a ParentNode or a LeafNode
    */
   private def createHigherLevels(boundablesOfALevel: util.List[Boundable], level: Int): AbstractNode = {
     Assert.isTrue(!boundablesOfALevel.isEmpty)
@@ -149,7 +149,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
   /**
    * Gets the root node of the tree.
    *
-   * @return the root node
+   * return the root node
    */
   def getRoot: AbstractNode = {
     build()
@@ -159,7 +159,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
   /**
    * Returns the maximum number of child nodes that a node may have.
    *
-   * @return the node capacity
+   * return the node capacity
    */
   def getNodeCapacity: Int = nodeCapacity
 
@@ -168,7 +168,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
    * This method does not build the index,
    * so items can still be inserted after it has been called.
    *
-   * @return true if the index does not contain any items
+   * return true if the index does not contain any items
    */
   def isEmpty: Boolean = {
     if (!built) return itemBoundables.isEmpty
@@ -242,7 +242,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
   }
 
   /**
-   * @return a test for intersection between two bounds, necessary because subclasses
+   * return a test for intersection between two bounds, necessary because subclasses
    *         of AbstractSTRtree have different implementations of bounds.
    * @see IntersectsOp
    */
@@ -284,13 +284,13 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
    * Gets a tree structure (as a nested list)
    * corresponding to the structure of the items and nodes in this tree.
    * <p>
-   * The returned {@link List}s contain either {@link Object} items,
+   * The returned {link List}s contain either {link Object} items,
    * or Lists which correspond to subtrees of the tree
    * Subtrees which do not contain any items are not included.
    * <p>
    * Builds the tree if necessary.
    *
-   * @return a List of items and/or Lists
+   * return a List of items and/or Lists
    */
   def itemsTree: util.List[Any] = {
     build()

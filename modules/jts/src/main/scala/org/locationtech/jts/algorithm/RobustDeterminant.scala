@@ -47,9 +47,9 @@ object RobustDeterminant {
    * Computes the sign of the determinant of the 2x2 matrix
    * with the given entries, in a robust way.
    *
-   * @return -1 if the determinant is negative,
-   * @return 1 if the determinant is positive,
-   * @return 0 if the determinant is 0.
+   * return -1 if the determinant is negative,
+   * return 1 if the determinant is positive,
+   * return 0 if the determinant is 0.
    */
     //private static int originalSignOfDet2x2(double x1, double y1, double x2, double y2) {
     def signOfDet2x2(x1a: Double, y1a: Double, x2a: Double, y2a: Double): Int = { // returns -1 if the determinant is negative,
@@ -206,9 +206,9 @@ object RobustDeterminant {
    * @param p1 the origin point of the vector
    * @param p2 the final point of the vector
    * @param q  the point to compute the direction to
-   * @return 1 if q is counter-clockwise (left) from p1-p2
-   * @return -1 if q is clockwise (right) from p1-p2
-   * @return 0 if q is collinear with p1-p2
+   * return 1 if q is counter-clockwise (left) from p1-p2
+   * return -1 if q is clockwise (right) from p1-p2
+   * return 0 if q is collinear with p1-p2
    */
   def orientationIndex(p1: Coordinate, p2: Coordinate, q: Coordinate): Int = {
     /**

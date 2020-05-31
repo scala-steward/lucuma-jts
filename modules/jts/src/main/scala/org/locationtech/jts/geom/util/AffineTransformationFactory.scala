@@ -25,7 +25,7 @@ import org.locationtech.jts.algorithm.Angle
 import org.locationtech.jts.geom.Coordinate
 
 /**
- * Supports creating {@link AffineTransformation}s defined by various kinds of
+ * Supports creating {link AffineTransformation}s defined by various kinds of
  * inputs and transformation mapping rules.
  *
  * @author Martin Davis
@@ -44,7 +44,7 @@ object AffineTransformationFactory {
    * @param dest0
    * @param dest1
    * @param dest2
-   * @return the computed transformation
+   * return the computed transformation
    */
     def createFromControlVectors(src0: Coordinate, src1: Coordinate, src2: Coordinate, dest0: Coordinate, dest1: Coordinate, dest2: Coordinate): AffineTransformation = {
       val builder = new AffineTransformationBuilder(src0, src1, src2, dest0, dest1, dest2)
@@ -63,7 +63,7 @@ object AffineTransformationFactory {
    * @param src1
    * @param dest0
    * @param dest1
-   * @return the computed transformation, or null if the control vectors do not determine a well-defined transformation
+   * return the computed transformation, or null if the control vectors do not determine a well-defined transformation
    */
   def createFromControlVectors(src0: Coordinate, src1: Coordinate, dest0: Coordinate, dest1: Coordinate): AffineTransformation = {
     val rotPt = new Coordinate(dest1.x - dest0.x, dest1.y - dest0.y)
@@ -89,7 +89,7 @@ object AffineTransformationFactory {
    * the start point of the control vector
    * @param dest0
    * the end point of the control vector
-   * @return the computed transformation
+   * return the computed transformation
    */
   def createFromControlVectors(src0: Coordinate, dest0: Coordinate): AffineTransformation = {
     val dx = dest0.x - src0.x
@@ -105,8 +105,8 @@ object AffineTransformationFactory {
    * the source points of the vectors
    * @param dest
    * the destination points of the vectors
-   * @return the computed transformation
-   * @throws IllegalArgumentException
+   * return the computed transformation
+   * throws IllegalArgumentException
    * if the control vector arrays are too short, long or of different
    * lengths
    */
@@ -134,7 +134,7 @@ object AffineTransformationFactory {
    * @param src1  the end point of the source baseline
    * @param dest0 the start point of the destination baseline
    * @param dest1 the end point of the destination baseline
-   * @return the computed transformation
+   * return the computed transformation
    */
   def createFromBaseLines(src0: Coordinate, src1: Coordinate, dest0: Coordinate, dest1: Coordinate): AffineTransformation = {
     val rotPt = new Coordinate(src0.x + dest1.x - dest0.x, src0.y + dest1.y - dest0.y)

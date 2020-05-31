@@ -123,37 +123,37 @@ import org.locationtech.jts.util.Assert
  * <h4>Structural Equality</h4>
  *
  * Structural Equality is provided by the
- * {@link #equalsExact(Geometry)} method.
+ * {link #equalsExact(Geometry)} method.
  * This implements a comparison based on exact, structural pointwise
  * equality.
- * The {@link #equals(Object)} is a synonym for this method,
+ * The {link #equals(Object)} is a synonym for this method,
  * to provide structural equality semantics for
  * use in Java collections.
  * It is important to note that structural pointwise equality
  * is easily affected by things like
  * ring order and component order.  In many situations
  * it will be desirable to normalize geometries before
- * comparing them (using the {@link #norm()}
- * or {@link #normalize()} methods).
- * {@link #equalsNorm(Geometry)} is provided
+ * comparing them (using the {link #norm()}
+ * or {link #normalize()} methods).
+ * {link #equalsNorm(Geometry)} is provided
  * as a convenience method to compute equality over
  * normalized geometries, but it is expensive to use.
- * Finally, {@link #equalsExact(Geometry, double)}
+ * Finally, {link #equalsExact(Geometry, double)}
  * allows using a tolerance value for point comparison.
  *
  *
  * <h4>Topological Equality</h4>
  *
  * Topological Equality is provided by the
- * {@link #equalsTopo(Geometry)} method.
+ * {link #equalsTopo(Geometry)} method.
  * It implements the SFS definition of point-set equality
  * defined in terms of the DE-9IM matrix.
  * To support the SFS naming convention, the method
- * {@link #equals(Geometry)} is also provided as a synonym.
- * However, due to the potential for confusion with {@link #equals(Object)}
+ * {link #equals(Geometry)} is also provided as a synonym.
+ * However, due to the potential for confusion with {link #equals(Object)}
  * its use is discouraged.
  * <p>
- * Since {@link #equals(Object)} and {@link #hashCode()} are overridden,
+ * Since {link #equals(Object)} and {link #hashCode()} are overridden,
  * Geometries can be used effectively in Java collections.
  *
  * @version 1.7
@@ -177,7 +177,7 @@ object Geometry {
    *
    * @param  geometries an array of <code>Geometry</code>s; no elements may be
    *                    <code>null</code>
-   * @return <code>true</code> if any of the <code>Geometry</code>s
+   * return <code>true</code> if any of the <code>Geometry</code>s
    *         <code>isEmpty</code> methods return <code>false</code>
    */
   def hasNonEmptyElements(geometries: Array[Geometry]): Boolean = {
@@ -195,7 +195,7 @@ object Geometry {
    * Returns true if the array contains any <code>null</code> elements.
    *
    * @param  array an array to validate
-   * @return <code>true</code> if any of <code>array</code>s elements are
+   * return <code>true</code> if any of <code>array</code>s elements are
    *         <code>null</code>
    */
   def hasNullElements(array: Array[AnyRef]): Boolean = {
@@ -214,7 +214,7 @@ object Geometry {
    * (Its subclasses do not trigger an exception).
    *
    * @param  g the <code>Geometry</code> to check
-   * @throws  IllegalArgumentException if <code>g</code> is a <code>GeometryCollection</code>
+   * throws  IllegalArgumentException if <code>g</code> is a <code>GeometryCollection</code>
    *                                   but not one of its subclasses
    */
   def checkNotGeometryCollection(g: Geometry): Unit = if (g.isGeometryCollection) throw new IllegalArgumentException("Operation does not support GeometryCollection arguments")
@@ -222,7 +222,7 @@ object Geometry {
 
 @SerialVersionUID(8763622679187376702L)
 abstract class Geometry(/**
-                         * The {@link GeometryFactory} used to create this Geometry
+                         * The {link GeometryFactory} used to create this Geometry
                          */
                         val factory: GeometryFactory)
 
@@ -249,7 +249,7 @@ abstract class Geometry(/**
   /**
    * Returns the name of this Geometry's actual class.
    *
-   * @return the name of this <code>Geometry</code>s actual class
+   * return the name of this <code>Geometry</code>s actual class
    */
   def getGeometryType: String
 
@@ -263,7 +263,7 @@ abstract class Geometry(/**
    * accessor operations for this field, but no others. The SRID is represented
    * as an integer.
    *
-   * @return the ID of the coordinate space in which the <code>Geometry</code>
+   * return the ID of the coordinate space in which the <code>Geometry</code>
    *         is defined.
    *
    */
@@ -274,7 +274,7 @@ abstract class Geometry(/**
    * <p>
    * <b>NOTE:</b> This method should only be used for exceptional circumstances or
    * for backwards compatibility.  Normally the SRID should be set on the
-   * {@link GeometryFactory} used to create the geometry.
+   * {link GeometryFactory} used to create the geometry.
    * SRIDs set using this method will <i>not</i> be propagated to
    * geometries returned by constructive methods.
    *
@@ -285,31 +285,31 @@ abstract class Geometry(/**
   /**
    * Gets the factory which contains the context in which this geometry was created.
    *
-   * @return the factory for this geometry
+   * return the factory for this geometry
    */
   def getFactory: GeometryFactory = factory
 
   /**
    * Gets the user data object for this geometry, if any.
    *
-   * @return the user data object, or <code>null</code> if none set
+   * return the user data object, or <code>null</code> if none set
    */
   def getUserData: Object = userData
 
   /**
-   * Returns the number of {@link Geometry}s in a {@link GeometryCollection}
+   * Returns the number of {link Geometry}s in a {link GeometryCollection}
    * (or 1, if the geometry is not a collection).
    *
-   * @return the number of geometries contained in this geometry
+   * return the number of geometries contained in this geometry
    */
   def getNumGeometries = 1
 
   /**
-   * Returns an element {@link Geometry} from a {@link GeometryCollection}
+   * Returns an element {link Geometry} from a {link GeometryCollection}
    * (or <code>this</code>, if the geometry is not a collection).
    *
    * @param n the index of the geometry element
-   * @return the n'th geometry contained in this geometry
+   * return the n'th geometry contained in this geometry
    */
   def getGeometryN(n: Int): Geometry = this
 
@@ -328,7 +328,7 @@ abstract class Geometry(/**
   /**
    * Returns the <code>PrecisionModel</code> used by the <code>Geometry</code>.
    *
-   * @return the specification of the grid of allowable points, for this
+   * return the specification of the grid of allowable points, for this
    *         <code>Geometry</code> and all other <code>Geometry</code>s
    */
   def getPrecisionModel: PrecisionModel = factory.getPrecisionModel
@@ -340,8 +340,8 @@ abstract class Geometry(/**
    * to be an actual Coordinate object used in
    * the internal representation.
    *
-   * @return a { @link Coordinate} which is a vertex of this <code>Geometry</code>.
-   * @return null if this Geometry is empty
+   * return a { @link Coordinate} which is a vertex of this <code>Geometry</code>.
+   * return null if this Geometry is empty
    */
   def getCoordinate: Coordinate
 
@@ -354,12 +354,12 @@ abstract class Geometry(/**
    * In general, the array cannot be assumed to be the actual internal
    * storage for the vertices.  Thus modifying the array
    * may not modify the geometry itself.
-   * Use the {@link CoordinateSequence#setOrdinate} method
+   * Use the {link CoordinateSequence#setOrdinate} method
    * (possibly on the components) to modify the underlying data.
    * If the coordinates are modified,
-   * {@link #geometryChanged} must be called afterwards.
+   * {link #geometryChanged} must be called afterwards.
    *
-   * @return the vertices of this <code>Geometry</code>
+   * return the vertices of this <code>Geometry</code>
    * @see #geometryChanged
    * @see CoordinateSequence#setOrdinate
    */
@@ -370,17 +370,17 @@ abstract class Geometry(/**
    * s contained by composite <code>Geometry</code>s must be
    * Geometry's; that is, they must implement <code>getNumPoints</code>
    *
-   * @return the number of vertices in this <code>Geometry</code>
+   * return the number of vertices in this <code>Geometry</code>
    */
   def getNumPoints: Int
 
   /**
-   * Tests whether this {@link Geometry} is simple.
+   * Tests whether this {link Geometry} is simple.
    * The SFS definition of simplicity
    * follows the general rule that a Geometry is simple if it has no points of
    * self-tangency, self-intersection or other anomalous points.
    * <p>
-   * Simplicity is defined for each {@link Geometry} subclass as follows:
+   * Simplicity is defined for each {link Geometry} subclass as follows:
    * <ul>
    * <li>Valid polygonal geometries are simple, since their rings
    * must not self-intersect.  <code>isSimple</code>
@@ -394,7 +394,7 @@ abstract class Geometry(/**
    * <li>Empty <code>Geometry</code>s are always simple.
    * </ul>
    *
-   * @return <code>true</code> if this <code>Geometry</code> is simple
+   * return <code>true</code> if this <code>Geometry</code> is simple
    * @see #isValid
    */
   def isSimple: Boolean = {
@@ -408,7 +408,7 @@ abstract class Geometry(/**
    * <p>
    * For validity rules see the Javadoc for the specific Geometry subclass.
    *
-   * @return <code>true</code> if this <code>Geometry</code> is valid
+   * return <code>true</code> if this <code>Geometry</code> is valid
    * @see IsValidOp
    */
   def isValid: Boolean = IsValidOp.isValid(this)
@@ -417,7 +417,7 @@ abstract class Geometry(/**
    * Tests whether the set of points covered by this <code>Geometry</code> is
    * empty.
    *
-   * @return <code>true</code> if this <code>Geometry</code> does not cover any points
+   * return <code>true</code> if this <code>Geometry</code> does not cover any points
    */
   def isEmpty: Boolean
 
@@ -426,9 +426,9 @@ abstract class Geometry(/**
    * and another <code>Geometry</code>.
    *
    * @param  g the <code>Geometry</code> from which to compute the distance
-   * @return the distance between the geometries
-   * @return 0 if either input geometry is empty
-   * @throws IllegalArgumentException if g is null
+   * return the distance between the geometries
+   * return 0 if either input geometry is empty
+   * throws IllegalArgumentException if g is null
    */
   def distance(g: Geometry): Double = DistanceOp.distance(this, g)
 
@@ -438,14 +438,14 @@ abstract class Geometry(/**
    *
    * @param geom     the Geometry to check the distance to
    * @param distance the distance value to compare
-   * @return <code>true</code> if the geometries are less than <code>distance</code> apart.
+   * return <code>true</code> if the geometries are less than <code>distance</code> apart.
    */
   def isWithinDistance(geom: Geometry, distance: Double): Boolean = DistanceOp.isWithinDistance(this, geom, distance)
 
   /**
-   * Tests whether this is a rectangular {@link Polygon}.
+   * Tests whether this is a rectangular {link Polygon}.
    *
-   * @return true if the geometry is a rectangle.
+   * return true if the geometry is a rectangle.
    */
   def isRectangle: Boolean = { // Polygon overrides to check for actual rectangle
     false
@@ -457,7 +457,7 @@ abstract class Geometry(/**
    * They override this function to compute the area.
    * Others return 0.0
    *
-   * @return the area of the Geometry
+   * return the area of the Geometry
    */
   def getArea = 0.0
 
@@ -468,7 +468,7 @@ abstract class Geometry(/**
    * They override this function to compute the area.
    * Others return 0.0
    *
-   * @return the length of the Geometry
+   * return the length of the Geometry
    */
   def getLength = 0.0
 
@@ -481,7 +481,7 @@ abstract class Geometry(/**
    * <p>
    * The centroid of an empty geometry is <code>POINT EMPTY</code>.
    *
-   * @return a { @link Point} which is the centroid of this Geometry
+   * return a { @link Point} which is the centroid of this Geometry
    */
   def getCentroid: Point = {
     if (isEmpty) return factory.createPoint
@@ -497,7 +497,7 @@ abstract class Geometry(/**
    * <p>
    * The interior point of an empty geometry is <code>POINT EMPTY</code>.
    *
-   * @return a { @link Point} which is in the interior of this Geometry
+   * return a { @link Point} which is in the interior of this Geometry
    */
   def getInteriorPoint: Point = {
     if (isEmpty) return factory.createPoint
@@ -512,12 +512,12 @@ abstract class Geometry(/**
    * In the JTS spatial model, dimension values are in the set {0,1,2}.
    * <p>
    * Note that this is a different concept to the dimension of
-   * the vertex {@link Coordinate}s.
+   * the vertex {link Coordinate}s.
    * The geometry dimension can never be greater than the coordinate dimension.
    * For example, a 0-dimensional geometry (e.g. a Point)
    * may have a coordinate dimension of 3 (X,Y,Z).
    *
-   * @return the topological dimension of this geometry.
+   * return the topological dimension of this geometry.
    */
   def getDimension: Int
 
@@ -530,14 +530,14 @@ abstract class Geometry(/**
    * Features Specification. As stated in SFS Section 2.1.13.1, "the boundary
    * of a Geometry is a set of Geometries of the next lower dimension."
    *
-   * @return the closure of the combinatorial boundary of this <code>Geometry</code>
+   * return the closure of the combinatorial boundary of this <code>Geometry</code>
    */
   def getBoundary: Geometry
 
   /**
    * Returns the dimension of this <code>Geometry</code>s inherent boundary.
    *
-   * @return the dimension of the boundary of the class implementing this
+   * return the dimension of the boundary of the class implementing this
    *         interface, whether or not this object is the empty geometry. Returns
    *         <code>Dimension.FALSE</code> if the boundary is the empty geometry.
    */
@@ -557,13 +557,13 @@ abstract class Geometry(/**
    * maxx maxy, minx maxy, minx miny).
    * </ul>
    *
-   * @return a Geometry representing the envelope of this Geometry
+   * return a Geometry representing the envelope of this Geometry
    * @see GeometryFactory#toGeometry(Envelope)
    */
   def getEnvelope: Geometry = getFactory.toGeometry(getEnvelopeInternal)
 
   /**
-   * Gets an {@link Envelope} containing
+   * Gets an {link Envelope} containing
    * the minimum and maximum x and y values in this <code>Geometry</code>.
    * If the geometry is empty, an empty <code>Envelope</code>
    * is returned.
@@ -573,8 +573,8 @@ abstract class Geometry(/**
    * For best performance, clients which access this
    * envelope frequently should cache the return value.
    *
-   * @return the envelope of this <code>Geometry</code>.
-   * @return an empty Envelope if this Geometry is empty
+   * return the envelope of this <code>Geometry</code>.
+   * return an empty Envelope if this Geometry is empty
    */
   def getEnvelopeInternal: Envelope = {
     if (envelope == null) envelope = computeEnvelopeInternal
@@ -583,9 +583,9 @@ abstract class Geometry(/**
 
   /**
    * Notifies this geometry that its coordinates have been changed by an external
-   * party (for example, via a {@link CoordinateFilter}).
+   * party (for example, via a {link CoordinateFilter}).
    * When this method is called the geometry will flush
-   * and/or update any derived information it has cached (such as its {@link Envelope} ).
+   * and/or update any derived information it has cached (such as its {link Envelope} ).
    * The operation is applied to all component Geometries.
    */
   def geometryChanged(): Unit = applyF(Geometry.geometryChangedFilter)
@@ -612,7 +612,7 @@ abstract class Geometry(/**
    * </ul>
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s are
+   * return <code>true</code> if the two <code>Geometry</code>s are
    *         disjoint
    * @see Geometry#intersects
    */
@@ -639,7 +639,7 @@ abstract class Geometry(/**
    * This predicate is symmetric.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s touch;
+   * return <code>true</code> if the two <code>Geometry</code>s touch;
    *         Returns <code>false</code> if both <code>Geometry</code>s are points
    */
   def touches(g: Geometry): Boolean = { // short-circuit test
@@ -666,7 +666,7 @@ abstract class Geometry(/**
    * </ul>
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s intersect
+   * return <code>true</code> if the two <code>Geometry</code>s intersect
    * @see Geometry#disjoint
    */
   def intersects(g: Geometry): Boolean = { // short-circuit envelope test
@@ -732,7 +732,7 @@ abstract class Geometry(/**
    * JTS extends the definition to apply to L/P, A/P and A/L situations as well.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s cross.
+   * return <code>true</code> if the two <code>Geometry</code>s cross.
    */
   def crosses(g: Geometry): Boolean = {
     if (!getEnvelopeInternal.intersects(g.getEnvelopeInternal)) return false
@@ -750,7 +750,7 @@ abstract class Geometry(/**
    * <li>The DE-9IM Intersection Matrix for the two geometries matches
    * <code>[T*F**F***]</code>
    * <li><code>g.contains(this) = true</code>
-   * <br>(<code>within</code> is the converse of {@link #contains})
+   * <br>(<code>within</code> is the converse of {link #contains})
    * </ul>
    * An implication of the definition is that
    * "The boundary of a Geometry is not within the Geometry".
@@ -758,10 +758,10 @@ abstract class Geometry(/**
    * the points in the boundary of a geometry B, <code>A.within(B) = false</code>
    * (As a concrete example, take A to be a LineString which lies in the boundary of a Polygon B.)
    * For a predicate with similar behaviour but avoiding
-   * this subtle limitation, see {@link #coveredBy}.
+   * this subtle limitation, see {link #coveredBy}.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this <code>Geometry</code> is within
+   * return <code>true</code> if this <code>Geometry</code> is within
    *         <code>g</code>
    * @see Geometry#contains
    * @see Geometry#coveredBy
@@ -780,17 +780,17 @@ abstract class Geometry(/**
    * the pattern
    * <code>[T*****FF*]</code>
    * <li><code>g.within(this) = true</code>
-   * <br>(<code>contains</code> is the converse of {@link #within} )
+   * <br>(<code>contains</code> is the converse of {link #within} )
    * </ul>
    * An implication of the definition is that "Geometries do not
    * contain their boundary".  In other words, if a geometry A is a subset of
    * the points in the boundary of a geometry B, <code>B.contains(A) = false</code>.
    * (As a concrete example, take A to be a LineString which lies in the boundary of a Polygon B.)
    * For a predicate with similar behaviour but avoiding
-   * this subtle limitation, see {@link #covers}.
+   * this subtle limitation, see {link #covers}.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this <code>Geometry</code> contains <code>g</code>
+   * return <code>true</code> if this <code>Geometry</code> contains <code>g</code>
    * @see Geometry#within
    * @see Geometry#covers
    */
@@ -825,7 +825,7 @@ abstract class Geometry(/**
    * This predicate is symmetric.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s overlap.
+   * return <code>true</code> if the two <code>Geometry</code>s overlap.
    */
   def overlaps(g: Geometry): Boolean = {
     if (!getEnvelopeInternal.intersects(g.getEnvelopeInternal)) return false
@@ -848,11 +848,11 @@ abstract class Geometry(/**
    * <li><code>[****T*FF*]</code>
    * </ul>
    * <li><code>g.coveredBy(this) = true</code>
-   * <br>(<code>covers</code> is the converse of {@link #coveredBy})
+   * <br>(<code>covers</code> is the converse of {link #coveredBy})
    * </ul>
    * If either geometry is empty, the value of this predicate is <code>false</code>.
    * <p>
-   * This predicate is similar to {@link #contains},
+   * This predicate is similar to {link #contains},
    * but is more inclusive (i.e. returns <code>true</code> for more cases).
    * In particular, unlike <code>contains</code> it does not distinguish between
    * points in the boundary and in the interior of geometries.
@@ -861,7 +861,7 @@ abstract class Geometry(/**
    * and hence should be more performant.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this <code>Geometry</code> covers <code>g</code>
+   * return <code>true</code> if this <code>Geometry</code> covers <code>g</code>
    * @see Geometry#contains
    * @see Geometry#coveredBy
    */
@@ -893,15 +893,15 @@ abstract class Geometry(/**
    * <li><code>[**F*TF***]</code>
    * </ul>
    * <li><code>g.covers(this) = true</code>
-   * <br>(<code>coveredBy</code> is the converse of {@link #covers})
+   * <br>(<code>coveredBy</code> is the converse of {link #covers})
    * </ul>
    * If either geometry is empty, the value of this predicate is <code>false</code>.
    * <p>
-   * This predicate is similar to {@link #within},
+   * This predicate is similar to {link #within},
    * but is more inclusive (i.e. returns <code>true</code> for more cases).
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this <code>Geometry</code> is covered by <code>g</code>
+   * return <code>true</code> if this <code>Geometry</code> is covered by <code>g</code>
    * @see Geometry#within
    * @see Geometry#covers
    */
@@ -909,7 +909,7 @@ abstract class Geometry(/**
 
   /**
    * Tests whether the elements in the DE-9IM
-   * {@link IntersectionMatrix} for the two <code>Geometry</code>s match the elements in <code>intersectionPattern</code>.
+   * {link IntersectionMatrix} for the two <code>Geometry</code>s match the elements in <code>intersectionPattern</code>.
    * The pattern is a 9-character string, with symbols drawn from the following set:
    * <UL>
    * <LI> 0 (dimension 0)
@@ -926,17 +926,17 @@ abstract class Geometry(/**
    *                             this <code>Geometry</code>
    * @param  intersectionPattern the pattern against which to check the
    *                             intersection matrix for the two <code>Geometry</code>s
-   * @return <code>true</code> if the DE-9IM intersection
+   * return <code>true</code> if the DE-9IM intersection
    *         matrix for the two <code>Geometry</code>s match <code>intersectionPattern</code>
    * @see IntersectionMatrix
    */
   def relate(g: Geometry, intersectionPattern: String): Boolean = relate(g).matches(intersectionPattern)
 
   /**
-   * Returns the DE-9IM {@link IntersectionMatrix} for the two <code>Geometry</code>s.
+   * Returns the DE-9IM {link IntersectionMatrix} for the two <code>Geometry</code>s.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return an { @link IntersectionMatrix} describing the intersections of the interiors,
+   * return an { @link IntersectionMatrix} describing the intersections of the interiors,
    *                    boundaries and exteriors of the two <code>Geometry</code>s
    */
   def relate(g: Geometry): IntersectionMatrix = {
@@ -950,15 +950,15 @@ abstract class Geometry(/**
    * topologically equal to the argument geometry.
    * <p>
    * This method is included for backward compatibility reasons.
-   * It has been superseded by the {@link #equalsTopo(Geometry)} method,
+   * It has been superseded by the {link #equalsTopo(Geometry)} method,
    * which has been named to clearly denote its functionality.
    * <p>
    * This method should NOT be confused with the method
-   * {@link #equals(Object)}, which implements
+   * {link #equals(Object)}, which implements
    * an exact equality comparison.
    *
    * @param  g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return true if the two <code>Geometry</code>s are topologically equal
+   * return true if the two <code>Geometry</code>s are topologically equal
    * @see #equalsTopo(Geometry)
    */
   def equals(g: Geometry): Boolean = {
@@ -983,10 +983,10 @@ abstract class Geometry(/**
    * </pre>
    * </ul>
    * <b>Note</b> that this method computes <b>topologically equality</b>.
-   * For structural equality, see {@link #equalsExact(Geometry)}.
+   * For structural equality, see {link #equalsExact(Geometry)}.
    *
    * @param g the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if the two <code>Geometry</code>s are topologically equal
+   * return <code>true</code> if the two <code>Geometry</code>s are topologically equal
    * @see #equalsExact(Geometry)
    */
   def equalsTopo(g: Geometry): Boolean = {
@@ -1000,11 +1000,11 @@ abstract class Geometry(/**
    * If the argument <code>Object</code> is not a <code>Geometry</code>,
    * the result is <code>false</code>.
    * Otherwise, the result is computed using
-   * {@link #equalsExact(Geometry)}.
+   * {link #equalsExact(Geometry)}.
    * <p>
    * This method is provided to fulfill the Java contract
    * for value-based object equality.
-   * In conjunction with {@link #hashCode()}
+   * In conjunction with {link #hashCode()}
    * it provides semantics which are most useful
    * for using
    * <code>Geometry</code>s as keys and values in Java collections.
@@ -1012,11 +1012,11 @@ abstract class Geometry(/**
    * Note that to produce the expected result the input geometries
    * should be in normal form.  It is the caller's
    * responsibility to perform this where required
-   * (using {@link Geometry#norm()}
-   * or {@link #normalize()} as appropriate).
+   * (using {link Geometry#norm()}
+   * or {link #normalize()} as appropriate).
    *
    * @param o the Object to compare
-   * @return true if this geometry is exactly equal to the argument
+   * return true if this geometry is exactly equal to the argument
    * @see #equalsExact(Geometry)
    * @see #hashCode()
    * @see #norm()
@@ -1031,7 +1031,7 @@ abstract class Geometry(/**
   /**
    * Gets a hash code for the Geometry.
    *
-   * @return an integer value suitable for use as a hashcode
+   * return an integer value suitable for use as a hashcode
    */
   override def hashCode: Int = getEnvelopeInternal.hashCode
 
@@ -1042,7 +1042,7 @@ abstract class Geometry(/**
    * For a definition of the Well-known Text format, see the OpenGIS Simple
    * Features Specification.
    *
-   * @return the Well-known Text representation of this <code>Geometry</code>
+   * return the Well-known Text representation of this <code>Geometry</code>
    */
 //  def toText: String = {
 //    val writer = new WKTWriter
@@ -1061,14 +1061,14 @@ abstract class Geometry(/**
    * The end cap style is <code>CAP_ROUND</code>.
    * <p>
    * The buffer operation always returns a polygonal result. The negative or
-   * zero-distance buffer of lines and points is always an empty {@link Polygon}.
+   * zero-distance buffer of lines and points is always an empty {link Polygon}.
    * This is also the result for the buffers of degenerate (zero-area) polygons.
    *
    * @param distance
    * the width of the buffer (may be positive, negative or 0)
-   * @return a polygonal geometry representing the buffer region (which may be
+   * return a polygonal geometry representing the buffer region (which may be
    *         empty)
-   * @throws TopologyException
+   * throws TopologyException
    * if a robustness error occurs
    * @see #buffer(double, int)
    * @see #buffer(double, int, int)
@@ -1087,7 +1087,7 @@ abstract class Geometry(/**
    * represent a quadrant of a circle
    * <p>
    * The buffer operation always returns a polygonal result. The negative or
-   * zero-distance buffer of lines and points is always an empty {@link Polygon}.
+   * zero-distance buffer of lines and points is always an empty {link Polygon}.
    * This is also the result for the buffers of degenerate (zero-area) polygons.
    *
    * @param distance
@@ -1095,9 +1095,9 @@ abstract class Geometry(/**
    * @param quadrantSegments
    * the number of line segments used to represent a quadrant of a
    * circle
-   * @return a polygonal geometry representing the buffer region (which may be
+   * return a polygonal geometry representing the buffer region (which may be
    *         empty)
-   * @throws TopologyException
+   * throws TopologyException
    * if a robustness error occurs
    * @see #buffer(double)
    * @see #buffer(double, int, int)
@@ -1124,14 +1124,14 @@ abstract class Geometry(/**
    * </ul>
    * <p>
    * The buffer operation always returns a polygonal result. The negative or
-   * zero-distance buffer of lines and points is always an empty {@link Polygon}.
+   * zero-distance buffer of lines and points is always an empty {link Polygon}.
    * This is also the result for the buffers of degenerate (zero-area) polygons.
    *
    * @param  distance        the width of the buffer (may be positive, negative or 0)
    * @param quadrantSegments the number of line segments used to represent a quadrant of a circle
    * @param endCapStyle      the end cap style to use
-   * @return a polygonal geometry representing the buffer region (which may be empty)
-   * @throws TopologyException if a robustness error occurs
+   * return a polygonal geometry representing the buffer region (which may be empty)
+   * throws TopologyException if a robustness error occurs
    * @see #buffer(double)
    * @see #buffer(double, int)
    * @see BufferOp
@@ -1165,7 +1165,7 @@ abstract class Geometry(/**
    * </TR>
    * </TABLE>
    *
-   * @return the minimum-area convex polygon containing this <code>Geometry</code>'
+   * return the minimum-area convex polygon containing this <code>Geometry</code>'
    *         s points
    */
   def convexHull: Geometry = new ConvexHull(this).getConvexHull
@@ -1174,7 +1174,7 @@ abstract class Geometry(/**
    * Computes a new geometry which has all component coordinate sequences
    * in reverse order (opposite orientation) to this one.
    *
-   * @return a reversed geometry
+   * return a reversed geometry
    */
   def reverse: Geometry = {
     val res: Geometry = reverseInternal
@@ -1192,19 +1192,19 @@ abstract class Geometry(/**
    * The intersection of two geometries of different dimension produces a result
    * geometry of dimension less than or equal to the minimum dimension of the input
    * geometries.
-   * The result geometry may be a heterogeneous {@link GeometryCollection}.
+   * The result geometry may be a heterogeneous {link GeometryCollection}.
    * If the result is empty, it is an atomic geometry
    * with the dimension of the lowest input dimension.
    * <p>
-   * Intersection of {@link GeometryCollection}s is supported
+   * Intersection of {link GeometryCollection}s is supported
    * only for homogeneous collection types.
    * <p>
-   * Non-empty heterogeneous {@link GeometryCollection} arguments are not supported.
+   * Non-empty heterogeneous {link GeometryCollection} arguments are not supported.
    *
    * @param  other the <code>Geometry</code> with which to compute the intersection
-   * @return a Geometry representing the point-set common to the two <code>Geometry</code>s
-   * @throws TopologyException        if a robustness error occurs
-   * @throws IllegalArgumentException if the argument is a non-empty heterogeneous <code>GeometryCollection</code>
+   * return a Geometry representing the point-set common to the two <code>Geometry</code>s
+   * throws TopologyException        if a robustness error occurs
+   * throws IllegalArgumentException if the argument is a non-empty heterogeneous <code>GeometryCollection</code>
    */
   def intersection(other: Geometry): Geometry = {
     /**
@@ -1236,28 +1236,28 @@ abstract class Geometry(/**
    * geometry of dimension equal to the maximum dimension of the input
    * geometries.
    * The result geometry may be a heterogeneous
-   * {@link GeometryCollection}.
+   * {link GeometryCollection}.
    * If the result is empty, it is an atomic geometry
    * with the dimension of the highest input dimension.
    * <p>
-   * Unioning {@link LineString}s has the effect of
+   * Unioning {link LineString}s has the effect of
    * <b>noding</b> and <b>dissolving</b> the input linework. In this context
    * "noding" means that there will be a node or endpoint in the result for
    * every endpoint or line segment crossing in the input. "Dissolving" means
    * that any duplicate (i.e. coincident) line segments or portions of line
    * segments will be reduced to a single line segment in the result.
-   * If <b>merged</b> linework is required, the {@link LineMerger}
+   * If <b>merged</b> linework is required, the {link LineMerger}
    * class can be used.
    * <p>
-   * Non-empty {@link GeometryCollection} arguments are not supported.
+   * Non-empty {link GeometryCollection} arguments are not supported.
    *
    * @param other
    * the <code>Geometry</code> with which to compute the union
-   * @return a point-set combining the points of this <code>Geometry</code> and the
+   * return a point-set combining the points of this <code>Geometry</code> and the
    *         points of <code>other</code>
-   * @throws TopologyException
+   * throws TopologyException
    * if a robustness error occurs
-   * @throws IllegalArgumentException
+   * throws IllegalArgumentException
    * if either input is a non-empty GeometryCollection
    * @see LineMerger
    */
@@ -1282,14 +1282,14 @@ abstract class Geometry(/**
    * If the result is empty, it is an atomic geometry
    * with the dimension of the left-hand input.
    * <p>
-   * Non-empty {@link GeometryCollection} arguments are not supported.
+   * Non-empty {link GeometryCollection} arguments are not supported.
    *
    * @param  other the <code>Geometry</code> with which to compute the
    *               difference
-   * @return a Geometry representing the point-set difference of this <code>Geometry</code> with
+   * return a Geometry representing the point-set difference of this <code>Geometry</code> with
    *         <code>other</code>
-   * @throws TopologyException        if a robustness error occurs
-   * @throws IllegalArgumentException if either input is a non-empty GeometryCollection
+   * throws TopologyException        if a robustness error occurs
+   * throws IllegalArgumentException if either input is a non-empty GeometryCollection
    */
   def difference(other: Geometry): Geometry = { // special case: if A.isEmpty ==> empty; if B.isEmpty ==> A
     if (this.isEmpty) return OverlayOp.createEmptyResult(OverlayOp.DIFFERENCE, this, other, factory)
@@ -1308,14 +1308,14 @@ abstract class Geometry(/**
    * If the result is empty, it is an atomic geometry
    * with the dimension of the highest input dimension.
    * <p>
-   * Non-empty {@link GeometryCollection} arguments are not supported.
+   * Non-empty {link GeometryCollection} arguments are not supported.
    *
    * @param  other the <code>Geometry</code> with which to compute the symmetric
    *               difference
-   * @return a Geometry representing the point-set symmetric difference of this <code>Geometry</code>
+   * return a Geometry representing the point-set symmetric difference of this <code>Geometry</code>
    *         with <code>other</code>
-   * @throws TopologyException        if a robustness error occurs
-   * @throws IllegalArgumentException if either input is a non-empty GeometryCollection
+   * throws TopologyException        if a robustness error occurs
+   * throws IllegalArgumentException if either input is a non-empty GeometryCollection
    */
   def symDifference(other: Geometry): Geometry = {
     if (this.isEmpty || other.isEmpty) { // both empty - check dimensions
@@ -1333,20 +1333,20 @@ abstract class Geometry(/**
    * Computes the union of all the elements of this geometry.
    * <p>
    * This method supports
-   * {@link GeometryCollection}s
+   * {link GeometryCollection}s
    * (which the other overlay operations currently do not).
    * <p>
    * The result obeys the following contract:
    * <ul>
-   * <li>Unioning a set of {@link LineString}s has the effect of fully noding
+   * <li>Unioning a set of {link LineString}s has the effect of fully noding
    * and dissolving the linework.
-   * <li>Unioning a set of {@link Polygon}s always
-   * returns a {@link Polygonal} geometry (unlike {@link #union(Geometry)},
+   * <li>Unioning a set of {link Polygon}s always
+   * returns a {link Polygonal} geometry (unlike {link #union(Geometry)},
    * which may return geometries of lower dimension if a topology collapse occurred).
    * </ul>
    *
-   * @return the union geometry
-   * @throws TopologyException if a robustness error occurs
+   * return the union geometry
+   * throws TopologyException if a robustness error occurs
    * @see UnaryUnionOp
    */
   def union: Geometry = UnaryUnionOp.union(this)
@@ -1366,12 +1366,12 @@ abstract class Geometry(/**
    * or the <code>userData</code> fields.
    * <p>
    * To properly test equality between different geometries,
-   * it is usually necessary to {@link #normalize()} them first.
+   * it is usually necessary to {link #normalize()} them first.
    *
    * @param other     the <code>Geometry</code> with which to compare this <code>Geometry</code>
    * @param tolerance distance at or below which two <code>Coordinate</code>s
    *                  are considered equal
-   * @return <code>true</code> if this and the other <code>Geometry</code>
+   * return <code>true</code> if this and the other <code>Geometry</code>
    *         have identical structure and point values, up to the distance tolerance.
    * @see #equalsExact(Geometry)
    * @see #normalize()
@@ -1388,7 +1388,7 @@ abstract class Geometry(/**
    * in exactly the same order.
    * </ul>
    * This provides a stricter test of equality than
-   * {@link #equalsTopo(Geometry)}, which is more useful
+   * {link #equalsTopo(Geometry)}, which is more useful
    * in certain situations
    * (such as using geometries as keys in collections).
    * <p>
@@ -1397,10 +1397,10 @@ abstract class Geometry(/**
    * or the <code>userData</code> fields.
    * <p>
    * To properly test equality between different geometries,
-   * it is usually necessary to {@link #normalize()} them first.
+   * it is usually necessary to {link #normalize()} them first.
    *
    * @param  other the <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return <code>true</code> if this and the other <code>Geometry</code>
+   * return <code>true</code> if this and the other <code>Geometry</code>
    *         have identical structure and point values.
    * @see #equalsExact(Geometry, double)
    * @see #normalize()
@@ -1413,7 +1413,7 @@ abstract class Geometry(/**
    * in their normalized forms.
    * This is a convenience method which creates normalized
    * versions of both geometries before computing
-   * {@link #equalsExact(Geometry)}.
+   * {link #equalsExact(Geometry)}.
    * <p>
    * This method is relatively expensive to compute.
    * For maximum performance, the client
@@ -1421,7 +1421,7 @@ abstract class Geometry(/**
    * at an appropriate point during processing.
    *
    * @param g a Geometry
-   * @return true if the input geometries are exactly equal in their normalized form
+   * return true if the input geometries are exactly equal in their normalized form
    */
   def equalsNorm(g: Geometry): Boolean = {
     if (g == null) return false
@@ -1432,7 +1432,7 @@ abstract class Geometry(/**
    * Performs an operation with or on this <code>Geometry</code>'s
    * coordinates.
    * If this method modifies any coordinate values,
-   * {@link #geometryChanged} must be called to update the geometry state.
+   * {link #geometryChanged} must be called to update the geometry state.
    * Note that you cannot use this method to
    * modify this Geometry if its underlying CoordinateSequence's #get method
    * returns a copy of the Coordinate, rather than the actual Coordinate stored
@@ -1445,9 +1445,9 @@ abstract class Geometry(/**
 
   /**
    * Performs an operation on the coordinates in this <code>Geometry</code>'s
-   * {@link CoordinateSequence}s.
+   * {link CoordinateSequence}s.
    * If the filter reports that a coordinate value has been changed,
-   * {@link #geometryChanged} will be called automatically.
+   * {link #geometryChanged} will be called automatically.
    *
    * @param  filter the filter to apply
    */
@@ -1475,12 +1475,12 @@ abstract class Geometry(/**
   def applyF(filter: GeometryComponentFilter): Unit
 
   /**
-   * Creates and returns a full copy of this {@link Geometry} object
+   * Creates and returns a full copy of this {link Geometry} object
    * (including all coordinates contained by it).
    * Subclasses are responsible for overriding this method and copying
    * their internal data.  Overrides should call this method first.
    *
-   * @return a clone of this instance
+   * return a clone of this instance
    * @deprecated
    */
   override def clone: AnyRef = try {
@@ -1494,7 +1494,7 @@ abstract class Geometry(/**
   }
 
   /**
-   * Creates a deep copy of this {@link Geometry} object.
+   * Creates a deep copy of this {link Geometry} object.
    * Coordinate sequences contained in it are copied.
    * All instance fields are copied
    * (i.e. <code>envelope</code>, <tt>SRID</tt> and <tt>userData</tt>).
@@ -1503,7 +1503,7 @@ abstract class Geometry(/**
    * but the value itself is not copied.
    * If a deep copy is required this must be performed by the caller.
    *
-   * @return a deep copy of this geometry
+   * return a deep copy of this geometry
    */
   def copy: Geometry = {
     val copy: Geometry = copyInternal
@@ -1517,7 +1517,7 @@ abstract class Geometry(/**
   /**
    * An internal method to copy subclass-specific geometry data.
    *
-   * @return a copy of the target geometry object.
+   * return a copy of the target geometry object.
    */
   protected def copyInternal: Geometry
 
@@ -1542,7 +1542,7 @@ abstract class Geometry(/**
    * Creates a new Geometry which is a normalized
    * copy of this Geometry.
    *
-   * @return a normalized copy of this geometry.
+   * return a normalized copy of this geometry.
    * @see #normalize()
    */
   def norm: Geometry = {
@@ -1572,7 +1572,7 @@ abstract class Geometry(/**
    * compared, etc.
    *
    * @param  o a <code>Geometry</code> with which to compare this <code>Geometry</code>
-   * @return a positive number, 0, or a negative number, depending on whether
+   * return a positive number, 0, or a negative number, depending on whether
    *         this object is greater than, equal to, or less than <code>o</code>, as
    *         defined in "Normal Form For Geometry" in the JTS Technical
    *         Specifications
@@ -1588,7 +1588,7 @@ abstract class Geometry(/**
   /**
    * Returns whether this <code>Geometry</code> is greater than, equal to,
    * or less than another <code>Geometry</code>,
-   * using the given {@link CoordinateSequenceComparator}.
+   * using the given {link CoordinateSequenceComparator}.
    * <P>
    *
    * If their classes are different, they are compared using the following
@@ -1609,7 +1609,7 @@ abstract class Geometry(/**
    *
    * @param  o   a <code>Geometry</code> with which to compare this <code>Geometry</code>
    * @param comp a <code>CoordinateSequenceComparator</code>
-   * @return a positive number, 0, or a negative number, depending on whether
+   * return a positive number, 0, or a negative number, depending on whether
    *         this object is greater than, equal to, or less than <code>o</code>, as
    *         defined in "Normal Form For Geometry" in the JTS Technical
    *         Specifications
@@ -1631,16 +1631,16 @@ abstract class Geometry(/**
    *
    * @param  other the <code>Geometry</code> with which to compare this <code>Geometry</code>
    *               for equality
-   * @return <code>true</code> if the classes of the two <code>Geometry</code>
+   * return <code>true</code> if the classes of the two <code>Geometry</code>
    *         s are considered to be equal by the <code>equalsExact</code> method.
    */
   protected def isEquivalentClass(other: Geometry): Boolean = this.getClass.getName == other.getClass.getName
 
   /**
-   * Tests whether this is an instance of a general {@link GeometryCollection},
+   * Tests whether this is an instance of a general {link GeometryCollection},
    * rather than a homogeneous subclass.
    *
-   * @return true if this is a heterogeneous GeometryCollection
+   * return true if this is a heterogeneous GeometryCollection
    */
   protected def isGeometryCollection: Boolean = getSortIndex == Geometry.SORTINDEX_GEOMETRYCOLLECTION
 
@@ -1651,7 +1651,7 @@ abstract class Geometry(/**
    * each time it is called; <code>getEnvelopeInternal</code> caches the result
    * of this method.
    *
-   * @return this <code>Geometry</code>s bounding box; if the <code>Geometry</code>
+   * return this <code>Geometry</code>s bounding box; if the <code>Geometry</code>
    *         is empty, <code>Envelope#isNull</code> will return <code>true</code>
    */
   protected def computeEnvelopeInternal: Envelope
@@ -1661,7 +1661,7 @@ abstract class Geometry(/**
    * or less than another <code>Geometry</code> having the same class.
    *
    * @param  o a <code>Geometry</code> having the same class as this <code>Geometry</code>
-   * @return a positive number, 0, or a negative number, depending on whether
+   * return a positive number, 0, or a negative number, depending on whether
    *         this object is greater than, equal to, or less than <code>o</code>, as
    *         defined in "Normal Form For Geometry" in the JTS Technical
    *         Specifications
@@ -1671,11 +1671,11 @@ abstract class Geometry(/**
   /**
    * Returns whether this <code>Geometry</code> is greater than, equal to,
    * or less than another <code>Geometry</code> of the same class.
-   * using the given {@link CoordinateSequenceComparator}.
+   * using the given {link CoordinateSequenceComparator}.
    *
    * @param  o   a <code>Geometry</code> having the same class as this <code>Geometry</code>
    * @param comp a <code>CoordinateSequenceComparator</code>
-   * @return a positive number, 0, or a negative number, depending on whether
+   * return a positive number, 0, or a negative number, depending on whether
    *         this object is greater than, equal to, or less than <code>o</code>, as
    *         defined in "Normal Form For Geometry" in the JTS Technical
    *         Specifications
@@ -1692,7 +1692,7 @@ abstract class Geometry(/**
    *
    * @param  a a <code>Collection</code> of <code>Comparable</code>s
    * @param  b a <code>Collection</code> of <code>Comparable</code>s
-   * @return the first non-zero <code>compareTo</code> result, if any;
+   * return the first non-zero <code>compareTo</code> result, if any;
    *         otherwise, zero
    */
   def compare[A](a: java.util.Collection[A], b: java.util.Collection[A], comparator: Comparator[A]): Int = {

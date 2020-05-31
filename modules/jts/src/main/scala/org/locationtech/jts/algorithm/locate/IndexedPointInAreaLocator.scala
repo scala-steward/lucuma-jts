@@ -37,16 +37,16 @@ import org.locationtech.jts.index.ItemVisitor
 import org.locationtech.jts.index.intervaltree.SortedPackedIntervalRTree
 
 /**
- * Determines the {@link Location} of {@link Coordinate}s relative to
+ * Determines the {link Location} of {link Coordinate}s relative to
  * an areal geometry, using indexing for efficiency.
  * This algorithm is suitable for use in cases where
  * many points will be tested against a given area.
  * <p>
  * The Location is computed precisely, in that points
  * located on the geometry boundary or segments will
- * return {@link Location.BOUNDARY}.
+ * return {link Location.BOUNDARY}.
  * <p>
- * {@link Polygonal} and {@link LinearRing} geometries
+ * {link Polygonal} and {link LinearRing} geometries
  * are supported.
  * <p>
  * The index is lazy-loaded, which allows
@@ -115,8 +115,8 @@ object IndexedPointInAreaLocator {
 class IndexedPointInAreaLocator(var geom: Geometry)
 
 /**
- * Creates a new locator for a given {@link Geometry}.
- * {@link Polygonal} and {@link LinearRing} geometries
+ * Creates a new locator for a given {link Geometry}.
+ * {link Polygonal} and {link LinearRing} geometries
  * are supported.
  *
  * @param g the Geometry to locate in
@@ -126,10 +126,10 @@ class IndexedPointInAreaLocator(var geom: Geometry)
   private var index: IntervalIndexedGeometry = null
 
   /**
-   * Determines the {@link Location} of a point in an areal {@link Geometry}.
+   * Determines the {link Location} of a point in an areal {link Geometry}.
    *
    * @param p the point to test
-   * @return the location of the point in the geometry
+   * return the location of the point in the geometry
    */
   override def locate(p: Coordinate): Int = {
     if (index == null) {

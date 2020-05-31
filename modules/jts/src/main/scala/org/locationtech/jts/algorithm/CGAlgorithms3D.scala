@@ -77,13 +77,13 @@ object CGAlgorithms3D {
    * @param B the end point of the first segment
    * @param C the start point of the second segment
    * @param D the end point of the second segment
-   * @return the distance between the segments
+   * return the distance between the segments
    */
   def distanceSegmentSegment(A: Coordinate, B: Coordinate, C: Coordinate, D: Coordinate): Double = {
     /**
      * This calculation is susceptible to roundoff errors when
      * passed large ordinate values.
-     * It may be possible to improve this by using {@link DD} arithmetic.
+     * It may be possible to improve this by using {link DD} arithmetic.
      */
     if (A.equals3D(B)) return distancePointSegment(A, C, D)
     if (C.equals3D(B)) return distancePointSegment(C, A, B)

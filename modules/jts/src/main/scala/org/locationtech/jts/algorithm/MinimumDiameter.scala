@@ -18,7 +18,7 @@ import org.locationtech.jts.geom.LineString
 import org.locationtech.jts.geom.Polygon
 
 /**
- * Computes the minimum diameter of a {@link Geometry}.
+ * Computes the minimum diameter of a {link Geometry}.
  * The minimum diameter is defined to be the
  * width of the smallest band that
  * contains the geometry,
@@ -46,7 +46,7 @@ object MinimumDiameter {
    * Gets the minimum rectangle enclosing a geometry.
    *
    * @param geom the geometry
-   * @return the minimum rectangle enclosing the geometry
+   * return the minimum rectangle enclosing the geometry
    */
     def getMinimumRectangle(geom: Geometry): Geometry = new MinimumDiameter(geom).getMinimumRectangle
 
@@ -54,7 +54,7 @@ object MinimumDiameter {
    * Gets the length of the minimum diameter enclosing a geometry
    *
    * @param geom the geometry
-   * @return the length of the minimum diameter of the geometry
+   * return the length of the minimum diameter of the geometry
    */
   def getMinimumDiameter(geom: Geometry): LineString = new MinimumDiameter(geom).getDiameter
 
@@ -89,7 +89,7 @@ object MinimumDiameter {
 class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
 
 /**
- * Compute a minimum diameter for a giver {@link Geometry},
+ * Compute a minimum diameter for a giver {link Geometry},
  * with a hint if
  * the Geometry is convex
  * (e.g. a convex Polygon or LinearRing,
@@ -105,7 +105,7 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   private var minWidth = 0.0
 
   /**
-   * Compute a minimum diameter for a given {@link Geometry}.
+   * Compute a minimum diameter for a given {link Geometry}.
    *
    * @param inputGeom a Geometry
    */
@@ -116,7 +116,7 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   /**
    * Gets the length of the minimum diameter of the input Geometry
    *
-   * @return the length of the minimum diameter
+   * return the length of the minimum diameter
    */
   def getLength: Double = {
     computeMinimumDiameter()
@@ -124,9 +124,9 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   }
 
   /**
-   * Gets the {@link Coordinate} forming one end of the minimum diameter
+   * Gets the {link Coordinate} forming one end of the minimum diameter
    *
-   * @return a coordinate forming one end of the minimum diameter
+   * return a coordinate forming one end of the minimum diameter
    */
   def getWidthCoordinate: Coordinate = {
     computeMinimumDiameter()
@@ -136,7 +136,7 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   /**
    * Gets the segment forming the base of the minimum diameter
    *
-   * @return the segment forming the base of the minimum diameter
+   * return the segment forming the base of the minimum diameter
    */
   def getSupportingSegment: LineString = {
     computeMinimumDiameter()
@@ -144,9 +144,9 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   }
 
   /**
-   * Gets a {@link LineString} which is a minimum diameter
+   * Gets a {link LineString} which is a minimum diameter
    *
-   * @return a { @link LineString} which is a minimum diameter
+   * return a { @link LineString} which is a minimum diameter
    */
   def getDiameter: LineString = {
     computeMinimumDiameter()
@@ -190,7 +190,7 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   }
 
   /**
-   * Compute the width information for a ring of {@link Coordinate}s.
+   * Compute the width information for a ring of {link Coordinate}s.
    * Leaves the width information in the instance variables.
    *
    * @param pts
@@ -237,16 +237,16 @@ class MinimumDiameter(val inputGeom: Geometry, val isConvex: Boolean) {
   }
 
   /**
-   * Gets the minimum rectangular {@link Polygon} which encloses the input geometry.
+   * Gets the minimum rectangular {link Polygon} which encloses the input geometry.
    * The rectangle has width equal to the minimum diameter,
    * and a longer length.
    * If the convex hull of the input is degenerate (a line or point)
-   * a {@link LineString} or {@link Point} is returned.
+   * a {link LineString} or {link Point} is returned.
    * <p>
    * The minimum rectangle can be used as an extremely generalized representation
    * for the given geometry.
    *
-   * @return the minimum rectangle enclosing the input (or a line or point if degenerate)
+   * return the minimum rectangle enclosing the input (or a line or point if degenerate)
    */
   def getMinimumRectangle: Geometry = {
     computeMinimumDiameter()

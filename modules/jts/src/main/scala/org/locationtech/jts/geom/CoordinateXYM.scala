@@ -29,7 +29,7 @@ package org.locationtech.jts.geom
  * <p>
  * This data object is suitable for use with coordinate sequences with <tt>dimension</tt> = 3 and <tt>measures</tt> = 1.
  * <p>
- * The {@link Coordinate#z} field is visible, but intended to be ignored.
+ * The {link Coordinate#z} field is visible, but intended to be ignored.
  *
  * @since 1.16
  */
@@ -45,7 +45,7 @@ object CoordinateXYM {
    * Standard ordinate index value for M in XYM sequences.
    *
    * <p>This constant assumes XYM coordinate sequence definition.  Check this assumption using
-   * {@link #getDimension()} and {@link #getMeasures()} before use.
+   * {link #getDimension()} and {link #getMeasures()} before use.
    */
   val M = 2
 }
@@ -76,7 +76,7 @@ class CoordinateXYM(xArg: Double, yArg: Double, var m: Double)
   /**
    * Creates a copy of this CoordinateXYM.
    *
-   * @return a copy of this CoordinateXYM
+   * return a copy of this CoordinateXYM
    */
   override def copy = new CoordinateXYM(this)
 

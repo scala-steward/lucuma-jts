@@ -26,7 +26,7 @@ import org.locationtech.jts.geomgraph.EdgeIntersection
 import org.locationtech.jts.geomgraph.Label
 
 /**
- * Computes the {@link EdgeEnd}s which arise from a noded {@link Edge}.
+ * Computes the {link EdgeEnd}s which arise from a noded {link Edge}.
  *
  * @version 1.7
  */

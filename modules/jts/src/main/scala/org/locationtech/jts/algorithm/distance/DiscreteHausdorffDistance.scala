@@ -30,7 +30,7 @@ import org.locationtech.jts.geom.Geometry
 /**
  * An algorithm for computing a distance metric
  * which is an approximation to the Hausdorff Distance
- * based on a discretization of the input {@link Geometry}.
+ * based on a discretization of the input {link Geometry}.
  * The algorithm computes the Hausdorff distance restricted to discrete points
  * for one of the geometries.
  * The points can be either the vertices of the geometries (the default),
