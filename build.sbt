@@ -34,7 +34,7 @@ lazy val jts_awt = project
   .in(file("modules/jts-awt"))
   .settings(
     name := "gpp-jts-awt",
-    publishArtifact in (Compile, packageDoc) := false,
+    // publishArtifact in (Compile, packageDoc) := false,
     scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
       Set(
         "-Werror"
