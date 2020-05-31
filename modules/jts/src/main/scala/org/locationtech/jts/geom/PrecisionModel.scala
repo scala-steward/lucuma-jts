@@ -12,12 +12,10 @@
  *
  * http://www.eclipse.org/org/documents/edl-v10.php.
  */
-package org.locationtech.jts.util
+package org.locationtech.jts.geom
 
 import java.io.Serializable
 import java.util
-
-import org.locationtech.jts.geom.Coordinate
 
 /**
  * Specifies the precision model of the {@link Coordinate}s in a {@link Geometry}.

@@ -19,9 +19,10 @@ skip in publish := true
 
 lazy val jsts = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure)
-  .in(file("modules/jsts"))
+//  lazy val jsts = project
+  .in(file("modules/jts"))
   .settings(
-    name := "gpp-jsts",
+    name := "gpp-jts",
     publishArtifact in (Compile, packageDoc) := false,
     scalacOptions ~= (_.filterNot(
       Set(
@@ -32,15 +33,15 @@ lazy val jsts = crossProject(JVMPlatform, JSPlatform)
         "-Ywarn-unused:params"
       )))
   )
-  .jvmConfigure(_.enablePlugins(AutomateHeaderPlugin))
-  .jvmSettings(
+//  .jvmConfigure(_.enablePlugins(AutomateHeaderPlugin))
+//  .jvmSettings(
 //    libraryDependencies ++= Seq(
 //      "org.locationtech.jts" % "jts-core" % jtsVersion
 //    )
-  )
-  .jsSettings(gspScalaJsSettings: _*)
-  .jsSettings(
-    //libraryDependencies += "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTimeVersion,
-     scalaJSUseMainModuleInitializer := true,
-  )
+//  )
+//  .jsSettings(gspScalaJsSettings: _*)
+//  .jsSettings(
+//    //libraryDependencies += "io.github.cquiroz" %%% "scala-java-time" % scalaJavaTimeVersion,
+//     scalaJSUseMainModuleInitializer := true,
+//  )
 
