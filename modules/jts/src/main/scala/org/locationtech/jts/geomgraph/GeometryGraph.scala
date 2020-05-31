@@ -71,16 +71,16 @@ object GeometryGraph {
 
 class GeometryGraph(var argIndex: Int // the index of this geometry as an argument to a spatial function (used for labelling)
                     , var parentGeom: Geometry, val boundaryNodeRule: BoundaryNodeRule) extends PlanarGraph {
-  if (parentGeom != null) { //      precisionModel = parentGeom.getPrecisionModel();
-    //      SRID = parentGeom.getSRID();
-    add(parentGeom)
-  }
   /**
    * The lineEdgeMap is a map of the linestring components of the
    * parentGeometry to the edges which are derived from them.
    * This is used to efficiently perform findEdge queries
    */
   private val lineEdgeMap = new util.HashMap[LineString, Edge]
+  if (parentGeom != null) { //      precisionModel = parentGeom.getPrecisionModel();
+    //      SRID = parentGeom.getSRID();
+    add(parentGeom)
+  }
   /**
    * If this flag is true, the Boundary Determination Rule will used when deciding
    * whether nodes are in the boundary or not
