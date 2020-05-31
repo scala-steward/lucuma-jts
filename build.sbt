@@ -14,7 +14,9 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
     // publishArtifact in (Compile, packageDoc) := false,
     scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
       Set(
-        "-Werror"
+        "-Werror",
+        "-Xlint:doc-detached",
+        "-Xfatal-warnings"
       )
     )),
     scalacOptions ~= (_.filterNot(
@@ -24,7 +26,7 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
         "-Wunused:params",
         "-Ywarn-dead-code",
         "-Ywarn-unused:params",
-        "-Werror"
+        "-Xlint:doc-detached"
       )))
   )
 
@@ -45,7 +47,7 @@ lazy val jts_awt = project
         "-Wunused:params",
         "-Ywarn-dead-code",
         "-Ywarn-unused:params",
-        "-Werror"
+        "-Xlint:doc-detached"
       )))
   )
   .dependsOn(jts.jvm)
