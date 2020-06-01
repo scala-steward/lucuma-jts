@@ -19,3 +19,7 @@ For the same reasons bugs are expected. Ideally more tests should be included
 
 Only one test has been included to fix a bug. Ideally more should be converted.
 They don't need to run on java but may need to be adjusted to work with the scala code
+
+## AWT
+A small awt package is also included but that is just a copy of the awt package as in the original java code
+It is only meant to be used on the JVM obviously
