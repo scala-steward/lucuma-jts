@@ -209,7 +209,10 @@ class STRtree(val nodeCapacityArg: Int)
    * @param item    the item to remove
    * return <code>true</code> if the item was found
    */
-  override def remove(itemEnv: Envelope, item: Any): Unit = ()//super.remove(itemEnv, item)
+  override def remove(itemEnv: Envelope, item: Any): Unit = {
+    super[AbstractSTRtree].remove(itemEnv, item)
+    ()
+  }
 
   /**
    * Returns the number of items in the tree.

@@ -34,9 +34,9 @@ class EdgeEndBundle(val boundaryNodeRule: BoundaryNodeRule, val e: EdgeEnd) /*
     else
       boundaryNodeRule = BoundaryNodeRule.OGC_SFS_BOUNDARY_RULE;
     */ extends EdgeEnd(e.getEdge, e.getCoordinate, e.getDirectedCoordinate, new Label(e.getLabel)) {
-  insert(e)
   //  private BoundaryNodeRule boundaryNodeRule;
   private val edgeEnds = new util.ArrayList[EdgeEnd]
+  insert(e)
 
   def this(e: EdgeEnd) = {
     this(null, e)

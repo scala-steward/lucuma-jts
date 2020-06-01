@@ -136,7 +136,7 @@ class RelateComputer(var arg: Array[GeometryGraph] // the arg(s) of the operatio
     /**
      * If edge segments of Areas properly intersect, the areas must properly overlap.
      */
-    if (dimA == 2 && dimB == 2) if (hasProper) im.setAtLeast("212101212")
+    if (dimA == 2 && dimB == 2) {if (hasProper) im.setAtLeast("212101212")}
     else {
       /**
        * If an Line segment properly intersects an edge segment of an Area,
@@ -279,7 +279,7 @@ class RelateComputer(var arg: Array[GeometryGraph] // the arg(s) of the operatio
     while ( {
       ei.hasNext
     }) {
-      val e = ei.next.asInstanceOf[Edge]
+      val e = ei.next
       e.updateIM(im)
     }
     val ni = nodes.iterator

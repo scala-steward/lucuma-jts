@@ -29,7 +29,6 @@ import org.locationtech.jts.geom.MultiPoint;
 import org.locationtech.jts.geom.MultiPolygon;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
-import org.locationtech.jts.io.gml2.GMLHandler.Handler;
 import org.locationtech.jts.util.StringUtil;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -58,7 +57,7 @@ public class GeometryStrategies{
 		 * @return The interpreted value
 		 * @throws SAXException 
 		 */
-		Object parse(Handler arg, GeometryFactory gf) throws SAXException;
+		Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException;
 	}
 	
 	private static HashMap strategies = loadStrategies();
@@ -68,7 +67,7 @@ public class GeometryStrategies{
 		// point
 		strats.put(GMLConstants.GML_POINT.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -94,7 +93,7 @@ public class GeometryStrategies{
 		// linestring
 		strats.put(GMLConstants.GML_LINESTRING.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -131,7 +130,7 @@ public class GeometryStrategies{
 		// linearring
 		strats.put(GMLConstants.GML_LINEARRING.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -168,7 +167,7 @@ public class GeometryStrategies{
 		// polygon
 		strats.put(GMLConstants.GML_POLYGON.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -193,7 +192,7 @@ public class GeometryStrategies{
 		// box
 		strats.put(GMLConstants.GML_BOX.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -217,7 +216,7 @@ public class GeometryStrategies{
 		// multi-point
 		strats.put(GMLConstants.GML_MULTI_POINT.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -240,7 +239,7 @@ public class GeometryStrategies{
 		// multi-linestring
 		strats.put(GMLConstants.GML_MULTI_LINESTRING.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -263,7 +262,7 @@ public class GeometryStrategies{
 		// multi-poly
 		strats.put(GMLConstants.GML_MULTI_POLYGON.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -286,7 +285,7 @@ public class GeometryStrategies{
 		// multi-geom
 		strats.put(GMLConstants.GML_MULTI_GEOMETRY.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 				
@@ -306,7 +305,7 @@ public class GeometryStrategies{
 
 			private WeakHashMap patterns = new WeakHashMap();
 			
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 
@@ -416,7 +415,7 @@ public class GeometryStrategies{
 		// coord
 		strats.put(GMLConstants.GML_COORD.toLowerCase(),new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				// one child, either a coord
 				// or a coordinate sequence
 
@@ -439,7 +438,7 @@ public class GeometryStrategies{
 		
 		ParseStrategy coord_child = new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				if(arg.text == null)
 					return null;
 				return Double.valueOf((arg.text.toString()));
@@ -457,7 +456,7 @@ public class GeometryStrategies{
 		
 		ParseStrategy member = new ParseStrategy(){
 
-			public Object parse(Handler arg, GeometryFactory gf) throws SAXException {
+			public Object parse(GMLHandler.Handler arg, GeometryFactory gf) throws SAXException {
 				if(arg.children.size()!=1)
 					throw new SAXException("Geometry Members may only contain one geometry.");
 				

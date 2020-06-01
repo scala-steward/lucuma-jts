@@ -36,7 +36,7 @@ class EdgeEndBundleStar()
    * <br>
    */
   override def insert(e: EdgeEnd): Unit = {
-    var eb = edgeMap.get(e).asInstanceOf[EdgeEndBundle]
+    var eb = edgeMap.get(e).orNull.asInstanceOf[EdgeEndBundle]
     if (eb == null) {
       eb = new EdgeEndBundle(e)
       insertEdgeEnd(e, eb)

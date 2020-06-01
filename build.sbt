@@ -52,7 +52,6 @@ lazy val jts_awt = project
   )
   .dependsOn(jts.jvm)
 
-
 lazy val tests = project
   .in(file("modules/tests"))
   .settings(
