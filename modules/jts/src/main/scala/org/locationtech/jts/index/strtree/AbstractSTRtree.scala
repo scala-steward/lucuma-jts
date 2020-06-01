@@ -215,7 +215,7 @@ abstract class AbstractSTRtree(var nodeCapacity: Int)
     maxChildDepth + 1
   }
 
-  protected def insert(bounds: AnyRef, item: AnyRef) = {
+  protected def insert(bounds: AnyRef, item: Any) = {
     Assert.isTrue(!built, "Cannot insert items into an STR packed R-tree after it has been built.")
     itemBoundables.add(new ItemBoundable(bounds, item))
   }

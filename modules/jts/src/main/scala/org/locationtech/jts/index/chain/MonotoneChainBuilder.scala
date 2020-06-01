@@ -58,9 +58,7 @@ object MonotoneChainBuilder {
       val mc = new MonotoneChain(pts, chainStart, chainEnd, context)
       mcList.add(mc)
       chainStart = chainEnd
-    } while ( {
-      chainStart < pts.length - 1
-    })
+    } while ( chainStart < pts.length - 1 )
     mcList
   }
 
@@ -87,21 +85,16 @@ object MonotoneChainBuilder {
     // determine overall quadrant for chain (which is the starting quadrant)
     val chainQuad = Quadrant.quadrant(pts(safeStart), pts(safeStart + 1))
     var last = start + 1
-    import scala.util.control.Breaks._
-    breakable {
-      while ( {
-        last < pts.length
-      }) { // skip zero-length segments, but include them in the chain
+      while ( last < pts.length) { // skip zero-length segments, but include them in the chain
         if (!pts(last - 1).equals2D(pts(last))) { // compute quadrant for next possible segment in chain
           val quad = Quadrant.quadrant(pts(last - 1), pts(last))
           if (quad != chainQuad) {
-            last = pts.length
-            break()
+//            last = pts.length
+            return last - 1
           } // break
         }
         last += 1
       }
-    }
     last - 1
   }
 }

@@ -51,12 +51,12 @@ object FastNodingValidator {
     def computeIntersections(segStrings: util.Collection[SegmentString]): util.List[_] = {
       val nv = new FastNodingValidator(segStrings)
       nv.setFindAllIntersections(true)
-//      nv.visValid
+      nv.isValid()
       nv.getIntersections
     }
 }
 
-class FastNodingValidator(var segStrings: util.Collection[SegmentString]) {
+class FastNodingValidator(val segStrings: util.Collection[SegmentString]) {
 
 /**
  * Creates a new noding validator for a given set of linework.
@@ -77,7 +77,7 @@ class FastNodingValidator(var segStrings: util.Collection[SegmentString]) {
    *
    * return a list of Coordinate
    */
-  def getIntersections = segInt.getIntersections
+  def getIntersections: util.ArrayList[_] = segInt.getIntersections
 
   /**
    * Checks for an intersection and
@@ -85,7 +85,7 @@ class FastNodingValidator(var segStrings: util.Collection[SegmentString]) {
    *
    * return true if the arrangement contains an interior intersection
    */
-  def isValid: Boolean = {
+  def isValid(): Boolean = {
     execute()
     visValid
   }

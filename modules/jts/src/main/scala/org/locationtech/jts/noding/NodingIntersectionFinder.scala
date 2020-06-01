@@ -270,7 +270,7 @@ class NodingIntersectionFinder(var li: LineIntersector)
   override def processIntersections(e0: SegmentString, segIndex0: Int, e1: SegmentString, segIndex1: Int): Unit = { // short-circuit if intersection already found
     if (!findAllIntersections && hasIntersection) return
     // don't bother intersecting a segment with itself
-    val isSameSegString = e0 eq e1
+    val isSameSegString = e0 == e1
     val isSameSegment = isSameSegString && segIndex0 == segIndex1
     if (isSameSegment) return
 

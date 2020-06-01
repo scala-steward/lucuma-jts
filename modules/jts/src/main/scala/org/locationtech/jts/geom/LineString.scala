@@ -42,18 +42,18 @@ import org.locationtech.jts.operation.BoundaryOp
  * @version 1.7
  */
 @SerialVersionUID(3110669828065365560L)
-class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID: Int, fac: GeometryFactory) extends Geometry(if (fac != null) fac else (new GeometryFactory(precisionModel, SRID))) with Lineal {
-  init(getFactory.getCoordinateSequenceFactory.create(point))
+class LineString(fac: GeometryFactory)
+  extends Geometry(fac) with Lineal {
   /**
    * The points of this <code>LineString</code>.
    */
     protected var points: CoordinateSequence = null
 
   /** @deprecated Use GeometryFactory instead */
-//  def this(points: Array[Coordinate], precisionModel: PrecisionModel, SRID: Int) {
-//    this()
-//    super (new GeometryFactory(precisionModel, SRID))
-//  }
+  def this(points: Array[Coordinate], precisionModel: PrecisionModel, SRID: Int) = {
+    this(new GeometryFactory(precisionModel, SRID))
+    init(getFactory.getCoordinateSequenceFactory.create(points))
+  }
 
   /**
    * Constructs a <code>LineString</code> with the given points.
@@ -63,7 +63,7 @@ class LineString(point: Array[Coordinate], precisionModel: PrecisionModel, SRID:
    * throws IllegalArgumentException if too few points are provided
    */
   def this(points: CoordinateSequence, factory: GeometryFactory) ={
-    this(null, null, 0, factory)
+    this(factory)
     init(points)
   }
 

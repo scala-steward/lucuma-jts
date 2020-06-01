@@ -186,7 +186,8 @@ class STRtree(val nodeCapacityArg: Int)
    */
   override def insert(itemEnv: Envelope, item: Any): Unit = {
     if (itemEnv.isNull) return
-//    super.insert(itemEnv, item)
+    super[AbstractSTRtree].insert(itemEnv, item)
+    ()
   }
 
   /**
@@ -194,13 +195,11 @@ class STRtree(val nodeCapacityArg: Int)
    */
   override def query(searchEnv: Envelope): util.List[Any] = { //Yes this method does something. It specifies that the bounds is an
     //Envelope. super.query takes an Object, not an Envelope. [Jon Aquino 10/24/2003]
-//    super.query(searchEnv)
-    new util.ArrayList[Any]
+    super[AbstractSTRtree].query(searchEnv)
   }
 
   override def query(searchEnv: Envelope, visitor: ItemVisitor): Unit = {
-//    super.query(searchEnv, visitor)
-    ()
+    super[AbstractSTRtree].query(searchEnv, visitor)
   }
 
   /**

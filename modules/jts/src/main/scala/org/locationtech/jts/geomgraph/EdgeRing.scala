@@ -26,8 +26,6 @@ import org.locationtech.jts.util.Assert
  * @version 1.7
  */
 abstract class EdgeRing(val start: DirectedEdge, var geometryFactory: GeometryFactory) {
-  computePoints(start)
-  computeRing()
   protected var startDe: DirectedEdge = null // the directed edge which starts the list of edges for this EdgeRing
   private var maxNodeDegree = -1
   private val edges = new util.ArrayList[DirectedEdge] // the DirectedEdges making up this EdgeRing
@@ -38,6 +36,8 @@ abstract class EdgeRing(val start: DirectedEdge, var geometryFactory: GeometryFa
   private var shell: EdgeRing = null // if non-null, the ring is a hole and this EdgeRing is its containing shell
   private val holes = new util.ArrayList[EdgeRing] // a list of EdgeRings which are holes in this EdgeRing
   def isIsolated: Boolean = label.getGeometryCount == 1
+  computePoints(start)
+  computeRing()
 
   def isHole: Boolean = { //computePoints();
     visHole
