@@ -63,7 +63,7 @@ import org.locationtech.jts.geom.LineSegment
  *
  * @version 1.7
  */
-class MonotoneChain(var pts: Array[Coordinate], var start: Int, var end: Int, val context: Any) {
+class MonotoneChain(var pts: Array[Coordinate], val start: Int, val end: Int, val context: Any) {
 
 /**
  * Creates a new MonotoneChain based on the given array of points.

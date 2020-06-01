@@ -37,9 +37,9 @@ object MonotoneChainBuilder {
    * for a list of coordinates.
    *
    * @param pts the list of points to compute chains for
-   * return a list of the monotone chains for the points
+   *            return a list of the monotone chains for the points
    */
-    def getChains(pts: Array[Coordinate]): util.ArrayList[MonotoneChain] = getChains(pts, null)
+  def getChains(pts: Array[Coordinate]): util.ArrayList[MonotoneChain] = getChains(pts, null)
 
   /**
    * Computes a list of the {link MonotoneChain}s
@@ -72,8 +72,8 @@ object MonotoneChainBuilder {
    *
    * @param pts   the points to scan
    * @param start the index of the start of this chain
-   * return the index of the last point in the monotone chain
-   *         starting at <code>start</code>.
+   *              return the index of the last point in the monotone chain
+   *              starting at <code>start</code>.
    */
   private def findChainEnd(pts: Array[Coordinate], start: Int): Int = {
     var safeStart = start
@@ -87,15 +87,21 @@ object MonotoneChainBuilder {
     // determine overall quadrant for chain (which is the starting quadrant)
     val chainQuad = Quadrant.quadrant(pts(safeStart), pts(safeStart + 1))
     var last = start + 1
-    while ( {
-      last < pts.length
-    }) { // skip zero-length segments, but include them in the chain
-      if (!pts(last - 1).equals2D(pts(last))) { // compute quadrant for next possible segment in chain
-        val quad = Quadrant.quadrant(pts(last - 1), pts(last))
-        if (quad != chainQuad) last = pts.length // break
+    import scala.util.control.Breaks._
+    breakable {
+      while ( {
+        last < pts.length
+      }) { // skip zero-length segments, but include them in the chain
+        if (!pts(last - 1).equals2D(pts(last))) { // compute quadrant for next possible segment in chain
+          val quad = Quadrant.quadrant(pts(last - 1), pts(last))
+          if (quad != chainQuad) {
+            last = pts.length
+            break()
+          } // break
         }
         last += 1
       }
-      last - 1
     }
+    last - 1
   }
+}

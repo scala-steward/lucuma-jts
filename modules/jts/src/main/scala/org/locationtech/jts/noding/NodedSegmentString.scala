@@ -16,6 +16,7 @@ import org.locationtech.jts.algorithm.LineIntersector
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.impl.CoordinateArraySequence
 //import org.locationtech.jts.io.WKTWriter
+import scala.jdk.CollectionConverters._
 
 /**
  * Represents a list of contiguous line segments,
@@ -36,10 +37,10 @@ object NodedSegmentString {
    * @param segStrings a Collection of NodedSegmentStrings
    * return a Collection of NodedSegmentStrings representing the substrings
    */
-    def getNodedSubstrings(segStrings: util.Collection[NodedSegmentString]): util.ArrayList[NodedSegmentString] = {
+    def getNodedSubstrings(segStrings: util.Collection[SegmentString]): util.List[SegmentString] = {
       val resultEdgelist = new util.ArrayList[NodedSegmentString]
       getNodedSubstrings(segStrings, resultEdgelist)
-      resultEdgelist
+      resultEdgelist.asScala.map(x => x: SegmentString).toList.asJava
     }
 
   /**
@@ -48,12 +49,12 @@ object NodedSegmentString {
    * @param segStrings     a Collection of NodedSegmentStrings
    * @param resultEdgelist a List which will collect the NodedSegmentStrings representing the substrings
    */
-  def getNodedSubstrings(segStrings: util.Collection[NodedSegmentString], resultEdgelist: util.Collection[NodedSegmentString]): Unit = {
+  def getNodedSubstrings(segStrings: util.Collection[SegmentString], resultEdgelist: util.Collection[NodedSegmentString]): Unit = {
     val i = segStrings.iterator
     while ( {
       i.hasNext
     }) {
-      val ss = i.next
+      val ss = i.next.asInstanceOf[NodedSegmentString]
       ss.getNodeList.addSplitEdges(resultEdgelist)
     }
   }

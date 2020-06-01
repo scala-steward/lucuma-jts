@@ -51,3 +51,13 @@ lazy val jts_awt = project
       )))
   )
   .dependsOn(jts.jvm)
+
+
+lazy val tests = project
+  .in(file("modules/tests"))
+  .settings(
+    name := "jts-tests",
+    skip in publish := true,
+    libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
+  )
+  .dependsOn(jts.jvm)

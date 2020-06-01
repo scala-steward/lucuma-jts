@@ -23,7 +23,7 @@ class SweepLineEvent(val label: Any, val x: Double, val obj: Any) extends Compar
 //  private var label: AnyRef = null // used for red-blue intersection detection
   private val xValue = x
   private var eventType = SweepLineEvent.INSERT
-  private val insertEvent: SweepLineEvent = null // null if this is an INSERT event
+  private var insertEvent: SweepLineEvent = null // null if this is an INSERT event
   private var deleteEventIndex = 0
 //  private var obj = null
 
@@ -48,11 +48,11 @@ class SweepLineEvent(val label: Any, val x: Double, val obj: Any) extends Compar
    * @param x           the event location
    * @param insertEvent the corresponding INSERT event
    */
-  def this(x: Double, insertEvent: SweepLineEvent) = {
+  def this(x: Double, insertEventArg: SweepLineEvent) = {
     this(null, x, null)
     eventType = SweepLineEvent.DELETE
 //    xValue = x
-//    this.insertEvent = insertEvent
+    this.insertEvent = insertEventArg
   }
 
   def isInsert: Boolean = eventType == SweepLineEvent.INSERT

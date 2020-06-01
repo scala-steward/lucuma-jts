@@ -19,7 +19,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.PrecisionModel
 import org.locationtech.jts.noding.{InteriorIntersectionFinderAdder, MCIndexNoder, NodedSegmentString, Noder, SegmentString}
 
-import scala.jdk.CollectionConverters._
+//import scala.jdk.CollectionConverters._
 
 /**
  * Uses Snap Rounding to compute a rounded,
@@ -45,13 +45,13 @@ class MCIndexSnapRounder(val pm: PrecisionModel) extends Noder[SegmentString] {
   final private val scaleFactor = pm.getScale
   private var noder: MCIndexNoder = null
   private var pointSnapper: MCIndexPointSnapper = null
-  private var nodedSegStrings: util.Collection[NodedSegmentString] = null
+  private var nodedSegStrings: util.Collection[SegmentString] = null
 
   override def getNodedSubstrings: util.List[SegmentString] =
-    NodedSegmentString.getNodedSubstrings(nodedSegStrings).asScala.map(x => x:SegmentString).toList.asJava
+    NodedSegmentString.getNodedSubstrings(nodedSegStrings)//.asScala.map(x => x:SegmentString).toList.asJava
 
   override def computeNodes(inputSegmentStrings: util.Collection[SegmentString]): Unit = {
-    this.nodedSegStrings = inputSegmentStrings.asScala.map(x => x.asInstanceOf[NodedSegmentString]).toList.asJava
+    this.nodedSegStrings = inputSegmentStrings//.asScala.map(x => x.asInstanceOf[NodedSegmentString]).toList.asJava
     noder = new MCIndexNoder
     pointSnapper = new MCIndexPointSnapper(noder.getIndex)
     snapRound(inputSegmentStrings, li)
