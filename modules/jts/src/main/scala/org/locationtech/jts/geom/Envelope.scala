@@ -92,7 +92,6 @@ object Envelope {
 class Envelope()
 
   extends Comparable[Envelope] with Serializable {
-  init()
 
   override def hashCode: Int = { //Algorithm from Effective Java by Joshua Bloch [Jon Aquino]
     var result = 17
@@ -119,6 +118,7 @@ class Envelope()
    * the maximum y-coordinate
    */
   private var maxy = .0
+  init()
 
   /**
    * Creates an <code>Envelope</code> for a region defined by maximum and minimum values.
