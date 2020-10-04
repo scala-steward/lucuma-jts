@@ -156,7 +156,7 @@ class DirectedEdge(val edg: Edge, var visForward: Boolean) extends EdgeEnd(edg) 
    */
   private def computeDirectedLabel(): Unit = {
     label = new Label(edge.getLabel)
-    if (!visForward) label.flip
+    if (!visForward) label.flip()
   }
 
   /**

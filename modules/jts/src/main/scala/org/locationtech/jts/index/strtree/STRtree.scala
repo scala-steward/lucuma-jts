@@ -89,7 +89,7 @@ object STRtree {
      * Iterate the K Nearest Neighbour Queue and retrieve the item from each BoundablePair
      * in this queue
      */
-      val items = new Array[Any](kNearestNeighbors.size)
+      val items = new Array[Any](kNearestNeighbors.size())
     var count = 0
     while ( {
       !kNearestNeighbors.isEmpty
@@ -476,7 +476,7 @@ class STRtree(val nodeCapacityArg: Int)
         if (pairDistance >= distanceLowerBound) {
           distanceLowerBound = 11 // break
         }  else {//todo: break is not supported
-        if (bndPair.isLeaves) if (kNearestNeighbors.size < k) kNearestNeighbors.add(bndPair)
+        if (bndPair.isLeaves) if (kNearestNeighbors.size() < k) kNearestNeighbors.add(bndPair)
         else {
           val bp1 = kNearestNeighbors.peek.asInstanceOf[BoundablePair]
           if (bp1.getDistance > pairDistance) {

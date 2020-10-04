@@ -300,7 +300,7 @@ class IsSimpleOp(inputGeom: Geometry) {
     while ( {
       j.hasNext
     }) {
-      val eiInfo = j.next
+      val eiInfo = j.next()
       if (eiInfo.isClosed && eiInfo.degree != 2) {
         nonSimpleLocation = eiInfo.getCoordinate
         return true

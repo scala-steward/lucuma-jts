@@ -302,11 +302,11 @@ class DirectedEdgeStar() extends EdgeEndStar {
         if (!nextOut.isLineEdge) {
           if (nextOut.isInResult) {
             startLoc = Location.INTERIOR
-            break //todo: break is not supported
+            break() //todo: break is not supported
           }
           if (nextIn.isInResult) {
             startLoc = Location.EXTERIOR
-            break //todo: break is not supported
+            break() //todo: break is not supported
           }
         }
       }
