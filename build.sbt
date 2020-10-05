@@ -1,8 +1,8 @@
 
 inThisBuild(Seq(
-  homepage := Some(url("https://github.com/gemini-hlsw/gpp-jts")),
+  homepage := Some(url("https://github.com/gemini-hlsw/lucuma-jts")),
   Global / onChangedBuildSource := ReloadOnSourceChanges
-) ++ gspPublishSettings)
+) ++ lucumaPublishSettings)
 
 skip in publish := true
 
@@ -10,11 +10,12 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure)
   .in(file("modules/jts"))
   .settings(
-    name := "gpp-jts",
+    name := "lucuma-jts",
     scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
       Set(
         "-Werror",
         "-Xlint:doc-detached",
+        "-Ywarn-unused:params",
         "-Xfatal-warnings"
       )
     )),
@@ -23,6 +24,7 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
         // Legacy code needs to disable these
         "-Wdead-code",
         "-Wunused:params",
+        "-Wunused:explicits",
         "-Ywarn-dead-code",
         "-Ywarn-unused:params",
         "-Xlint:doc-detached"
@@ -32,7 +34,7 @@ lazy val jts = crossProject(JVMPlatform, JSPlatform)
 lazy val jts_awt = project
   .in(file("modules/jts-awt"))
   .settings(
-    name := "gpp-jts-awt",
+    name := "lucuma-jts-awt",
     scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
       Set(
         "-Werror"
@@ -53,7 +55,7 @@ lazy val jts_awt = project
 lazy val tests = project
   .in(file("modules/tests"))
   .settings(
-    name := "jts-tests",
+    name := "lucuma-jts-tests",
     skip in publish := true,
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
   )

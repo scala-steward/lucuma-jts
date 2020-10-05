@@ -51,7 +51,7 @@ class EdgeEndBuilder() {
     val eiList = edge.getEdgeIntersectionList
     //Debug.print(eiList);
     // ensure that the list has entries for the first and last point of the edge
-    eiList.addEndpoints
+    eiList.addEndpoints()
     val it = eiList.iterator
     var eiPrev: EdgeIntersection = null
     var eiCurr: EdgeIntersection = null
