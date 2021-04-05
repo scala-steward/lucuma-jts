@@ -11,6 +11,8 @@
  */
 package org.locationtech.jts.geom
 
+import scala.annotation.nowarn
+
 /**
  * Provides constants representing the dimensions of a point, a curve and a surface.
  * Also provides constants representing the dimensions of the empty geometry and
@@ -79,6 +81,7 @@ object Dimension {
    *         an <code>IntersectionMatrix</code>. Possible values are <code>{T, F, * , 0, 1, 2}</code>
    *         .
    */
+  @nowarn
   def toDimensionSymbol(dimensionValue: Int): Char = {
     dimensionValue match {
       case FALSE =>
@@ -107,6 +110,7 @@ object Dimension {
    * return a number that can be stored in the <code>IntersectionMatrix</code>
    *         . Possible values are <code>{TRUE, FALSE, DONTCARE, 0, 1, 2}</code>.
    */
+  @nowarn
   def toDimensionValue(dimensionSymbol: Char): Int = {
     Character.toUpperCase(dimensionSymbol) match {
       case SYM_FALSE =>

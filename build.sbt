@@ -4,14 +4,14 @@ inThisBuild(Seq(
   Global / onChangedBuildSource := ReloadOnSourceChanges
 ) ++ lucumaPublishSettings)
 
-skip in publish := true
+publish / skip := true
 
 lazy val jts = crossProject(JVMPlatform, JSPlatform)
   .crossType(CrossType.Pure)
   .in(file("modules/jts"))
   .settings(
     name := "lucuma-jts",
-    scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
+    Compile / packageDoc / scalacOptions ~= (_.filterNot(
       Set(
         "-Werror",
         "-Xlint:doc-detached",
@@ -35,7 +35,7 @@ lazy val jts_awt = project
   .in(file("modules/jts-awt"))
   .settings(
     name := "lucuma-jts-awt",
-    scalacOptions in (Compile, packageDoc) ~= (_.filterNot(
+    Compile / packageDoc / scalacOptions ~= (_.filterNot(
       Set(
         "-Werror"
       )
@@ -56,7 +56,7 @@ lazy val tests = project
   .in(file("modules/tests"))
   .settings(
     name := "lucuma-jts-tests",
-    skip in publish := true,
+    publish / skip := true,
     libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
   )
   .dependsOn(jts.jvm)

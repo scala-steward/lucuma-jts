@@ -24,6 +24,8 @@
  */
 package org.locationtech.jts.geom
 
+import scala.annotation.nowarn
+
 /**
  * Coordinate subclass supporting XY ordinates.
  * <p>
@@ -86,6 +88,7 @@ class CoordinateXY(xArg: Double, yArg: Double)
     z = other.getZ
   }
 
+  @nowarn
   override def getOrdinate(ordinateIndex: Int): Double = {
     ordinateIndex match {
       case CoordinateXY.X =>

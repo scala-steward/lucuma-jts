@@ -21,6 +21,8 @@
  */
 package org.locationtech.jts.geom
 
+import scala.annotation.nowarn
+
 /**
  * Constants representing the different topological locations
  * which can occur in a {link Geometry}.
@@ -60,6 +62,7 @@ object Location {
    * @param  locationValue either EXTERIOR, BOUNDARY, INTERIOR or NONE
    * return either 'e', 'b', 'i' or '-'
    */
+  @nowarn
   def toLocationSymbol(locationValue: Int): Char = {
     locationValue match {
       case EXTERIOR =>

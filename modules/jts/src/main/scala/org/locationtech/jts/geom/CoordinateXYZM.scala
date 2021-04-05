@@ -24,6 +24,8 @@
  */
 package org.locationtech.jts.geom
 
+import scala.annotation.nowarn
+
 /**
  * Coordinate subclass supporting XYZM ordinates.
  * <p>
@@ -66,6 +68,7 @@ class CoordinateXYZM(xArg: Double, yArg: Double, zArg: Double, var m: Double)
 
   override def setM(m: Double): Unit = this.m = m
 
+  @nowarn
   override def getOrdinate(ordinateIndex: Int): Double = {
     ordinateIndex match {
       case Coordinate.X =>

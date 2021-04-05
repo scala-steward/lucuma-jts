@@ -29,6 +29,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.LineSegment
 import org.locationtech.jts.geom.PrecisionModel
 import org.locationtech.jts.geomgraph.Position
+import scala.annotation.nowarn
 
 /**
  * Generates segments which form an offset curve.
@@ -334,6 +335,7 @@ class OffsetSegmentGenerator(var precisionModel: PrecisionModel, var bufParams: 
   /**
    * Add an end cap around point p1, terminating a line segment coming from p0
    */
+  @nowarn
   def addLineEndCap(p0: Coordinate, p1: Coordinate) = {
     val seg = new LineSegment(p0, p1)
     val offsetL = new LineSegment

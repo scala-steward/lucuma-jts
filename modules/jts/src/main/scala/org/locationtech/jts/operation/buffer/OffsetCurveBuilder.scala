@@ -25,6 +25,7 @@ import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.CoordinateArrays
 import org.locationtech.jts.geom.PrecisionModel
 import org.locationtech.jts.geomgraph.Position
+import scala.annotation.nowarn
 
 /**
  * Computes the raw offset curve for a
@@ -153,6 +154,7 @@ class OffsetCurveBuilder(var precisionModel: PrecisionModel, var bufParams: Buff
    */
   private def simplifyTolerance(bufDistance: Double) = bufDistance * bufParams.getSimplifyFactor
 
+  @nowarn
   private def computePointCurve(pt: Coordinate, segGen: OffsetSegmentGenerator) = bufParams.getEndCapStyle match {
     case BufferParameters.CAP_ROUND =>
       segGen.createCircle(pt)

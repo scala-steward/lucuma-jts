@@ -26,6 +26,7 @@ import org.locationtech.jts.geomgraph.PlanarGraph
 import org.locationtech.jts.geomgraph.Position
 import org.locationtech.jts.operation.GeometryGraphOperation
 import org.locationtech.jts.util.Assert
+import scala.annotation.nowarn
 
 /**
  * Computes the geometric overlay of two {link Geometry}s.  The overlay
@@ -98,6 +99,7 @@ object OverlayOp {
   //  * @param overlayOpCode the code for the overlay operation to test
   //  * return true if the locations correspond to the overlayOpCode
   //  */
+  @nowarn
   def isResultOfOp(loc0Arg: Int, loc1Arg: Int, overlayOpCode: Int): Boolean = {
     val loc0 = if (loc0Arg == Location.BOUNDARY) Location.INTERIOR else loc0Arg
     val loc1 = if (loc1Arg == Location.BOUNDARY) Location.INTERIOR else loc1Arg
@@ -144,6 +146,7 @@ object OverlayOp {
     geomFact.createEmpty(resultDim)
   }
 
+  @nowarn
   private def resultDimension(opCode: Int, g0: Geometry, g1: Geometry) = {
     val dim0 = g0.getDimension
     val dim1 = g1.getDimension

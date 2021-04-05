@@ -28,6 +28,7 @@ import java.io.Serializable
 import java.util.Comparator
 import org.locationtech.jts.util.Assert
 import org.locationtech.jts.util.NumberUtil
+import scala.annotation.nowarn
 
 /**
  * A lightweight class used to store coordinates on the 2-dimensional Cartesian plane.
@@ -261,6 +262,7 @@ class Coordinate( var x: Double, var y: Double, var z: Double)
    * return the value of the ordinate
    * throws IllegalArgumentException if the index is not valid
    */
+  @nowarn
   def getOrdinate(ordinateIndex: Int): Double = {
     ordinateIndex match {
       case Coordinate.X => x
